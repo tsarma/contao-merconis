@@ -1,0 +1,12 @@
+<!-- indexer::stop -->
+<?php
+	if ($this->output) {
+		?>
+			<div class="crossSellerCTE">
+				<?php echo $this->output; ?>
+			</div>
+		<?php
+	}
+?>
+
+<!-- indexer::continue -->

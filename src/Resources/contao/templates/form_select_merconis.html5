@@ -1,0 +1,67 @@
+<?php
+/*
+ * === IMPORTANT INFO: ======================================================
+ *
+ * This template is an exact duplicate of the original contao template (Contao 3.5.27) where only the usage of
+ *
+ * $GLOBALS['merconis_globals']['formFieldUniqueIDCounter']
+ *
+ * has been added to make sure that ids are actually unique, even if the same form is rendered and displayed more than once
+ * on a page. Otherwise combinations of <label for="..."> and id="" would be ambiguous causing the browser to misinterpret
+ * clicks on label elements.
+ *
+ * If a contao update changes the original template, this copy can easily be updated by copying the complete code of
+ * the new template and then simply adding everything from the old copy that has to do with $GLOBALS['merconis_globals']['formFieldUniqueIDCounter'].
+ *
+ * ==========================================================================
+ */
+if (!isset($GLOBALS['merconis_globals']['formFieldUniqueIDCounter'])) {
+  $GLOBALS['merconis_globals']['formFieldUniqueIDCounter'] = 0;
+}
+
+$GLOBALS['merconis_globals']['formFieldUniqueIDCounter']++;
+?>
+
+<?php $this->extend('form_row'); ?>
+
+<?php $this->block('label'); ?>
+  <?php if ($this->label): ?>
+    <label for="ctrl_<?= $this->id ?>_<?php echo $GLOBALS['merconis_globals']['formFieldUniqueIDCounter']; ?>"<?php if ($this->class): ?> class="<?= $this->class ?>"<?php endif; ?>>
+      <?php if ($this->mandatory): ?>
+        <span class="invisible"><?= $this->mandatoryField ?> </span><?= $this->label ?><span class="mandatory">*</span>
+      <?php else: ?>
+        <?= $this->label ?>
+      <?php endif; ?>
+    </label>
+  <?php endif; ?>
+<?php $this->endblock(); ?>
+
+<?php $this->block('field'); ?>
+  <?php if ($this->hasErrors()): ?>
+    <p class="error"><?= $this->getErrorAsString() ?></p>
+  <?php endif; ?>
+
+  <?php if ($this->multiple): ?>
+    <input type="hidden" name="<?= rtrim($this->name, '[]') ?>" value="">
+  <?php endif; ?>
+
+  <select name="<?= $this->name ?>" id="ctrl_<?= $this->id ?>_<?php echo $GLOBALS['merconis_globals']['formFieldUniqueIDCounter']; ?>" class="<?= $this->class ?>"<?= $this->getAttributes() ?>>
+    <?php foreach ($this->getOptions() as $option): ?>
+      <?php if ($option['type'] == 'group_start'): ?>
+        <optgroup label="<?= $option['label'] ?>">
+      <?php endif; ?>
+
+      <?php if ($option['type'] == 'option'): ?>
+        <option value="<?= $option['value'] ?>"<?= $option['selected'] ?>><?= $option['label'] ?></option>
+      <?php endif; ?>
+
+      <?php if ($option['type'] == 'group_end'): ?>
+        </optgroup>
+      <?php endif; ?>
+    <?php endforeach; ?>
+  </select>
+
+  <?php if ($this->addSubmit): ?>
+    <input type="submit" id="ctrl_<?= $this->id ?>_<?php echo $GLOBALS['merconis_globals']['formFieldUniqueIDCounter']; ?>_submit" class="submit" value="<?= $this->slabel ?>">
+  <?php endif; ?>
+<?php $this->endblock(); ?>

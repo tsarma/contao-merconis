@@ -1,0 +1,9 @@
+<?php if (!$this->tableless): ?>
+  <tr class="<?php echo $this->rowClass; ?>">
+    <td class="col_0 col_first"><?php echo preg_replace('/for=".*"/siU', '', $this->generateLabel()); ?></td>
+    <td class="col_1 col_last"><?php echo sprintf('<div class="textOutput">%s</div>', $this->varValue); ?></td>
+  </tr>
+<?php else: ?>
+	<?php echo preg_replace('/for=".*"/siU', '', $this->generateLabel()); ?> 
+	<?php echo sprintf('<div class="textOutput">%s</div>', $this->varValue); ?><br />
+<?php endif; ?>

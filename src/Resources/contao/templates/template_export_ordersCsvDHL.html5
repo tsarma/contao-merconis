@@ -1,0 +1,228 @@
+<?php
+/*
+ * === SUPPORTED OR REQUIRED FLEX PARAMETERS IN THIS TEMPLATE ===
+ *
+ * Please consult the official DHL CSV documentation for further information: https://www.efiliale.de/efiliale/pop/dhlcsvimport.xls
+ *
+ * - SEND_NAME1 (required)
+ * - SEND_NAME2 (optional)
+ * - SEND_STREET (required)
+ * - SEND_HOUSENUMBER (required)
+ * - SEND_PLZ (required)
+ * - SEND_CITY (required)
+ * - SEND_COUNTRY (required)
+ * - DHL_PRODUCT_WEIGHT_MAPPING (required)
+
+	Specify the mapping as a JSON code.
+
+	The first level key represents the ID of the shipping method used in the order.
+	In this example "2" is the ID of the shipping method DHL Germany and "3" is the ID of the shipping method DHL EU.
+	Please note that in your case the shipping methods might have different IDs.
+
+	The second level key represents the maximum weight for a DHL product and the second level value is a string
+	specifying the DHL product code as found in the official DHL CSV documentation.
+
+	Please make sure to specify the weight in the same weight unit that is used in the MERCONIS configuration. If you
+	use kg there, use it here as well, and if you use g there, also use in this mapping.
+
+ 	{
+		"2": {
+			"1000": "PAECKXS.DEU",
+			"2000": "PAECK.DEU",
+			"5000": "PAK05.DEU",
+			"10000": "PAK10.DEU",
+			"31500": "PAK31.DEU"
+		},
+		"3": {
+			"2000": "PAECK.EU",
+			"5000": "PAK05.EU",
+			"10000": "PAK10.EU",
+			"20000": "PAK20.EU",
+			"31500": "PAK315.EU"
+		}
+	}
+ *
+ * - ACCOUNT_NUMBER (required)
+
+	Specify the DHL account numbers to use as a JSON code.
+
+	The key represents the ID of the shipping method used in the order.
+	In this example "2" is the ID of the shipping method DHL Germany and "3" is the ID of the shipping method DHL EU.
+	Please note that in your case the shipping methods might have different IDs.
+
+	The value is the account number to use for orders which use this particular shipping method.
+
+	{
+		"2": "630XXXXXXXXXX1",
+		"3": "630XXXXXXXXXX2"
+	}
+
+	If you have the same DHL account number for all your DHL shipping methods, you don't have to write JSON code
+	but instead you can simply enter the account number directly as the flex parameter's value
+ *
+ * ==============================================================
+ */
+
+if (is_array($this->arr_data) && count($this->arr_data)) {
+	$arr_flexParameters = orderCsvDHL_prepareAndValidateFlexParameters($this->arr_flex_parameters);
+
+
+	$arr_outputData = array();
+
+	$int_rowCount = 1;
+	foreach ($this->arr_data as $arr_row) {
+		/*
+		 * We assume that if the firstname of an alternative shipping address is given, the alternative shipping
+		 * address information is complete. Making sure that this is always the case is the job of validation routines
+		 * in the checkout process.
+		 */
+		$str_alternativeShippingAddressSuffixIfRequired = (isset($arr_row['arr_customerData']['personalData']['firstname_alternative']) && $arr_row['arr_customerData']['personalData']['firstname_alternative']) ? '_alternative' : '';
+
+		$str_regexpHouseNumberSeparator = '/([^\d]+)\s?(.+)/i';
+		$arr_streetHouseNumber = array();
+		preg_match($str_regexpHouseNumberSeparator, $arr_row['arr_customerData']['personalData']['street'.$str_alternativeShippingAddressSuffixIfRequired], $arr_streetHouseNumber);
+
+		if ($GLOBALS['TL_CONFIG']['ls_shop_weightUnit'] === 'g') {
+			$float_weight = $arr_row['arr_orderRecord']['totalWeightOfGoods'] / 1000;
+			$float_weight = number_format($float_weight, 2, '.', '');
+		} else if ($GLOBALS['TL_CONFIG']['ls_shop_weightUnit'] === 'kg') {
+			$float_weight = $arr_row['arr_orderRecord']['totalWeightOfGoods'];
+			$float_weight = number_format($float_weight, 2, '.', '');
+		} else {
+			$float_weight = 'WEIGHT_UNKNOWN';
+		}
+
+		$arr_outputData[] = array(
+			'SEND_NAME1' => $arr_flexParameters['SEND_NAME1'],
+			'SEND_NAME2' => $arr_flexParameters['SEND_NAME2'],
+			'SEND_STREET' => $arr_flexParameters['SEND_STREET'],
+			'SEND_HOUSENUMBER' => $arr_flexParameters['SEND_HOUSENUMBER'],
+			'SEND_PLZ' => $arr_flexParameters['SEND_PLZ'],
+			'SEND_CITY' => $arr_flexParameters['SEND_CITY'],
+			'SEND_COUNTRY' => strtoupper($arr_flexParameters['SEND_COUNTRY']),
+
+			'RECV_NAME1' => $arr_row['arr_customerData']['personalData']['firstname'.$str_alternativeShippingAddressSuffixIfRequired].' '.$arr_row['arr_customerData']['personalData']['lastname'.$str_alternativeShippingAddressSuffixIfRequired],
+			'RECV_NAME2' => '',
+			'RECV_STREET' => trim($arr_streetHouseNumber[1]),
+			'RECV_HOUSENUMBER' => trim($arr_streetHouseNumber[2]),
+			'RECV_STREETHOUSENUMBER' => $arr_row['arr_customerData']['personalData']['street'.$str_alternativeShippingAddressSuffixIfRequired],
+			'RECV_PLZ' => $arr_row['arr_customerData']['personalData']['postal'.$str_alternativeShippingAddressSuffixIfRequired],
+			'RECV_CITY' => $arr_row['arr_customerData']['personalData']['city'.$str_alternativeShippingAddressSuffixIfRequired],
+			'RECV_COUNTRY' => \LeadingSystems\Helpers\ls_helpers_controller::convertIsoCountryCode($arr_row['arr_customerData']['personalData_originalOptionValues']['country'.$str_alternativeShippingAddressSuffixIfRequired]),
+			'RECV_EMAIL' => $arr_row['arr_customerData']['personalData']['email'],
+
+			'PRODUCT' => orderCsvDHL_getDhlProductCode($arr_flexParameters['DHL_PRODUCT_WEIGHT_MAPPING'], $arr_row['arr_orderRecord']['shippingMethod_id'], $arr_row['arr_orderRecord']['totalWeightOfGoods']),
+
+			'WEIGHT' => $float_weight,
+
+			'ACCOUNT_NUMBER' => orderCsvDHL_getAccountNumber($arr_flexParameters['ACCOUNT_NUMBER'], $arr_row['arr_orderRecord']['shippingMethod_id'])
+		);
+
+		$int_rowCount++;
+	}
+
+	/*
+	 * Create a pseudo file pointer for php's output stream
+	 */
+	$str_output = fopen('php://output', 'w');
+
+	fputcsv($str_output, array_keys(reset($arr_outputData)));
+
+	foreach ($arr_outputData as $arr_rowOutput) {
+		fputcsv($str_output, $arr_rowOutput);
+	}
+}
+
+function orderCsvDHL_prepareAndValidateFlexParameters($arr_flexParameters) {
+	$arr_errorMsgs = '';
+
+	if (!isset($arr_flexParameters['DHL_PRODUCT_WEIGHT_MAPPING']) || !$arr_flexParameters['DHL_PRODUCT_WEIGHT_MAPPING']) {
+		$arr_errorMsgs[] = "flex parameter &quot;DHL_PRODUCT_WEIGHT_MAPPING&quot; is required";
+	} else {
+		$arr_flexParameters['DHL_PRODUCT_WEIGHT_MAPPING'] = json_decode($arr_flexParameters['DHL_PRODUCT_WEIGHT_MAPPING'], true);
+
+		if ($arr_flexParameters['DHL_PRODUCT_WEIGHT_MAPPING'] === null) {
+			$arr_errorMsgs[] = "invalid JSON string in flex parameter &quot;DHL_PRODUCT_WEIGHT_MAPPING&quot;: " . json_last_error_msg() . " => Validate the JSON string on jsonlint.com to find out what's wrong.";
+		}
+	}
+
+	if (!isset($arr_flexParameters['ACCOUNT_NUMBER']) || !$arr_flexParameters['ACCOUNT_NUMBER']) {
+		$arr_errorMsgs[] = "flex parameter &quot;ACCOUNT_NUMBER&quot; is required";
+	} else {
+		$arr_tmp_accountNumber = json_decode($arr_flexParameters['ACCOUNT_NUMBER'], true);
+
+		if (is_array($arr_tmp_accountNumber)) {
+			$arr_flexParameters['ACCOUNT_NUMBER'] = $arr_tmp_accountNumber;
+		}
+	}
+
+	if (!isset($arr_flexParameters['SEND_NAME1']) || !$arr_flexParameters['SEND_NAME1']) {
+		$arr_errorMsgs[] = "flex parameter &quot;SEND_NAME1&quot; is required";
+	}
+
+	if (!isset($arr_flexParameters['SEND_STREET']) || !$arr_flexParameters['SEND_STREET']) {
+		$arr_errorMsgs[] = "flex parameter &quot;SEND_STREET&quot; is required";
+	}
+
+	if (!isset($arr_flexParameters['SEND_HOUSENUMBER']) || !$arr_flexParameters['SEND_HOUSENUMBER']) {
+		$arr_errorMsgs[] = "flex parameter &quot;SEND_HOUSENUMBER&quot; is required";
+	}
+
+	if (!isset($arr_flexParameters['SEND_PLZ']) || !$arr_flexParameters['SEND_PLZ']) {
+		$arr_errorMsgs[] = "flex parameter &quot;SEND_PLZ&quot; is required";
+	}
+
+	if (!isset($arr_flexParameters['SEND_CITY']) || !$arr_flexParameters['SEND_CITY']) {
+		$arr_errorMsgs[] = "flex parameter &quot;SEND_CITY&quot; is required";
+	}
+
+	if (!isset($arr_flexParameters['SEND_COUNTRY']) || !$arr_flexParameters['SEND_COUNTRY']) {
+		$arr_errorMsgs[] = "flex parameter &quot;SEND_COUNTRY&quot; is required";
+	}
+
+	if (is_array($arr_errorMsgs) && count($arr_errorMsgs)) {
+		echo '<pre>';
+		echo "ERRORS IN FLEX PARAMETERS: \r\n\r\n";
+		echo "=&gt; ".implode("\r\n\r\n=&gt; ", $arr_errorMsgs);
+		echo '</pre>';
+		exit;
+	}
+
+	return $arr_flexParameters;
+}
+
+function orderCsvDHL_getDhlProductCode($arr_mapping, $int_shippingMethodId, $float_totalWeightOfGoods) {
+	$str_productCodeToUse = 'PRODUCT_CODE_UNKNOWN';
+
+	if (!key_exists($int_shippingMethodId, $arr_mapping)) {
+		return $str_productCodeToUse;
+	}
+
+	krsort($arr_mapping[$int_shippingMethodId]);
+
+	foreach($arr_mapping[$int_shippingMethodId] as $float_weight => $str_productCode) {
+		if ($float_weight >= $float_totalWeightOfGoods) {
+			$str_productCodeToUse = $str_productCode;
+		}
+	}
+
+	return $str_productCodeToUse;
+}
+
+function orderCsvDHL_getAccountNumber($var_mapping, $int_shippingMethodId) {
+	if (!is_array($var_mapping)) {
+		$str_accountNumber = $var_mapping;
+		return $str_accountNumber;
+	} else {
+		$str_accountNumber = 'ACCOUNT NUMBER UNKNOWN';
+	}
+
+
+	if (!key_exists($int_shippingMethodId, $var_mapping)) {
+		return $str_accountNumber;
+	}
+
+	$str_accountNumber = $var_mapping[$int_shippingMethodId];
+
+	return $str_accountNumber;
+}

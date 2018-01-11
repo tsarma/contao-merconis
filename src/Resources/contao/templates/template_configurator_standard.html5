@@ -1,0 +1,28 @@
+<div class="productConfigurator standard">
+	<?php
+		if (ls_shop_msg::checkMsg('customValidationError', $this->configuratorCacheKey)) {
+			?>
+			<p class="error"><?php echo ls_shop_msg::getMsg('customValidationError', $this->configuratorCacheKey); ?></p>
+			<?php
+		}
+	?>
+	<?php
+		if (ls_shop_msg::checkMsg('customValidationSuccess', $this->configuratorCacheKey)) {
+			?>
+			<p class="success"><?php echo ls_shop_msg::getMsg('customValidationSuccess', $this->configuratorCacheKey); ?></p>
+			<?php
+		}
+	?>
+
+	<?php if (!$this->blnIsValid || $this->blnDataEntryMode) { ?>
+		<?php echo $this->form; ?>
+	<?php } ?>
+	<?php if ($this->blnIsValid && !$this->blnDataEntryMode) { ?>
+		<?php
+			echo $this->representation;
+		?>
+		<div class="changeConfiguration">
+			<a class="button" onclick="lsjs.scrollAssistant.__controller.getLSFEScrollOffset();" href="<?php echo $this->changeConfigurationUrl; ?>"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText054']; ?></a>
+		</div>
+	<?php } ?>
+</div>

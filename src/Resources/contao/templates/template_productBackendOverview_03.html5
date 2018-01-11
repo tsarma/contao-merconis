@@ -1,0 +1,25 @@
+<?php
+	// use this to show the available output options:
+	// echo $this->objProduct->_outputOptions;
+?>
+<?php if (!$this->objProduct->_variantIsSelected): ?>
+	<div class="image">
+		<?php if ($this->objProduct->_hasMainImage): ?>
+				<img src="<?php echo \Image::get($this->objProduct->_mainImage, 40, 40, 'box'); ?>" alt="" />
+		<?php endif; ?>
+	</div>
+	<div class="title"><?php echo $this->objProduct->_title; ?></div>
+	<div class="info">
+		<?php echo $GLOBALS['TL_LANG']['be_productSearch']['text006']; ?>: <?php echo $this->objProduct->_code; ?>
+	</div>
+<?php else: ?>
+	<div class="image">
+		<?php if ($this->objProduct->_selectedVariant->_hasMainImage): ?>
+				<img src="<?php echo \Image::get($this->objProduct->_selectedVariant->_mainImage, 40, 40, 'box'); ?>" alt="" />
+		<?php endif; ?>
+	</div>
+	<div class="title"><?php echo $this->objProduct->_selectedVariant->_title; ?></div>
+	<div class="info">
+		<?php echo $GLOBALS['TL_LANG']['be_productSearch']['text006']; ?>: <?php echo $this->objProduct->_selectedVariant->_code; ?>
+	</div>
+<?php endif; ?>

@@ -1,0 +1,22 @@
+<?php
+	// use this to show the available output options:
+	// echo $this->objProduct->_outputOptions;
+?>
+<div class="shopProduct <?php echo $this->productTemplateType; ?> <?php echo $this->productTemplate; ?> <?php echo $this->productPositionsClassString; ?> block">
+	<div class="imageContainer">
+		<?php if ($this->objProduct->_hasMainImage): ?>
+			<a href="<?php echo $this->objProduct->_linkToProduct; ?>"><img src="<?php echo \Image::get($this->objProduct->_mainImage, 190, 190, 'box'); ?>" /></a></p>
+		<?php endif; ?>
+	</div>
+	<h2><a href="<?php echo $this->objProduct->_linkToProduct; ?>"><?php echo $this->objProduct->_title; ?></a></h2>
+	<div class="priceContainer">
+		<div class="currentPrice">
+			<?php if ($this->objProduct->_unscaledPricesAreDifferent): ?><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['from']; ?> <?php endif; ?><?php echo $this->objProduct->_unscaledPriceMinimumAfterTaxFormatted; ?><?php if ($this->objProduct->_hasQuantityUnit): ?>/<?php echo $this->objProduct->_quantityUnit; ?><?php endif; ?>
+		</div>
+		<?php if ($this->objProduct->_hasOldPrice): ?>
+			<div class="oldPrice">
+				<?php if ($this->objProduct->_oldPricesAreDifferent): ?><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['from']; ?> <?php endif; ?><?php echo $this->objProduct->_priceOldMinimumAfterTaxFormatted; ?><?php if ($this->objProduct->_hasQuantityUnit): ?>/<?php echo $this->objProduct->_quantityUnit; ?><?php endif; ?>
+			</div>
+		<?php endif; ?>
+	</div>
+</div>

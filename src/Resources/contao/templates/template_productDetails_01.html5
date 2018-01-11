@@ -1,0 +1,120 @@
+<?php
+	global $objPage;
+
+	/*
+	 * FIXME: The output options don't work in Contao 4 because there seems to be some kind of problem in finding
+	 * the product class file for reflecion.
+	 */
+
+	# Use this to show the available output options of the product:
+	# echo $this->objProduct->_outputOptions;
+	# exit;
+	#
+	# Use this to show the available output options of the first product variant:
+	# echo $this->objProduct->_variants[key($this->objProduct->_variants)]->_outputOptions;
+	# exit;
+	
+	// $this->objProduct->_preselectVariantIfPossible();
+	
+	if ($this->objProduct->_variantIsSelected) {
+		$obj_tmp_productOrVariant = &$this->objProduct->_selectedVariant;
+	} else {
+		$obj_tmp_productOrVariant = &$this->objProduct;
+	}
+	
+	/*
+	 * Parse outsourced templates and get html responses to include later in this template
+	 */
+	$str_html_gallery = $this->objProduct->_useCustomTemplate('template_productIncludes_imageOutput_01');
+	$str_html_attributesInfo = $this->objProduct->_useCustomTemplate('template_productIncludes_detailedAttributesAndValues_01');
+	$str_html_deliveryInfo = $this->objProduct->_useCustomTemplate('template_productIncludes_deliveryInfo_01');
+	$str_html_stockInfo = $this->objProduct->_useCustomTemplate('template_productIncludes_stockInfo_01');
+	$str_html_variantSelector = $this->objProduct->_useCustomTemplate('template_productIncludes_variantSelector_01');
+	$str_html_price = $this->objProduct->_useCustomTemplate('template_productIncludes_price_01');
+	$str_html_filterMatch = $this->objProduct->_useCustomTemplate('template_productIncludes_filterMatch_01');
+	// $str_html_ajaxTest = $this->objProduct->_useCustomTemplate('template_productIncludes_ajaxTest_01');
+?>
+
+<?php echo isset($str_html_ajaxTest) ? $str_html_ajaxTest : ''; ?>
+
+<div class="shopProduct <?php echo $this->productTemplateType; ?> <?php echo $this->productTemplate; ?> <?php echo $this->productPositionsClassString; ?> block">
+	<a id="<?php echo $this->objProduct->_anchor; ?>"></a>
+	
+	<?php echo isset($str_html_variantSelector) ? $str_html_variantSelector : ''; ?>
+	<div class="ajaxReloadByVariantSelector_<?php echo $this->objProduct->_id; ?>" id="ajaxReloadByVariantSelector_1_<?php echo $this->objProduct->_id; ?>">
+		<div class="backButtonBox">
+			<a class="button" href="{{shopCategoryLinkOrSearchResult}}">
+				<?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText074']; ?>
+			</a>
+		</div>
+
+		<div class="productInfoBlock01">
+			<div class="socialMediaButtons">
+				<ul class="buttons">
+				  <li class="first facebook"><a href="share?p=facebook[&]u=<?php echo urlencode($this->Environment->url.'/'.$this->objProduct->_linkToProduct); ?>[&]t=<?php echo urlencode(html_entity_decode($this->objProduct->_title)); ?>" rel="nofollow" title="<?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText064']; ?>" onclick="window.open(this.href, '', 'width=760,height=570,modal=yes,left=100,top=50,location=no,menubar=no,resizable=yes,scrollbars=yes,status=no,toolbar=no'); return false;">Facebook</a></li>
+				  <li class="twitter"><a href="share?p=twitter[&]u=<?php echo urlencode($this->Environment->url.'/'.$this->objProduct->_linkToProduct); ?>[&]t=<?php echo urlencode(html_entity_decode($this->objProduct->_title)); ?>" rel="nofollow" title="<?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText065']; ?>" onclick="window.open(this.href, '', 'width=800,height=600,modal=yes,left=100,top=50,location=no,menubar=no,resizable=yes,scrollbars=yes,status=no,toolbar=no'); return false;">Twitter</a></li>
+				  <li class="googleplus"><a href="https://plus.google.com/share?url=<?php echo urlencode($this->Environment->url.'/'.$this->objProduct->_linkToProduct); ?>" rel="nofollow" title="<?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText066']; ?>" onclick="window.open(this.href, '', 'width=800,height=600,modal=yes,left=100,top=50,location=no,menubar=no,resizable=yes,scrollbars=yes,status=no,toolbar=no'); return false;">Google+</a></li>
+				  <li class="last email"><a href="mailto:<?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText067']; ?>?subject=<?php echo rawurlencode(html_entity_decode($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText068'].": ".$this->objProduct->_title)); ?>[&]body=<?php echo rawurlencode($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText069'].': '.$this->Environment->url.'/'.$this->objProduct->_linkToProduct); ?>" title="<?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText070']; ?>">E-Mail</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="productInfoBlock02">
+			<h1 class="productTitle"><?php echo $this->objProduct->_title; ?></h1>
+
+			<?php if ($this->objProduct->_variantIsSelected) { ?>
+				<h2 class="variantTitle"><?php echo $this->objProduct->_selectedVariant->_title; ?></h2>
+			<?php } ?>
+
+			<?php if ($this->objProduct->_hasProducer): ?>
+				<p class="producer"><?php echo $this->objProduct->_producer; ?></p>
+			<?php endif; ?>
+
+			<p class="code">
+				<?php echo $this->objProduct->_variantIsSelected ? $this->objProduct->_selectedVariant->_code : $this->objProduct->_code; ?>
+			</p>
+
+			<?php echo isset($str_html_filterMatch) ? $str_html_filterMatch : ''; ?>
+
+			<?php echo isset($str_html_attributesInfo) ? $str_html_attributesInfo : ''; ?>
+
+			<div class="watchlistContainer <?php echo $this->objProduct->_isFavorite ? 'inMyWatchlist' : 'notInMyWatchlist';?>">
+				<?php echo $this->objProduct->_favoritesForm; ?>
+			</div>
+		</div>
+
+		<div class="productInfoBlock03">
+			<?php echo isset($str_html_gallery) ? $str_html_gallery : ''; ?>
+		</div>
+
+		<div class="productInfoBlock04">
+			<?php echo isset($str_html_deliveryInfo) ? $str_html_deliveryInfo : ''; ?>
+			<?php echo isset($str_html_stockInfo) ? $str_html_stockInfo : ''; ?>
+			<?php if (isset($str_html_price)) { ?>
+				<div
+					id="ajax-reload-by-putInCart_<?php echo $this->objProduct->_productVariantID; ?>_1"
+					class="ajax-reload-by-putInCart_<?php echo $this->objProduct->_productVariantID; ?>"
+					data-merconis-component="put-in-cart-form"
+					data-merconis-productId="<?php echo $this->objProduct->_id; ?>"
+					data-merconis-productVariantId="<?php echo $this->objProduct->_productVariantID; ?>"
+				>
+					<?php echo $str_html_price; ?>
+				</div>
+			<?php } ?>
+		</div>
+
+		<div class="productInfoBlock05">
+			<div class="description">
+				<?php echo $obj_tmp_productOrVariant->_description; ?>
+			</div>
+		</div>
+
+		<div class="productInfoBlock06">
+			<?php if (!$this->objProduct->_hasVariants || $this->objProduct->_variantIsSelected) { ?>
+				<div class="configuratorContainer">
+					<?php echo $obj_tmp_productOrVariant->_configurator ? $obj_tmp_productOrVariant->_configurator : ''; ?>
+				</div>
+			<?php } ?>
+		</div>
+	</div>
+</div>

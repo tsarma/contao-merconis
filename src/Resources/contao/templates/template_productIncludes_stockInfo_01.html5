@@ -1,0 +1,14 @@
+<?php
+$obj_tmp_productOrVariant = null;
+if ($this->objProduct->_variantIsSelected && $this->objProduct->_selectedVariant->_useStock) {
+	$obj_tmp_productOrVariant = $this->objProduct->_selectedVariant;
+} else if (!$this->objProduct->_hasVariants && $this->objProduct->_useStock) {
+	$obj_tmp_productOrVariant = $this->objProduct;
+}
+
+if ($obj_tmp_productOrVariant !== null) {
+	?>
+	<div class="stockInfo"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['stockAvailable'], ls_shop_generalHelper::outputQuantity($obj_tmp_productOrVariant->_stock, $obj_tmp_productOrVariant->_quantityDecimals), $obj_tmp_productOrVariant->_quantityUnit); ?></div>
+	<?php
+}
+?>

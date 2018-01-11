@@ -1,0 +1,271 @@
+<?php
+
+namespace Merconis\Core;
+
+$GLOBALS['TL_DCA']['tl_ls_shop_output_definitions'] = array(
+	'config' => array(
+		'dataContainer' => 'Table',
+		'onsubmit_callback' => array(
+			array('Merconis\Core\ls_shop_generalHelper', 'saveLastBackendDataChangeTimestamp')
+		),
+		'ondelete_callback' => array(
+			array('Merconis\Core\ls_shop_generalHelper', 'saveLastBackendDataChangeTimestamp')
+		),
+		'oncopy_callback' => array(
+			array('Merconis\Core\ls_shop_generalHelper', 'saveLastBackendDataChangeTimestamp')
+		),
+		'onrestore_callback' => array(
+			array('Merconis\Core\ls_shop_generalHelper', 'saveLastBackendDataChangeTimestamp')
+		)
+	),
+	
+	'list' => array(
+		'sorting' => array(
+			'mode' => 1,
+			'flag' => 1,
+			'fields' => array('title'),
+			'disableGrouping' => true,
+			'panelLayout' => 'search,limit'
+			
+		),
+		
+		'label' => array(
+			'fields' => array('title'),
+			'format' => '%s'
+		),
+		
+		'global_operations' => array(
+			'all' => array
+			(
+				'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
+				'href'                => 'act=select',
+				'class'               => 'header_edit_all',
+				'attributes'          => 'onclick="Backend.getScrollOffset();" accesskey="e"'
+			)
+		),
+		
+		'operations' => array(
+			'edit' => array(
+				'label'               => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['edit'],
+				'href'                => 'act=edit',
+				'icon'                => 'edit.gif'
+			),
+			'copy' => array(
+				'label'               => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['copy'],
+				'href'                => 'act=copy',
+				'icon'                => 'copy.gif'
+			),
+			'delete' => array(
+				'label'               => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['delete'],
+				'href'                => 'act=delete',
+				'icon'                => 'delete.gif',
+				'attributes'          => 'onclick="if (!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\')) return false; Backend.getScrollOffset();"',
+				'button_callback'	=>	array('Merconis\Core\ls_shop_output_definitions','getDeleteButton')
+			),
+			'show' => array(
+				'label'               => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['show'],
+				'href'                => 'act=show',
+				'icon'                => 'show.gif'
+			)
+		
+		)	
+	),
+	
+	'palettes' => array(
+		'default' => '
+			{title_legend},
+			title;
+			
+			{outputDefinitions_legend},
+			lsShopProductTemplate,			
+			lsShopProductOverviewSorting,
+			lsShopProductOverviewSortingKeyOrAlias,
+			lsShopProductOverviewUserSorting,
+			lsShopProductOverviewUserSortingFields,
+			lsShopProductOverviewPagination;
+			
+			{outputDefinitionsCrossSeller_legend},
+			lsShopProductTemplate_crossSeller,
+			lsShopProductOverviewSorting_crossSeller,
+			lsShopProductOverviewSortingKeyOrAlias_crossSeller,
+			lsShopProductOverviewUserSorting_crossSeller,
+			lsShopProductOverviewUserSortingFields_crossSeller,
+			lsShopProductOverviewPagination_crossSeller
+		'
+	),
+	
+	'fields' => array(
+		'title' => array(
+			'exclude' => true,
+			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['title'],
+			'inputType' => 'text',
+			'eval' => array('mandatory' => true, 'maxlength'=>255),
+			'search' => true
+		),
+		
+		'lsShopProductTemplate' => array(
+			'exclude' => true,
+			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductTemplate'],
+			'inputType' => 'select',
+			'options_callback'		=> array('Merconis\Core\ls_shop_output_definitions','ls_getTemplateOptions'),
+			'reference'				=> &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductTemplate']['reference'],
+			'eval'					=> array('helpwizard' => true)
+		),
+		
+		'lsShopProductOverviewSorting' => array(
+			'exclude' => true,
+			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting'],
+			'inputType' => 'select',
+			'options_callback'        => array('Merconis\Core\ls_shop_output_definitions','ls_getOverviewSortingOptions'),
+			'reference'				=> &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference'],
+			'eval'					=> array('helpwizard' => false)
+		),
+		
+		'lsShopProductOverviewSortingKeyOrAlias' => array(
+			'exclude' => true,
+			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSortingKeyOrAlias'],			
+			'inputType' => 'text'
+		),
+		
+		'lsShopProductOverviewUserSorting' => array(
+			'exclude' => true,
+			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewUserSorting'],
+			'inputType' => 'select',
+			'options_callback'        => array('Merconis\Core\ls_shop_output_definitions','ls_getOverviewUserSortingOptions'),
+			'reference'				=> &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewUserSorting']['reference'],
+			'eval'					=> array('helpwizard' => false)
+		),
+		
+		'lsShopProductOverviewUserSortingFields' => array(
+			'exclude' => true,
+			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewUserSortingFields'],
+			'inputType' => 'ls_x_ListWizardMultiValue',
+			'eval' => array(
+				'ls_x_multiField' => array(
+					'fields' => array(
+						array(
+							'type' => 'select',
+							'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewUserSortingFields']['labels']['field1'],
+							'options' => array(
+								array('value' => 'title_sortDir_ASC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['title_sortDir_ASC'][0]),
+								array('value' => 'title_sortDir_DESC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['title_sortDir_DESC'][0]),
+								array('value' => 'lsShopProductPrice_sortDir_ASC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['lsShopProductPrice_sortDir_ASC'][0]),
+								array('value' => 'lsShopProductPrice_sortDir_DESC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['lsShopProductPrice_sortDir_DESC'][0]),
+								array('value' => 'lsShopProductCode_sortDir_ASC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['lsShopProductCode_sortDir_ASC'][0]),
+								array('value' => 'lsShopProductCode_sortDir_DESC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['lsShopProductCode_sortDir_DESC'][0]),
+								array('value' => 'sorting_sortDir_ASC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['sorting_sortDir_ASC'][0]),
+								array('value' => 'sorting_sortDir_DESC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['sorting_sortDir_DESC'][0]),
+								array('value' => 'lsShopProductProducer_sortDir_ASC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['lsShopProductProducer_sortDir_ASC'][0]),
+								array('value' => 'lsShopProductProducer_sortDir_DESC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['lsShopProductProducer_sortDir_DESC'][0]),
+								array('value' => 'lsShopProductWeight_sortDir_ASC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['lsShopProductWeight_sortDir_ASC'][0]),
+								array('value' => 'lsShopProductWeight_sortDir_DESC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['lsShopProductWeight_sortDir_DESC'][0]),
+								array('value' => 'priority_sortDir_ASC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['priority_sortDir_ASC'][0]),
+								array('value' => 'priority_sortDir_DESC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['priority_sortDir_DESC'][0]),
+								array('value' => 'flex_contentsLanguageIndependentKEYORALIAS_sortDir_ASC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['flex_contentsLanguageIndependentKEYORALIAS_sortDir_ASC'][0]),
+								array('value' => 'flex_contentsLanguageIndependentKEYORALIAS_sortDir_DESC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['flex_contentsLanguageIndependentKEYORALIAS_sortDir_DESC'][0]),
+								array('value' => 'flex_contentsKEYORALIAS_sortDir_ASC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['flex_contentsKEYORALIAS_sortDir_ASC'][0]),
+								array('value' => 'flex_contentsKEYORALIAS_sortDir_DESC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['flex_contentsKEYORALIAS_sortDir_DESC'][0]),
+								array('value' => 'lsShopProductAttributesValuesKEYORALIAS_sortDir_ASC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['lsShopProductAttributesValuesKEYORALIAS_sortDir_ASC'][0]),
+								array('value' => 'lsShopProductAttributesValuesKEYORALIAS_sortDir_DESC', 'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']['lsShopProductAttributesValuesKEYORALIAS_sortDir_DESC'][0])
+							)
+						),
+						
+						array(
+							'type' => 'text',
+							'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewUserSortingFields']['labels']['field2']
+						),
+						
+						array(
+							'type' => 'textarea',
+							'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewUserSortingFields']['labels']['field3']
+						)
+					)
+				)
+			)
+		),
+		
+		'lsShopProductOverviewPagination' => array(
+			'exclude' => true,
+			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewPagination'],
+			'inputType' => 'text',
+			'eval' => array('mandatory' => true, 'rgxp' => 'digit', 'maxlength' => 3)
+		)
+	)
+);
+
+
+$GLOBALS['TL_DCA']['tl_ls_shop_output_definitions']['fields']['lsShopProductTemplate_crossSeller'] = $GLOBALS['TL_DCA']['tl_ls_shop_output_definitions']['fields']['lsShopProductTemplate'];
+$GLOBALS['TL_DCA']['tl_ls_shop_output_definitions']['fields']['lsShopProductOverviewSorting_crossSeller'] = $GLOBALS['TL_DCA']['tl_ls_shop_output_definitions']['fields']['lsShopProductOverviewSorting'];
+$GLOBALS['TL_DCA']['tl_ls_shop_output_definitions']['fields']['lsShopProductOverviewSortingKeyOrAlias_crossSeller'] = $GLOBALS['TL_DCA']['tl_ls_shop_output_definitions']['fields']['lsShopProductOverviewSortingKeyOrAlias'];
+$GLOBALS['TL_DCA']['tl_ls_shop_output_definitions']['fields']['lsShopProductOverviewUserSorting_crossSeller'] = $GLOBALS['TL_DCA']['tl_ls_shop_output_definitions']['fields']['lsShopProductOverviewUserSorting'];
+$GLOBALS['TL_DCA']['tl_ls_shop_output_definitions']['fields']['lsShopProductOverviewUserSortingFields_crossSeller'] = $GLOBALS['TL_DCA']['tl_ls_shop_output_definitions']['fields']['lsShopProductOverviewUserSortingFields'];
+$GLOBALS['TL_DCA']['tl_ls_shop_output_definitions']['fields']['lsShopProductOverviewPagination_crossSeller'] = $GLOBALS['TL_DCA']['tl_ls_shop_output_definitions']['fields']['lsShopProductOverviewPagination'];
+
+
+
+class ls_shop_output_definitions extends \Backend {
+	public function __construct() {
+		parent::__construct();
+	}
+
+	public function ls_getTemplateOptions() {
+		$arrOptions = $this->getTemplateGroup('template_productOverview_');
+		array_insert($arrOptions, 0, array('template_productOverview_useDetailsTemplate' => 'template_productOverview_useDetailsTemplate'));
+		return $arrOptions;
+	}
+	
+	public function ls_getOverviewSortingOptions() {
+		$arrOptions = array(
+			'title_sortDir_ASC',
+			'title_sortDir_DESC',
+			
+			'lsShopProductPrice_sortDir_ASC',
+			'lsShopProductPrice_sortDir_DESC',
+	
+			'lsShopProductCode_sortDir_ASC',
+			'lsShopProductCode_sortDir_DESC',
+			
+			'sorting_sortDir_ASC',
+			'sorting_sortDir_DESC',
+			
+			'lsShopProductProducer_sortDir_ASC',
+			'lsShopProductProducer_sortDir_DESC',
+			
+			'lsShopProductWeight_sortDir_ASC',
+			'lsShopProductWeight_sortDir_DESC',
+			
+			'priority_sortDir_ASC',
+			'priority_sortDir_DESC',
+			
+			'flex_contentsLanguageIndependentKEYORALIAS_sortDir_ASC',
+			'flex_contentsLanguageIndependentKEYORALIAS_sortDir_DESC',
+			
+			'flex_contentsKEYORALIAS_sortDir_ASC',
+			'flex_contentsKEYORALIAS_sortDir_DESC',
+			
+			'lsShopProductAttributesValuesKEYORALIAS_sortDir_ASC',
+			'lsShopProductAttributesValuesKEYORALIAS_sortDir_DESC'
+		);
+		return $arrOptions;
+	}
+	
+	public function ls_getOverviewUserSortingOptions() {
+		$arrOptions = array('yes', 'no');
+		return $arrOptions;
+	}
+	
+	/*
+	 * Diese Funktion prüft, ob der Datensatz irgendwo im Shop verwendet wird und gibt nur dann
+	 * den funktionsfähigen Löschen-Button zurück, wenn der Datensatz nicht verwendet wird und
+	 * daher bedenkenlos gelöscht werden kann.
+	 */
+	public function getDeleteButton($row, $href, $label, $title, $icon, $attributes) {
+		if (!in_array($row['id'], ls_shop_generalHelper::getOutputDefinitionsCurrentlyInUse())) {
+			$button = '<a href="'.$this->addToUrl($href.'&amp;id='.$row['id']).'" title="'.specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ';
+		} else {
+			$button = \Image::getHtml(preg_replace('/\.gif$/i', '_.gif', $icon)).' ';
+		}
+		
+		return $button;
+	}
+}

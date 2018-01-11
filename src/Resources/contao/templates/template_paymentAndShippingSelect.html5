@@ -1,0 +1,107 @@
+<?php
+	/*
+	 * This configuration variable controls whether additional forms which the currently selected payment or shipping method
+	 * might require is being displayed next to the selected method or below all methods.
+	 */
+	$bln_showAdditionalFormsBelowAllMethods = false;
+?>
+
+<div class="<?php echo $this->str_selectWhat; ?>Selection">
+	<?php
+	$str_basicTargetUrl = \LeadingSystems\Helpers\getUrlWithoutParameters(array('selectPaymentOrShipping', 'id'));
+
+	ob_start();
+	if (
+		\Merconis\Core\ls_shop_checkoutData::getInstance()->{'form'.ucfirst($this->str_selectWhat).'MethodAdditionalData'}
+		||	\Merconis\Core\ls_shop_checkoutData::getInstance()->{$this->str_selectWhat.'MethodErrorMessage'}
+		||	\Merconis\Core\ls_shop_checkoutData::getInstance()->{$this->str_selectWhat.'MethodSuccessMessage'}
+		||	\Merconis\Core\ls_shop_msg::checkMsg($this->str_selectWhat.'AdditionalDataSubmitted', $this->str_selectWhat.'AdditionalDataSubmitted')
+	) {
+		?>
+		<div
+			class="formPaymentAndShippingMethodAdditionalData form"
+			data-lsjs-component="cajaxCaller"
+			data-lsjs-cajaxCallerOptions="
+							{
+								'obj_cajaxRequestData': {
+									'requestedElementID': 'checkoutContent'
+								}
+							}
+							"
+		>
+			<?php if (\Merconis\Core\ls_shop_checkoutData::getInstance()->{$this->str_selectWhat.'MethodErrorMessage'}) { ?>
+				<div class="error"><?php echo \Merconis\Core\ls_shop_checkoutData::getInstance()->{$this->str_selectWhat.'MethodErrorMessage'}; ?></div>
+			<?php } ?>
+			<?php if (\Merconis\Core\ls_shop_checkoutData::getInstance()->{$this->str_selectWhat.'MethodSuccessMessage'}) { ?>
+				<div class="success"><?php echo \Merconis\Core\ls_shop_checkoutData::getInstance()->{$this->str_selectWhat.'MethodSuccessMessage'}; ?></div>
+			<?php } ?>
+			<?php
+			if (\Merconis\Core\ls_shop_msg::checkMsg($this->str_selectWhat.'AdditionalDataSubmitted', $this->str_selectWhat.'AdditionalDataSubmitted')) {
+				?>
+				<p class="success"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText120']; ?></p>
+				<?php
+			}
+			?>
+			<?php echo \Merconis\Core\ls_shop_checkoutData::getInstance()->{'form'.ucfirst($this->str_selectWhat).'MethodAdditionalData'}; ?>
+		</div>
+		<?php
+	}
+	?>
+	<?php
+	if (\Merconis\Core\ls_shop_checkoutData::getInstance()->{'custom'.ucfirst($this->str_selectWhat).'MethodUserInterface'}) {
+		?>
+		<div class="customPaymentMethodUserInterface">
+			<?php echo \Merconis\Core\ls_shop_checkoutData::getInstance()->{'custom'.ucfirst($this->str_selectWhat).'MethodUserInterface'}; ?>
+		</div>
+		<?php
+	}
+	$str_outputBuffer_additionalForms = ob_get_clean();
+
+	foreach ($this->arr_availableOptions as $int_optionId => $arr_option) {
+		$str_specificTargetUrl = \LeadingSystems\Helpers\addQueryParameters(array('selectPaymentOrShipping' => $this->str_selectWhat, 'id' => $int_optionId), $str_basicTargetUrl);
+		?>
+		<span
+			<?php echo $arr_option['cssID'] ? ' id="'.$arr_option['cssID'].'"' : ''; ?>
+			class="<?php echo $this->int_selectedOptionId == $int_optionId ? 'selected' : 'notSelected'; ?> paymentAndShippingOptionContainer<?php echo $arr_option['cssClass'] ? ' '.$arr_option['cssClass'] : ''; ?>"
+		>
+			<a
+				href="<?php echo $str_specificTargetUrl; ?>"
+				data-lsjs-component="cajaxCaller"
+				data-lsjs-cajaxCallerOptions="
+				 {
+					'obj_cajaxRequestData': {
+						'requestedElementID': 'checkoutContent'
+					}
+				 }
+				 "
+			>
+				<span class="title"><?php echo $arr_option['title'].'<span class="feePrice'.(!$arr_option['feePrice'] ? ' free' : '').'"> ('.\Merconis\Core\ls_shop_generalHelper::outputPrice($arr_option['feePrice']).')</span>'; ?></span>
+				<span class="description"><?php echo $arr_option['description']; ?></span>
+			</a>
+
+			<?php
+				if (
+						!$bln_showAdditionalFormsBelowAllMethods
+					&&	$this->int_selectedOptionId == $int_optionId
+				) {
+					if ($str_outputBuffer_additionalForms) {
+						echo $str_outputBuffer_additionalForms;
+					}
+				}
+			?>
+		</span>
+		<?php
+	}
+	?>
+	<?php
+	if ($bln_showAdditionalFormsBelowAllMethods) {
+		if ($str_outputBuffer_additionalForms) {
+			?>
+			<div class="additionalForms">
+				<?php echo $str_outputBuffer_additionalForms; ?>
+			</div>
+			<?php
+		}
+	}
+	?>
+</div>

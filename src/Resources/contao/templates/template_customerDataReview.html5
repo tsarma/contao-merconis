@@ -1,0 +1,47 @@
+<div>
+	<h3><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['customerData'][$this->arr_data['useDeviantShippingAddress'] ? 'billingAddress' : 'billingAndShippingAddress']; ?></h3>
+	<?php
+		foreach ($this->arr_data as $str_key => $var_value) {
+			if (!$var_value) {
+				continue;
+			}
+
+			/*
+			 * Only print the billing address in this block
+			 */
+			if ($str_key === 'useDeviantShippingAddress' || strpos($str_key, '_alternative') !== false) {
+				continue;
+			}
+			?>
+				<div>
+					<span class="label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['customerData']['fieldNames'][$str_key]; ?>:</span>
+					<span class="value"><?php echo $var_value; ?></span>
+				</div>
+			<?php
+		}
+
+		if ($this->arr_data['useDeviantShippingAddress']) {
+			?>
+			<h3><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['customerData']['shippingAddress']; ?></h3>
+			<?php
+			foreach ($this->arr_data as $str_key => $var_value) {
+				if (!$var_value) {
+					continue;
+				}
+
+				/*
+				 * Only print the shipping address in this block
+				 */
+				if (!strpos($str_key, '_alternative') !== false) {
+					continue;
+				}
+				?>
+				<div>
+					<span class="label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['customerData']['fieldNames'][$str_key]; ?>:</span>
+					<span class="value"><?php echo $var_value; ?></span>
+				</div>
+				<?php
+			}
+		}
+	?>
+</div>

@@ -1,0 +1,22 @@
+<?php
+	if ($this->bln_paymentAuthorized) {
+		?>
+		<p><?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['payPalPlus']['paymentAuthorized']; ?></p>
+		<?php
+	} else {
+		?>
+		<script src="https://www.paypalobjects.com/webstatic/ppplus/ppplus.min.js" type="text/javascript"></script>
+		<h3><?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['payPalPlus']['paymentWallHeadline']; ?></h3>
+		<div id="ppplus"></div>
+		<script type="application/javascript">
+			var ppp = PAYPAL.apps.PPP({
+				"approvalUrl": "<?php echo $this->str_approvalUrl; ?>",
+				"placeholder": "ppplus",
+				"mode": "<?php echo $this->str_mode; ?>",
+				"country": "<?php echo $this->str_countryCode; ?>",
+				"language": "<?php echo $this->str_language.'_'.$this->str_countryCode; ?>"
+			});
+		</script>
+		<?php
+	}
+?>

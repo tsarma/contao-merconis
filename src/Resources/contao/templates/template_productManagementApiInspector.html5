@@ -1,0 +1,74 @@
+<?php global $objPage; ?>
+
+<div
+	data-merconis-component="product-management-api-test"
+	data-merconis-http-request-method="<?php echo $this->str_httpRequestMethod; ?>"
+	data-merconis-absolute-request-url="<?php echo \Environment::get('base'); ?><?php echo $this->str_apiResourceUrl; ?>"
+	data-merconis-response-type="<?php echo $this->str_responseType; ?>"
+	data-merconis-expects-multiple-data-rows="<?php echo $this->bln_expectsMultipleDataRows; ?>"
+>
+	<div class="api-inspector-navigation">
+		<h2>Select a product management API resource:</h2>
+		<ul>
+			<?php
+			foreach ($this->arr_allResourceLinks as $str_resourceName => $arr_resourceLink) {
+				?>
+				<li><a class="resourceLink<?php echo $arr_resourceLink['bln_currentlySelected'] ? ' selected' : ''; ?>" href="<?php echo $arr_resourceLink['str_href']; ?>"><?php echo strtoupper($arr_resourceLink['str_httpRequestMethod']); ?>: <?php echo $str_resourceName; ?></a></li>
+				<?php
+			}
+			?>
+		</ul>
+	</div>
+
+	<?php if ($this->str_selectedResource) { ?>
+		<h2><?php echo $this->str_selectedResource; ?></h2>
+		<p><?php echo $this->str_resourceDescription; ?></p>
+		<p><strong>Relative resource URL:</strong> <?php echo \Environment::get('base'); ?><?php echo $this->str_apiResourceUrl; ?></p>
+		<p><strong>Absolute resource URL:</strong> <?php echo $this->str_apiResourceUrl; ?></p>
+		<div class="dataInput">
+			<h2>Input</h2>
+			<form>
+				<div class="formbody">
+					<input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN; ?>">
+					<input type="hidden" name="APIURL" value="<?php echo $this->str_apiResourceUrl; ?>">
+
+					<div class="productDataField">
+						<?php
+						$int_counter = 0;
+						if (is_array($this->arr_fieldDefinition)) {
+							foreach ($this->arr_fieldDefinition as $str_fieldName => $arr_singleFieldDefinition) {
+								if ($arr_singleFieldDefinition['fieldType'] === 'output') {
+									continue;
+								}
+								$int_counter++;
+								?>
+								<div
+									title="<?php echo $this->arr_preprocessorDescriptions[$arr_singleFieldDefinition['preprocessor']]; ?>"
+									class="widget">
+									<label><?php echo $str_fieldName; ?></label>
+									<input tabindex="<?php echo $int_counter; ?>" type="text"
+										   name="<?php echo $str_fieldName; ?>" class="text" value="">
+								</div>
+								<?php
+							}
+						}
+						?>
+					</div>
+					<div class="buttonContainer">
+						<button class="sendData">Send</button>
+						<button class="addRow">Add row</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="responseOutput">
+			<h2><?php echo strtoupper($this->str_responseType); ?> response</h2>
+			<div class="output"></div>
+		</div>
+		<div class="requestOutput">
+			<h2><?php echo strtoupper($this->str_httpRequestMethod); ?> request</h2>
+			<div class="output"></div>
+		</div>
+	<?php } ?>
+</div>

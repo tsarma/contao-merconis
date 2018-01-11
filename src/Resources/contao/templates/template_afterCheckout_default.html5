@@ -1,0 +1,42 @@
+<?php // ########## PAYMENT ##########?>
+<?php if ($this->arrOrder['paymentMethod_infoAfterCheckout_customerLanguage']) { ?>
+	<div class="payment infoForPaymentMethod">
+		<?php echo $this->arrOrder['paymentMethod_infoAfterCheckout_customerLanguage']; ?>
+	</div>
+<?php } ?>
+
+<?php // ########## PAYMENT SPECIAL INFOS ##########?>
+<?php if ($this->specialInfoForPaymentMethod) { ?>
+	<div class="payment specialInfoForPaymentMethod">
+		<?php echo $this->specialInfoForPaymentMethod; ?>
+	</div>
+<?php } ?>
+
+<?php // ########## SHIPPING ##########?>
+<?php if ($this->arrOrder['shippingMethod_infoAfterCheckout_customerLanguage']) { ?>
+	<div class="shipping infoForShippingMethod">
+		<?php echo $this->arrOrder['shippingMethod_infoAfterCheckout_customerLanguage']; ?>
+	</div>
+<?php } ?>
+
+<?php // ########## SHIPPING SPECIAL INFOS ##########?>
+<?php if ($this->specialInfoForShippingMethod) { ?>
+	<div class="shipping specialInfoForShippingMethod">
+		<?php echo $this->specialInfoForShippingMethod; ?>
+	</div>
+<?php } ?>
+
+<?php
+	include(__DIR__.'/template_afterCheckout--cart.html5');
+?>
+<div class="borderless customerData formCustomerData form"><?php echo $this->arrOrder['personalDataReview_customerLanguage']; ?></div>
+
+<?php // ########## PAYMENT ##########?>
+<?php if ($this->arrOrder['paymentDataReview']) { ?>
+	<div class="borderless payment formPaymentMethodAdditionalData form"><?php echo $this->arrOrder['paymentDataReview_customerLanguage']; ?></div>
+<?php } ?>
+
+<?php // ########## PAYMENT ##########?>
+<?php if ($this->arrOrder['shippingDataReview']) { ?>
+	<div class="borderless shipping formShippingMethodAdditionalData form"><?php echo $this->arrOrder['shippingDataReview_customerLanguage']; ?></div>
+<?php } ?>

@@ -1,0 +1,37 @@
+<?php
+/*
+ * IMPORTANT NOTE:
+ * This template is most likely being included in another template file.
+ * If you duplicate this template, please make sure to adjust the include paths in the other file.
+ */
+?>
+
+<div
+	id="checkoutStepShipping"
+	class="checkoutStep"
+	data-lsjs-component="formReviewer"
+	data-misc-close-form-initially="<?php echo $this->arrRequiredCheckoutData['shippingMethodDataIsValid'] ? '1' : ''; ?>"
+>
+	<h3 class="headlineMainSection">
+		<?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText012']; ?>
+		<?php if (ls_shop_cartX::getInstance()->calculation['shippingFee'][0]) { ?>
+			<span class="feeValue">(+ <?php echo ls_shop_generalHelper::outputPrice(ls_shop_cartX::getInstance()->calculation['shippingFee'][0]); ?>)</span>
+		<?php } ?>
+		<?php if (!$this->arrRequiredCheckoutData['shippingMethodDataIsValid'] && $this->arrRequiredCheckoutData['customerDataIsValid']) { ?>
+			<span class="error">(<?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText036']; ?>)</span>
+		<?php } ?>
+	</h3>
+	<div>
+		<?php
+			if ($this->arrRequiredCheckoutData['customerDataIsValid']) {
+				?>
+					<?php echo $this->arrRequiredCheckoutData['formShippingMethodRadio']; ?>
+				<?php
+			} else {
+				?>
+				<div class="error"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText032']; ?></div>
+				<?php
+			}
+		?>
+	</div>
+</div>

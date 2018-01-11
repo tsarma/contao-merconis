@@ -1,0 +1,33 @@
+<div data-lsjs-component="ajaxTest">
+	<style type="text/css" scoped>
+		.ajaxTestBox {
+			border: 1px solid #000000;
+			padding: 10px;
+			margin-bottom: 10px;
+		}
+		
+		[data-lsjs-element="ajaxTestElement"] {
+			padding-bottom: 20px;
+		}
+		
+		[data-lsjs-element="ajaxTestElement"] span {
+			cursor: pointer;
+		}
+	</style>
+	<div class="ajaxTestBox">
+		<h2>AJAX-Test</h2>
+		<p>Es wird die aktuelle Uhrzeit an drei Stellen angezeigt. An jeder dieser Stellen kann die Uhrzeit durch Klick per Ajax aktualisiert werden.</p>
+		<div data-lsjs-element="ajaxTestElement" id="ajaxTest1">
+			<strong>Test 1:</strong>
+			<span><?php echo date('d.m.Y, H:i:s'); ?></span>
+		</div>
+		<div data-lsjs-element="ajaxTestElement" id="ajaxTest2">
+			<strong>Test 2:</strong>
+			<span><?php echo date('d.m.Y, H:i:s'); ?></span>
+		</div>
+		<div data-lsjs-element="ajaxTestElement" id="ajaxTest3">
+			<strong>Test 3:</strong>
+			<span><?php echo date('d.m.Y, H:i:s'); ?></span>
+		</div>
+	</div>
+</div>

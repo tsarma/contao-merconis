@@ -1,0 +1,292 @@
+Software-Lizenzvertrag (EULA) der Leading Systems GmbH (Version 1.5, 1. März 2013)
+(english version below)
+
+1. Vertragsgegenstand
+1.1 Dieser Software-Lizenzvertrag ist ein rechtsverbindlicher Vertrag zwischen der Leading Systems GmbH, 
+Korb (nachfolgend "LS") und Ihnen, entweder als natürliche oder juristische Person oder rechtsfähige 
+Personengesellschaft (nachfolgend "Lizenznehmer").
+1.2 Gegenstand des Vertrages sind die auf dem Datenträger gespeicherten, zum Download bereitgestellten oder vom 
+Lizenznehmer zur Nutzung bestellten oder anderweitig bezogenen Computerprogramme, Zusatzprogramme, Hilfsprogramme, 
+Skripte, Flash-Effekte, Programmmodule, Programmbibliotheken, Beispieldateien, Handbücher sowie sonstiges 
+zugehöriges schriftliches Material – insgesamt Software genannt. Dieser Vertrag umfasst ausdrücklich auch 
+Software, die dem Lizenznehmer zu Test- und Demonstrationszwecken bereitgestellt wird und die im Funktionsumfang 
+eingeschränkt sein kann (nachfolgend "Testversion").
+1.3 Die Software wird sowohl durch Urheberrechtsgesetze und internationale Urheberrechtsverträge geschützt als 
+auch durch andere Gesetze und Vereinbarungen über geistiges Eigentum. Die Software wird nicht verkauft, sondern 
+lizenziert. Wird die Software zusammen mit Software bzw. Softwarekomponenten Dritter im Bundle ausgeliefert, so 
+unterliegt auch die Software Dritter jeweils Lizenzbestimmungen ihres Urhebers und ist auch jeweils durch 
+vorstehende Gesetze, Verträge oder Vereinbarungen geschützt. Für diese Softwarekomponenten sind die dortigen 
+Nutzungsbedingungen, die als Datei vorhanden, im jeweiligen Quellcode enthalten oder alternativ auf der Website 
+des jeweiligen Urhebers aufgeführt sind, zu beachten.
+1.4 Nach dem derzeitigen Stand der Technik kann bei Software das Auftreten von Programmfehlern nicht völlig 
+ausgeschlossen werden. Daher ist der Gegenstand des Vertrages nur eine Software, die im Sinne der 
+Programmbeschreibung oder der Benutzungsanleitung, die in digitaler oder schriftlicher Form vorliegen können, 
+grundsätzlich brauchbar ist.
+1.5 Durch Bestellung, Installation oder Nutzung der Software stimmt der Lizenznehmer diesen Vertragsbedingungen zu.
+
+2. Dauer des Vertrages
+Der Vertrag ist nicht befristet. Im Falle einer Verletzung dieses Vertrages endet das Nutzungsrecht des 
+Lizenznehmers an der Software automatisch ohne Kündigung. Im Falle der Beendigung seines Nutzungsrechts ist er 
+verpflichtet, sämtliches Material, wie Originaldatenträger inkl. aller Kopien der Software sowie schriftliches 
+Material zu vernichten.
+
+3. Nutzungsrecht
+3.1 LS gewährt dem Lizenznehmer im Rahmen dieses Vertrages das einfache, nicht ausschließliche und persönliche 
+Recht, die Software auf einem Server unter einer Domain inkl. zugehöriger Domain-Aliase und Subdomains in 
+Verbindung mit einem einzigen Internetauftritt (Website) zu benutzen.
+3.2 Sofern es sich bei der Software nicht um eine Testversion handelt, ist die Nutzung der Software auf weiteren 
+Internetauftritten ohne vorheriges schriftliches Einverständnis durch LS nicht gestattet und bedarf einer neuen 
+Lizenz.
+3.3 Der Betrieb der Software von einem Internetauftritt unabhängig oder als eigenständige Applikation ist ohne 
+vorheriges schriftliches Einverständnis durch LS nicht gestattet. Ebenso ist der dauerhafte Betrieb einer 
+Testversion, der über das übliche reine Testen der Software hinausgeht, bspw. für kommerzielle Zwecke, nicht 
+gestattet.
+3.4 Sofern von LS nicht anders schriftlich bestimmt, unterliegt die Software nicht der LGPL oder ähnlichen Open 
+Source-Lizenzmodellen.
+
+4. Abtretung der Lizenz (Reseller-Regelung) / Weitergabe einer Testversion
+4.1 Dem Lizenznehmer ist es gestattet, die Nutzungsrechte gänzlich an eine andere Person bzw. an ein anderes 
+Unternehmen unter folgenden Voraussetzungen abzutreten, sofern es sich bei der Software nicht um eine Testversion 
+handelt:
+- Die Lizenzurkunde sowie dieser Software-Lizenzvertrag sind dem neuen Lizenznehmer zu übergeben. Der abtretende 
+Lizenznehmer hat den neuen Lizenznehmer auf die Einhaltung dieses Software-Lizenzvertrags hinzuweisen. Der neue 
+Lizenznehmer darf die Software nicht verwenden, falls er diesen Software-Lizenzvertrag nicht akzeptiert. In diesem 
+Fall gilt die Abtretung als nicht erfolgt.
+- Der abtretende Lizenznehmer muss nach erfolgter Abtretung sämtliche Dateien/Daten und Schriftstücke der Software 
+löschen bzw. vernichten.
+4.2 Sofern es sich bei der Software um eine Testversion handelt, ist es dem Lizenznehmer gestattet, die Software 
+an eine andere Person bzw. an ein anderes Unternehmen weiterzugeben - auch eine Kopie davon, sofern LS dies im 
+Vorfeld nicht ausschließt. Im Falle der Weitergabe hat der Lizenznehmer den Dritten auf die Einhaltung dieses 
+Software-Lizenzvertrages hinzuweisen.
+
+5. Inhaberschaft an Rechten
+Die Lizenznahme überträgt dem Lizenznehmer nur Eigentum an dem körperlichen Datenträger, auf dem die Software 
+gespeichert ist, sofern die Software auf einem Datenträger ausgeliefert und nicht elektronisch übermittelt wird. 
+Darüber hinaus erhält der Lizenznehmer das in diesem Vertrag vereinbarte Nutzungsrecht an der Software. Ein Erwerb 
+von Rechten an der Software selbst ist damit nicht verbunden. LS behält sich insbesondere alle Veröffentlichungs-, 
+Vervielfältigungs-, Bearbeitungs- und Verwertungsrechte an der Software vor.
+
+6. Besondere Beschränkungen
+6.1 Dem Lizenznehmer ist es untersagt, ohne vorherige schriftliche Einwilligung von LS die Software oder das 
+zugehörige schriftliche Material abzuändern, zu übersetzen, zurückzuentwickeln, zu dekompilieren oder zu 
+deassemblieren, von der Software abgeleitete Werke zu erstellen oder das schriftliche Material zu vervielfältigen, 
+das Material abzuändern oder vom schriftlichen Material abgeleitete Werke zu erstellen. Davon ausgenommen sind 
+nötige Konfigurationseinstellungen oder Veränderungen, die gemäß der Benutzungsanleitung erlaubt sind. Ebenso sind 
+davon Komponenten Dritter ausgenommen, die eigenen Bestimmungen gem. 1.3 unterliegen und vom Lizenznehmer 
+einzuhalten sind.
+6.2 Das gewerbsmäßige Verkaufen, Verschenken, Vermieten oder Verleihen der Software ist ausdrücklich untersagt. 
+Davon ausgenommen sind die unter 4. aufgeführten Fälle.
+6.3 Ein Anspruch auf Herausgabe des Quellcodes ist ausgeschlossen.
+
+7. Schadensersatz bei Vertragsverletzung
+Der Lizenznehmer haftet für alle Schäden aufgrund von Urheberrechtsverletzungen, die LS aus einer Verletzung 
+dieser Vertragsbestimmungen durch den Lizenznehmer entstehen.
+
+8. Weiterentwicklung und Aktualisierungen
+LS ist berechtigt, die Software nach eigenem Ermessen oder aufgrund technischer oder rechtlicher Notwendigkeiten 
+zu aktualisieren und zu verändern. LS ist nicht verpflichtet, Weiterentwicklungen und Aktualisierungen der 
+Software dem Lizenznehmer zur Verfügung zu stellen, soweit dies nicht schriftlich vereinbart wurde.
+
+9. Haftung und Gewährleistung von LS
+9.1 Wurde die Software auf einem Datenträger übergeben, so gewährleistet LS dem ursprünglichen Lizenznehmer, dass 
+der Datenträger mit der Software und sonstiges Material zum Zeitpunkt der Übergabe ohne Fehler ist.
+9.2 Sollte der Datenträger fehlerhaft sein, so kann der Lizenznehmer eine Ersatzlieferung während der 
+Gewährleistungszeit innerhalb der ersten 6 Monate verlangen. Hierzu muss der Lizenznehmer den defekten Datenträger 
+an LS zurücksenden und erhält umgehend nach Eingang des defekten Datenträgers entweder einen neuen zugesandt oder 
+die Daten zum Download zur Verfügung gestellt. Falls LS die Daten zum Download zur Verfügung stellt, ist der 
+Lizenznehmer verpflichtet, die Daten innerhalb von 14 Tagen herunterzuladen.
+9.3 Der Lizenznehmer kann nach eigenem Ermessen die Herabsetzung des Kaufpreises verlangen oder vom Vertrag 
+zurücktreten, falls LS im Sinne von 9.2 den Ersatzdatenträger bzw. den Download nicht innerhalb angemessener 
+Fristsetzung liefert.
+9.4 Aus den vorstehend unter 1. genannten Gründen kann LS keine Haftung für die Fehlerfreiheit der Software 
+übernehmen. Insbesondere übernimmt LS keine Gewähr dafür, dass die Software den Anforderungen und Zwecken des 
+Lizenznehmers genügt oder mit anderen vom Lizenznehmer ausgewählten Programmen zusammenarbeitet. Der Lizenznehmer 
+trägt die Verantwortung für die richtige Auswahl und die Folgen der Softwarebenutzung, genau so, wie für 
+begleitendes schriftliches oder elektronisches Material.
+9.5 Die Haftung von LS, inkl. der außervertraglichen Haftung, ist ausgeschlossen, soweit LS nicht aufgrund 
+zwingender gesetzlicher Vorschriften haftet, wie z. B. aufgrund Vorsatzes oder grober Fahrlässigkeit, des Fehlens 
+zugesicherter Eigenschaften oder der Verletzung vertragswesentlicher Pflichten. Die Haftung von LS ist 
+ausgeschlossen, sofern es sich bei der Software um eine Testversion handelt. Macht ein Dritter gegen den 
+Lizenznehmer Ansprüche aus Schutzrechten oder im Zusammenhang mit Schutzrechten wegen der vertragsgegenständlichen 
+Lieferung geltend, so ist LS unter Ausschluss weitergehender Haftung berechtigt und verpflichtet, nach ihrer Wahl 
+und auf eigene Kosten entweder von dem über das Schutzrecht Verfügungsberechtigten ein Benutzungsrecht zu erwirken 
+oder die schutzrechtsverletzenden Teile zu ändern oder gegen schutzrechtsfreie auszutauschen oder die betreffenden 
+Erzeugnisse gegen Erstattung des Kaufpreises zurückzunehmen.
+9.6 LS ist nicht für irgendwelche Schäden (uneingeschränkt eingeschlossen sind Schäden aus entgangenen Gewinnen, 
+Betriebsunterbrechungen, Verlusten von geschäftlichen Informationen, Daten oder anderen finanziellen Verlusten) 
+ersatzpflichtig, die aufgrund der Benutzung dieser Software entstehen, auch falls LS von der Möglichkeit eines 
+solchen Schadens unterrichtet wurde. Auf jeden Fall ist die Haftung von LS auf den Betrag beschränkt, den der 
+Lizenznehmer tatsächlich für das Produkt bezahlt hat. Im Falle von Schäden, die aufgrund groben Vorsatzes oder 
+grober Fahrlässigkeit seitens LS verursacht wurden, gilt dieser Ausschluss nicht. Ebenfalls bleiben Ansprüche, die 
+auf unabdingbaren gesetzlichen Vorschriften zur Produkthaftung beruhen, unberührt.
+9.7 LS verpflichtet sich, die Datenträger bzw. die zum Download bereitgestellten Dateien zuvor mit der jeweils 
+neuesten Version eines handelsüblichen Virus-Scanner-Programms zu testen und etwaigen Viren-Befall zu entfernen. 
+Diese Verpflichtung erstreckt sich nicht auf Dateien, die bereits vor Abschluss dieses Lizenzvertrages im Besitz 
+des Lizenznehmers waren. Soweit trotz dieser Maßnahmen von LS gelieferte Datenträger oder zum Download 
+bereitgestellte Dateien mit Viren befallen sind, ist die Haftung von LS ausgeschlossen.
+
+10. Rückgängigmachung des Vertrages
+Falls die Software im Sinne von 1. grundsätzlich unbrauchbar ist, hat der Lizenznehmer das Recht, den Vertrag 
+rückgängig zu machen. Das gleiche Recht hat LS, falls die Herstellung von brauchbarer Software, entsprechend im 
+Sinne von 1., mit angemessenem Aufwand nicht möglich ist.
+
+11. Weitere Bestimmungen
+11.1 Rechte und Pflichten aus dem Vertrag können nur mit schriftlicher Zustimmung der anderen Partei auf Dritte 
+übertragen werden. Von der Notwendigkeit einer schriftlichen Zustimmung ausgenommen ist die Abtretung/Weitergabe 
+i.S.v. 4. sowie die Übertragung des Vertrages von LS an eine Rechtsnachfolgerin oder verbundene Gesellschaft.
+11.2 Erfüllungsort für alle Leistungen aus diesem Vertrag ist Korb. Der Gerichtsstand für alle 
+Streitigkeiten aus diesem Vertrag ist das für Korb örtlich zuständige Gericht. Dasselbe gilt, wenn der 
+Lizenznehmer keinen allgemeinen Gerichtsstand in Deutschland hat oder Wohnsitz oder gewöhnlicher Aufenthalt zum 
+Zeitpunkt der Klageerhebung nicht bekannt sind. LS ist darüber hinaus berechtigt, am Sitz des Lizenznehmers zu 
+klagen.
+
+12. Salvatorische Klausel
+Sollten sich einzelne Bestimmungen dieses Vertrages als ungültig erweisen, ersetzen die Parteien diese durch neue, 
+welche den ursprünglich angestrebten Zielen und Zwecken entsprechen. Die Gültigkeit des Software-Lizenzvertrages 
+bleibt in jedem Fall erhalten.
+
+--------------------------------------------------------------------------------------
+
+Software License Agreement (EULA) of Leading Systems GmbH (version 1.5, 01 March 2013)
+(Deutsche Version oben)
+
+1. Subject matter of the contract
+1.1 This software license agreement is a legally binding contract between the Leading Systems GmbH, Korb, 
+Germany, (hereinafter referred to as "LS") and you, either as a natural person or a legal entity or a partnership 
+with legal capacity (hereinafter referred to as "licensee").
+1.2 The subject matter of the agreement are the computer programs, add-on programs, auxiliary programs, scripts, 
+Flash effects, program modules, program libraries, sample files, manuals as well as any other related written 
+material, altogether referred to as software, stored on a data carrier, provided as a download, ordered by the 
+licensee for use or obtained otherwise. This agreement also explicitly comprises software with which the licensee 
+is provided for the purpose of testing and demonstration and which can be restricted in its functional scope 
+(hereinafter referred to as "test version").
+1.3 The software is protected under both the copyright laws and the international copyright treaties, as well as 
+by other laws and agreements concerning intellectual property. The software is licensed, not sold. If the software 
+is supplied along with software or software components of third parties in a bundle, then the third party software 
+is also protected under the licensing terms of its author and under the above-mentioned laws, contracts and 
+agreements. For these software components, the respective terms of use which exist as a file or are included in 
+the respective source code or on the website of the respective author must be observed.
+1.4 Based on present technological developments, the occurrence of program errors cannot be completely ruled out 
+in software. Therefore, the subject matter of the agreement is only a software which is basically usable in the 
+sense of the program description or the operating manual that may exist in a digital or written form.
+1.5 By ordering, installing or using the software, the licensee agrees to the terms and conditions of this contract.
+
+2. Duration of the contract
+The contract is not limited in time. In the event of a breach of this contract, the licensee's right of use of the 
+software is automatically revoked without notice. In the event of the termination of his right of use, he is 
+obliged to destroy all material like original data carriers including all copies of the software as well as all 
+written material.
+
+3. Right of use
+3.1 Within the framework of this contract and in conjunction with one single internet presence (website), LS grant 
+the licensee a simple, non-exclusive and personal right to use the software on a server under a domain with the 
+associated domain aliases and subdomains included.
+3.2 Provided that the software is not a test version, the use of the software on further internet presences is not 
+allowed without the prior written consent of LS and requires a new license.
+3.3 The operation of the software independent of an internet presence or as a self-contained application is not 
+allowed without the prior written consent of LS. Likewise, the permanent operation of a test version exceeding the 
+common mere testing of the software, e.g. for commercial purposes, is not allowed.
+3.4 Unless otherwise specified in writing by LS, the software is not subject to the LGPL or similar open source 
+licensing models.
+
+4. Assignment of the license (reseller provision)/circulation of a test version
+4.1 Provided that the following conditions are met and that the software is not a test version, the licensee is 
+permitted to entirely assign the rights of use to a different person or organization:
+- The license certificate as well as this software license agreement are to be handed over to the new licensee. 
+The assigning licensee is obliged to advise the new licensee of the adherence to this software license agreement. 
+The new licensee is not permitted to use the software if he does not accept this software license agreement. In 
+this case, the assignment is not considered effected.
+- The assigning licensee must delete or destroy all data/files and documents of the software following the 
+assignment. 
+4.2 Should the software be a test version, then the licensee is permitted to hand the software on to a different 
+person or a different enterprise, also a copy of it, unless LS have excluded this in advance. In the event of the 
+assignment to a third party, the licensee is obliged to advise the third party of the adherence to this software 
+license agreement.
+
+5. Ownership of rights
+Accepting the license only grants the licensee the ownership of the physical data carrier on which the software 
+has been stored, should the software be supplied on a data carrier and not be transferred electronically. 
+Furthermore, the licensee is granted the right to use the software as agreed upon in this contract. A purchase of 
+rights to the software itself is not included. LS particularly reserve and retain all publishing, reproduction, 
+processing, editing, and utilization rights to the software.
+
+6. Special restrictions
+6.1 The licensee is prohibited from altering, translating, reconverting, decompiling or disassembling the software 
+or related written material, to create any projects derived from the software or to copy or alter the written 
+material or to create any projects derived from the written material without the prior written consent of LS. This 
+does not apply to necessary configuration settings or modifications which are allowed according to the user 
+manual. This does also not apply to the components of third parties which are subject to their own regulations 
+according to 1.3 and are to be adhered to by the licensee.
+
+6.2 The commercial selling, giving away, letting or lending of the software is expressly prohibited. This excludes 
+the cases specified under 4.
+6.3 The licensee shall not be entitled to the disclosure of the source code.
+
+7. Compensation for violation of this contract
+The licensee is liable to LS for all damages and losses resulting from any copyright infringement through the 
+violation of the terms of this agreement by the licensee.
+
+8. Further development and updates
+LS are authorized to update and modify the software at their own discretion or due to technical or legal 
+necessities. LS are not obliged to provide the licensee with further development and updates of the software 
+unless expressly agreed in writing. 
+
+9. Liability and warranty of LS
+9.1 If the software was handed over on a data carrier, then LS warrant to the original licensee that the data 
+carrier with the software and other material is faultless at the time of delivery.
+9.2 Should the data carrier be faulty, then the licensee can request a compensation delivery during the warranty 
+period within the first 6 months. The licensee must send back the defective data carrier to LS and will then, 
+after receipt of the defective data carrier, immediately receive either a new one or LS will make the data 
+available for download. If LS make the data available for download, the licensee is obliged to download the data 
+within 14 days.
+9.3 The licensee can, according to his own discretion, claim a reduction of the purchasing price or withdraw from 
+the contract if LS do not deliver a replacement data carrier or a download within an adequate period of time as it 
+is described in 9.2.
+9.4 For the reasons outlined above under 1., LS cannot assume liability for the freedom from errors of the 
+software. In particular, LS do not warrant that the software fulfils the requirements and purposes of the licensee 
+or that it cooperates with other programs selected by the licensee. The licensee is responsible for the correct 
+selection and the consequences of the software use just as he is for the accompanying written or electronic 
+material.
+9.5 The liability of LS including the noncontractual liability is excluded as far as LS are not liable due to 
+mandatory legal provisions like, for example, deliberate intention or gross negligence, the lack of assured 
+properties or the violation of essential contractual obligations. The liability of LS is excluded as far as a test 
+version of the software is concerned. In the event of any action brought by a third party against the licensee in 
+connection with property rights or in connection with property rights due to contractual delivery, then LS are, to 
+the exclusion of any further claims and at their discretion and own expense, entitled and committed, to either 
+effect a right to use from the property right owner or to modify the infringing contents or replace them by 
+contents that are free from property rights or to take back the products in question against refund of the 
+purchase price.
+9.6 LS are not liable to pay compensation for any losses or damages (damages and losses from lost profits, 
+business interruption, loss of business information, data or other financial losses are included without 
+limitation) that result from using this software, even if LS have been informed about the possibility of such a 
+loss or damage. In any case, the liability of LS is limited to the amount which the licensee has actually paid for 
+the product. This does not apply to the event of losses or damages that have been caused by gross intent or gross 
+negligence on the part of LS. Likewise, claims that are based on inalienable legal provisions concerning product 
+liability are not affected by this.
+9.7 LS undertake to test the data carrier and the files provided for downloading with the latest version of a 
+customary anti-virus program beforehand and to remove any computer viruses. This commitment does not extend to 
+files that were already in the possession of the licensee before the conclusion of this license contract. Should 
+data carriers supplied by LS or files made available as a download by LS be infected by viruses despite these 
+measures, then any liability whatsoever of LS is excluded.
+
+10. Cancellation of this contract
+If the software is generally unusable as provided for in 1., then the licensee is entitled to cancel the contract. 
+LS have the same right if the production of usable software as provided for in 1. is not possible with reasonable 
+effort.
+
+11. Further provisions
+11.1 Rights and obligations resulting from this contract can only be transferred to third parties with the written 
+consent of the other party. The necessity of a written consent does not apply to the assignment/transfer as 
+provided for in 4. as well as to the assignment of the contract from LS to a successor in interest or an 
+affiliated company.
+11.2 The place of performance for all services from this contract is Korb, Germany. The legal venue for any 
+disputes under this contract is the local court competent for Korb, Germany. This also applies to the event 
+of a licensee without a general legal venue in Germany or if the residence or habitual abode is not known at the 
+time the action is raised. Furthermore, LS are entitled to take action at the domicile or place of business of the 
+licensee.
+
+12. Severability clause
+Should individual terms of this contract be found to be void, the contracting parties shall undertake to replace 
+them by new ones which comply with the originally intended goals and purposes. The validity of the software 
+license contract is guaranteed in each and every case.
+

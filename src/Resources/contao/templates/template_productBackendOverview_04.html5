@@ -1,0 +1,82 @@
+<?php
+	// use this to show the available output options:
+	// echo $this->objProduct->_outputOptions;
+?>
+<tr class="space">
+	<td colspan="6">&nbsp;</td>
+</tr>
+<tr class="product">
+	<td>
+		<?php if ($this->objProduct->_hasMainImage): ?>
+				<img src="<?php echo \Image::get($this->objProduct->_mainImage, 50, 50, 'box'); ?>" alt="" />
+		<?php endif; ?>
+	</td>
+	<td><strong><?php echo $this->objProduct->_code; ?></strong></td>
+	<td></td>
+	<td><strong><?php echo $this->objProduct->_title; ?></strong></td>
+	<td style="text-align: right;"><?php echo $this->objProduct->_stock; ?> <?php echo $this->objProduct->_quantityUnit; ?></td>
+	<td>
+		<?php
+			if (isset($GLOBALS['merconis_globals']['stockManagement']['errorMsg'][$this->objProduct->ls_productVariantID])) {
+				?>
+				<p class="error"><?php echo $GLOBALS['merconis_globals']['stockManagement']['errorMsg'][$this->objProduct->ls_productVariantID]; ?></p>
+				<?php
+			}
+			if (isset($_SESSION['lsShop']['stockManagement']['successMsg'][$this->objProduct->ls_productVariantID])) {
+				?>
+				<p class="success"><?php echo $_SESSION['lsShop']['stockManagement']['successMsg'][$this->objProduct->ls_productVariantID]; ?></p>
+				<?php
+				unset($_SESSION['lsShop']['stockManagement']['successMsg'][$this->objProduct->ls_productVariantID]);
+			}
+		?>
+		<form action="<?php echo $this->action; ?>" method="post" onsubmit="Backend.getScrollOffset()">
+			<input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN; ?>" />
+			<input type="hidden" name="FORM_SUBMIT" value="changeStock" />
+			<input type="hidden" name="productVariantID" value="<?php echo $this->objProduct->ls_productVariantID; ?>" />
+			<input type="text" name="changeStockQuantity" value="" />
+			<input type="submit" name="submitChange" value="<?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['ok']; ?>" />
+		</form>
+	</td>
+</tr>
+
+<?php
+	if ($this->objProduct->_hasVariants) {
+		foreach ($this->objProduct->_variants as $variant) {
+			?>
+				<tr class="variant">
+					<td>
+						<?php if ($variant->_hasMainImage): ?>
+								<img src="<?php echo \Image::get($this->objProduct->_mainImage, 50, 50, 'box'); ?>" alt="" />
+						<?php endif; ?>
+					</td>
+					<td></td>
+					<td><?php echo $variant->_code; ?></td>
+					<td><?php echo $variant->_title; ?></td>
+					<td style="text-align: right;"><?php echo $variant->_stock; ?> <?php echo $variant->_quantityUnit; ?></td>
+					<td>
+						<?php
+							if (isset($GLOBALS['merconis_globals']['stockManagement']['errorMsg'][$variant->ls_productVariantID])) {
+								?>
+								<p class="error"><?php echo $GLOBALS['merconis_globals']['stockManagement']['errorMsg'][$variant->ls_productVariantID]; ?></p>
+								<?php
+							}
+							if (isset($_SESSION['lsShop']['stockManagement']['successMsg'][$variant->ls_productVariantID])) {
+								?>
+								<p class="success"><?php echo $_SESSION['lsShop']['stockManagement']['successMsg'][$variant->ls_productVariantID]; ?></p>
+								<?php
+								unset($_SESSION['lsShop']['stockManagement']['successMsg'][$variant->ls_productVariantID]);
+							}
+						?>
+						<form action="<?php echo $this->action; ?>" method="post" onsubmit="Backend.getScrollOffset()">
+							<input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN; ?>" />
+							<input type="hidden" name="FORM_SUBMIT" value="changeStock" />
+							<input type="hidden" name="productVariantID" value="<?php echo $variant->ls_productVariantID; ?>" />
+							<input type="text" name="changeStockQuantity" value="" />
+							<input type="submit" name="submitChange" value="<?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['ok']; ?>" />
+						</form>
+					</td>
+				</tr>
+			<?php
+		}
+	}
+?>

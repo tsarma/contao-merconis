@@ -1,0 +1,69 @@
+<?php
+	if (
+			is_array($this->objProduct->_attributes)
+		&&	count ($this->objProduct->_attributes)
+	) {
+		?>
+		<div class="productAttributes">
+			<h4><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText129']; ?></h4>
+			<?php
+				foreach ($this->objProduct->_attributes as $arr_valuesForAttribute) {
+					if (is_array($arr_valuesForAttribute[0])) {
+						?>
+						<div class="attributeInfo <?php echo standardize($arr_valuesForAttribute[0]['attributeTitle']); ?>">
+							<span class="attributeTitle"><?php echo $arr_valuesForAttribute[0]['attributeTitle']; ?>:</span>
+							<span class="attributeValue">
+								<?php
+									foreach ($arr_valuesForAttribute as $int_attributeValueKey => $arr_valueForAttribute) {
+										if ($int_attributeValueKey > 0) {
+											echo ', ';
+										}
+										?><span class="singleAttributeValue <?php echo standardize($arr_valueForAttribute['valueTitle']); ?>"><?php echo $arr_valueForAttribute['valueTitle']; ?></span><?php
+									}
+								?>
+							</span>
+						</div>
+						<?php
+					}
+				}
+			?>
+		</div>
+		<?php
+	}
+?>
+
+
+<?php
+	if (
+			$this->objProduct->_variantIsSelected
+		&&	is_array($this->objProduct->_selectedVariant->_attributes)
+		&&	count ($this->objProduct->_selectedVariant->_attributes)
+	) {
+		?>
+		<div class="variantAttributes">
+			<h4><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText130']; ?></h4>
+			<?php
+				foreach ($this->objProduct->_selectedVariant->_attributes as $arr_valuesForAttribute) {
+					if (is_array($arr_valuesForAttribute[0])) {
+						?>
+						<div class="attributeInfo <?php echo standardize($arr_valuesForAttribute[0]['attributeTitle']); ?>">
+							<span class="attributeTitle"><?php echo $arr_valuesForAttribute[0]['attributeTitle']; ?>:</span>
+							<span class="attributeValue">
+								<?php
+									foreach ($arr_valuesForAttribute as $int_attributeValueKey => $arr_valueForAttribute) {
+										if ($int_attributeValueKey > 0) {
+											echo ', ';
+										}
+										?><span class="singleAttributeValue <?php echo standardize($arr_valueForAttribute['valueTitle']); ?>"><?php echo $arr_valueForAttribute['valueTitle']; ?></span><?php
+									}
+								?>
+							</span>
+						</div>
+						<?php
+					}
+				}
+			?>
+		</div>
+		<?php
+	}
+?>

@@ -1,0 +1,20 @@
+<?php
+$obj_tmp_productOrVariant = null;
+if ($this->objProduct->_variantIsSelected) {
+	$obj_tmp_productOrVariant = &$this->objProduct->_selectedVariant;
+} else {
+	$obj_tmp_productOrVariant = &$this->objProduct;
+}
+
+if ($obj_tmp_productOrVariant !== null) {
+	if ($obj_tmp_productOrVariant->_filterMatch === false) {
+		?>
+		<div class="msgVariantDoesNotMatchFilter"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText103']; ?></div>
+		<?php		
+	} else if ($obj_tmp_productOrVariant->_filterMatch === 'none') {
+		?>
+		<div class="msgProductDoesNotMatchFilter"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText102']; ?></div>
+		<?php
+	}
+}
+?>

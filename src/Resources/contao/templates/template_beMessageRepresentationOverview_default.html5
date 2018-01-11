@@ -1,0 +1,10 @@
+<div class="be_messageRepresentationOverview <?php echo $this->value['messageTypeAlias']; ?>">
+	<ul>
+		<li><strong><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_messages_sent']['tstamp'][0]; ?>: <?php echo $this->value['tstampFormatted']; ?></strong></li>
+		<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_messages_sent']['subject'][0]; ?>: <?php echo $this->value['subject']; ?></li>
+		<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_messages_sent']['orderNr'][0]; ?>: <?php echo $this->value['orderNr']; ?></li>
+		<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_messages_sent']['receiverMainAddress'][0]; ?>: <?php echo $this->value['receiverMainAddress']; ?></li>
+		<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_messages_sent']['receiverBccAddress'][0]; ?>: <?php echo $this->value['receiverBccAddress']; ?></li>
+		<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_messages_sent']['counterNr'][0]; ?>: <?php echo $this->value['counterNr']; ?></li>
+	</ul>
+</div>

@@ -1,0 +1,152 @@
+<?php
+
+namespace Merconis\Core;
+
+$GLOBALS['TL_DCA']['tl_ls_shop_filter_field_values'] = array(
+	'config' => array(
+		'dataContainer' => 'Table',
+		'ptable' => 'tl_ls_shop_filter_fields',
+		'onsubmit_callback' => array(
+			array('Merconis\Core\ls_shop_generalHelper', 'saveLastBackendDataChangeTimestamp')
+		),
+		'ondelete_callback' => array(
+			array('Merconis\Core\ls_shop_generalHelper', 'saveLastBackendDataChangeTimestamp')
+		),
+		'oncut_callback' => array(
+			array('Merconis\Core\ls_shop_generalHelper', 'saveLastBackendDataChangeTimestamp')
+		),
+		'oncopy_callback' => array(
+			array('Merconis\Core\ls_shop_generalHelper', 'saveLastBackendDataChangeTimestamp')
+		),
+		'onrestore_callback' => array(
+			array('Merconis\Core\ls_shop_generalHelper', 'saveLastBackendDataChangeTimestamp')
+		)
+	),
+	
+	'list' => array(
+	
+		'sorting' => array(
+			'mode' => 4,
+			'fields' => array('sorting'),
+			'panelLayout' => 'search,limit',
+			'headerFields' => array('title'),
+			'disableGrouping' => true,
+			'child_record_callback'   => array('Merconis\Core\ls_shop_filter_field_values', 'listChildRecords')
+		),
+		
+		'global_operations' => array(
+			'all' => array
+			(
+				'label'               => &$GLOBALS['TL_LANG']['MSC']['all'],
+				'href'                => 'act=select',
+				'class'               => 'header_edit_all',
+				'attributes'          => 'onclick="Backend.getScrollOffset();" accesskey="e"'
+			)
+		),
+		
+		'operations' => array(
+			'edit' => array(
+				'label'               => &$GLOBALS['TL_LANG']['tl_ls_shop_filter_field_values']['edit'],
+				'href'                => 'act=edit',
+				'icon'                => 'edit.gif'
+			),
+			'copy' => array(
+				'label'               => &$GLOBALS['TL_LANG']['tl_ls_shop_filter_field_values']['copy'],
+				'href'                => 'act=copy',
+				'icon'                => 'copy.gif'
+			),
+			'cut' => array(
+				'label'               => &$GLOBALS['TL_LANG']['tl_ls_shop_filter_field_values']['cut'],
+				'href'                => 'act=paste&amp;mode=cut',
+				'icon'                => 'cut.gif',
+				'attributes'          => 'onclick="Backend.getScrollOffset()"'
+			),
+			'delete' => array(
+				'label'               => &$GLOBALS['TL_LANG']['tl_ls_shop_filter_field_values']['delete'],
+				'href'                => 'act=delete',
+				'icon'                => 'delete.gif',
+				'attributes'          => 'onclick="if (!confirm(\'' . $GLOBALS['TL_LANG']['MSC']['deleteConfirm'] . '\')) return false; Backend.getScrollOffset();"'
+			),
+			'show' => array(
+				'label'               => &$GLOBALS['TL_LANG']['tl_ls_shop_filter_field_values']['show'],
+				'href'                => 'act=show',
+				'icon'                => 'show.gif'
+			)
+		
+		)	
+	),
+	
+	'palettes' => array(
+		'default' => '{filterValue_legend},filterValue,alias;{output_legend},classForFilterFormField,importantFieldValue'
+	),
+	
+	'fields' => array(
+		'filterValue' => array(
+			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_filter_field_values']['filterValue'],
+			'exclude' => true,
+			'inputType' => 'text',
+			'eval' => array('mandatory' => true, 'tl_class' => 'w50', 'maxlength'=>255),
+			'search' => true
+		),
+		
+		'alias' => array (
+			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_filter_field_values']['alias'],
+			'exclude' => true,
+			'inputType'               => 'text',
+			'eval'                    => array('rgxp'=>'alnum', 'doNotCopy'=>true, 'spaceToUnderscore'=>true, 'maxlength'=>128, 'tl_class'=>'clr topLinedGroup'),
+			'save_callback' => array (
+				array('Merconis\Core\ls_shop_filter_field_values', 'generateAlias')
+			),
+			'search' => true
+		),
+		
+		'classForFilterFormField' => array (
+			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_filter_field_values']['classForFilterFormField'],
+			'exclude' => true,
+			'inputType' => 'text',
+			'eval' => array('tl_class' => 'w50', 'maxlength'=>255)
+		),
+		
+		'importantFieldValue' => array(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_filter_field_values']['importantFieldValue'],
+			'exclude'                 => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('tl_class'=>'w50 m12')
+		)
+	)
+);
+
+class ls_shop_filter_field_values extends \Backend {
+	public function __construct() {
+		parent::__construct();
+	}
+	
+	public function listChildRecords($arrRow) {
+		return sprintf('<strong>%s</strong> <span style="font-style: italic;">(Alias: %s)</span>', $arrRow['filterValue'], $arrRow['alias']);
+	}
+
+	public function generateAlias($varValue, \DataContainer $dc) {
+		$autoAlias = false;
+
+		$currentFilterValue = $dc->activeRecord->filterValue;
+
+		// Generate an alias if there is none
+		if ($varValue == '') {
+			$autoAlias = true;
+			$varValue = standardize(\StringUtil::restoreBasicEntities($currentFilterValue));
+		}
+		$objAlias = \Database::getInstance()->prepare("SELECT id FROM tl_ls_shop_filter_field_values WHERE id=? OR alias=?")
+								   ->execute($dc->id, $varValue);
+
+		// Check whether the alias exists
+		if ($objAlias->numRows > 1) {
+			if (!$autoAlias) {
+				throw new \Exception(sprintf($GLOBALS['TL_LANG']['ERR']['aliasExists'], $varValue));
+			}
+			$varValue .= '-' . $dc->id;
+		}
+
+		return $varValue;
+	}
+}
+?>

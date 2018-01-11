@@ -1,0 +1,302 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title><?php echo $this->emailSubject; ?></title>
+		<style type="text/css">
+			body {
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 12px;
+			}
+			
+			.invisible {
+				display: none;
+			}
+			
+			.orderRepresentation table {
+				border-collapse: collapse;
+				border: 1px solid transparent;
+				margin-bottom: 20px;
+				background-color: #FFFFFF;
+			}
+			
+			.orderRepresentation table td {
+				border: 1px solid #CCCCCC;
+				vertical-align: top;
+				text-align: left;
+				padding: 5px;
+			}
+			
+			.orderRepresentation table tr.header td {
+				border-bottom: 3px double #000000;
+				background-color: #EEEEEE;
+				font-weight: bold;
+			}
+			
+			.orderRepresentation table td.quantity {
+				white-space: normal;
+			}
+			
+			.orderRepresentation table td.quantity form {
+				display: inline;
+			}
+			
+			.orderRepresentation table td.quantity .formQuantity input,
+			.orderRepresentation table td.quantity .formDelete input {
+				width: 65px;
+				margin-bottom: 2px;
+			}
+			
+			.orderRepresentation table td.quantity input.quantity {
+				background-color: #EEEEEE;
+				border: 1px outset #000000;
+			}
+			
+			.orderRepresentation table td.quantity input.submit,
+			.usedCoupon input.button {
+				font-size: 10px;
+			}
+			
+			.merconisExampleLayout a.button,
+			.merconisExampleLayout a.button input.button {
+				text-decoration: none;
+			}
+			
+			.orderRepresentation table tr.sum td,
+			.orderRepresentation table tr.sumTotal td {
+				border-top: 3px double #000000;
+				font-weight: bold;
+			}
+			
+			.orderRepresentation table tr.addCoupon td {
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			
+			.orderRepresentation table tr.usedCoupon.last td {
+				padding-bottom: 10px;
+			}
+			
+			.orderRepresentation table tr.submitBox td {
+				text-align: right;
+			}
+			
+			.orderRepresentation table td.price {
+				text-align: right;
+				white-space: nowrap;
+			}
+			
+			.orderRepresentation table td.weight {
+				text-align: right;
+				white-space: nowrap;
+			}
+			
+			.orderRepresentation table tr.space td {
+				border: none;
+				height: 20px;
+			}
+			
+			.orderRepresentation table tr.headline td {
+				border: none;
+				padding-bottom: 15px;
+				font-weight: bold;
+				font-size: 18px;
+			}
+			
+			.orderRepresentation table tr.info td {
+				font-size: 10px;
+				font-style: italic;
+			}
+			
+			.orderRepresentation table tr.strong td {
+				font-weight: bold;
+			}
+			
+			.orderRepresentation table tr.strong td.taxClass {
+				font-weight: normal;
+			}
+			
+			.orderRepresentation table tr.borderless td {
+				border: none;
+			}
+			
+			.orderRepresentation table tr.invoicedAmount td {
+				font-size: 18px;
+				font-weight: bold;
+				background-color: #EEEEEE;
+			}
+			
+			.orderRepresentation table tr.form fieldset {
+				margin: 0px;
+				padding: 0px;
+				border: none;
+			}
+			
+			.orderRepresentation table tr.form fieldset h3 {
+				margin-top: 0px;
+			}
+			
+			.orderRepresentation table tr.form fieldset.left {
+				width: 310px;
+				float: left;
+				margin-right: 18px;
+			}
+			
+			.orderRepresentation table tr.form fieldset.right {
+				width: 310px;
+				float: left;
+			}
+			
+			.orderRepresentation table tr.form fieldset.bottom {
+				padding-top: 10px;
+				clear: both;
+				margin-bottom: 10px;
+			}
+			
+			.orderRepresentation table tr.form fieldset.bottom textarea {
+				width: 663px;
+			}
+			
+			.orderRepresentation table tr.form fieldset.bottom .explanation {
+				margin-top: 10px;
+				width: 669px;
+			}
+			
+			.orderRepresentation table tr.form label,
+			.orderRepresentation table tr.form input,
+			.orderRepresentation table tr.form select,
+			.orderRepresentation table tr.form .textOutput {
+				display: inline-block;
+				margin-bottom: 5px;
+			}
+			
+			.orderRepresentation table tr.form label.error {
+				color: #AA0000;
+			}
+			
+			.orderRepresentation table tr.form p.error {
+				display: none;
+			}
+			
+			.orderRepresentation table tr.form label {
+				width: 95px;
+				margin-right: 5px;
+			}
+			
+			.orderRepresentation table tr.form input,
+			.orderRepresentation table tr.form .textOutput {
+				width: 200px;
+			}
+			
+			.orderRepresentation table tr.formShippingMethodAdditionalData label,
+			.orderRepresentation table tr.formPaymentMethodAdditionalData label {
+				width: 210px;
+				margin-right: 5px;
+			}
+			
+			.orderRepresentation table tr.formShippingMethodAdditionalData input,
+			.orderRepresentation table tr.formShippingMethodAdditionalData .textOutput,
+			.orderRepresentation table tr.formPaymentMethodAdditionalData input,
+			.orderRepresentation table tr.formPaymentMethodAdditionalData .textOutput {
+				width: 300px;
+			}
+			
+			.orderRepresentation table tr.form select {
+				width: 206px;
+			}
+			
+			.orderRepresentation table tr.form .submit_container {
+				width: 670px;
+				text-align: right;
+			}
+			
+			.orderRepresentation table tr.form .submit_container input.submit {
+				width: auto;
+			}
+			
+			.orderRepresentation div.confirmtext01,
+			.orderRepresentation div.confirmtext02 {
+				width: 663px;
+				height: 100px;
+				overflow: scroll;
+				overflow-x: hidden;
+				border: 1px solid #CCCCCC;
+				padding: 10px;
+				margin-bottom: 10px;
+			}
+			
+			.orderRepresentation table tr.form .checkbox_container,
+			.orderRepresentation table tr.form .radio_container {
+				border: none;
+				margin-top: 10px;
+			}
+			
+			.orderRepresentation table tr.form .checkbox_container input,
+			.orderRepresentation table tr.form .radio_container input {
+				padding: 0px;
+				margin: 0px;
+				margin-right: 5px;
+				width: auto;
+			}
+			
+			.orderRepresentation table tr.form .checkbox_container label,
+			.orderRepresentation table tr.form .radio_container label {
+				width: auto;
+			}
+			
+			.orderRepresentation table tr.form .checkbox_container legend,
+			.orderRepresentation table tr.form .radio_container legend {
+				display: inline-block;
+				width: 95px;
+				margin-right: 5px;
+				margin-bottom: 5px;
+				float: left;
+			}
+			
+			.orderRepresentation table tr.form .checkbox_container span,
+			.orderRepresentation table tr.form .radio_container span {
+				width: 200px;
+				display: block;
+				float: right;
+			}
+			
+			.orderRepresentation table tr.form .checkbox_container legend span,
+			.orderRepresentation table tr.form .radio_container legend span {
+				display: inline;
+				width: auto;
+				float: none;
+			}
+			
+			.formPaymentMethod fieldset,
+			.formShippingMethod fieldset {
+				border: none;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.formPaymentMethod fieldset span,
+			.formShippingMethod fieldset span{
+				margin-right: 10px;
+			}
+			
+			.orderRepresentation table tr.formConfirmOrder .checkbox_container span {
+				width: auto;
+			}
+			
+			.orderRepresentation table .formPaymentMethodAdditionalData .explanation,
+			.orderRepresentation table .formShippingMethodAdditionalData .explanation {
+				width: 638px;
+			}
+			
+			.orderRepresentation table .formPaymentMethodAdditionalData div.error,
+			.orderRepresentation table .formShippingMethodAdditionalData div.error,
+			.orderRepresentation table .formPaymentMethodAdditionalData div.success,
+			.orderRepresentation table .formShippingMethodAdditionalData div.success {
+				width: 638px;
+			}
+		</style>
+	</head>
+	<body>
+		<?php echo $this->content; ?>
+	</body>
+</html>

@@ -1,0 +1,4 @@
+<!-- indexer::stop -->
+<div class="<?php echo $this->strTemplate ?>">
+</div>
+<!-- indexer::continue -->

@@ -1,0 +1,52 @@
+<?php $this->loadLanguageFile('languages'); ?>
+<div class="be_orderRepresentationOverview be_orderRepresentationOverview_01 <?php echo $this->arrOrder['status01']; ?> <?php echo $this->arrOrder['status02']; ?> <?php echo $this->arrOrder['status03']; ?> <?php echo $this->arrOrder['status04']; ?> <?php echo $this->arrOrder['status05']; ?>">
+	<div class="messageIcons">
+		<?php
+			if (is_array($this->arrMessageTypes)) {
+				foreach ($this->arrMessageTypes as $messageType) {
+					echo $messageType['button'];
+				}
+			}
+		?>
+	</div>
+	<div class="message">
+		<ul>
+			<li><strong><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['orderNr'][0]; ?>: <?php echo $this->arrOrder['orderNr']; ?></strong></li>
+			<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['orderDate'][0]; ?>: <?php echo $this->parseDate($GLOBALS['TL_CONFIG']['datimFormat'], $this->arrOrder['orderDateUnixTimestamp']); ?></li>
+			<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['customerName'][0]; ?>: <?php echo $this->arrOrder['customerData']['personalData']['lastname'].', '.$this->arrOrder['customerData']['personalData']['firstname']; ?></li>
+			<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['customerLanguage'][0]; ?>: <?php echo $GLOBALS['TL_LANG']['LNG'][$this->arrOrder['customerLanguage']]; ?></li>
+			<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['invoicedAmount'][0]; ?>: <?php echo ls_shop_generalHelper::outputPrice($this->arrOrder['invoicedAmount']); ?></li>
+			<?php if (isset($this->arrOrder['status01']) && isset($GLOBALS['TL_LANG']['MSC']['ls_shop']['statusValues'][$this->arrOrder['status01']])) { ?>
+				<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['status01'][0]; ?>: <?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['statusValues'][$this->arrOrder['status01']]; ?></li>
+			<?php } ?>
+			<?php if (isset($this->arrOrder['status02']) && isset($GLOBALS['TL_LANG']['MSC']['ls_shop']['statusValues'][$this->arrOrder['status02']])) { ?>
+				<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['status02'][0]; ?>: <?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['statusValues'][$this->arrOrder['status02']]; ?></li>
+			<?php } ?>
+			<?php if (isset($this->arrOrder['status03']) && isset($GLOBALS['TL_LANG']['MSC']['ls_shop']['statusValues'][$this->arrOrder['status03']])) { ?>
+				<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['status03'][0]; ?>: <?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['statusValues'][$this->arrOrder['status03']]; ?></li>
+			<?php } ?>
+			<?php if (isset($this->arrOrder['status04']) && isset($GLOBALS['TL_LANG']['MSC']['ls_shop']['statusValues'][$this->arrOrder['status04']])) { ?>
+				<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['status04'][0]; ?>: <?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['statusValues'][$this->arrOrder['status04']]; ?></li>
+			<?php } ?>
+			<?php if (isset($this->arrOrder['status05']) && isset($GLOBALS['TL_LANG']['MSC']['ls_shop']['statusValues'][$this->arrOrder['status05']])) { ?>
+				<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['status05'][0]; ?>: <?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['statusValues'][$this->arrOrder['status05']]; ?></li>
+			<?php } ?>
+			<?php if ($this->arrOrder['shippingTrackingNr']) { ?>
+				<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['shippingTrackingNr'][0]; ?>: <?php echo $this->arrOrder['shippingTrackingNr']; ?></li>
+			<?php } ?>
+			<?php if ($this->arrOrder['shippingTrackingUrl']) { ?>
+				<li><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['shippingTrackingUrl'][0]; ?>: <?php echo $this->arrOrder['shippingTrackingUrl']; ?></li>
+			<?php } ?>
+		</ul>
+		<?php
+			if ($this->paymentModuleOutput) {
+				?>
+				<div class="paymentStatusInfo">
+					<?php echo $this->paymentModuleOutput; ?>
+				</div>
+				<?php
+			}
+		?>
+	</div>
+	<div class="clearFloat">&nbsp;</div>
+</div>

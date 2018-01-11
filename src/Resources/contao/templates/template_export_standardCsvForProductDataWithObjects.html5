@@ -1,0 +1,31 @@
+<?php
+if (is_array($this->arr_data) && count($this->arr_data)) {
+	/*
+	 * Create a pseudo file pointer for php's output stream
+	 */
+	$str_output = fopen('php://output', 'w');
+
+	fputcsv($str_output, array('productId', 'variantId', 'title', 'price', 'deliveryTimeDays', 'deliveryTimeMessage'));
+
+	foreach ($this->arr_data as $int_productId => $obj_product) {
+		$var_productId = $obj_product->_id;
+		$var_productTitle = $obj_product->_title;
+		$var_productPrice = $obj_product->_unscaledPriceAfterTax;
+		$var_productDeliveryTimeDays = $obj_product->_deliveryTimeDays;
+		$var_productDeliveryTimeMessage = $obj_product->_deliveryTimeMessage;
+
+		fputcsv($str_output, array($var_productId, '', $var_productTitle, $var_productPrice, $var_productDeliveryTimeDays, $var_productDeliveryTimeMessage));
+
+		if ($obj_product->_hasVariants) {
+			foreach ($obj_product->_variants as $obj_variant) {
+				$var_variantId = $obj_variant->_id;
+				$var_variantTitle = $obj_variant->_title;
+				$var_variantPrice = $obj_variant->_unscaledPriceAfterTax;
+				$var_variantDeliveryTimeDays = $obj_variant->_deliveryTimeDays;
+				$var_variantDeliveryTimeMessage = $obj_variant->_deliveryTimeMessage;
+
+				fputcsv($str_output, array($var_productId, $var_variantId, $var_variantTitle, $var_variantPrice, $var_variantDeliveryTimeDays, $var_variantDeliveryTimeMessage));
+			}
+		}
+	}
+}

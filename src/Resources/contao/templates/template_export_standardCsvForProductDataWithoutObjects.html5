@@ -1,0 +1,17 @@
+<?php
+/*
+ * Creating a standard csv output
+ */
+if (is_array($this->arr_data) && count($this->arr_data)) {
+	/*
+	 * Create a pseudo file pointer for php's output stream
+	 */
+	$str_output = fopen('php://output', 'w');
+
+	fputcsv($str_output, array_keys(reset($this->arr_data)));
+
+	foreach ($this->arr_data as $arr_row) {
+		fputcsv($str_output, $arr_row);
+	}
+	/* */
+}

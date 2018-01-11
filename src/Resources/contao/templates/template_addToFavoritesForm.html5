@@ -1,0 +1,34 @@
+<!-- indexer::stop -->
+<div class="favoriteSwitchBox">
+	<?php
+		if (ls_shop_msg::checkMsg('addedToFavorites', $this->objProduct->_id)) {
+			?>
+			<span class="success"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText126']; ?></span>
+			<?php
+		}
+
+		if (ls_shop_msg::checkMsg('removedFromFavorites', $this->objProduct->_id)) {
+			?>
+			<span class="error"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText127']; ?></span>
+			<?php
+		}
+	?>
+	
+	<?php
+		if(FE_USER_LOGGED_IN) {
+			?>
+				<form action="<?php echo ampersand(\Environment::get('request')); ?>" method="post" enctype="application/x-www-form-urlencoded">
+					<div>
+						<input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN; ?>" />
+						<input type="hidden" name="FORM_SUBMIT" value="<?php echo $this->str_formSubmitValue; ?>">
+						<input type="hidden" name="favoriteProductID" value="<?php echo $this->str_favoriteProductId; ?>">
+						<button type="submit" class="submit" name="favoriteAddOrRemoveSubmit"><?php echo !$this->bln_isFavorite ? $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText124'] : $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText125']; ?></button>
+					</div>
+				</form>
+			<?php
+		} else {
+			echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText128'];
+		}
+	?>
+</div>
+<!-- indexer::continue -->

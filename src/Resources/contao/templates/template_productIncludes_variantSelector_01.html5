@@ -1,0 +1,78 @@
+<?php
+	if ($this->objProduct->_hasVariants) {
+		/*
+		 * Create a variant selection form
+		 */
+		$attributeFormFields = array();
+		foreach ($this->objProduct->_allVariantAttributes as $arrAttribute) {
+			$attributeFormFields[$arrAttribute['attributeID']] = '<label>'.$arrAttribute['attributeTitle'].'</label>';
+			$attributeFormFields[$arrAttribute['attributeID']] .= '<select id="ctrl_attribute_'.$arrAttribute['attributeID'].'" name="attribute_'.$arrAttribute['attributeID'].'">';
+			
+			$arrSelectedVariantAttributeValues = $this->objProduct->_selectedVariant->_attributes[$arrAttribute['attributeID']];
+			if (is_array($arrSelectedVariantAttributeValues)) {
+				reset($arrSelectedVariantAttributeValues);
+			}
+			
+			foreach ($arrAttribute['values'] as $arrValue) {
+				$attributeFormFields[$arrAttribute['attributeID']] .= '<option value="'.$arrValue['valueID'].'"'.(is_array($arrSelectedVariantAttributeValues) && $arrSelectedVariantAttributeValues[key($arrSelectedVariantAttributeValues)]['valueID'] == $arrValue['valueID'] ? ' selected' : '').'>'.$arrValue['valueTitle'].'</option>';
+			}
+
+			$attributeFormFields[$arrAttribute['attributeID']] .= '</select>';
+		}
+		
+		if (
+				\Input::post('FORM_SUBMIT') == 'variantSelectionForm_'.$this->objProduct->_id
+			||	\Input::post('FORM_SUBMIT') == 'variantSelectionForm_'.$this->objProduct->_productVariantID
+		) {
+			if (\Input::post('json_attributeValueSelection')) {
+				$arrRequestedAttributeValues = json_decode(\Input::post('json_attributeValueSelection'), true);
+			} else {
+				$arrRequestedAttributeValues = array();
+				foreach ($attributeFormFields as $attributeID => $str_formField) {
+					$arrRequestedAttributeValues[$attributeID] = \Input::post('attribute_'.$attributeID);
+				}
+			}
+			
+			$objMatchingVariant = $this->objProduct->_getVariantByAttributeValues($arrRequestedAttributeValues);
+			if ($objMatchingVariant !== null) {
+				$this->redirect($objMatchingVariant->_linkToVariant);
+			} else {
+				$blnNoVariantFound = true; 
+			}
+		}
+		?>
+		<div
+			class="variantSelector"
+			data-merconis-component="variantSelector"
+			data-merconis-productId="<?php echo $this->objProduct->_id; ?>"
+			data-merconis-productVariantId="<?php echo $this->objProduct->_productVariantID; ?>"
+		>
+			<form action="<?php echo \Environment::get('request'); ?>" class="tl_form" method="post">
+				<input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN; ?>">
+				<input type="hidden" name="FORM_SUBMIT" value="variantSelectionForm_<?php echo $this->objProduct->_id; ?>">
+				<?php
+					if (isset($blnNoVariantFound) && $blnNoVariantFound) {
+						?>
+						<p class="error noVariantFound"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText111']; ?></p>
+						<?php
+					}
+				?>
+				<?php
+					foreach ($attributeFormFields as $str_formField) {
+						?>
+							<div class="variantSelectorWidget">
+								<?php
+									echo $str_formField;
+								?>
+							</div>
+						<?php
+					}
+				?>
+				<div class="variantSelectorSubmit">
+					<button type="submit" class="submit">OK</button>
+				</div>
+			</form>
+		</div>
+		<?php
+	}
+?>

@@ -1,0 +1,25 @@
+<div class="be_orderRepresentationOverview be_orderRepresentationOverview_02 <?php echo $this->arrOrder['status01']; ?> <?php echo $this->arrOrder['status02']; ?> <?php echo $this->arrOrder['status03']; ?> <?php echo $this->arrOrder['status04']; ?> <?php echo $this->arrOrder['status05']; ?>">
+	<div class="messageIcons">
+		<?php
+			if (is_array($this->arrMessageTypes)) {
+				foreach ($this->arrMessageTypes as $messageType) {
+					echo $messageType['button'];
+				}
+			}
+		?>
+	</div>
+	<div class="message">
+		<strong><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['orderNr'][0]; ?>: <?php echo $this->arrOrder['orderNr']; ?></strong><br /> 
+		<?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['orderDate'][0]; ?>: <?php echo $this->parseDate($GLOBALS['TL_CONFIG']['datimFormat'], $this->arrOrder['orderDateUnixTimestamp']); ?>,
+		<?php echo $GLOBALS['TL_LANG']['tl_ls_shop_orders']['invoicedAmount'][0]; ?>: <?php echo ls_shop_generalHelper::outputPrice($this->arrOrder['invoicedAmount']); ?>
+	</div>
+	<?php
+		if ($this->paymentModuleOutput) {
+			?>
+			<div class="paymentStatusInfo">
+				<?php echo $this->paymentModuleOutput; ?>
+			</div>
+			<?php
+		}
+	?>
+</div>

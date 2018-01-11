@@ -1,0 +1,67 @@
+<div class="contaoBeMainContainer">
+	<div id="shopImport">
+		<div id="lockOverlay"><div class="message"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText22']; ?></div></div>
+		<h2><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText01']; ?></h2>
+		
+		<?php echo $this->messages ? $this->messages : '' ?>
+		
+		<div class="infoGroup">
+			<?php if ($this->arrCurrentlyExistingImportFileInfo === null || !is_array($this->arrCurrentlyExistingImportFileInfo)) { ?>
+				<p class="shopWarningMsg"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText02']; ?></p>
+				<form action="<?php echo $this->request; ?>" class="tl_form" method="post" enctype="multipart/form-data">
+					<input type="hidden" name="FORM_SUBMIT" value="beModule_importUploadFile">
+					<input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN; ?>">
+					
+					<input class="tl_upload_field" type="file" name="files[]">
+					<input type="submit" name="submit" value="<?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText03']; ?>" />
+				</form>
+			<?php } else { ?>
+				<div id="importHandler">
+					<div class="name">
+						<span class="label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText16']; ?>: </span>
+						<span class="value"></span>
+					</div>
+					<div class="date">
+						<span class="label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText19']; ?>: </span>
+						<span class="value"></span>
+					</div>
+					<div class="size">
+						<span class="label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText21']; ?>: </span>
+						<span class="value"></span>
+					</div>
+					<div class="status">
+						<span class="label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText20']; ?>: </span>
+						<span class="value"></span>
+					</div>
+					<div class="numRecords">
+						<div class="products">
+							<span class="label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText23']; ?>: </span>
+							<span class="value"></span>
+						</div>
+						<div class="productLanguages">
+							<span class="label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText25']; ?>: </span>
+							<span class="value"></span>
+						</div>
+						<div class="variants">
+							<span class="label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText24']; ?>: </span>
+							<span class="value"></span>
+						</div>
+						<div class="variantLanguages">
+							<span class="label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText26']; ?>: </span>
+							<span class="value"></span>
+						</div>
+					</div>
+					
+					<div class="changesStock shopWarningMsg">
+						<span class="value"></span>							
+					</div>
+					<div class="deletesRecords shopWarningMsg">
+						<span class="value"></span>							
+					</div>
+					
+					<div id="actionButtonsContainer"></div>
+				</div>
+			<?php } ?>
+		</div>
+	</div>
+</div>

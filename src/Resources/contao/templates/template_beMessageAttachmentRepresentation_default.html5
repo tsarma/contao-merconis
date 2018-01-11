@@ -1,0 +1,21 @@
+<div class="messagesSentAttachments">
+<?php
+	if (!is_array($this->value)) {
+		$this->value = deserialize($this->value);
+	}
+	
+	if (is_array($this->value)) {
+		?>
+		<ul>
+		<?php
+		foreach ($this->value as $v) {
+			?>
+			<li><a href="<?php echo $v; ?>" target="_blank"><?php echo $v; ?></a></li>
+			<?php
+		}
+		?>
+		</ul>
+		<?php
+	}
+?>
+</div>

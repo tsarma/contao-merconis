@@ -1,0 +1,59 @@
+<div class="beModule_productSearch">
+	<div class="searchForm">
+		<form action="<?php echo $this->request; ?>" class="tl_form" method="post">
+			<input type="hidden" name="FORM_SUBMIT" value="beModule_productSearch">
+			<input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN; ?>">
+			<div class="widgetContainer title left">
+				<?php echo $this->widgets['title']['widget']; ?>
+			</div>
+			<div class="widgetContainer productCode right">
+				<?php echo $this->widgets['productCode']['widget']; ?>
+			</div>
+			<div class="widgetContainer keywords left">
+				<?php echo $this->widgets['keywords']['widget']; ?>
+			</div>
+			<div class="widgetContainer pages right">
+				<?php echo $this->widgets['pages']['widget']; ?>
+			</div>
+			<div class="clearFloat">&nbsp;</div>
+			<div class="submitContainer">
+				<input type="submit" name="submitSearch" id="submitSearch" class="tl_submit" value="<?php echo $GLOBALS['TL_LANG']['be_productSearch']['text002']; ?>">
+			</div>
+		</form>
+	</div>
+	<div class="searchResults">
+		<?php if (!is_array($this->arrProductsOutput) || !count($this->arrProductsOutput)): ?>
+			<p class="error"><?php echo $GLOBALS['TL_LANG']['be_productSearch']['text007']; ?></p>
+		<?php else: ?>
+			<div class="setNumPerPage">
+				<form action="<?php echo $this->request; ?>" class="tl_form" method="post">
+					<input type="hidden" name="FORM_SUBMIT" value="beModule_productSearch_numPerPage">
+					<input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN; ?>">
+					<?php echo $GLOBALS['TL_LANG']['be_productSearch']['text009']; ?>: <?php echo $this->fflNumPerPage; ?>
+					<input type="submit" name="submitNumPerPage" id="submitNumPerPage" class="tl_submit" value="<?php echo $GLOBALS['TL_LANG']['be_productSearch']['text010']; ?>">
+				</form>
+			</div>
+			<div class="msgNumSearchResults"><?php echo $this->msgNumSearchResults; ?> </div>
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th><a href="<?php echo $this->sortingHrefs['id']; ?>" class="<?php echo $this->sortingImageClasses['id']; ?>"><?php echo $GLOBALS['TL_LANG']['be_productSearch']['text005']; ?></a></th>
+						<th><a href="<?php echo $this->sortingHrefs['lsShopProductCode']; ?>" class="<?php echo $this->sortingImageClasses['lsShopProductCode']; ?>"><?php echo $GLOBALS['TL_LANG']['be_productSearch']['text006']; ?></a></th>
+						<th><a href="<?php echo $this->sortingHrefs['title']; ?>" class="<?php echo $this->sortingImageClasses['title']; ?>"><?php echo $GLOBALS['TL_LANG']['be_productSearch']['text003']; ?></a></th>
+						<th><a href="<?php echo $this->sortingHrefs['published']; ?>" class="<?php echo $this->sortingImageClasses['published']; ?>"><?php echo $GLOBALS['TL_LANG']['be_productSearch']['text004']; ?></a></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+						foreach ($this->arrProductsOutput as $productOutput) {
+							echo $productOutput;
+						}
+					?>
+				</tbody>
+			</table>
+			<?php echo $this->pagination; ?>
+		<?php endif; ?>
+	</div>
+</div>

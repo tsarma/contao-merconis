@@ -1,0 +1,1984 @@
+.clearFloat {
+	clear: both;
+	height: 0.1px;
+	overflow: hidden;
+}
+
+.contaoBeMainContainer {
+	padding: 10px;
+}
+
+.shopHint {
+	font-weight: bold;
+	color: #FF9900;
+}
+
+.shopHintImportant {
+	font-weight: bold;
+	color: #FF0000;
+}
+
+/*
+ * Pagination
+ */
+.pagination {
+    clear: both;
+}
+
+.pagination, .pagination p {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.pagination ul {
+    padding: 0;
+}
+
+.pagination ul li {
+    display: inline;
+    list-style-type: none;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.pagination ul li .current {
+    font-weight: bold;
+}
+
+.pagination ul li a:hover {
+    text-decoration: underline;
+}
+/*
+ * Ende Pagination
+ */
+
+.tl_merconisListwizard .ls_shop_tl_text,
+.tl_merconisListwizard .ls_shop_tl_select {
+	width: 100px;
+}
+
+.listWizardDoubleValue_doubleSelect {
+	margin:0;
+}
+
+.listWizardDoubleValue_doubleSelect td,.tl_modulewizard th {
+	padding:0 6px 1px 0;
+}
+
+.listWizardDoubleValue_doubleSelect th {
+	font-weight:normal;
+}
+
+.listWizardDoubleValue_doubleSelect img {
+	position:relative;
+	top:1px;
+}
+
+.listWizardDoubleValue_doubleSelect .tl_select {
+	width: 200px;
+	margin-right: 10px;
+}
+
+.ls_shop_ListWizardAttributesValues .tl_select {
+	width: 300px;
+	margin-right: 10px;
+}
+
+.listWizardMultiValue {
+	margin:0;
+}
+
+.listWizardMultiValue td,.tl_modulewizard th {
+	padding:0 6px 1px 0;
+}
+
+.listWizardMultiValue th {
+	font-weight:normal;
+}
+
+.listWizardMultiValue img {
+	position:relative;
+	top:1px;
+}
+
+.listWizardMultiValue .tl_text {
+	width: 180px;
+	margin-right: 5px;
+}
+
+.listWizardMultiValue .tl_select {
+	width: 280px;
+	margin-right: 5px;	
+}
+
+.listWizardMultiValue textarea {
+	width: 140px;
+	height: 17px;
+}
+
+
+
+
+#tl_messages .ls_shop h2,
+#tl_shortcuts .ls_shop h2 {
+	background: none;
+	border: none;
+	padding: 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#tl_messages .ls_shop h2.merconisInstallerHeadline,
+#tl_shortcuts .ls_shop h2.merconisInstallerHeadline {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #000000;
+}
+
+#tl_messages .ls_shop h2.merconisUpdaterHeadline,
+#tl_shortcuts .ls_shop h2.merconisUpdaterHeadline {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #000000;
+	color: #FF0000;
+}
+
+.updateLessImportantNote {
+	font-size: 10px;
+	color: #999999;
+}
+
+#tl_messages .ls_shop .bottomButton {
+	text-align: right;
+	margin-top: 20px;
+}
+
+#tl_messages .ls_shop p,
+#tl_shortcuts .ls_shop p {
+	background: none;
+	border: none;
+	padding: 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+#tl_messages .ls_shop a,
+#tl_shortcuts .ls_shop a {
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.ls_shop_systemMessage {
+	padding: 15px;
+	border: 1px solid #000000;
+	padding-left: 158px;
+	background-image: url("../images/logo/Baum_128x128.png");
+	background-repeat: no-repeat;
+	background-position: 15px 15px;
+	min-height: 128px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.ls_shop_beSubGroup {
+	border: 1px solid #DDDDDD;
+	padding: 10px;
+	margin-bottom: 10px;
+	margin-top: 20px;
+}
+
+.ls_shop_beSubGroup h3 {
+	padding: 0;
+}
+
+/*
+ * Start: ls_shop_multi_language (Widget)
+ */
+.ls_shop_multi_language::after {
+	clear: both;
+	content: "";
+	display: table;
+}
+
+.ls_shop_multi_language .languageIcon {
+	width: 16px;
+	height: 11px;
+}
+
+.ls_shop_multi_language .languageWidgetContainer {
+	margin-top: 10px;
+	position: relative;
+}
+
+.ls_shop_multi_language .languageWidgetContainer.w50 {
+	height: 25px;
+	background-image: url("../images/languages/languageBackground01.png");
+	background-repeat: no-repeat;
+	background-position: 1px 1px;
+}
+
+.ls_shop_multi_language .languageWidgetContainer.w50 .languageIcon {
+	display: inline-block;
+	margin-right: 10px;
+	position: absolute;
+	top: 6px;
+	left: 6px;
+}
+
+.ls_shop_multi_language .languageWidgetContainer.w50 .tl_text {
+	width: 288px;
+}
+
+.ls_shop_multi_language .languageWidgetContainer.clr {
+	background-image: url("../images/languages/languageBackground02.png");
+	background-repeat: no-repeat;
+	background-position: 1px 1px;
+	margin-bottom: 10px;
+	padding-top: 9px;
+}
+
+.ls_shop_multi_language .languageWidgetContainer.clr .languageIcon {
+	position: relative;
+	top: -5px;
+	left: 12px;
+}
+
+.topLinedGroup {
+	width: 100%;
+	border-top: 1px solid #DDDDDD;
+	margin-top: 15px;
+	padding-top: 0px;
+}
+
+.ls_shop_multilanguage_fieldsWrapper {
+	width: 100%;
+}
+
+.languageWidgetContainer .merconis_multilanguage h3 {
+	display: none;
+}
+
+.w50 .merconis_multilanguage {
+	position: absolute;
+	top: 0px;
+	left: 27px;
+}
+
+/*
+ * End: ls_shop_multi_language (Widget)
+ */
+
+/*
+ * Start: beModule_productSearch
+ */
+.beModule_productSearch {
+	padding: 8px;
+}
+
+.beModule_productSearch .searchForm {
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.beModule_productSearch .widgetContainer.left {
+	float: left;
+	width: 350px;
+}
+
+.beModule_productSearch .widgetContainer.right {
+	float: right;
+	width: 350px;
+}
+
+.beModule_productSearch .widgetContainer label {
+	display: block;
+}
+
+.beModule_productSearch .widgetContainer input.tl_text {
+	width: 344px;
+}
+
+.beModule_productSearch .submitContainer {
+	margin-top: 20px;
+	text-align: right;
+}
+
+.beModule_productSearch .searchResults table {
+	border-collapse: collapse;
+}
+
+.beModule_productSearch .searchResults table td,
+.beModule_productSearch .searchResults table th {
+	border: 1px solid #DDDDDD;
+	padding: 5px;
+}
+
+.beModule_productSearch .searchResults table th {
+	font-weight: bold;
+	background-color: #A4A4A4;
+	color: #FFFFFF;
+}
+
+.beModule_productSearch .searchResults table th a {
+	color: #FFFFFF;
+}
+
+.beModule_productSearch .setNumPerPage {
+    margin-bottom: 5px;
+    text-align: right;
+}
+
+.beModule_productSearch .setNumPerPage .tl_select {
+	width: 50px;
+}
+
+.beModule_productSearch #submitNumPerPage {
+	margin-top: 1px;
+}
+
+.beModule_productSearch .msgNumSearchResults {
+	margin-bottom: 10px;
+}
+
+.beModule_productSearch .widgetContainer.pages .tl_select {
+	width: 344px;
+}
+
+.beModule_productSearch table th a {
+	background-repeat: no-repeat;
+	background-position: right 50%;
+	padding-right: 15px;	
+}
+
+.beModule_productSearch table th a.sorting_asc {
+	background-image: url("../images/sorting_asc.png");
+}
+
+.beModule_productSearch table th a.sorting_asc_inactive {
+	background-image: url("../images/sorting_asc_inactive.png");
+}
+
+.beModule_productSearch table th a.sorting_desc {
+	background-image: url("../images/sorting_desc.png");
+}
+
+.beModule_productSearch a {
+	cursor: pointer;
+}
+
+/*
+ * End: beModule_productSearch
+ */
+
+/*
+ * Start: ls_shop_productSelectionWizard
+ */
+ul.ls_shop_productSelectionWizard {
+	padding: 0px;
+}
+
+ul.ls_shop_productSelectionWizard li {
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+	padding-top: 5px;
+    border-top: 1px solid #DDDDDD;
+    position: relative;
+}
+
+ul.ls_shop_productSelectionWizard li .widgetProductSelection a {
+	position: absolute;
+	top: 2px;
+	right: 0px;
+	z-index: 1000;
+}
+
+ul.ls_shop_productSelectionWizard li .listWizardButtons {
+	position: absolute;
+	top: 0px;
+	right: 30px;
+}
+
+ul.ls_shop_productSelectionWizard li .widgetProductSelection .selectedProductOutput {
+	position: relative;
+	padding-left: 60px;
+	min-height: 44px;
+}
+
+ul.ls_shop_productSelectionWizard li .widgetProductSelection .selectedProductOutput .image {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 40px;
+	width: 40px;
+}
+
+ul.ls_shop_productSelectionWizard li .widgetProductSelection .selectedProductOutput .title {
+	width: 520px;
+	font-weight: bold;
+}
+
+ul.ls_shop_productSelectionWizard li .widgetProductSelection .selectedProductOutput .info {
+}
+
+/*
+ * End: ls_shop_productSelectionWizard
+ */
+
+/*
+ * Start: Backend-Darstellung in Produkt-Tabellen-Übersicht
+ */
+.productViewBEList {
+	position: relative;
+	float: left;
+	padding-left: 60px;
+	min-height: 44px;
+}
+
+.productViewBEList .image {
+	position: absolute;
+	top: 2px;
+	left: 0px;
+	height: 40px;
+	width: 40px;
+}
+
+.productViewBEList .title {
+	font-weight: bold;
+}
+
+.productViewBEList .info {
+}
+
+/*
+ * End: Backend-Darstellung in Produkt-Tabellen-Übersicht
+ */
+
+/*
+ * Start: Legend-Icons (Backend)
+ */
+#pal_lsjs4c_legend,
+#pal_lsShopConditionalOutput_legend,
+#pal_lsShopCrossSeller_legend,
+#pal_lsShop_legend,
+#pal_lsShopFilter_legend,
+#pal_lsShopJsComponents_legend,
+#pal_lsShopCart_legend,
+#pal_lsShopLoginSwitch_legend,
+#pal_lsShopCheckoutConfirm_legend,
+#pal_lsShopCheckoutConfirm_legend,
+#pal_lsShopCrossSeller_legend {
+	padding-top: 0px;
+	position: relative;
+	margin-bottom: 6px;
+	margin-top: 20px;
+}
+
+#pal_lsjs4c_legend > legend,
+#pal_lsShopConditionalOutput_legend > legend,
+#pal_lsShopCrossSeller_legend > legend,
+#pal_lsShop_legend > legend,
+#pal_lsShopFilter_legend > legend,
+#pal_lsShopJsComponents_legend > legend,
+#pal_lsShopCart_legend > legend,
+#pal_lsShopLoginSwitch_legend > legend,
+#pal_lsShopCheckoutConfirm_legend > legend,
+#pal_lsShopCheckoutConfirm_legend > legend,
+#pal_lsShopCrossSeller_legend > legend {
+	background-color: #FFFFFF;
+	background-image: url("../images/icons/palOpenLS_32.png");
+	padding-bottom: 0px;
+	padding-left: 55px;
+	padding-top: 16px;
+	background-position: left 0px;
+	position: absolute;
+	left: 0px;
+	top: -25px;
+}
+
+#pal_lsjs4c_legend.collapsed > legend,
+#pal_lsShopConditionalOutput_legend.collapsed > legend,
+#pal_lsShopCrossSeller_legend.collapsed > legend,
+#pal_lsShop_legend.collapsed > legend,
+#pal_lsShopFilter_legend.collapsed > legend,
+#pal_lsShopJsComponents_legend.collapsed > legend,
+#pal_lsShopCart_legend.collapsed > legend,
+#pal_lsShopLoginSwitch_legend.collapsed > legend,
+#pal_lsShopCheckoutConfirm_legend.collapsed > legend,
+#pal_lsShopCheckoutConfirm_legend.collapsed > legend,
+#pal_lsShopCrossSeller_legend.collapsed > legend {
+	background-image: url("../images/icons/palCollapsedLS_32.png");
+}
+
+#pal_lsjs4c_legend > legend::before {
+  content: "MERCONIS: ";
+}
+/*
+ * End: Legend-Icons (Backend)
+ */
+
+/*
+ * Start: Shop-Import
+ */
+#shopImport .infoGroup {
+	margin-bottom: 20px;
+	border: 1px solid #CCCCCC;
+	padding: 5px;
+}
+
+.shopErrorMsg {
+	font-weight: bold;
+	color: #FF0000;
+}
+
+.shopWarningMsg {
+	font-weight: bold;
+	color: #FF9900;
+}
+/*
+ * End. Shop-Import
+ */
+
+#ctrl_lsShopProductVariantAttributesValues li {
+	margin-bottom: 10px;
+}
+
+.popup #main {
+	left: 0px;
+	margin-left: 0px;
+}
+
+.popup #container {
+	padding: 0px;
+}
+
+.beModule_stockManagement tr.space td {
+	overflow: hidden;
+	height: 3px;
+	line-height: 1px;
+	background-color: #DDDDDD;
+	padding: 0px;
+}
+
+
+/*
+ * Backend-Bestelldarstellug
+ */
+.be_orderRepresentation table {
+	border-collapse: collapse;
+	border: 1px solid transparent;
+	margin-bottom: 20px;
+	background-color: #FFFFFF;
+}
+
+.be_orderRepresentation table td {
+	border: 1px solid #CCCCCC;
+	vertical-align: top;
+	text-align: left;
+	padding: 5px;
+}
+
+.be_orderRepresentation table tr.header td {
+	border-bottom: 3px double #000000;
+	background-color: #EEEEEE;
+	font-weight: bold;
+}
+
+.be_orderRepresentation table td.quantity {
+	white-space: normal;
+}
+
+.be_orderRepresentation table td.quantity form {
+	display: inline;
+}
+
+.be_orderRepresentation table td.quantity .formQuantity input,
+.be_orderRepresentation table td.quantity .formDelete input {
+	width: 65px;
+	margin-bottom: 2px;
+}
+
+.be_orderRepresentation table td.quantity input.quantity {
+	background-color: #EEEEEE;
+	border: 1px outset #000000;
+}
+
+.be_orderRepresentation table td.quantity input.submit,
+.usedCoupon input.button {
+	font-size: 10px;
+}
+
+.merconisExampleLayout a.button,
+.merconisExampleLayout a.button input.button {
+	text-decoration: none;
+}
+
+.be_orderRepresentation table tr.sum td,
+.be_orderRepresentation table tr.sumTotal td {
+	border-top: 3px double #000000;
+	font-weight: bold;
+}
+
+.be_orderRepresentation table tr.addCoupon td {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.be_orderRepresentation table tr.usedCoupon.last td {
+	padding-bottom: 10px;
+}
+
+.be_orderRepresentation table tr.submitBox td {
+	text-align: right;
+}
+
+.be_orderRepresentation table td.price {
+	text-align: right;
+	white-space: nowrap;
+}
+
+.be_orderRepresentation table td.weight {
+	text-align: right;
+	white-space: nowrap;
+}
+
+.be_orderRepresentation table tr.space td {
+	border: none;
+	height: 20px;
+}
+
+.be_orderRepresentation table tr.headline td {
+	border: none;
+	padding-bottom: 15px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.be_orderRepresentation table tr.info td {
+	font-size: 10px;
+	font-style: italic;
+}
+
+.be_orderRepresentation table tr.strong td {
+	font-weight: bold;
+}
+
+.be_orderRepresentation table tr.strong td.taxClass {
+	font-weight: normal;
+}
+
+.be_orderRepresentation table tr.borderless td {
+	border: none;
+}
+
+.be_orderRepresentation table tr.invoicedAmount td {
+	font-size: 18px;
+	font-weight: bold;
+	background-color: #EEEEEE;
+}
+
+.be_orderRepresentation table tr.form fieldset {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}
+
+.be_orderRepresentation table tr.form fieldset h3 {
+	margin-top: 0px;
+}
+
+.be_orderRepresentation table tr.form fieldset.left {
+	width: 310px;
+	float: left;
+	margin-right: 50px;
+}
+
+.be_orderRepresentation table tr.form fieldset.right {
+	width: 310px;
+	float: left;
+}
+
+.be_orderRepresentation table tr.form fieldset.bottom {
+	padding-top: 10px;
+	clear: both;
+	margin-bottom: 10px;
+}
+
+.be_orderRepresentation table tr.form fieldset.bottom textarea {
+	width: 663px;
+}
+
+.be_orderRepresentation table tr.form fieldset.bottom .explanation {
+	margin-top: 10px;
+	width: 669px;
+}
+
+.be_orderRepresentation table tr.form label,
+.be_orderRepresentation table tr.form input,
+.be_orderRepresentation table tr.form select,
+.be_orderRepresentation table tr.form .textOutput {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.be_orderRepresentation table tr.form label.error {
+	color: #AA0000;
+}
+
+.be_orderRepresentation table tr.form p.error {
+	display: none;
+}
+
+.be_orderRepresentation table tr.form label {
+	width: 95px;
+	margin-right: 5px;
+}
+
+.be_orderRepresentation table tr.form input,
+.be_orderRepresentation table tr.form .textOutput {
+	width: 200px;
+}
+
+.be_orderRepresentation table tr.formShippingMethodAdditionalData label,
+.be_orderRepresentation table tr.formPaymentMethodAdditionalData label {
+	width: 210px;
+	margin-right: 5px;
+}
+
+.be_orderRepresentation table tr.formShippingMethodAdditionalData input,
+.be_orderRepresentation table tr.formShippingMethodAdditionalData .textOutput,
+.be_orderRepresentation table tr.formPaymentMethodAdditionalData input,
+.be_orderRepresentation table tr.formPaymentMethodAdditionalData .textOutput {
+	width: 300px;
+}
+
+.be_orderRepresentation table tr.form select {
+	width: 206px;
+}
+
+.be_orderRepresentation table tr.form .submit_container {
+	width: 670px;
+	text-align: right;
+}
+
+.be_orderRepresentation table tr.form .submit_container input.submit {
+	width: auto;
+}
+
+.be_orderRepresentation div.confirmtext01,
+.be_orderRepresentation div.confirmtext02 {
+	width: 663px;
+	height: 100px;
+	overflow: scroll;
+	overflow-x: hidden;
+	border: 1px solid #CCCCCC;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.be_orderRepresentation table tr.form .checkbox_container,
+.be_orderRepresentation table tr.form .radio_container {
+	border: none;
+	margin-top: 10px;
+}
+
+.be_orderRepresentation table tr.form .checkbox_container input,
+.be_orderRepresentation table tr.form .radio_container input {
+	padding: 0px;
+	margin: 0px;
+	margin-right: 5px;
+	width: auto;
+}
+
+.be_orderRepresentation table tr.form .checkbox_container label,
+.be_orderRepresentation table tr.form .radio_container label {
+	width: auto;
+}
+
+.be_orderRepresentation table tr.form .checkbox_container legend,
+.be_orderRepresentation table tr.form .radio_container legend {
+	display: inline-block;
+	width: 95px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	float: left;
+}
+
+.be_orderRepresentation table tr.form .checkbox_container span,
+.be_orderRepresentation table tr.form .radio_container span {
+	width: 200px;
+	display: block;
+	float: right;
+}
+
+.be_orderRepresentation table tr.form .checkbox_container legend span,
+.be_orderRepresentation table tr.form .radio_container legend span {
+	display: inline;
+	width: auto;
+	float: none;
+}
+
+.formPaymentMethod fieldset,
+.formShippingMethod fieldset {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+.formPaymentMethod fieldset span,
+.formShippingMethod fieldset span{
+	margin-right: 10px;
+}
+
+.be_orderRepresentation table tr.formConfirmOrder .checkbox_container span {
+	width: auto;
+}
+
+.be_orderRepresentation table .formPaymentMethodAdditionalData .explanation,
+.be_orderRepresentation table .formShippingMethodAdditionalData .explanation {
+	width: 638px;
+}
+
+.be_orderRepresentation table .formPaymentMethodAdditionalData div.error,
+.be_orderRepresentation table .formShippingMethodAdditionalData div.error,
+.be_orderRepresentation table .formPaymentMethodAdditionalData div.success,
+.be_orderRepresentation table .formShippingMethodAdditionalData div.success {
+	width: 638px;
+}
+
+/*
+ * Ende Backend-Bestelldarstellug
+ */
+
+.template_beMessageRepresentationDetails .htmlBody {
+	padding: 0px;
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+}
+
+.template_beMessageRepresentationDetails .htmlBody iframe {
+	width: 100%;
+	height: 500px;
+}
+
+.template_beMessageRepresentationDetails .rawtextBody {
+	white-space: pre-wrap;
+	padding: 10px;
+	width: 664px;
+	max-height: 500px;
+	overflow: scroll;
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+}
+
+.template_beMessageRepresentationDetails h4 {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.template_beMessageRepresentationDetails h4.rawtextBodyHead {
+	margin-top: 30px;
+}
+
+#pal_messageRepresentation_legend .clr h3 {
+	display: none;
+}
+
+.be_orderRepresentationOverview {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.be_orderRepresentationOverview_01 .message {
+	float: left;
+}
+
+.be_orderRepresentationOverview_01 .messageIcons {
+	float: left;
+	width: 130px;
+	margin-right: 10px;
+}
+
+.be_orderRepresentationOverview .messageIcons .messageIconContainer {
+	float: left;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.be_orderRepresentationOverview .messageIcons .messageIcon {
+	border: 1px outset #CCCCCC;
+	background-color: #FF5500;
+	color: #FFFFFF;
+	font-weight: bold;
+	padding: 2px;
+	font-size: 9px;
+	position: relative;
+}
+
+.be_orderRepresentationOverview .messageIcons .messageIcon.onStatusChangeImmediately,
+.be_orderRepresentationOverview .messageIcons .messageIcon.onStatusChangeCronDaily,
+.be_orderRepresentationOverview .messageIcons .messageIcon.onStatusChangeCronHourly {
+	background-color: #FF9944;
+	color: #FFFFFF;
+}
+
+.be_orderRepresentationOverview .messageIcons .messageIcon .loadingOverlay {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,0.5);
+}
+
+.be_orderRepresentationOverview .messageIcons .messageIcon a {
+	text-decoration: none;
+	color: #FFFFFF;
+	font-size: 9px;
+}
+
+.be_orderRepresentationOverview_02 .messageIcons .messageIconContainer {
+	float: none;
+	display: inline-block;
+}
+
+.be_orderRepresentationOverview .messageIcons .messageIcon.alreadySent {
+	background-color: #BBBBBB;
+}
+
+
+
+/*
+ * ###
+ */
+.doubleFieldBlock_leftText_rightTextarea {
+	position: relative;
+	margin-top: 10px;
+}
+
+.doubleFieldBlock_leftText_rightTextarea .buttons {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+.doubleFieldBlock_leftText_rightTextarea textarea {
+	position: relative;
+	top: 0px;
+	height: 100px;
+}
+
+.doubleFieldBlock_leftText_rightTextarea input {
+	width: 150px;
+}
+
+.doubleFieldBlock_leftText_rightTextarea .label01 {
+	display: block;
+	position: absolute;
+	top: 4px;
+	left: 160px;
+	font-weight: bold;
+}
+
+.doubleFieldBlock_leftText_rightTextarea .label02 {
+	display: block;
+	position: absolute;
+	top: 4px;
+	right: 80px;
+	font-weight: bold;
+}
+
+.topLinedGroup.flex_contents {
+	position: relative;
+}
+
+.topLinedGroup.flex_contents h3 {
+	margin-bottom: 60px;
+}
+
+.topLinedGroup.flex_contents p.tl_tip {
+	position: absolute;
+	top: 30px;
+	height: auto;
+	overflow: visible;
+}
+
+.topLinedGroup.flex_contents .doubleField_leftText_rightTextarea_outside {
+	margin-top: -10px;
+}
+
+.languageWidgetContainer.w50 {
+	position: relative;
+}
+
+.languageWidgetContainer.w50 .tl_error {
+	position: absolute;
+	top: -15px;
+}
+
+.ls_beBlock {
+	display: block;
+}
+
+.be_valuePicker {
+	padding: 20px;
+}
+
+.be_valuePicker .tl_chosen {
+	width: 500px;
+}
+
+.be_valuePicker .submit {
+	display: inline-block;
+	vertical-align: super;
+}
+
+#ctrl_ls_shop_VATIDValidationSOAPOptions input {
+	width: 250px;
+}
+
+
+/*
+ * importer: begin
+ */
+
+#shopImport {
+	position: relative;
+}
+
+#shopImport #lockOverlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,0.8);
+}
+
+#shopImport #lockOverlay .message {
+	margin-top: 50px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#shopImport #lockOverlay .message.inProcess {
+	font-weight: bold;
+	background-image: url("../images/inProcess.gif");
+	background-repeat: no-repeat;
+	background-position: 650px center;
+	background-color: rgba(230,230,230,0.45);
+	border-bottom: 1px solid #999999;
+	border-top: 1px solid #999999;
+	font-size: 14px;
+	padding-bottom: 3px;
+	padding-top: 2px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+#shopImport #lockOverlay .message .importInterruptedMessage {
+	margin-bottom: 30px;
+	font-weight: bold;
+	color: #FF0000;
+}
+
+#shopImport #lockOverlay .message .numRecordsProcessed {
+	font-weight: normal;
+}
+
+#shopImport #lockOverlay .message .numRecordsProcessed .finished {
+	color: #00AA00;
+}
+
+#shopImport #lockOverlay .message .numRecordsProcessed .processing {
+	font-weight: bold;
+	background-image: url("../images/inProcess.gif");
+	background-repeat: no-repeat;
+	background-position: 650px center;
+	background-color: rgba(230,230,230,0.45);
+	border-bottom: 1px solid #999999;
+	border-top: 1px solid #999999;
+	font-size: 14px;
+	padding-bottom: 3px;
+	padding-top: 2px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+#shopImport #lockOverlay .message .interrupted .numRecordsProcessed .processing {
+	background-image: url("../images/inProcess_interrupted.gif");
+	background-repeat: no-repeat;
+	background-position: 650px center;
+}
+
+#shopImport #actionButtonsContainer {
+	text-align: right;
+}
+
+#shopImport .actionButton {
+	background-color: #EEEEEE;
+	border: 1px outset #000000;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+	padding: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: center;
+	cursor: pointer;
+	display: inline-block;
+}
+
+#shopImport .actionButton.continueImport {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+
+#shopImport .numRecords {
+	display: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#shopImport .changesStock {
+	display: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#shopImport .deletesRecords {
+	display: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#shopImport .status.notOk {
+	font-weight: bold;
+	color: #FF0000;
+}
+
+#shopImport .status.ok {
+	font-weight: bold;
+	color: #00AA00;
+}
+/*
+ * importer: end
+ */
+
+#tl_navigation li#zzz_merconis ul li:nth-child(10),
+#tl_navigation li#zzz_merconis ul li:nth-child(17) {
+	margin-top: 5px;
+}
+
+#tl_navigation li#zzz_merconis ul li:nth-child(9),
+#tl_navigation li#zzz_merconis ul li:nth-child(16) {
+	padding-bottom: 5px;
+	border-bottom: 1px dashed #555555;
+	width: 90%;
+}
+
+/*
+ * Styles for the sofortbanking (sofortueberweisung) payment module
+ */
+.paymentDetails.sofortbanking {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #000000;
+	padding: 5px;
+}
+
+.paymentDetails.sofortbanking h2 {
+	color: #555555;
+	font-size: 16px;
+	font-weight: bold;
+	font-style: italic;
+	font-family: arial;
+	position: relative;
+	padding: 5px;
+	padding-left: 110px;
+	padding-bottom: 15px;
+	border-bottom: 1px dashed #555555;
+}
+
+.paymentDetails.sofortbanking h2 img {
+	position: absolute;
+	left: 5px;
+	top: 0px;
+}
+
+.paymentDetails.sofortbanking .content {
+	padding: 5px;
+}
+
+.paymentDetails.sofortbanking .content .label {
+	font-weight: bold;
+}
+
+.paymentDetails.sofortbanking .content .transactionID {
+	margin-bottom: 10px;
+}
+
+.paymentDetails.sofortbanking .content .status .value {
+	margin-top: 20px;
+}
+
+.paymentDetails.sofortbanking .content .status .value .statusModifiedTime {
+	font-weight: bold;
+	font-style: italic;
+	border-bottom: 1px solid #555555;
+}
+
+.paymentDetails.sofortbanking .content .details {
+	margin-top: 20px;
+}
+
+.paymentDetails.sofortbanking .content .details .senderHeadline,
+.paymentDetails.sofortbanking .content .details .recipientHeadline {
+	margin-top: 10px;
+	text-decoration: underline;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.paymentStatusInOverview.sofortbanking {
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	padding: 1px;
+	padding-right: 5px;
+	margin-top: 5px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.paymentStatusInOverview.sofortbanking.aborted .status {
+	color: #FF0000;
+}
+
+.paymentStatusInOverview.sofortbanking.pending .status,
+.paymentStatusInOverview.sofortbanking.untraceable .status {
+	color: #ee7f00;
+}
+
+.paymentStatusInOverview.sofortbanking.received .status {
+	color: #00AA00;
+}
+
+/*
+ * Styles for the payone payment module
+ */
+.paymentDetails.payone {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #000000;
+	padding: 5px;
+}
+
+.paymentDetails.payone h2 {
+	color: #555555;
+	font-size: 16px;
+	font-weight: bold;
+	font-style: italic;
+	font-family: arial;
+	position: relative;
+	padding: 5px;
+	padding-left: 210px;
+	padding-bottom: 15px;
+	border-bottom: 1px dashed #555555;
+}
+
+.paymentDetails.payone h2 img {
+	position: absolute;
+	left: 5px;
+	top: 3px;
+}
+
+.paymentDetails.payone .content {
+	padding: 5px;
+}
+
+.paymentDetails.payone .content .label {
+	font-weight: bold;
+}
+
+.paymentDetails.payone .content .transactionID {
+	margin-bottom: 10px;
+}
+
+.paymentDetails.payone .content .status .value {
+	margin-top: 20px;
+}
+
+.paymentDetails.payone .content .status .value .statusModifiedTime {
+	font-weight: bold;
+	font-style: italic;
+	border-bottom: 1px solid #555555;
+}
+
+.paymentDetails.payone .content .details {
+	margin-top: 20px;
+}
+
+.paymentDetails.payone .content .details .headline {
+	margin-top: 10px;
+	text-decoration: underline;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.paymentStatusInOverview.payone {
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	padding: 1px;
+	padding-right: 5px;
+	margin-top: 5px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.paymentStatusInOverview.payone.underpaid .status,
+.paymentStatusInOverview.payone.cancelation .status,
+.paymentStatusInOverview.payone.aborted .status {
+	color: #FF0000;
+}
+
+.paymentStatusInOverview.payone.appointed .status,
+.paymentStatusInOverview.payone.untraceable .status {
+	color: #ee7f00;
+}
+
+.paymentStatusInOverview.payone.paid .status {
+	color: #00AA00;
+}
+
+/*
+ * Styles for the saferpay payment module
+ */
+.paymentDetails.saferpay {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #000000;
+	padding: 5px;
+}
+
+.paymentDetails.saferpay h2 {
+	color: #555555;
+	font-size: 16px;
+	font-weight: bold;
+	font-style: italic;
+	font-family: arial;
+	position: relative;
+	padding: 5px;
+	padding-left: 210px;
+	padding-bottom: 15px;
+	border-bottom: 1px dashed #555555;
+}
+
+.paymentDetails.saferpay h2 img {
+	position: absolute;
+	left: 5px;
+	top: 3px;
+}
+
+.paymentDetails.saferpay .content {
+	padding: 5px;
+	position: relative;
+}
+
+.paymentDetails.saferpay .content .cancelPayment {
+	position: absolute;
+	top: 0px;
+	right: 5px;
+}
+
+.paymentDetails.saferpay .content .cancelPayment a {
+	font-weight: bold;
+}
+
+.paymentDetails.saferpay .content .capturePayment {
+	position: absolute;
+	top: 20px;
+	right: 5px;
+}
+
+.paymentDetails.saferpay .content .capturePayment a {
+	font-weight: bold;
+}
+
+.paymentDetails.saferpay .content .label {
+	font-weight: bold;
+}
+
+.paymentDetails.saferpay .content .transactionID {
+	margin-bottom: 10px;
+}
+
+.paymentDetails.saferpay .content .paymentMeans {
+	margin-bottom: 10px;
+}
+
+.paymentDetails.saferpay .content .status .value {
+	margin-top: 20px;
+}
+
+.paymentDetails.saferpay .content .status .value .statusModifiedTime {
+	font-weight: bold;
+	font-style: italic;
+	border-bottom: 1px solid #555555;
+}
+
+.paymentDetails.saferpay .content .details {
+	margin-top: 20px;
+}
+
+.paymentDetails.saferpay .content .details .headline {
+	margin-top: 10px;
+	text-decoration: underline;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.paymentStatusInOverview.saferpay {
+	position: relative;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	padding: 4px;
+	margin-top: 5px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.paymentStatusInOverview.saferpay img {
+	margin-right: 10px;
+}
+
+.paymentStatusInOverview.saferpay .paymentMeans {
+	margin-top: 10px;
+	font-weight: normal;
+}
+
+.paymentStatusInOverview.saferpay.failed .status {
+	color: #FF0000;
+}
+
+.paymentStatusInOverview.saferpay.authorized .status {
+	color: #7f7f00;
+}
+
+.paymentStatusInOverview.saferpay.captured .status {
+	color: #00AA00;
+}
+
+/*
+ * Styles for the vrpay payment module
+ */
+.paymentDetails.vrpay {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #000000;
+	padding: 5px;
+}
+
+.paymentDetails.vrpay h2 {
+	color: #555555;
+	font-size: 16px;
+	font-weight: bold;
+	font-style: italic;
+	font-family: arial;
+	position: relative;
+	padding: 5px;
+	padding-left: 210px;
+	padding-bottom: 15px;
+	padding-top: 33px;
+	border-bottom: 1px dashed #555555;
+}
+
+.paymentDetails.vrpay h2 img {
+	position: absolute;
+	left: 5px;
+	top: 3px;
+}
+
+.paymentDetails.vrpay .content {
+	padding: 5px;
+	position: relative;
+}
+
+.paymentDetails.vrpay .content .cancelPayment {
+	position: absolute;
+	top: 0px;
+	right: 5px;
+}
+
+.paymentDetails.vrpay .content .cancelPayment a {
+	font-weight: bold;
+}
+
+.paymentDetails.vrpay .content .capturePayment {
+	position: absolute;
+	top: 20px;
+	right: 5px;
+}
+
+.paymentDetails.vrpay .content .capturePayment a {
+	font-weight: bold;
+}
+
+.paymentDetails.vrpay .content .label {
+	font-weight: bold;
+}
+
+.paymentDetails.vrpay .content .transactionID {
+	margin-bottom: 10px;
+}
+
+.paymentDetails.vrpay .content .paymentBrand{
+	margin-bottom: 10px;
+}
+
+.paymentDetails.vrpay .content .status .value {
+	margin-top: 20px;
+}
+
+.paymentDetails.vrpay .content .status .value .statusModifiedTime {
+	font-weight: bold;
+	font-style: italic;
+	border-bottom: 1px solid #555555;
+}
+
+.paymentDetails.vrpay .content .details {
+	margin-top: 20px;
+}
+
+.paymentDetails.vrpay .content .details .headline {
+	margin-top: 10px;
+	text-decoration: underline;
+	font-weight: bold;
+	font-style: italic;
+}
+
+.paymentStatusInOverview.vrpay {
+	position: relative;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	padding: 4px;
+	margin-top: 5px;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.paymentStatusInOverview.vrpay img {
+	margin-right: 10px;
+}
+
+.paymentStatusInOverview.vrpay .paymentBrand {
+	margin-top: 10px;
+	font-weight: normal;
+}
+
+.paymentStatusInOverview.vrpay.rejected .status {
+	color: #FF0000;
+}
+
+.paymentStatusInOverview.vrpay.waiting .status,
+.paymentStatusInOverview.vrpay.review-manually .status,
+.paymentStatusInOverview.vrpay.pending .status {
+	color: #ee9900;
+}
+
+.paymentStatusInOverview.vrpay.success .status {
+	color: #00AA00;
+}
+
+/*
+ * Styles for the PayPal Plus payment module
+ */
+.paymentDetails.payPalPlus {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #000000;
+	padding: 5px;
+}
+
+.paymentDetails.payPalPlus h2 {
+	color: #555555;
+	font-size: 16px;
+	font-weight: bold;
+	font-style: italic;
+	font-family: arial;
+	position: relative;
+	padding: 15px 5px 15px 200px;
+	border-bottom: 1px dashed #555555;
+}
+
+.paymentDetails.payPalPlus h2 img {
+	position: absolute;
+	left: 5px;
+	top: 0px;
+}
+
+.paymentDetails.payPalPlus .content {
+	padding: 5px;
+}
+
+.paymentDetails.payPalPlus .content .label {
+	margin-top: 20px;
+}
+
+.paymentDetails.payPalPlus .content .label {
+	font-weight: bold;
+}
+
+.paymentStatusInOverview.payPalPlus {
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	padding: 1px;
+	padding-right: 5px;
+	padding-bottom: 20px;
+	margin-top: 5px;
+	display: inline-block;
+	font-weight: bold;
+	position: relative;
+}
+
+.paymentStatusInOverview.payPalPlus > img {
+	float: left;
+	margin: 5px;
+}
+
+.paymentStatusInOverview.payPalPlus .content {
+	float: left;
+	padding: 5px;
+}
+
+.paymentStatusInOverview.payPalPlus .content .label {
+	margin-top: 20px;
+}
+
+.paymentStatusInOverview.payPalPlus .content .label {
+	font-weight: bold;
+}
+
+.paymentStatusInOverview.payPalPlus .statusUpdate {
+    background-color: #eeeeee;
+	border: 1px solid #000000;
+	border-right: none;
+	border-bottom: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 2px;
+}
+
+
+/*
+ * Styles for the santander web quick payment module
+ */
+.paymentStatusInOverview.santanderWebQuick {
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	min-height: 50px;
+	padding: 2px;
+	padding-right: 5px;
+	margin-top: 5px;
+	display: inline-block;
+	font-weight: bold;
+	background-image: url("../images/payment/santanderLogo_small.png");
+	background-repeat: no-repeat;
+	padding-left: 115px;
+	position: relative;
+	text-align: right;
+}
+
+.paymentStatusInOverview.santanderWebQuick.details {
+	min-height: 200px;
+}
+
+.paymentStatusInOverview.santanderWebQuick .statusUpdate {
+	display: block;
+	position: absolute;
+	top: 42px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	background-color: #E2001A;
+	width: 110px;
+}
+
+.paymentStatusInOverview.santanderWebQuick .statusUpdate a {
+	font-size: 9px;
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	border-top: 1px solid #FFFFFF;
+	padding: 2px;
+	background-color: #E2001A;
+	color: #FFFFFF;
+	width: 106px;
+	text-align: center;
+}
+
+.paymentStatusInOverview.santanderWebQuick.details .statusUpdate a {
+	font-size: 14px;
+	top: 20px;
+	bottom: auto;
+	border-bottom: 1px solid #FFFFFF;
+}
+
+.paymentStatusInOverview.santanderWebQuick .statusUpdate a:hover {
+	color: #FFFFFF;
+}
+
+.paymentStatusInOverview.santanderWebQuick .cancel,
+.paymentStatusInOverview.santanderWebQuick .markAsDelivered {
+	border: 1px solid #000000;
+	display: inline-block;
+	margin-top: 5px;
+}
+
+.paymentStatusInOverview.santanderWebQuick .cancel a {
+    display: block;
+    padding: 5px;
+}
+
+.paymentStatusInOverview.santanderWebQuick .markAsDelivered span {
+	display: inline-block;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.paymentStatusInOverview.santanderWebQuick .markAsDelivered form {
+	display: none;
+}
+
+.paymentStatusInOverview.santanderWebQuick.status_3 .status,
+.paymentStatusInOverview.santanderWebQuick.status_11 .status {
+	color: #00AA00;
+	font-weight: bold;
+}
+
+.paymentStatusInOverview.santanderWebQuick.status_5 .status,
+.paymentStatusInOverview.santanderWebQuick.status_13 .status {
+	color: #FF9900;
+	font-weight: bold;
+}
+
+.paymentStatusInOverview.santanderWebQuick.status_2 .status,
+.paymentStatusInOverview.santanderWebQuick.status_6 .status,
+.paymentStatusInOverview.santanderWebQuick.status_7 .status{
+	color: #E2001A;
+	font-weight: bold;
+}
+
+.paymentStatusInOverview.santanderWebQuick p.error {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #E2001A;
+	font-weight: bold;
+}
+
+.paymentStatusInOverview.santanderWebQuick p.success {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	color: #00AA00;
+	font-weight: bold;
+}
+
+.paymentStatusInOverview.santanderWebQuick .bankStatement {
+	font-family: monospace;
+	text-align: left;
+	white-space: pre;
+	margin-top: 20px;
+}
+
+
+.paymentMethod_moduleReturnData .simpleOutput .payPalInfo {
+	max-height: 150px;
+	overflow: scroll;
+	padding: 25px;
+}
+
+.installerThemeSelection {
+	border-bottom: 1px solid #000000;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	padding-bottom: 20px;
+	position: relative;
+}
+
+.installerThemeSelection input {
+	position: absolute;
+	right: 10px;
+	top: 0;
+}
+
+.installerThemeSelection label {
+	display: block;
+}
+
+.installerThemeSelection .img {
+	float: left;
+	margin-right: 10px;
+}
+
+.installerThemeSelection .name {
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.installerThemeSelection .compatibilityIssue {
+	display: block;
+	font-weight: bold;
+	color: #FF9900;
+	margin-top: 10px;
+}
+
+.preview {
+	clear: both;
+	display: block;
+	text-align: right;
+}
+
+.merconisThemeSourceSwitch {
+	border-radius: 5px;
+	border: 1px outset #888888;
+	padding: 10px;
+	margin-top: 40px;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+.merconisThemeSourceSwitch .headline {
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.merconisThemeSourceSwitch .switch {
+	position: absolute;
+	top: -26px;
+	left: 30px;
+}
+
+.merconisThemeSourceSwitch .switch a {
+	border: 1px outset #000000;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	border-bottom: 0px;
+	display: inline-block;
+	padding: 5px;
+	text-decoration: none !important;
+	color: #666666;
+	background-color: #FFFFFF;
+	height: 15px;
+}
+
+.merconisThemeSourceSwitch .switch a:hover {
+	color: #000000;
+}
+
+.merconisThemeSourceSwitch .switch a.active {
+	color: #00AA00;
+}
+
+.merconisThemeSourceSwitch .switch a.inactive {
+	background-color: #F3F3F3;
+	height: 14px;
+}
+
+.merconisThemeSourceSwitch .shopErrorMsg,
+.merconisThemeSourceSwitch .shopErrorMsg a {
+	color: #FF9900;
+	font-weight: normal;
+}
+
+/*
+ * Export >
+ */
+.exportOverviewItem h2 {
+	text-decoration: underline;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.exportOverviewItem h3 {
+	margin-bottom: 2px;
+}
+
+.exportOverviewItem [data-lsjs-element="savedExportFilesList"] ul {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.exportOverviewItem [data-lsjs-element="savedExportFilesList"] ul li {
+	margin: 0px;
+	padding: 5px;
+	border: 1px solid #DDDDDD;
+}
+
+.exportOverviewItem [data-lsjs-element="savedExportFilesList"] ul li:hover {
+	background-color: #FFFFFF;
+}
+
+.exportOverviewItem [data-lsjs-element="savedExportFilesList"] ul li:not(:last-child) {
+	border-bottom: none;
+}
+
+.exportOverviewItem [data-lsjs-element="savedExportFilesList"] a {
+	font-weight: bold;
+	margin-right: 10px;
+	vertical-align: middle;
+}
+
+.exportOverviewItem [data-lsjs-element="savedExportFilesList"] span {
+	vertical-align: middle;
+}
+
+.exportOverviewItem [data-lsjs-element="btn_deleteFile"] {
+	background-color: transparent;
+	border: none;
+	background-image: url("../images/icons/delete.gif");
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	vertical-align: middle;
+	float: right;
+}
+
+#sub_activateFilterByStatus01 fieldset,
+#sub_activateFilterByStatus02 fieldset,
+#sub_activateFilterByStatus03 fieldset,
+#sub_activateFilterByStatus04 fieldset,
+#sub_activateFilterByStatus05 fieldset,
+#sub_activateAutomaticChangeStatus01 .clr,
+#sub_activateAutomaticChangeStatus02 .clr,
+#sub_activateAutomaticChangeStatus03 .clr,
+#sub_activateAutomaticChangeStatus04 .clr,
+#sub_activateAutomaticChangeStatus05 .clr,
+#sub_activateFilterByPaymentMethod fieldset,
+#sub_activateFilterByShippingMethod fieldset {
+	margin-top: 5px;
+	margin-left: 20px;
+}
+
+#sub_activateFilterByStatus01 fieldset legend,
+#sub_activateFilterByStatus02 fieldset legend,
+#sub_activateFilterByStatus03 fieldset legend,
+#sub_activateFilterByStatus04 fieldset legend,
+#sub_activateFilterByStatus05 fieldset legend,
+#sub_activateAutomaticChangeStatus01 h3,
+#sub_activateAutomaticChangeStatus02 h3,
+#sub_activateAutomaticChangeStatus03 h3,
+#sub_activateAutomaticChangeStatus04 h3,
+#sub_activateAutomaticChangeStatus05 h3,
+#sub_activateFilterByPaymentMethod fieldset legend,
+#sub_activateFilterByShippingMethod fieldset legend {
+	display: none;
+}
+/*
+ * <- Export
+ */

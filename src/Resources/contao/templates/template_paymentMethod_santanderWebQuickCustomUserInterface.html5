@@ -1,0 +1,134 @@
+<h3><?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc09']; ?></h3>
+<?php
+	switch ($_SESSION['lsShopPaymentProcess']['santanderWebQuick']['int_status']) {			
+		case 0: // finance id has been generated but application has not been sent yet
+		case 1: // application has been sent and is being checked by santander
+			if ($this->linkToSantander) {
+				?>
+				<div class="redirectToSantander">
+					<p><?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc01']; ?></p>
+					<p><a class="button" target="_blank" href="<?php echo $this->linkToSantander; ?>"><?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc11']; ?></a></p>
+				</div>
+				<div class="checkStatus">
+					<?php
+					if ($_SESSION['lsShopPaymentProcess']['santanderWebQuick']['int_status'] === 1) {
+						?>
+						<p class="error"><?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc05']; ?></p>
+						<?php
+					} else if ($_SESSION['lsShopPaymentProcess']['santanderWebQuick']['bln_statusCheckedAtLeastOnce']) {
+						?>
+						<p class="error"><?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc08']; ?></p>
+						<?php
+					}
+					?>
+
+					<p><?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc03']; ?></p>
+					<form class="santanderWebQuickCheckStatus" action="<?php echo $this->formAction ?>" method="post">
+						<input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN; ?>" />
+						<input type="hidden" name="FORM_SUBMIT" value="santanderWebQuickCheckStatus" />
+						<input type="submit" class="submit" name="submit" value="<?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc04']; ?>" />
+					</form>
+				</div>
+				<?php
+			}
+			break;
+		
+		
+		case 2: // rejected
+		case 6: // canceled
+		case 7: // rejected
+			?>
+			<p class="error"><?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc06']; ?></p>
+			<?php
+			break;
+		
+		case 3: // approved
+		case 5: // approved temporarily
+		case 11: // activated
+		case 13: // approved temporarily
+			?>
+			<p class="success"><?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc07']; ?></p>
+			<?php
+			break;
+		
+		/*
+		 * Finance application not started yet. We still have to collect birthday information
+		 */
+		case -1:
+			if ($_SESSION['lsShopPaymentProcess']['santanderWebQuick']['bln_previousFinancingApplicationCanceled']) {
+				?>
+				<p class="error"><?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc12']; ?></p>
+				<?php
+			}
+			?>
+			<p>
+			<?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc10']; ?>
+			</p>
+			<?php
+			if ($_SESSION['lsShopPaymentProcess']['santanderWebQuick']['str_birthdayError']) {
+				?>
+				<p class="error"><?php echo $_SESSION['lsShopPaymentProcess']['santanderWebQuick']['str_birthdayError']; ?></p>
+				<?php
+				unset($_SESSION['lsShopPaymentProcess']['santanderWebQuick']['str_birthdayError']);
+			}
+			?>
+			<form class="santanderWebQuickBirthday" action="<?php echo $this->formAction ?>" method="post">
+				<input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN; ?>" />
+				<input type="hidden" name="FORM_SUBMIT" value="santanderWebQuickBirthday" />
+				<div class="inputBlock">
+					<label>Tag</label>
+					<select name="santanderWebQuickBirthdayDay">
+						<?php
+							for ($i = 1; $i <= 31; $i++) {
+								?>
+								<option value="<?php echo $i; ?>"<?php echo $_SESSION['lsShopPaymentProcess']['santanderWebQuick']['arr_birthday']['int_day'] == $i ? ' selected="selected"' : ''; ?>>
+									<?php echo $i; ?>
+								</option>
+								<?php
+							}
+						?>
+					</select>
+				</div>
+				<div class="inputBlock">
+					<label>Monat</label>
+					<select name="santanderWebQuickBirthdayMonth">
+						<?php
+							for ($i = 1; $i <= 12; $i++) {
+								?>
+								<option value="<?php echo $i; ?>"<?php echo $_SESSION['lsShopPaymentProcess']['santanderWebQuick']['arr_birthday']['int_month'] == $i ? ' selected="selected"' : ''; ?>>
+									<?php echo $i; ?>
+								</option>
+								<?php
+							}
+						?>
+					</select>
+				</div>
+				<div class="inputBlock">
+					<label>Jahr</label>
+					<select name="santanderWebQuickBirthdayYear">
+						<?php
+							for ($i = date('Y') - 17; $i >= date('Y') - 110; $i--) {
+								?>
+								<option value="<?php echo $i; ?>"<?php echo $_SESSION['lsShopPaymentProcess']['santanderWebQuick']['arr_birthday']['int_year'] == $i ? ' selected="selected"' : ''; ?>>
+									<?php echo $i; ?>
+								</option>
+								<?php
+							}
+						?>
+					</select>
+				</div>
+				<input type="submit" class="submit" name="submit" value="OK" />
+			</form>
+			<?php
+			break;
+		
+		/*
+		 * General error. Santander can't be used.
+		 */
+		case -2:
+		default:
+			?>
+			<p class="error"><?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['generalError01']; ?></p>
+			<?php
+			break;
+	}

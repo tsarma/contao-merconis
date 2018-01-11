@@ -1,0 +1,17 @@
+<?php
+$obj_tmp_productOrVariant = null;
+if ($this->objProduct->_variantIsSelected) {
+	$obj_tmp_productOrVariant = &$this->objProduct->_selectedVariant;
+} else if (!$this->objProduct->_hasVariants) {
+	$obj_tmp_productOrVariant = &$this->objProduct;
+}
+
+if ($obj_tmp_productOrVariant !== null) {
+	$bln_criticalDeliveryTime = $obj_tmp_productOrVariant->_deliveryTimeDays <= 0 || $obj_tmp_productOrVariant->_deliveryTimeDays > 5;
+	?>
+	<div class="deliveryMessageContainer<?php echo $bln_criticalDeliveryTime ? ' deliveryTimeAlert' : ''  ?>">
+		<?php echo $obj_tmp_productOrVariant->_deliveryTimeMessage; ?>
+	</div>
+	<?php
+}
+?>

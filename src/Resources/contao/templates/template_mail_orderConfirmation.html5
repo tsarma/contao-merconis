@@ -1,0 +1,293 @@
+<?php
+	$blnShowWeight = true;
+	$blnShowTaxColumn = false;
+	$blnShowTaxedWithCompletely = false;
+
+	$arrColspans = array(
+		'leftOfPrice' => 4,
+		'leftOfWeight' => 5,
+		'rightOfPrice' => 2,
+		'all' => 7
+	);
+		
+	if (!$blnShowWeight) {
+		$arrColspans['leftOfPrice'] = $arrColspans['leftOfPrice'] - 1;
+		$arrColspans['leftOfWeight'] = $arrColspans['leftOfWeight'] - 1;
+		$arrColspans['rightOfPrice'] = $arrColspans['rightOfPrice'] - 1;
+		$arrColspans['all'] = $arrColspans['all'] - 1;
+	}
+
+	if (!$blnShowTaxColumn) {
+		$arrColspans['rightOfPrice'] = $arrColspans['rightOfPrice'] - 1;
+		$arrColspans['all'] = $arrColspans['all'] - 1;
+	}
+?>
+<div class="orderRepresentation">
+	<table>
+		<tbody>
+			<tr class="header">
+				<td class="title"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText013'] ?></td>
+				<td class="priceSingle"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText014'] ?></td>
+				<?php if ($blnShowWeight) { ?>
+					<td class="weightSingle"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText015'] ?></td>
+				<?php } ?>
+				<td class="quantity"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText016'] ?></td>
+				<td class="priceCumulative"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText018'] ?></td>
+				<?php if ($blnShowWeight) { ?>
+					<td class="weightCumulative"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText019'] ?></td>
+				<?php } ?>
+				<?php if ($blnShowTaxColumn) { ?>
+					<td class="taxClass"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText026'] ?></td>
+				<?php } ?>
+			</tr>
+			<?php
+				$count = 0;
+				foreach ($this->arrOrder['items'] as $itemPosition => $cartItem) {
+					$count++;
+					$oddEven = $count % 2 == 0 ? 'even' : 'odd';
+					?>
+					<tr class="<?php echo $oddEven ?>">
+						<td class="title">
+							<?php if ($cartItem['extendedInfo']['_hasMainImage']): ?><img src="<?php echo \Image::get($cartItem['extendedInfo']['_mainImage'], 60, 60, 'box'); ?>" alt="" /><?php endif; ?>
+							<?php echo $cartItem['extendedInfo']['_productTitle_customerLanguage'].'<br />'.($cartItem['isVariant'] ? $cartItem['extendedInfo']['_title_customerLanguage'] : ''); ?>
+							<?php if ($cartItem['extendedInfo']['_hasCode']) { echo ' ('.$cartItem['extendedInfo']['_code'].')'; } ?>
+							<div class="deliveryTimeMessage"><?php echo $cartItem['extendedInfo']['_deliveryTimeMessageInCart_customerLanguage']; ?></div>
+
+							<?php if ($cartItem['extendedInfo']['_useScalePrice']): ?>
+							<div class="scalePriceQuantity">
+								<?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['quantityForScalePrice']; ?> <?php echo $cartItem['extendedInfo']['_scalePriceQuantity']; ?>
+							</div>
+							<?php endif; ?>
+
+							<?php if ($cartItem['extendedInfo']['_hasConfigurator']) { ?>
+								<div class="configuratorRepresentation">
+									<?php echo $cartItem['configurator_cartRepresentation']; ?>
+									<?php if ($cartItem['configurator_hasValue']) { ?>
+										<br /><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText082']; ?> <?php echo $cartItem['configurator_referenceNumber']; ?>
+									<?php } ?>
+								</div>
+							<?php } ?>
+						</td>
+						<td class="price priceSingle">
+							<?php echo ls_shop_generalHelper::outputPrice($cartItem['price']); ?><?php echo $cartItem['extendedInfo']['_hasQuantityUnit'] ? '/<span class="quantityUnit">'.$cartItem['extendedInfo']['_quantityUnit_customerLanguage'].'</span>' : '' ?>
+						</td>
+						<?php if ($blnShowWeight) { ?>
+							<td class="weight weightSingle">
+								<?php
+									if ($cartItem['extendedInfo']['_hasWeight']) {
+										echo $cartItem['extendedInfo']['_weightFormatted'];
+										echo $cartItem['extendedInfo']['_hasQuantityUnit'] ? '/<span class="quantityUnit">'.$cartItem['extendedInfo']['_quantityUnit_customerLanguage'].'</span>' : '';
+									}
+								?>
+							</td>
+						<?php } ?>
+						<td class="quantity">
+							<?php echo ls_shop_generalHelper::outputQuantity($cartItem['quantity']); ?>
+						</td>
+						<td class="price priceCumulative"><?php echo ls_shop_generalHelper::outputPrice($cartItem['priceCumulative']); ?></td>
+						<?php if ($blnShowWeight) { ?>
+							<td class="weight weightCumulative"><?php echo ls_shop_generalHelper::outputWeight($cartItem['weightCumulative']); ?></td>
+						<?php } ?>
+						<?php if ($blnShowTaxColumn) { ?>
+							<td class="taxClass"><?php echo ls_shop_generalHelper::outputNumber($cartItem['taxPercentage'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']); ?> %</td>
+						<?php } ?>
+					</tr>
+					<?php
+				}
+			?>
+			
+			<tr class="sum">
+				<td colspan="<?php echo $arrColspans['leftOfPrice']; ?>"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText020']; ?>:</td>
+				<td class="price priceTotal"><?php echo ls_shop_generalHelper::outputPrice($this->arrOrder['totalValueOfGoods']); ?></td>
+				<?php if ($blnShowTaxColumn || $blnShowWeight) { ?>
+					<td colspan="<?php echo $arrColspans['rightOfPrice']; ?>"></td>
+				<?php } ?>
+			</tr>
+			<?php if ($blnShowTaxedWithCompletely && !$this->arrOrder['noVATBecauseOfEnteredIDs']) { ?>
+				<?php
+					foreach ($this->arrOrder['totalValueOfGoodsTaxedWith'] as $taxClassID => $arrTaxInfo) {
+						?>
+							<tr class="info">
+								<td colspan="<?php echo $arrColspans['leftOfPrice']; ?>"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], ls_shop_generalHelper::outputNumber($arrTaxInfo['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']).' %'); ?>:</td>
+								<td class="price"><?php echo ls_shop_generalHelper::outputPrice($arrTaxInfo['amountTaxedHerewith']); ?></td>
+								<?php if ($blnShowTaxColumn || $blnShowWeight) { ?>
+									<td colspan="<?php echo $arrColspans['rightOfPrice']; ?>"></td>
+								<?php } ?>
+							</tr>						
+						<?php
+					}
+				?>
+			<?php } ?>
+			
+			<?php if ($blnShowWeight) { ?>
+				<tr>
+					<td colspan="<?php echo $arrColspans['leftOfWeight']; ?>"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText017']; ?>:</td>
+					<td class="weight weightTotal"><?php echo ls_shop_generalHelper::outputWeight($this->arrOrder['totalWeightOfGoods']); ?></td>
+					<?php if ($blnShowTaxColumn) { ?>
+						<td></td>
+					<?php } ?>
+				</tr>
+			<?php } ?>
+
+			<?php
+			if (is_array($this->arrOrder['couponsUsed'])) {
+				$countCoupons = 0;
+				foreach ($this->arrOrder['couponsUsed'] as $couponID => $arrCouponInfo) {
+					if ($arrCouponInfo['invalid']) {
+						continue;
+					}
+					$countCoupons++;
+					?>
+					<tr class="strong usedCoupon<?php echo $countCoupons == count($this->arrOrder['couponsUsed']) ? ' last' : '' ?>">
+						<td colspan="<?php echo $arrColspans['leftOfPrice']; ?>">
+							<?php echo $arrCouponInfo['title_customerLanguage']; ?> (<?php echo $arrCouponInfo['discountOutput'] ?>)
+							<?php if ($arrCouponInfo['description_customerLanguage']): ?>
+								<div class="description">
+									<?php echo $arrCouponInfo['description_customerLanguage']; ?>
+								</div>
+							<?php endif; ?>
+						</td>
+						<td class="price">
+							<?php echo ls_shop_generalHelper::outputPrice($arrCouponInfo['amount']); ?>
+						</td>
+						<?php if ($blnShowTaxColumn || $blnShowWeight) { ?>
+							<td colspan="<?php echo $arrColspans['rightOfPrice']; ?>"></td>
+						<?php } ?>
+					</tr>
+					<?php if (!$this->arrOrder['noVATBecauseOfEnteredIDs']) { ?>
+						<?php
+							foreach ($arrCouponInfo['amountTaxedWith'] as $taxClassID => $arrTaxInfo) {
+								?>
+									<tr class="info">
+										<td colspan="<?php echo $arrColspans['leftOfPrice']; ?>"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], ls_shop_generalHelper::outputNumber($arrTaxInfo['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']).' %'); ?>:</td>
+										<td class="price"><?php echo ls_shop_generalHelper::outputPrice($arrTaxInfo['amountTaxedHerewith']); ?></td>
+										<?php if ($blnShowTaxColumn || $blnShowWeight) { ?>
+											<td colspan="<?php echo $arrColspans['rightOfPrice']; ?>"></td>
+										<?php } ?>
+									</tr>						
+								<?php
+							}
+						?>
+					<?php } ?>
+					<?php
+				}
+			}
+			?>
+			
+			<tr class="strong paymentFeeLabel">
+				<td colspan="<?php echo $arrColspans['leftOfPrice']; ?>"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText021'].' '.$this->arrOrder['paymentMethod_title_customerLanguage'].($this->arrOrder['paymentMethod_feeInfo_customerLanguage'] ? ' '.$this->arrOrder['paymentMethod_feeInfo_customerLanguage'] : ''); ?>:</td>
+				<td class="price paymentFee"><?php echo ls_shop_generalHelper::outputPrice($this->arrOrder['paymentMethod_amount']); ?></td>
+				<?php if ($blnShowWeight) { ?>
+					<td></td>
+				<?php } ?>
+				<?php if ($blnShowTaxColumn) { ?>
+					<td class="taxClass"><?php echo ls_shop_generalHelper::outputNumber($this->arrOrder['paymentMethod_amountTaxedWith'][1]['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']).' %'; ?></td>
+				<?php } ?>
+			</tr>
+			
+			<tr class="strong shippingFeeLabel">
+				<td colspan="<?php echo $arrColspans['leftOfPrice']; ?>"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText022'].' '.$this->arrOrder['shippingMethod_title_customerLanguage'].($this->arrOrder['shippingMethod_feeInfo_customerLanguage'] ? ' '.$this->arrOrder['shippingMethod_feeInfo_customerLanguage'] : ''); ?>:</td>
+				<td class="price shippingFee"><?php echo ls_shop_generalHelper::outputPrice($this->arrOrder['shippingMethod_amount']); ?></td>
+				<?php if ($blnShowWeight) { ?>
+					<td></td>
+				<?php } ?>
+				<?php if ($blnShowTaxColumn) { ?>
+					<td class="taxClass"><?php echo ls_shop_generalHelper::outputNumber($this->arrOrder['shippingMethod_amountTaxedWith'][1]['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']).' %'; ?></td>
+				<?php } ?>
+			</tr>
+			
+			<tr class="sum<?php echo $this->arrOrder['taxInclusive'] ? ' invoicedAmount' : ''; ?>">
+				<td colspan="<?php echo $arrColspans['leftOfPrice']; ?>"><strong><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop'][$this->arrOrder['taxInclusive'] ? 'miscText023' : 'miscText051']; ?>:</strong></td>
+				<td class="price priceTotal"><strong><?php echo ls_shop_generalHelper::outputPrice($this->arrOrder['total']); ?></strong></td>
+				<?php if ($blnShowTaxColumn || $blnShowWeight) { ?>
+					<td colspan="<?php echo $arrColspans['rightOfPrice']; ?>"></td>
+				<?php } ?>
+			</tr>
+			
+			<?php if ($blnShowTaxedWithCompletely && !$this->arrOrder['noVATBecauseOfEnteredIDs']) { ?>
+				<?php
+					foreach ($this->arrOrder['totalTaxedWith'] as $taxClassID => $arrTaxInfo) {
+						?>
+							<tr class="info">
+								<td colspan="<?php echo $arrColspans['leftOfPrice']; ?>"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], ls_shop_generalHelper::outputNumber($arrTaxInfo['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']).' %'); ?>:</td>
+								<td class="price"><?php echo ls_shop_generalHelper::outputPrice($arrTaxInfo['amountTaxedHerewith']); ?></td>
+								<?php if ($blnShowTaxColumn || $blnShowWeight) { ?>
+									<td colspan="<?php echo $arrColspans['rightOfPrice']; ?>"></td>
+								<?php } ?>
+							</tr>						
+						<?php
+					}
+				?>
+			<?php } ?>
+
+			
+			<?php if (!$this->arrOrder['noVATBecauseOfEnteredIDs']) { ?>
+				<?php
+					foreach ($this->arrOrder['tax'] as $taxClassID => $arrTaxInfo) {
+						?>
+							<tr>
+								<td colspan="<?php echo $arrColspans['leftOfPrice']; ?>"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop'][$this->arrOrder['taxInclusive'] ? 'miscText052' : 'miscText053']; ?> (<?php echo ls_shop_generalHelper::outputNumber($arrTaxInfo['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']).' %'; ?>):</td>
+								<td class="price"><?php echo ls_shop_generalHelper::outputPrice($arrTaxInfo['taxAmount']); ?></td>
+								<?php if ($blnShowTaxColumn || $blnShowWeight) { ?>
+									<td colspan="<?php echo $arrColspans['rightOfPrice']; ?>"></td>
+								<?php } ?>
+							</tr>						
+						<?php
+					}
+				?>
+			<?php } ?>
+
+			<?php if ($this->arrOrder['noVATBecauseOfEnteredIDs']) { ?>
+				<tr>
+					<td colspan="<?php echo $arrColspans['all']; ?>" class="error"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['noVAT'], $GLOBALS['TL_CONFIG']['ls_shop_ownVATID']) ?></td>
+				</tr>
+			<?php } ?>
+			
+			<?php
+				if (!$this->arrOrder['taxInclusive']) {
+					?>
+						<tr class="sum invoicedAmount">
+							<td colspan="<?php echo $arrColspans['leftOfPrice']; ?>"><strong><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText023']; ?>:</strong></td>
+							<td class="price priceTotal"><strong><?php echo ls_shop_generalHelper::outputPrice($this->arrOrder['invoicedAmount']); ?></strong></td>
+							<?php if ($blnShowTaxColumn || $blnShowWeight) { ?>
+								<td colspan="<?php echo $arrColspans['rightOfPrice']; ?>"></td>
+							<?php } ?>
+						</tr>
+					<?php
+				}
+			?>
+			
+			<tr class="space">
+				<td colspan="<?php echo $arrColspans['all']; ?>"></td>
+			</tr>
+			
+			<tr class="borderless formCustomerData form">
+				<td colspan="<?php echo $arrColspans['all']; ?>"><?php echo $this->arrOrder['personalDataReview_customerLanguage']; ?></td>
+			</tr>
+
+			<tr class="space">
+				<td colspan="<?php echo $arrColspans['all']; ?>"></td>
+			</tr>
+
+			<?php if ($this->arrOrder['paymentDataReview']) { ?>
+				<tr class="borderless formPaymentMethodAdditionalData form">
+					<td colspan="<?php echo $arrColspans['all']; ?>"><?php echo $this->arrOrder['paymentDataReview_customerLanguage']; ?></td>
+				</tr>
+
+				<tr class="space">
+					<td colspan="<?php echo $arrColspans['all']; ?>"></td>
+				</tr>
+			<?php } ?>
+
+			<?php if ($this->arrOrder['shippingDataReview']) { ?>
+				<tr class="borderless formShippingMethodAdditionalData form">
+					<td colspan="<?php echo $arrColspans['all']; ?>"><?php echo $this->arrOrder['shippingDataReview_customerLanguage']; ?></td>
+				</tr>
+				
+				<tr class="space">
+					<td colspan="<?php echo $arrColspans['all']; ?>"></td>
+				</tr>
+			<?php } ?>
+		</tbody>
+	</table>
+</div>

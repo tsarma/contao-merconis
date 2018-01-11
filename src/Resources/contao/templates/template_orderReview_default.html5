@@ -1,0 +1,26 @@
+<?php
+	$bln_reviewMode = true;
+
+	include(__DIR__.'/template_cart--big_include_cart.html5');
+
+	echo $this->arrRequiredCheckoutData['customerDataReview'];
+
+//########## PAYMENT ##########
+if ($this->arrRequiredCheckoutData['paymentMethodAdditionalDataReview']) {
+	?>
+	<div class="borderless payment formPaymentMethodAdditionalData form"><?php echo $this->arrRequiredCheckoutData['paymentMethodAdditionalDataReview']; ?></div>
+	<?php
+}
+
+//########## SHIPPING ##########
+if ($this->arrRequiredCheckoutData['shippingMethodAdditionalDataReview']) {
+	?>
+	<div class="borderless shipping formShippingMethodAdditionalData form"><?php echo $this->arrRequiredCheckoutData['shippingMethodAdditionalDataReview']; ?></div>
+	<?php
+}
+
+//########## CONFIRM ORDER FORM ##########
+?>
+<div class="borderless confirmOrder formConfirmOrder form">
+	<?php echo $this->formConfirmOrder; ?>
+</div>

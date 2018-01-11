@@ -1,0 +1,7 @@
+<?php
+	global $objPage;
+	
+	echo $this->insertionAboveProductSingleview;
+
+	echo $this->product;
+?>

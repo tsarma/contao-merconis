@@ -1,0 +1,22 @@
+<?php
+	// use this to show the available output options:
+	// echo $this->objProduct->_outputOptions;
+?>
+<tr>
+	<td>
+		<?php if ($this->objProduct->_hasMainImage): ?>
+				<img src="<?php echo \Image::get($this->objProduct->_mainImage, 50, 50, 'box'); ?>" alt="" />
+		<?php endif; ?>
+	</td>
+	<td><?php echo $this->objProduct->_id; ?></td>
+	<td><?php echo $this->objProduct->_code; ?></td>
+	<td><?php echo $this->objProduct->_title; ?></td>
+	<td><?php echo $this->objProduct->_isPublished ? $GLOBALS['TL_LANG']['MSC']['ls_shop']['yes'] : $GLOBALS['TL_LANG']['MSC']['ls_shop']['no']; ?></td>
+	<td>
+		<?php if ($this->mode == 'productSelection'): ?>
+			<a onclick="ls_shop_productSelection.selectProduct(<?php echo $this->objProduct->_id; ?>)"><?php echo $GLOBALS['TL_LANG']['be_productSearch']['text013']; ?></a>
+		<?php else: ?>
+			<a href="contao/main.php?do=ls_shop_product&table=tl_ls_shop_variant&id=<?php echo $this->objProduct->_id; ?>"><?php echo $GLOBALS['TL_LANG']['be_productSearch']['text014']; ?></a>
+		<?php endif; ?>
+	</td>
+</tr>
