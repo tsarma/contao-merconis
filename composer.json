@@ -10,12 +10,12 @@
   "require": {
     "php": ">=7.0.0",
     "contao/core-bundle": "~4.4",
-    "leadingsystems/contao-helpers ": "*",
+    "leadingsystems/contao-helpers": "*",
     "leadingsystems/contao-lsjs4c": "*",
-    "leadingsystems/contao-ls_api ": "*",
+    "leadingsystems/contao-api": "*",
     "leadingsystems/contao-cajax": "*",
-    "leadingsystems/contao-languageselector ": "*",
-    "leadingsystems/contao-datacollector ": "*"
+    "leadingsystems/contao-languageselector": "*",
+    "leadingsystems/contao-datacollector": "*"
   },
   "autoload": {
     "psr-4": {
