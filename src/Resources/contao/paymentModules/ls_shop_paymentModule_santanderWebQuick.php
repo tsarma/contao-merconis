@@ -132,7 +132,7 @@ namespace Merconis\Core;
 		}
 		
 		public function getCustomUserInterface() {
-			$obj_template = new \FrontendTemplate('template_paymentMethod_santanderWebQuickCustomUserInterface');
+			$obj_template = new \FrontendTemplate('santanderWebQuickCustomUserInterface');
 
 			$arrCheckoutFormFields = ls_shop_checkoutData::getInstance()->arrCheckoutData['arrCustomerData'];
 			$arrPaymentMethodAdditionalDataFormFields = ls_shop_checkoutData::getInstance()->arrCheckoutData['arrPaymentMethodAdditionalData'];

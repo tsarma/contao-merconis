@@ -344,7 +344,7 @@ class ls_shop_paymentModule_payPalPlus extends ls_shop_paymentModule_standard {
 	}
 	
 	protected function payPalPlus_showAuthorizationStatus() {
-		$obj_template = new \FrontendTemplate('template_paymentMethod_payPalPlusCustomUserInterface');
+		$obj_template = new \FrontendTemplate('payPalPlusCustomUserInterface');
 		$obj_template->bln_paymentAuthorized = true;
 		return $obj_template->parse();		
 	}
@@ -362,7 +362,7 @@ class ls_shop_paymentModule_payPalPlus extends ls_shop_paymentModule_standard {
 			$this->redirectToErrorPage(__METHOD__, 'no approval url received as a result of the call to '.__CLASS__.'::payPalPlus_createPayment');
 		}
 		
-		$obj_template = new \FrontendTemplate('template_paymentMethod_payPalPlusCustomUserInterface');
+		$obj_template = new \FrontendTemplate('payPalPlusCustomUserInterface');
 		$obj_template->bln_paymentAuthorized = false;
 		$obj_template->str_approvalUrl = $str_approvalUrl;
 		
