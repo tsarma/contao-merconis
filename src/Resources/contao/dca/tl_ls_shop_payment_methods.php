@@ -318,7 +318,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_payment_methods'] = array(
 
 class ls_shop_payment_methods extends \Backend {
 	public function __construct() {
-		$this->import('ls_shop_paymentModule');
+		$this->import('Merconis\Core\ls_shop_paymentModule');
 		parent::__construct();
 	}
 

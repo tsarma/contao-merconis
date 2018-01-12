@@ -13,7 +13,7 @@ class ls_shop_import extends \BackendModule {
 			return;
 		}
 		
-		$this->import('ls_shop_importController');
+		$this->import('Merconis\Core\ls_shop_importController');
 		
 		// Create the file upload field
 		$objFfl_importFileUpload = new \FileUpload(array(

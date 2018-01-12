@@ -11,8 +11,8 @@ class ModuleCheckoutFinish extends \Module {
 	private $orderNr = null;
 	
 	public function generate() {
-		$this->import('ls_shop_paymentModule');
-		$this->import('ls_shop_shippingModule');
+		$this->import('Merconis\Core\ls_shop_paymentModule');
+		$this->import('Merconis\Core\ls_shop_shippingModule');
 
 		if (FE_USER_LOGGED_IN) {
 			$this->import('FrontendUser', 'User');

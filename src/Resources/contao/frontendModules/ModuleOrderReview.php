@@ -4,7 +4,7 @@ namespace Merconis\Core;
 
 class ModuleOrderReview extends \Module {
 	public function generate() {
-		$this->import('ls_shop_paymentModule');
+		$this->import('Merconis\Core\ls_shop_paymentModule');
 		
 		if (TL_MODE == 'BE') {
 			$objTemplate = new \BackendTemplate('be_wildcard');

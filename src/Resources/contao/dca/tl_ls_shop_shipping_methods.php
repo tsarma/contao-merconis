@@ -304,7 +304,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_shipping_methods'] = array(
 
 class ls_shop_shipping_methods extends \Backend {
 	public function __construct() {
-		$this->import('ls_shop_shippingModule');
+		$this->import('Merconis\Core\ls_shop_shippingModule');
 		parent::__construct();
 	}
 

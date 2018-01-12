@@ -4,7 +4,7 @@ namespace Merconis\Core;
 
 class ModulePaymentAfterCheckout extends \Module {
 	public function generate() {
-		$this->import('ls_shop_paymentModule');
+		$this->import('Merconis\Core\ls_shop_paymentModule');
 		if (FE_USER_LOGGED_IN) {
 			$this->import('FrontendUser', 'User');
 		}
