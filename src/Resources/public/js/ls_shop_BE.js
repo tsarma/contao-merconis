@@ -182,7 +182,7 @@ var ls_shop_backend = {
 		Backend.ppValue = $(id).value;
 
 		Backend.getScrollOffset();
-		Backend.openModalIframe({'width':765,'title':pickerHeadline,'url':'system/modules/zzz_merconis/pub/ls_shop_beValuePicker.php?requestedTable=' + requestedTable + '&requestedValue=' + requestedValue + '&value=' + Backend.ppValue,'id':id});
+		Backend.openModalIframe({'width':765,'title':pickerHeadline,'url':'vendor/leadingsystems/contao-merconis/src/Resources/contao/pub/ls_shop_beValuePicker.php?requestedTable=' + requestedTable + '&requestedValue=' + requestedValue + '&value=' + Backend.ppValue,'id':id});
 	},
 	
 	toggleLsShopMainLanguagePagetree: function (el, id, field, name, level) {

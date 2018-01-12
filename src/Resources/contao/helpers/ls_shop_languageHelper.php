@@ -21,22 +21,6 @@ class ls_shop_languageHelper {
 		global $objPage;
 		$str_domain = is_object($objPage) ? $objPage->domain : '%';
 
-		if (
-				(
-						!isset($GLOBALS['merconis_globals']['determineExistingLanguagesDuringInstallation'])
-					||	!$GLOBALS['merconis_globals']['determineExistingLanguagesDuringInstallation']
-				)
-			&&	(
-						!isset($GLOBALS['TL_CONFIG']['ls_shop_installedCompletely'])
-					||	!$GLOBALS['TL_CONFIG']['ls_shop_installedCompletely']
-				)
-			&&	\Database::getInstance()->tableExists('tl_page')
-		) {
-			$GLOBALS['merconis_globals']['arr_cache']['arr_languages']['arr_allLanguages'] = array('en');
-			$GLOBALS['merconis_globals']['arr_cache']['arr_languages']['str_fallbackLanguage'] = 'en';
-			return;
-		}
-
 		$arr_languages = array();
 		$str_fallbackLanguage = '';
 		$obj_dbres_rootPages = \Database::getInstance()
@@ -107,22 +91,6 @@ class ls_shop_languageHelper {
 	 * the multilanguage field definitions where needed.
 	 */
 	public static function createMultiLanguageDCAFields($str_dcaName) {
-		/*
-		 * Don't process this function if MERCONIS is not installed completely yet and if the global flag, indicating
-		 * that the function should be processed for installations purposes is not set.
-		 */
-		if (
-				(
-						!isset($GLOBALS['TL_CONFIG']['ls_shop_installedCompletely'])
-					||	!$GLOBALS['TL_CONFIG']['ls_shop_installedCompletely']
-				)
-			&&	(
-						!isset($GLOBALS['merconis_globals']['createMultiLanguageDCAFieldsDuringInstallation'])
-					||	!$GLOBALS['merconis_globals']['createMultiLanguageDCAFieldsDuringInstallation'])
-		) {
-			return;
-		}
-
 		/*
 		 * Do not process this function if the DCA name is on the list of DCAs not to process
 		 */
@@ -210,7 +178,7 @@ class ls_shop_languageHelper {
 					) {
 						$arr_multiLanguageFields[$str_fieldKey][$str_fieldKey.'_htmlOutputBeforeMainLanguageField'] = array(
 							'input_field_callback'	  => array('Merconis\Core\ls_shop_generalHelper', 'rawOutputForBackendDCA'),
-							'eval'					  => array('output' => '<div class="languageWidgetContainer mainLanguage '.self::getFallbackLanguage().($str_tmpFieldClass ? ' '.$str_tmpFieldClass : '').'"><div class="languageIcon '.self::getFallbackLanguage().' mainLanguage" style="background-image: url(system/modules/zzz_merconis/images/languages/'.self::getFallbackLanguage().'.gif);"></div>')
+							'eval'					  => array('output' => '<div class="languageWidgetContainer mainLanguage '.self::getFallbackLanguage().($str_tmpFieldClass ? ' '.$str_tmpFieldClass : '').'"><div class="languageIcon '.self::getFallbackLanguage().' mainLanguage" style="background-image: url(bundles/leadingsystemsmerconis/images/languages/'.self::getFallbackLanguage().'.gif);"></div>')
 						);
 					}
 
@@ -245,7 +213,7 @@ class ls_shop_languageHelper {
 						) {
 							$arr_multiLanguageFields[$str_fieldKey][$str_fieldKey.'_htmlOutputBeforeForeignLanguageField-'.$str_language] = array(
 								'input_field_callback'	  => array('Merconis\Core\ls_shop_generalHelper', 'rawOutputForBackendDCA'),
-								'eval'					  => array('output' => '<div class="languageWidgetContainer '.$str_language.($str_tmpFieldClass ? ' '.$str_tmpFieldClass : '').'"><div class="languageIcon '.$str_language.'" style="background-image: url(system/modules/zzz_merconis/images/languages/'.$str_language.'.gif);"></div>')
+								'eval'					  => array('output' => '<div class="languageWidgetContainer '.$str_language.($str_tmpFieldClass ? ' '.$str_tmpFieldClass : '').'"><div class="languageIcon '.$str_language.'" style="background-image: url(bundles/leadingsystemsmerconis/images/languages/'.$str_language.'.gif);"></div>')
 							);
 						}
 
@@ -356,14 +324,8 @@ class ls_shop_languageHelper {
 				 * or in the repository manager
 				 */
 				if (
-						(
-								\Input::get('do') == 'repository_manager'
-							||	strpos(\Environment::get('request'), 'install.php') !== false
-						)
-					&&	(
-							!isset($GLOBALS['merconis_globals']['createMultiLanguageDCAFieldsDuringInstallation'])
-						||	!$GLOBALS['merconis_globals']['createMultiLanguageDCAFieldsDuringInstallation']
-					)
+						\Input::get('do') == 'repository_manager'
+					||	strpos(\Environment::get('request'), 'install.php') !== false
 				) {
 					continue;
 				}
@@ -888,7 +850,7 @@ class ls_shop_languageHelper {
 	 * bzw. gibt die pageID wieder zurück, sofern es sich dabei bereits um die Hauptsprachseite handelt.
 	 */
 	public static function getMainlanguagePageIDForPageID($pageID = false) {
-		$objLanguageSelectorController = new \LeadingSystems\LanguageSelector\ls_cnc_languageSelectorController();
+		$objLanguageSelectorController = new \LeadingSystems\LanguageSelector\LsController();
 		return $objLanguageSelectorController->getMainlanguagePageIDForPageID($pageID);
 	}
 
@@ -1008,7 +970,7 @@ class ls_shop_languageHelper {
 		if (!$pageID) {
 			return array();
 		}
-		$objLanguageSelectorController = new \LeadingSystems\LanguageSelector\ls_cnc_languageSelectorController();
+		$objLanguageSelectorController = new \LeadingSystems\LanguageSelector\LsController();
 		$arrLanguagePages = $objLanguageSelectorController->getCorrespondingLanguagesForCurrentRootPage($pageID);
 		return $arrLanguagePages;
 	}

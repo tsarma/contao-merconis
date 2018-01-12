@@ -1,7 +1,7 @@
 <div class="template_beMessageRepresentationDetails">
 	<h4 class="htmlBodyHead"><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_messages_sent']['misc']['htmlbody']; ?></h4>
 	<div class="htmlBody">
-		<iframe frameborder="0" name="mailHTMLBodyViewer" src="system/modules/zzz_merconis/pub/ls_shop_showMailHTMLBody.php?mid=<?php echo $this->value['id']; ?>"></iframe>
+		<iframe frameborder="0" name="mailHTMLBodyViewer" src="vendor/leadingsystems/contao-merconis/src/Resources/contao/pub/ls_shop_showMailHTMLBody.php?mid=<?php echo $this->value['id']; ?>"></iframe>
 	</div>
 
 	<h4 class="rawtextBodyHead"><?php echo $GLOBALS['TL_LANG']['tl_ls_shop_messages_sent']['misc']['textbody']; ?></h4>

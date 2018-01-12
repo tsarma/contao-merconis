@@ -210,11 +210,15 @@
 	position: relative;
 }
 
+.ls_shop_multi_language .clr:not(.widget).languageWidgetContainer {
+	width: calc(100% - 30px);
+}
+
 .ls_shop_multi_language .languageWidgetContainer.w50 {
-	height: 25px;
+	height: 45px;
 	background-image: url("../images/languages/languageBackground01.png");
 	background-repeat: no-repeat;
-	background-position: 1px 1px;
+	background-position: 2px 2px;
 }
 
 .ls_shop_multi_language .languageWidgetContainer.w50 .languageIcon {
@@ -222,24 +226,24 @@
 	margin-right: 10px;
 	position: absolute;
 	top: 6px;
-	left: 6px;
+	left: 7px;
 }
 
 .ls_shop_multi_language .languageWidgetContainer.w50 .tl_text {
-	width: 288px;
+	width: calc(100% - 50px);
 }
 
 .ls_shop_multi_language .languageWidgetContainer.clr {
 	background-image: url("../images/languages/languageBackground02.png");
 	background-repeat: no-repeat;
-	background-position: 1px 1px;
+	background-position: 0px 3px;
 	margin-bottom: 10px;
 	padding-top: 9px;
 }
 
 .ls_shop_multi_language .languageWidgetContainer.clr .languageIcon {
 	position: relative;
-	top: -5px;
+	top: -2px;
 	left: 12px;
 }
 
@@ -252,6 +256,11 @@
 
 .ls_shop_multilanguage_fieldsWrapper {
 	width: 100%;
+	margin-left: 15px;
+}
+
+.ls_shop_multilanguage_fieldsWrapper .widget {
+	margin-left: 0px;
 }
 
 .languageWidgetContainer .merconis_multilanguage h3 {
@@ -262,6 +271,7 @@
 	position: absolute;
 	top: 0px;
 	left: 27px;
+	width: 100%;
 }
 
 /*

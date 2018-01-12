@@ -69,7 +69,7 @@ class ls_shop_variant
 	 * des Varianten-Objektes und analysiert dafür die Methoden "__get()" und "__call()"
 	 <--*/
 	protected function ls_outputOptions() {
-		$fileContent = file_get_contents(TL_ROOT.'/system/modules/zzz_merconis/ls_shop_variant.php');
+		$fileContent = file_get_contents(TL_ROOT.'/vendor/leadingsystems/contao-merconis/src/Resources/contao/ls_shop_variant.php');
 
 		/*-->
 		 * Properties

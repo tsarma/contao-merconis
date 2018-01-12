@@ -11,9 +11,9 @@ namespace Merconis\Core;
 			/*
 			 * Including the sofortueberweisung SDK classes
 			 */
-			require_once(TL_ROOT.'/system/modules/zzz_merconis/vendor/sofortueberweisung/sdk/payment/sofortLibSofortueberweisung.inc.php');
-			require_once(TL_ROOT.'/system/modules/zzz_merconis/vendor/sofortueberweisung/sdk/core/sofortLibNotification.inc.php');
-			require_once(TL_ROOT.'/system/modules/zzz_merconis/vendor/sofortueberweisung/sdk/core/sofortLibTransactionData.inc.php');
+			require_once(TL_ROOT.'/vendor/leadingsystems/contao-merconis/src/Resources/contao/vendor/sofortueberweisung/sdk/payment/sofortLibSofortueberweisung.inc.php');
+			require_once(TL_ROOT.'/vendor/leadingsystems/contao-merconis/src/Resources/contao/vendor/sofortueberweisung/sdk/core/sofortLibNotification.inc.php');
+			require_once(TL_ROOT.'/vendor/leadingsystems/contao-merconis/src/Resources/contao/vendor/sofortueberweisung/sdk/core/sofortLibTransactionData.inc.php');
 		}
 		
 		/*
