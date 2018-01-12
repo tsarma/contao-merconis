@@ -1,15 +1,15 @@
 <div class="productConfigurator standard">
 	<?php
-		if (ls_shop_msg::checkMsg('customValidationError', $this->configuratorCacheKey)) {
+		if (\Merconis\Core\ls_shop_msg::checkMsg('customValidationError', $this->configuratorCacheKey)) {
 			?>
-			<p class="error"><?php echo ls_shop_msg::getMsg('customValidationError', $this->configuratorCacheKey); ?></p>
+			<p class="error"><?php echo \Merconis\Core\ls_shop_msg::getMsg('customValidationError', $this->configuratorCacheKey); ?></p>
 			<?php
 		}
 	?>
 	<?php
-		if (ls_shop_msg::checkMsg('customValidationSuccess', $this->configuratorCacheKey)) {
+		if (\Merconis\Core\ls_shop_msg::checkMsg('customValidationSuccess', $this->configuratorCacheKey)) {
 			?>
-			<p class="success"><?php echo ls_shop_msg::getMsg('customValidationSuccess', $this->configuratorCacheKey); ?></p>
+			<p class="success"><?php echo \Merconis\Core\ls_shop_msg::getMsg('customValidationSuccess', $this->configuratorCacheKey); ?></p>
 			<?php
 		}
 	?>

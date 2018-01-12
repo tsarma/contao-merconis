@@ -269,7 +269,7 @@ class ls_shop_checkoutData {
 			switch ($what) {
 				case 'payment':
 					// ### paymentMethod callback ########################
-					$obj_paymentModule = \System::importStatic('ls_shop_paymentModule', null, true);
+					$obj_paymentModule = \System::importStatic('Merconis\Core\ls_shop_paymentModule', null, true);
 					if ($obj_paymentModule->statusOkayToShowCustomUserInterface()) {
 						$GLOBALS['merconis_globals']['checkoutData']['customPaymentOrShippingMethodUserInterface'][$what] = $obj_paymentModule->getCustomUserInterface();
 					} else {
@@ -291,7 +291,7 @@ class ls_shop_checkoutData {
 	private function getPaymentMethodMessages() {
 		if (!isset($GLOBALS['merconis_globals']['checkoutData']['paymentMethodMessages'])) {
 			// ### paymentMethod callback ########################
-			$obj_paymentModule = \System::importStatic('ls_shop_paymentModule', null, true);
+			$obj_paymentModule = \System::importStatic('Merconis\Core\ls_shop_paymentModule', null, true);
 			$GLOBALS['merconis_globals']['checkoutData']['paymentMethodMessages']['error'] = $obj_paymentModule->getPaymentMethodErrorMessage();
 			$GLOBALS['merconis_globals']['checkoutData']['paymentMethodMessages']['success'] = $obj_paymentModule->getPaymentMethodSuccessMessage();
 			// ###################################################			
@@ -424,7 +424,7 @@ class ls_shop_checkoutData {
 		$this->formCustomerData = \Controller::getForm($this->formCustomerDataID);
 
 		// ### paymentMethod callback ########################
-		$obj_paymentModule = \System::importStatic('ls_shop_paymentModule', null, true);
+		$obj_paymentModule = \System::importStatic('Merconis\Core\ls_shop_paymentModule', null, true);
 
 		if ($this->formPaymentMethodAdditionalDataID && $obj_paymentModule->statusOkayToShowAdditionalDataForm()) {
 			// ###################################################
@@ -543,7 +543,7 @@ class ls_shop_checkoutData {
 		
 		if ($what == 'payment') {
 			// ### paymentMethod callback ########################
-			$obj_paymentModule = \System::importStatic('ls_shop_paymentModule', null, true);
+			$obj_paymentModule = \System::importStatic('Merconis\Core\ls_shop_paymentModule', null, true);
 			$formID = $obj_paymentModule->getFormIDForAdditionalData($formID);
 			// ###################################################
 		}
@@ -642,7 +642,7 @@ class ls_shop_checkoutData {
 		if ($what == 'payment') {
 
 			// ### paymentMethod callback ########################
-			$obj_paymentModule = \System::importStatic('ls_shop_paymentModule', null, true);
+			$obj_paymentModule = \System::importStatic('Merconis\Core\ls_shop_paymentModule', null, true);
 			$obj_paymentModule->afterPaymentMethodAdditionalDataConfirm();
 			// ###################################################
 
@@ -708,7 +708,7 @@ class ls_shop_checkoutData {
 
 			if ($what == 'payment') {
 				// ### paymentMethod callback ########################
-				$obj_paymentModule = \System::importStatic('ls_shop_paymentModule', null, true);
+				$obj_paymentModule = \System::importStatic('Merconis\Core\ls_shop_paymentModule', null, true);
 				$obj_paymentModule->afterPaymentMethodSelection();
 				// ###################################################
 			}
@@ -868,7 +868,7 @@ class ls_shop_checkoutData {
 				if ($this->arrCheckoutData['cheapestPossiblePaymentMethod']) {
 					$this->arrCheckoutData['selectedPaymentMethod'] = $this->arrCheckoutData['cheapestPossiblePaymentMethod'];
 					// ### paymentMethod callback ########################
-					$obj_paymentModule = \System::importStatic('ls_shop_paymentModule', null, true);
+					$obj_paymentModule = \System::importStatic('Merconis\Core\ls_shop_paymentModule', null, true);
 					$obj_paymentModule->afterPaymentMethodSelection();
 					// ###################################################
 
@@ -879,7 +879,7 @@ class ls_shop_checkoutData {
 					$this->arrCheckoutData['selectedPaymentMethod'] = $groupInfo['lsShopStandardPaymentMethod'];
 					$this->arrCheckoutData['selectedPaymentMethodManually'] = true;
 					// ### paymentMethod callback ########################
-					$obj_paymentModule = \System::importStatic('ls_shop_paymentModule', null, true);
+					$obj_paymentModule = \System::importStatic('Merconis\Core\ls_shop_paymentModule', null, true);
 					$obj_paymentModule->afterPaymentMethodSelection();
 					// ###################################################
 
@@ -962,7 +962,7 @@ class ls_shop_checkoutData {
 		if ($what == 'payment') {
 
 			// ### paymentMethod callback ########################
-			$obj_paymentModule = \System::importStatic('ls_shop_paymentModule', null, true);
+			$obj_paymentModule = \System::importStatic('Merconis\Core\ls_shop_paymentModule', null, true);
 			if (!$obj_paymentModule->statusOkayToRedirectToCheckoutFinish()) {
 				$blnIsValid = false;
 				return $blnIsValid;				

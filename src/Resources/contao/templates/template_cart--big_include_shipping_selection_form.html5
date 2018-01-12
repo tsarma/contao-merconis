@@ -14,8 +14,8 @@
 >
 	<h3 class="headlineMainSection">
 		<?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText012']; ?>
-		<?php if (ls_shop_cartX::getInstance()->calculation['shippingFee'][0]) { ?>
-			<span class="feeValue">(+ <?php echo ls_shop_generalHelper::outputPrice(ls_shop_cartX::getInstance()->calculation['shippingFee'][0]); ?>)</span>
+		<?php if (\Merconis\Core\ls_shop_cartX::getInstance()->calculation['shippingFee'][0]) { ?>
+			<span class="feeValue">(+ <?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['shippingFee'][0]); ?>)</span>
 		<?php } ?>
 		<?php if (!$this->arrRequiredCheckoutData['shippingMethodDataIsValid'] && $this->arrRequiredCheckoutData['customerDataIsValid']) { ?>
 			<span class="error">(<?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText036']; ?>)</span>

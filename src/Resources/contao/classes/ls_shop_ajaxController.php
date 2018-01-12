@@ -72,7 +72,7 @@ class ls_shop_ajaxController
 				break;
 				
 			case 'callImporterFunction':
-				$obj_importController = \System::importStatic('ls_shop_importController');
+				$obj_importController = \System::importStatic('Merconis\Core\ls_shop_importController');
 				switch (\Input::post('what')) {
 					case 'importFile':
 						$obj_importController->importFile();

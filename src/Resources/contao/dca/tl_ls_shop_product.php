@@ -260,7 +260,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'flex_contents' => array(
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['flex_contents'],
 			'exclude' => true,
-			'inputType' => 'Merconis\Core\listWizardDoubleValue_leftText_rightTextarea',
+			'inputType' => 'listWizardDoubleValue_leftText_rightTextarea',
 			'eval'                    => array(
 				'tl_class'=>'clr',
 				'label01' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['flex_contents_label01'],
@@ -274,7 +274,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'flex_contentsLanguageIndependent' => array(
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['flex_contentsLanguageIndependent'],
 			'exclude' => true,
-			'inputType' => 'Merconis\Core\listWizardDoubleValue_leftText_rightTextarea',
+			'inputType' => 'listWizardDoubleValue_leftText_rightTextarea',
 			'eval'                    => array(
 				'tl_class'=>'clr topLinedGroup flex_contents',
 				'label01' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['flex_contentsLanguageIndependent_label01'],
@@ -420,7 +420,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductAttributesValues'],
 			'default'                 => array(),
 			'exclude' => true,
-			'inputType'               => 'Merconis\Core\ls_shop_ListWizardAttributesValues',
+			'inputType'               => 'ls_shop_ListWizardAttributesValues',
 			'eval'					  => array('merconis_multiField' => array('labels' => array($GLOBALS['TL_LANG']['tl_ls_shop_product']['attributesValues_label01'], $GLOBALS['TL_LANG']['tl_ls_shop_product']['attributesValues_label02'])))
 		),
 		
@@ -479,7 +479,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'scalePrice' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
-			'inputType' => 'Merconis\Core\listWizardDoubleValue',
+			'inputType' => 'listWizardDoubleValue',
 			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
 		),
 		
@@ -596,7 +596,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'scalePrice_1' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
-			'inputType' => 'Merconis\Core\listWizardDoubleValue',
+			'inputType' => 'listWizardDoubleValue',
 			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
 		),
 		
@@ -682,7 +682,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'scalePrice_2' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
-			'inputType' => 'Merconis\Core\listWizardDoubleValue',
+			'inputType' => 'listWizardDoubleValue',
 			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
 		),
 		
@@ -768,7 +768,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'scalePrice_3' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
-			'inputType' => 'Merconis\Core\listWizardDoubleValue',
+			'inputType' => 'listWizardDoubleValue',
 			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
 		),
 		
@@ -854,7 +854,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'scalePrice_4' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
-			'inputType' => 'Merconis\Core\listWizardDoubleValue',
+			'inputType' => 'listWizardDoubleValue',
 			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
 		),
 		
@@ -940,7 +940,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'scalePrice_5' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
-			'inputType' => 'Merconis\Core\listWizardDoubleValue',
+			'inputType' => 'listWizardDoubleValue',
 			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
 		),
 		
@@ -973,14 +973,14 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'lsShopProductRecommendedProducts' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductRecommendedProducts'],
 			'exclude' => true,
-			'inputType'		=>	'Merconis\Core\ls_shop_productSelectionWizard',
+			'inputType'		=>	'ls_shop_productSelectionWizard',
 			'eval'			=> array('tl_class'=>'clr')
 		),
 
 		'associatedProducts' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['associatedProducts'],
 			'exclude' => true,
-			'inputType'		=>	'Merconis\Core\ls_shop_productSelectionWizard',
+			'inputType'		=>	'ls_shop_productSelectionWizard',
 			'eval'			=> array('tl_class'=>'clr')
 		),
 		

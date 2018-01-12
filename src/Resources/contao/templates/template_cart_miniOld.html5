@@ -5,7 +5,7 @@
 >
 	<a class="gotoCart" href="{{shopLink::cartPage}}">
 		<span class="cart-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText131']; ?></span>
-		<span class="cart-num-items"><?php echo ls_shop_cartX::getInstance()->numItems; ?></span>
+		<span class="cart-num-items"><?php echo \Merconis\Core\ls_shop_cartX::getInstance()->numItems; ?></span>
 	</a>
 	<div class="cartPreview">
 		<div class="insideContainer">
@@ -18,13 +18,13 @@
 			</div>
 			<div class="cartProducts">
 			<?php
-			if (!ls_shop_cartX::getInstance()->numItems) {
+			if (!\Merconis\Core\ls_shop_cartX::getInstance()->numItems) {
 				?>
 				<p class="msgNoProductsInCart"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText133']; ?></p>
 				<?php
 			} else {
 				$count = 0;
-				foreach (ls_shop_cartX::getInstance()->itemsExtended as $productCartKey => $cartItem) {
+				foreach (\Merconis\Core\ls_shop_cartX::getInstance()->itemsExtended as $productCartKey => $cartItem) {
 					$objProduct = &$cartItem['objProduct'];
 
 					if ($objProduct->_variantIsSelected) {
@@ -96,7 +96,7 @@
 						<div class="quantity">
 							<div class="fieldLabel"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText016'] ?></div>
 							<div class="fieldContent">
-								<?php echo ls_shop_generalHelper::outputQuantity($cartItem['quantity'], $obj_tmp_productOrVariant->_quantityDecimals); ?><?php echo $obj_tmp_productOrVariant->_hasQuantityUnit ? ' <span class="quantityUnit">'.$obj_tmp_productOrVariant->_quantityUnit.'</span>' : '' ?>
+								<?php echo \Merconis\Core\ls_shop_generalHelper::outputQuantity($cartItem['quantity'], $obj_tmp_productOrVariant->_quantityDecimals); ?><?php echo $obj_tmp_productOrVariant->_hasQuantityUnit ? ' <span class="quantityUnit">'.$obj_tmp_productOrVariant->_quantityUnit.'</span>' : '' ?>
 							</div>
 						</div>
 					</div>

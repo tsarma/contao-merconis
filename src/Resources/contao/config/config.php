@@ -105,34 +105,34 @@ $GLOBALS['LS_LANGUAGESELECTOR_HOOKS']['modifyLanguageLinks'][] = array('Merconis
 /*
  * Hook to allow payment provider callbacks to work
  */
-$GLOBALS['TL_HOOKS']['initializeSystem'][] = array('\Merconis\Core\ls_shop_generalHelper', 'bypassRefererCheckIfNecessary');
-$GLOBALS['TL_HOOKS']['initializeSystem'][] = array('\Merconis\Core\ls_shop_cartHelper', 'initializeEmptyCart');
+$GLOBALS['TL_HOOKS']['initializeSystem'][] = array('Merconis\Core\ls_shop_generalHelper', 'bypassRefererCheckIfNecessary');
+$GLOBALS['TL_HOOKS']['initializeSystem'][] = array('Merconis\Core\ls_shop_cartHelper', 'initializeEmptyCart');
 
 /*
  * ->
  * Hooks to register API resources
  */
-$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('\Merconis\Core\ls_shop_apiController', 'processRequest');
+$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('Merconis\Core\ls_shop_apiController', 'processRequest');
 
 if (TL_MODE === 'FE') {
-	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('\Merconis\Core\ls_shop_apiController_variantSelector', 'processRequest');
-	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('\Merconis\Core\ls_shop_apiController_exportFrontend', 'processRequest');
-	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('\Merconis\Core\ls_shop_apiController_productManagement', 'processRequest');
+	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('Merconis\Core\ls_shop_apiController_variantSelector', 'processRequest');
+	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('Merconis\Core\ls_shop_apiController_exportFrontend', 'processRequest');
+	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('Merconis\Core\ls_shop_apiController_productManagement', 'processRequest');
 }
 
 if (TL_MODE === 'BE') {
-	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('\Merconis\Core\ls_shop_apiController_exportBackend', 'processRequest');
+	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('Merconis\Core\ls_shop_apiController_exportBackend', 'processRequest');
 }
 
 if (TL_MODE === 'BE') {
-	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('\Merconis\Core\ls_shop_apiControllerBackend', 'processRequest');
+	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('Merconis\Core\ls_shop_apiControllerBackend', 'processRequest');
 }
 /*
  * <-
  */
 
-$GLOBALS['TL_CRON']['daily'][] = array('\Merconis\Core\ls_shop_generalHelper','sendMessagesOnStatusChangeCronDaily');
-$GLOBALS['TL_CRON']['hourly'][] = array('\Merconis\Core\ls_shop_generalHelper','sendMessagesOnStatusChangeCronHourly');
+$GLOBALS['TL_CRON']['daily'][] = array('Merconis\Core\ls_shop_generalHelper','sendMessagesOnStatusChangeCronDaily');
+$GLOBALS['TL_CRON']['hourly'][] = array('Merconis\Core\ls_shop_generalHelper','sendMessagesOnStatusChangeCronHourly');
 
 if (TL_MODE == 'BE') {
 	$GLOBALS['TL_JAVASCRIPT'][] = 'vendor/leadingsystems/contao-merconis/src/Resources/contao/js/ls_shop_BE.js';
@@ -191,16 +191,16 @@ array_insert($GLOBALS['BE_MOD'], 0, array(
 
 		'ls_shop_import' => array(
 			'tables' => array('tl_ls_shop_import'),
-			'callback' => 'ls_shop_import',
+			'callback' => 'Merconis\Core\ls_shop_import',
 			'javascript' => 'vendor/leadingsystems/contao-merconis/src/Resources/contao/js/ls_shop_BE_import.js?rand='.rand(0,99999),
 		),
 
 		'ls_shop_productSearch' => array(
-			'callback' => 'ls_shop_beModule_productSearch',
+			'callback' => 'Merconis\Core\ls_shop_beModule_productSearch',
 		),
 
 		'ls_shop_stockManagement' => array(
-			'callback' => 'ls_shop_beModule_stockManagement',
+			'callback' => 'Merconis\Core\ls_shop_beModule_stockManagement',
 		),
 
 		'ls_shop_orders' => array(
@@ -217,38 +217,38 @@ array_insert($GLOBALS['BE_MOD'], 0, array(
 	)
 ));
 
-$GLOBALS['BE_FFL']['listWizardDoubleValue'] = 'ListWizardDoubleValue';
-$GLOBALS['BE_FFL']['ls_x_ListWizardMultiValue'] = 'ls_x_ListWizardMultiValue';
-$GLOBALS['BE_FFL']['listWizardDoubleValue_doubleSelect'] = 'ListWizardDoubleValue_doubleSelect';
-$GLOBALS['BE_FFL']['listWizardDoubleValue_leftText_rightTextarea'] = 'ListWizardDoubleValue_leftText_rightTextarea';
-$GLOBALS['BE_FFL']['htmlDiv'] = 'ls_shop_htmlDiv';
-$GLOBALS['BE_FFL']['simpleOutput'] = 'ls_shop_simpleOutput';
-$GLOBALS['BE_FFL']['ls_shop_productSelection'] = 'ls_shop_productSelection';
-$GLOBALS['BE_FFL']['ls_shop_productSelectionWizard'] = 'ls_shop_productSelectionWizard';
-$GLOBALS['BE_FFL']['ls_shop_generatedTemplate'] = 'ls_shop_generatedTemplate';
-$GLOBALS['BE_FFL']['ls_shop_ListWizardAttributesValues'] = 'ls_shop_ListWizardAttributesValues';
+$GLOBALS['BE_FFL']['listWizardDoubleValue'] = 'Merconis\Core\ListWizardDoubleValue';
+$GLOBALS['BE_FFL']['ls_x_ListWizardMultiValue'] = 'Merconis\Core\ls_x_ListWizardMultiValue';
+$GLOBALS['BE_FFL']['listWizardDoubleValue_doubleSelect'] = 'Merconis\Core\ListWizardDoubleValue_doubleSelect';
+$GLOBALS['BE_FFL']['listWizardDoubleValue_leftText_rightTextarea'] = 'Merconis\Core\ListWizardDoubleValue_leftText_rightTextarea';
+$GLOBALS['BE_FFL']['htmlDiv'] = 'Merconis\Core\ls_shop_htmlDiv';
+$GLOBALS['BE_FFL']['simpleOutput'] = 'Merconis\Core\ls_shop_simpleOutput';
+$GLOBALS['BE_FFL']['ls_shop_productSelection'] = 'Merconis\Core\ls_shop_productSelection';
+$GLOBALS['BE_FFL']['ls_shop_productSelectionWizard'] = 'Merconis\Core\ls_shop_productSelectionWizard';
+$GLOBALS['BE_FFL']['ls_shop_generatedTemplate'] = 'Merconis\Core\ls_shop_generatedTemplate';
+$GLOBALS['BE_FFL']['ls_shop_ListWizardAttributesValues'] = 'Merconis\Core\ls_shop_ListWizardAttributesValues';
 
 
 $GLOBALS['FE_MOD']['ls_shop'] = array(
-	'ls_shop_cart' => 'ModuleCart',
-	'ls_shop_orderReview' => 'ModuleOrderReview',
-	'ls_shop_checkoutFinish' => 'ModuleCheckoutFinish',
-	'ls_shop_afterCheckout' => 'ModuleAfterCheckout',
-	'ls_shop_paymentAfterCheckout' => 'ModulePaymentAfterCheckout',
-	'ls_shop_productOverview' => 'ModuleProductOverview',
-	'ls_shop_productSingleview' => 'ModuleProductSingleview',
-	'ls_shop_cross_seller' => 'ModuleCrossSeller',
-	'ls_shop_productSearch' => 'ModuleProductSearch',
-	'ls_shop_myOrders' => 'ModuleMyOrders',
-	'ls_shop_myOrderDetails' => 'ModuleMyOrderDetails',
-	'ls_shop_filterForm' => 'ModuleFilterForm',
-	'ls_shop_ajaxGeneral' => 'ModuleAjaxGeneral',
-	'ls_shop_productManagementApiInspector' => 'ModuleProductManagementApiInspector'
+	'ls_shop_cart' => 'Merconis\Core\ModuleCart',
+	'ls_shop_orderReview' => 'Merconis\Core\ModuleOrderReview',
+	'ls_shop_checkoutFinish' => 'Merconis\Core\ModuleCheckoutFinish',
+	'ls_shop_afterCheckout' => 'Merconis\Core\ModuleAfterCheckout',
+	'ls_shop_paymentAfterCheckout' => 'Merconis\Core\ModulePaymentAfterCheckout',
+	'ls_shop_productOverview' => 'Merconis\Core\ModuleProductOverview',
+	'ls_shop_productSingleview' => 'Merconis\Core\ModuleProductSingleview',
+	'ls_shop_cross_seller' => 'Merconis\Core\ModuleCrossSeller',
+	'ls_shop_productSearch' => 'Merconis\Core\ModuleProductSearch',
+	'ls_shop_myOrders' => 'Merconis\Core\ModuleMyOrders',
+	'ls_shop_myOrderDetails' => 'Merconis\Core\ModuleMyOrderDetails',
+	'ls_shop_filterForm' => 'Merconis\Core\ModuleFilterForm',
+	'ls_shop_ajaxGeneral' => 'Merconis\Core\ModuleAjaxGeneral',
+	'ls_shop_productManagementApiInspector' => 'Merconis\Core\ModuleProductManagementApiInspector'
 );
 
-$GLOBALS['TL_FFL']['ls_shop_configuratorFileUpload'] = 'ls_shop_configuratorFileUpload';
+$GLOBALS['TL_FFL']['ls_shop_configuratorFileUpload'] = 'Merconis\Core\ls_shop_configuratorFileUpload';
 
 /**
  * Hinzufügen von Content-Elementen
  */
-$GLOBALS['TL_CTE']['lsShop']['lsShopCrossSellerCTE'] = 'ls_shop_cross_sellerCTE';
+$GLOBALS['TL_CTE']['lsShop']['lsShopCrossSellerCTE'] = 'Merconis\Core\ls_shop_cross_sellerCTE';

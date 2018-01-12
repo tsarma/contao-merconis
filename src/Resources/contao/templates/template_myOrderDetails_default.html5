@@ -153,26 +153,26 @@
 									<div class="ls_r_td price priceSingle">
 										<div class="fieldLabel"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText014'] ?></div>
 										<div class="fieldContent">
-											<?php echo ls_shop_generalHelper::outputPrice($cartItem['price']); ?><?php echo $cartItem['extendedInfo']['_hasQuantityUnit'] ? '/<span class="quantityUnit">'.$cartItem['extendedInfo']['_quantityUnit_customerLanguage'].'</span>' : '' ?>
+											<?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($cartItem['price']); ?><?php echo $cartItem['extendedInfo']['_hasQuantityUnit'] ? '/<span class="quantityUnit">'.$cartItem['extendedInfo']['_quantityUnit_customerLanguage'].'</span>' : '' ?>
 										</div>
 									</div>
 									<div class="ls_r_td quantity">
 										<div class="fieldLabel"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText016'] ?></div>
 										<div class="fieldContent">
-											<?php echo ls_shop_generalHelper::outputQuantity($cartItem['quantity']); ?>
+											<?php echo \Merconis\Core\ls_shop_generalHelper::outputQuantity($cartItem['quantity']); ?>
 										</div>
 									</div>
 									<div class="ls_r_td price priceCumulative">
 										<div class="fieldLabel"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText018'] ?></div>
 										<div class="fieldContent">
-											<?php echo ls_shop_generalHelper::outputPrice($cartItem['priceCumulative']); ?>
+											<?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($cartItem['priceCumulative']); ?>
 										</div>
 									</div>
 									<?php if ($blnShowTaxColumn) { ?>
 										<div class="ls_r_td taxClass">
 											<div class="fieldLabel"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText026'] ?></div>
 											<div class="fieldContent">
-												<?php echo ls_shop_generalHelper::outputNumber($cartItem['taxPercentage'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']); ?> %
+												<?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber($cartItem['taxPercentage'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']); ?> %
 											</div>
 										</div>
 									<?php } ?>
@@ -191,7 +191,7 @@
 						<div class="ls_r_tr sum">
 							<div class="ls_r_td spacer"></div>
 							<div class="ls_r_td label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText020']; ?>:</div>
-							<div class="ls_r_td price"><?php echo ls_shop_generalHelper::outputPrice($this->arrOrder['totalValueOfGoods']); ?></div>
+							<div class="ls_r_td price"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($this->arrOrder['totalValueOfGoods']); ?></div>
 	
 							<?php if ($blnShowTaxColumn) { ?>
 								<div class="ls_r_td taxClass"></div>
@@ -207,8 +207,8 @@
 									?>
 										<div class="ls_r_tr info">
 											<div class="ls_r_td spacer"></div>
-											<div class="ls_r_td label"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], ls_shop_generalHelper::outputNumber($arrTaxInfo['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator'])).' %'; ?>:</div>
-											<div class="ls_r_td price"><?php echo ls_shop_generalHelper::outputPrice($arrTaxInfo['amountTaxedHerewith']); ?></div>
+											<div class="ls_r_td label"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], \Merconis\Core\ls_shop_generalHelper::outputNumber($arrTaxInfo['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator'])).' %'; ?>:</div>
+											<div class="ls_r_td price"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($arrTaxInfo['amountTaxedHerewith']); ?></div>
 											<?php if ($blnShowTaxColumn) { ?>
 												<div class="ls_r_td taxClass"></div>
 											<?php } ?>
@@ -239,7 +239,7 @@
 										<?php endif; ?>
 									</div>
 									<div class="ls_r_td price">
-										<?php echo ls_shop_generalHelper::outputPrice($arrCouponInfo['amount']); ?>
+										<?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($arrCouponInfo['amount']); ?>
 									</div>
 									<?php if ($blnShowTaxColumn) { ?>
 										<div class="ls_r_td taxClass"></div>
@@ -255,8 +255,8 @@
 											?>
 												<div class="ls_r_tr info">
 													<div class="ls_r_td spacer"></div>
-													<div class="ls_r_td label"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], ls_shop_generalHelper::outputNumber($arrTaxInfo['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator'])).' %'; ?>:</div>
-													<div class="ls_r_td price"><?php echo ls_shop_generalHelper::outputPrice($arrTaxInfo['amountTaxedHerewith']); ?></div>
+													<div class="ls_r_td label"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], \Merconis\Core\ls_shop_generalHelper::outputNumber($arrTaxInfo['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator'])).' %'; ?>:</div>
+													<div class="ls_r_td price"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($arrTaxInfo['amountTaxedHerewith']); ?></div>
 													<?php if ($blnShowTaxColumn) { ?>
 														<div class="ls_r_td taxClass"></div>
 													<?php } ?>
@@ -274,10 +274,10 @@
 						<div class="ls_r_tr strong paymentFeeLabel">
 							<div class="ls_r_td spacer"></div>
 							<div class="ls_r_td label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText021'].' '.$this->arrOrder['paymentMethod_title_customerLanguage'].($this->arrOrder['paymentMethod_feeInfo_customerLanguage'] ? ' '.$this->arrOrder['paymentMethod_feeInfo_customerLanguage'] : ''); ?>:</div>
-							<div class="ls_r_td price paymentFee"><?php echo ls_shop_generalHelper::outputPrice($this->arrOrder['paymentMethod_amount']); ?></div>
+							<div class="ls_r_td price paymentFee"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($this->arrOrder['paymentMethod_amount']); ?></div>
 	
 							<?php if ($blnShowTaxColumn) { ?>
-								<div class="ls_r_td taxClass"><?php echo ls_shop_generalHelper::outputNumber($this->arrOrder['paymentMethod_amountTaxedWith'][1]['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']); ?> %</div>
+								<div class="ls_r_td taxClass"><?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber($this->arrOrder['paymentMethod_amountTaxedWith'][1]['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']); ?> %</div>
 							<?php } ?>
 							<div class="ls_r_td delete"></div>
 						</div>
@@ -285,10 +285,10 @@
 						<div  class="ls_r_tr strong shippingFeeLabel">
 							<div class="ls_r_td spacer"></div>
 							<div class="ls_r_td label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText022'].' '.$this->arrOrder['shippingMethod_title_customerLanguage'].($this->arrOrder['shippingMethod_feeInfo_customerLanguage'] ? ' '.$this->arrOrder['shippingMethod_feeInfo_customerLanguage'] : ''); ?>:</div>
-							<div class="ls_r_td price shippingFee"><?php echo ls_shop_generalHelper::outputPrice($this->arrOrder['shippingMethod_amount']); ?></div>
+							<div class="ls_r_td price shippingFee"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($this->arrOrder['shippingMethod_amount']); ?></div>
 	
 							<?php if ($blnShowTaxColumn) { ?>
-								<div class="ls_r_td taxClass"><?php echo ls_shop_generalHelper::outputNumber($this->arrOrder['shippingMethod_amountTaxedWith'][1]['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']); ?> %</div>
+								<div class="ls_r_td taxClass"><?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber($this->arrOrder['shippingMethod_amountTaxedWith'][1]['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']); ?> %</div>
 							<?php } ?>
 							<div class="ls_r_td delete"></div>
 						</div>
@@ -296,7 +296,7 @@
 						<div class="ls_r_tr sum<?php echo $this->arrOrder['taxInclusive'] ? ' invoicedAmount' : ''; ?>">
 							<div class="ls_r_td spacer"></div>
 							<div class="ls_r_td label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop'][$this->arrOrder['taxInclusive'] ? 'miscText023' : 'miscText051']; ?>:</div>
-							<div class="ls_r_td price priceTotal"><?php echo ls_shop_generalHelper::outputPrice($this->arrOrder['total']); ?></div>
+							<div class="ls_r_td price priceTotal"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($this->arrOrder['total']); ?></div>
 	
 							<?php if ($blnShowTaxColumn) { ?>
 								<div class="ls_r_td taxClass"></div>
@@ -312,8 +312,8 @@
 									?>
 										<div class="ls_r_tr info">
 											<div class="ls_r_td spacer"></div>
-											<div class="ls_r_td label"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], ls_shop_generalHelper::outputNumber($arrTaxInfo['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator'])).' %'; ?>:</div>
-											<div class="ls_r_td price"><?php echo ls_shop_generalHelper::outputPrice($arrTaxInfo['amountTaxedHerewith']); ?></div>
+											<div class="ls_r_td label"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], \Merconis\Core\ls_shop_generalHelper::outputNumber($arrTaxInfo['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator'])).' %'; ?>:</div>
+											<div class="ls_r_td price"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($arrTaxInfo['amountTaxedHerewith']); ?></div>
 	
 											<?php if ($blnShowTaxColumn) { ?>
 												<div class="ls_r_td taxClass"></div>
@@ -335,8 +335,8 @@
 									?>
 										<div class="ls_r_tr">
 											<div class="ls_r_td spacer"></div>
-											<div class="ls_r_td label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop'][$this->arrOrder['taxInclusive'] ? 'miscText052' : 'miscText053']; ?> (<?php echo ls_shop_generalHelper::outputNumber($arrTaxInfo['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']).' %'; ?>):</div>
-											<div class="ls_r_td price"><?php echo ls_shop_generalHelper::outputPrice($arrTaxInfo['taxAmount']); ?></div>
+											<div class="ls_r_td label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop'][$this->arrOrder['taxInclusive'] ? 'miscText052' : 'miscText053']; ?> (<?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber($arrTaxInfo['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']).' %'; ?>):</div>
+											<div class="ls_r_td price"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($arrTaxInfo['taxAmount']); ?></div>
 											<?php if ($blnShowTaxColumn) { ?>
 												<div class="ls_r_td taxClass"></div>
 											<?php } ?>
@@ -365,7 +365,7 @@
 									<div class="ls_r_tr sum invoicedAmount">
 										<div class="ls_r_td spacer"></div>
 										<div class="ls_r_td label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText023']; ?>:</div>
-										<div class="ls_r_td price"><?php echo ls_shop_generalHelper::outputPrice($this->arrOrder['invoicedAmount']); ?></div>
+										<div class="ls_r_td price"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($this->arrOrder['invoicedAmount']); ?></div>
 										<?php if ($blnShowTaxColumn) { ?>
 											<div class="ls_r_td taxClass"></div>
 										<?php } ?>

@@ -1,13 +1,13 @@
 <!-- indexer::stop -->
 <div class="favoriteSwitchBox">
 	<?php
-		if (ls_shop_msg::checkMsg('addedToFavorites', $this->objProduct->_id)) {
+		if (\Merconis\Core\ls_shop_msg::checkMsg('addedToFavorites', $this->objProduct->_id)) {
 			?>
 			<span class="success"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText126']; ?></span>
 			<?php
 		}
 
-		if (ls_shop_msg::checkMsg('removedFromFavorites', $this->objProduct->_id)) {
+		if (\Merconis\Core\ls_shop_msg::checkMsg('removedFromFavorites', $this->objProduct->_id)) {
 			?>
 			<span class="error"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText127']; ?></span>
 			<?php

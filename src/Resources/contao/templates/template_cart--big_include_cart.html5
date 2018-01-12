@@ -9,7 +9,7 @@ $bln_reviewMode = isset($bln_reviewMode) && $bln_reviewMode;
  * If you duplicate this template, please make sure to adjust the include paths in the other file.
  */
 
-if (!ls_shop_cartX::getInstance()->numItems) {
+if (!\Merconis\Core\ls_shop_cartX::getInstance()->numItems) {
 	?>
 		<p><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText025']; ?></p>
 	<?php
@@ -17,7 +17,7 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 ?>
 
 <?php
-	if (ls_shop_msg::checkMsgClass('checkCartPositionsStockSufficient')) {
+	if (\Merconis\Core\ls_shop_msg::checkMsgClass('checkCartPositionsStockSufficient')) {
 		?>
 		<p class="error"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText038']; ?></p>
 		<?php
@@ -25,7 +25,7 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 ?>
 		
 <?php
-	if (ls_shop_msg::checkMsgClass('couponsNotAllowed')) {
+	if (\Merconis\Core\ls_shop_msg::checkMsgClass('couponsNotAllowed')) {
 		?>
 		<p class="error"><?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['coupon']['text011']; ?></p>
 		<?php
@@ -43,13 +43,13 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 	<div>
 		<div class="newCart">
 			<?php
-			if (!ls_shop_cartX::getInstance()->numItems) {
+			if (!\Merconis\Core\ls_shop_cartX::getInstance()->numItems) {
 				?>
 				<p class="msgNoProductsInCart"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText133']; ?></p>
 				<?php
 			} else {
 				$count = 0;
-				foreach (ls_shop_cartX::getInstance()->itemsExtended as $productCartKey => $cartItem) {
+				foreach (\Merconis\Core\ls_shop_cartX::getInstance()->itemsExtended as $productCartKey => $cartItem) {
 					$objProduct = &$cartItem['objProduct'];
 
 					if ($objProduct->_variantIsSelected) {
@@ -105,25 +105,25 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 						</div>
 						<div class="field productDetails">
 							<?php
-							if (ls_shop_msg::checkMsg('cartPositionOrderNotAllowed', $productCartKey)) {
+							if (\Merconis\Core\ls_shop_msg::checkMsg('cartPositionOrderNotAllowed', $productCartKey)) {
 								?>
 								<p class="error"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText059']; ?></p>
 								<?php
 							}
 							?>
 							<?php
-							if (ls_shop_msg::checkMsg('checkCartPositionsStockSufficient', $productCartKey)) {
-								$msgDetails = ls_shop_msg::getMsgDetails('checkCartPositionsStockSufficient', $productCartKey);
+							if (\Merconis\Core\ls_shop_msg::checkMsg('checkCartPositionsStockSufficient', $productCartKey)) {
+								$msgDetails = \Merconis\Core\ls_shop_msg::getMsgDetails('checkCartPositionsStockSufficient', $productCartKey);
 								?>
-								<p class="error"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText056'], ls_shop_generalHelper::outputQuantity($msgDetails['originalQuantity'], $msgDetails['quantityDecimals']), $msgDetails['quantityUnit'], ls_shop_generalHelper::outputQuantity($msgDetails['newQuantity'], $msgDetails['quantityDecimals']), $msgDetails['quantityUnit']); ?></p>
+								<p class="error"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText056'], \Merconis\Core\ls_shop_generalHelper::outputQuantity($msgDetails['originalQuantity'], $msgDetails['quantityDecimals']), $msgDetails['quantityUnit'], \Merconis\Core\ls_shop_generalHelper::outputQuantity($msgDetails['newQuantity'], $msgDetails['quantityDecimals']), $msgDetails['quantityUnit']); ?></p>
 								<?php
 							}
 							?>
 							<?php
-							if (ls_shop_msg::checkMsg('setItemQuantity', $productCartKey)) {
-								$msgDetails = ls_shop_msg::getMsgDetails('setItemQuantity', $productCartKey);
+							if (\Merconis\Core\ls_shop_msg::checkMsg('setItemQuantity', $productCartKey)) {
+								$msgDetails = \Merconis\Core\ls_shop_msg::getMsgDetails('setItemQuantity', $productCartKey);
 								?>
-								<p class="error"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText057'], ls_shop_generalHelper::outputQuantity($msgDetails['desiredQuantity'], $msgDetails['quantityDecimals']), $msgDetails['quantityUnit'], ls_shop_generalHelper::outputQuantity($msgDetails['availableQuantity'], $msgDetails['quantityDecimals']), $msgDetails['quantityUnit']); ?></p>
+								<p class="error"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText057'], \Merconis\Core\ls_shop_generalHelper::outputQuantity($msgDetails['desiredQuantity'], $msgDetails['quantityDecimals']), $msgDetails['quantityUnit'], \Merconis\Core\ls_shop_generalHelper::outputQuantity($msgDetails['availableQuantity'], $msgDetails['quantityDecimals']), $msgDetails['quantityUnit']); ?></p>
 								<?php
 							}
 							?>
@@ -162,7 +162,7 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 								<?php } ?>
 							</div>
 							<div class="field-content">
-								<?php echo ls_shop_generalHelper::outputQuantity($cartItem['quantity'], $obj_tmp_productOrVariant->_quantityDecimals); ?><?php echo $obj_tmp_productOrVariant->_hasQuantityUnit ? ' <span class="quantityUnit">'.$obj_tmp_productOrVariant->_quantityUnit.'</span>' : '' ?>
+								<?php echo \Merconis\Core\ls_shop_generalHelper::outputQuantity($cartItem['quantity'], $obj_tmp_productOrVariant->_quantityDecimals); ?><?php echo $obj_tmp_productOrVariant->_hasQuantityUnit ? ' <span class="quantityUnit">'.$obj_tmp_productOrVariant->_quantityUnit.'</span>' : '' ?>
 							</div>
 						</div>
 						<?php if (!$bln_reviewMode) { ?>
@@ -219,13 +219,13 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 						<div class="field price priceCumulative">
 							<div class="field-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText018'] ?></div>
 							<div class="field-content">
-								<?php echo ls_shop_generalHelper::outputPrice(ls_shop_cartX::getInstance()->calculation['items'][$productCartKey]['priceCumulative']); ?>
+								<?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['items'][$productCartKey]['priceCumulative']); ?>
 							</div>
 						</div>
 						<div class="field taxClass">
 							<div class="field-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText026'] ?></div>
 							<div class="field-content">
-								<?php echo ls_shop_generalHelper::outputNumber(ls_shop_cartX::getInstance()->calculation['items'][$productCartKey]['taxPercentage']); ?> %
+								<?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['items'][$productCartKey]['taxPercentage']); ?> %
 							</div>
 						</div>
 					</div>
@@ -236,24 +236,24 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 		</div>
 
 		<?php // ########## CALCULATION SHEET ##########?>
-		<?php if (ls_shop_cartX::getInstance()->numItems) { ?>
+		<?php if (\Merconis\Core\ls_shop_cartX::getInstance()->numItems) { ?>
 		<div id="calculation" class="calculation reloadByCouponForm">
 			<div class="field-group total-value-of-goods">
 				<div class="field">
 					<div class="field-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText020']; ?></div>
-					<div class="field-content"><?php echo ls_shop_generalHelper::outputPrice(ls_shop_cartX::getInstance()->calculation['totalValueOfGoods'][0]); ?></div>
+					<div class="field-content"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['totalValueOfGoods'][0]); ?></div>
 				</div>
 
 				<?php if (!$this->noVATBecauseOfEnteredIDs) { ?>
 					<?php
-					foreach (ls_shop_cartX::getInstance()->calculation['totalValueOfGoods'] as $taxClassID => $value) {
+					foreach (\Merconis\Core\ls_shop_cartX::getInstance()->calculation['totalValueOfGoods'] as $taxClassID => $value) {
 						if ($taxClassID == 0) {
 							continue;
 						}
 						?>
 						<div class="field info">
-							<div class="field-label"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], ls_shop_generalHelper::getCurrentTax($taxClassID)).' %'; ?></div>
-							<div class="field-content"><?php echo ls_shop_generalHelper::outputPrice($value); ?></div>
+							<div class="field-label"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], \Merconis\Core\ls_shop_generalHelper::getCurrentTax($taxClassID)).' %'; ?></div>
+							<div class="field-content"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($value); ?></div>
 						</div>
 						<?php
 					}
@@ -262,7 +262,7 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 
 				<?php if (!$this->minimumOrderValueOkay) { ?>
 					<div class="field error">
-						<div class="field-label"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText024'], ls_shop_generalHelper::outputPrice($this->minimumOrderValue)) ?></div>
+						<div class="field-label"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText024'], \Merconis\Core\ls_shop_generalHelper::outputPrice($this->minimumOrderValue)) ?></div>
 					</div>
 				<?php } ?>
 			</div>
@@ -291,15 +291,15 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 						<?php
 						$float_cumulatedCouponValue = 0;
 
-						foreach (ls_shop_cartX::getInstance()->calculation['couponValues'] as $int_couponId => $arr_couponValue) {
+						foreach (\Merconis\Core\ls_shop_cartX::getInstance()->calculation['couponValues'] as $int_couponId => $arr_couponValue) {
 							$float_cumulatedCouponValue = ls_add($float_cumulatedCouponValue, $arr_couponValue[0]);
 						}
 						?>
-						<div class="field-content"><?php echo ls_shop_generalHelper::outputPrice($float_cumulatedCouponValue); ?></div>
+						<div class="field-content"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($float_cumulatedCouponValue); ?></div>
 					</div>
 
 					<?php
-					if (!is_array(ls_shop_cartX::getInstance()->couponsUsed) || !count(ls_shop_cartX::getInstance()->couponsUsed)) {
+					if (!is_array(\Merconis\Core\ls_shop_cartX::getInstance()->couponsUsed) || !count(\Merconis\Core\ls_shop_cartX::getInstance()->couponsUsed)) {
 						?>
 						<?php if (!$bln_reviewMode) { ?>
 							<div class="field hideWhenNotHighlighted">
@@ -330,7 +330,7 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 						<?php
 					} else {
 						$countCoupons = 0;
-						foreach (ls_shop_cartX::getInstance()->couponsUsed as $couponID => $arrCouponInfo) {
+						foreach (\Merconis\Core\ls_shop_cartX::getInstance()->couponsUsed as $couponID => $arrCouponInfo) {
 							$countCoupons++;
 							?>
 							<div class="field hideWhenNotHighlighted info">
@@ -352,7 +352,7 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 									<?php } ?>
 									<?php echo $arrCouponInfo['title']; ?> (<?php echo $arrCouponInfo['extendedInfo']['discountOutput'] ?>)
 								</div>
-								<div class="field-content"><?php echo ls_shop_generalHelper::outputPrice(ls_shop_cartX::getInstance()->calculation['couponValues'][$couponID][0]); ?></div>
+								<div class="field-content"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['couponValues'][$couponID][0]); ?></div>
 								<div class="field-description">
 									<?php echo $arrCouponInfo['description']; ?>
 								</div>
@@ -369,14 +369,14 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 							}
 
 							if (!$this->noVATBecauseOfEnteredIDs) {
-								foreach (ls_shop_cartX::getInstance()->calculation['couponValues'][$couponID] as $taxClassID => $value) {
+								foreach (\Merconis\Core\ls_shop_cartX::getInstance()->calculation['couponValues'][$couponID] as $taxClassID => $value) {
 									if ($taxClassID == 0) {
 										continue;
 									}
 									?>
 									<div class="field info hideWhenNotHighlighted">
-										<div class="field-label"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], ls_shop_generalHelper::outputNumber(ls_shop_generalHelper::getCurrentTax($taxClassID), 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator'])).' %'; ?></div>
-										<div class="field-content"><?php echo ls_shop_generalHelper::outputPrice($value); ?></div>
+										<div class="field-label"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], \Merconis\Core\ls_shop_generalHelper::outputNumber(\Merconis\Core\ls_shop_generalHelper::getCurrentTax($taxClassID), 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator'])).' %'; ?></div>
+										<div class="field-content"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($value); ?></div>
 									</div>
 									<?php
 								}
@@ -386,16 +386,16 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 					?>
 				</div>
 				<?php
-				if (isset(ls_shop_cartX::getInstance()->calculation['paymentFee']['info']) && is_array(ls_shop_cartX::getInstance()->calculation['paymentFee']['info'])) {
+				if (isset(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['paymentFee']['info']) && is_array(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['paymentFee']['info'])) {
 					?>
 					<div class="field-group payment-fee">
 						<div class="field">
-							<div class="field-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop'][$this->arrRequiredCheckoutData['noPaymentMethodSelected'] ? 'miscText021-2' : 'miscText021'].' '.ls_shop_cartX::getInstance()->calculation['paymentFee']['info']['title']; ?></div>
-							<div class="field-content"><?php echo ls_shop_generalHelper::outputPrice(ls_shop_cartX::getInstance()->calculation['paymentFee'][0]); ?></div>
+							<div class="field-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop'][$this->arrRequiredCheckoutData['noPaymentMethodSelected'] ? 'miscText021-2' : 'miscText021'].' '.\Merconis\Core\ls_shop_cartX::getInstance()->calculation['paymentFee']['info']['title']; ?></div>
+							<div class="field-content"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['paymentFee'][0]); ?></div>
 						</div>
 						<div class="field info">
 							<div class="field-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText026'] ?></div>
-							<div class="field-content"><?php echo ls_shop_generalHelper::outputNumber(ls_shop_cartX::getInstance()->calculation['paymentFee']['info']['taxPercentage']); ?> %</div>
+							<div class="field-content"><?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['paymentFee']['info']['taxPercentage']); ?> %</div>
 						</div>
 					</div>
 					<?php
@@ -403,38 +403,38 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 				?>
 
 				<?php
-				if (isset(ls_shop_cartX::getInstance()->calculation['shippingFee']['info']) && is_array(ls_shop_cartX::getInstance()->calculation['shippingFee']['info'])) {
+				if (isset(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['shippingFee']['info']) && is_array(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['shippingFee']['info'])) {
 					?>
 					<div class="field-group shipping-fee">
 						<div class="field">
-							<div class="field-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop'][$this->arrRequiredCheckoutData['noShippingMethodSelected'] ? 'miscText022-2' : 'miscText022'].' '.ls_shop_cartX::getInstance()->calculation['shippingFee']['info']['title']; ?></div>
-							<div class="field-content"><?php echo ls_shop_generalHelper::outputPrice(ls_shop_cartX::getInstance()->calculation['shippingFee'][0]); ?></div>
+							<div class="field-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop'][$this->arrRequiredCheckoutData['noShippingMethodSelected'] ? 'miscText022-2' : 'miscText022'].' '.\Merconis\Core\ls_shop_cartX::getInstance()->calculation['shippingFee']['info']['title']; ?></div>
+							<div class="field-content"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['shippingFee'][0]); ?></div>
 						</div>
 						<div class="field info">
 							<div class="field-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText026'] ?></div>
-							<div class="field-content"><?php echo ls_shop_generalHelper::outputNumber(ls_shop_cartX::getInstance()->calculation['shippingFee']['info']['taxPercentage']); ?> %</div>
+							<div class="field-content"><?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['shippingFee']['info']['taxPercentage']); ?> %</div>
 						</div>
 					</div>
 					<?php
 				}
 				?>
 
-				<div class="field-group <?php echo ls_shop_cartX::getInstance()->calculation['taxInclusive'] ? 'invoiced-amount' : 'full-amount'; ?>">
+				<div class="field-group <?php echo \Merconis\Core\ls_shop_cartX::getInstance()->calculation['taxInclusive'] ? 'invoiced-amount' : 'full-amount'; ?>">
 					<div class="field">
-						<div class="field-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop'][ls_shop_cartX::getInstance()->calculation['taxInclusive'] ? 'miscText023' : 'miscText051']; ?></div>
-						<div class="field-content"><?php echo ls_shop_generalHelper::outputPrice(ls_shop_cartX::getInstance()->calculation['total'][0]); ?></div>
+						<div class="field-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop'][\Merconis\Core\ls_shop_cartX::getInstance()->calculation['taxInclusive'] ? 'miscText023' : 'miscText051']; ?></div>
+						<div class="field-content"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['total'][0]); ?></div>
 					</div>
 
 					<?php if (!$this->noVATBecauseOfEnteredIDs) { ?>
 						<?php
-						foreach (ls_shop_cartX::getInstance()->calculation['total'] as $taxClassID => $value) {
+						foreach (\Merconis\Core\ls_shop_cartX::getInstance()->calculation['total'] as $taxClassID => $value) {
 							if ($taxClassID == 0) {
 								continue;
 							}
 							?>
 							<div class="field info">
-								<div class="field-label"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], ls_shop_generalHelper::getCurrentTax($taxClassID)).' %'; ?></div>
-								<div class="field-content"><?php echo ls_shop_generalHelper::outputPrice($value); ?></div>
+								<div class="field-label"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText027'], \Merconis\Core\ls_shop_generalHelper::getCurrentTax($taxClassID)).' %'; ?></div>
+								<div class="field-content"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($value); ?></div>
 							</div>
 							<?php
 						}
@@ -445,14 +445,14 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 				<div class="field-group tax">
 					<?php if (!$this->noVATBecauseOfEnteredIDs) { ?>
 						<?php
-						foreach (ls_shop_cartX::getInstance()->calculation['tax'] as $taxClassID => $value) {
+						foreach (\Merconis\Core\ls_shop_cartX::getInstance()->calculation['tax'] as $taxClassID => $value) {
 							if ($taxClassID == 0) {
 								continue;
 							}
 							?>
 							<div class="field info">
-								<div class="field-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop'][ls_shop_cartX::getInstance()->calculation['taxInclusive'] ? 'miscText052' : 'miscText053']; ?> (<?php echo ls_shop_generalHelper::outputNumber(ls_shop_generalHelper::getCurrentTax($taxClassID)).' %'; ?>)</div>
-								<div class="field-content"><?php echo ls_shop_generalHelper::outputPrice($value); ?></div>
+								<div class="field-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop'][\Merconis\Core\ls_shop_cartX::getInstance()->calculation['taxInclusive'] ? 'miscText052' : 'miscText053']; ?> (<?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber(\Merconis\Core\ls_shop_generalHelper::getCurrentTax($taxClassID)).' %'; ?>)</div>
+								<div class="field-content"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($value); ?></div>
 							</div>
 							<?php
 						}
@@ -465,12 +465,12 @@ if (!ls_shop_cartX::getInstance()->numItems) {
 				</div>
 
 				<?php
-				if (!ls_shop_cartX::getInstance()->calculation['taxInclusive']) {
+				if (!\Merconis\Core\ls_shop_cartX::getInstance()->calculation['taxInclusive']) {
 					?>
 					<div class="field-group invoiced-amount">
 						<div class="field">
 							<div class="field-label"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText023']; ?></div>
-							<div class="field-content"><?php echo ls_shop_generalHelper::outputPrice(ls_shop_cartX::getInstance()->calculation['invoicedAmount']); ?></div>
+							<div class="field-content"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice(\Merconis\Core\ls_shop_cartX::getInstance()->calculation['invoicedAmount']); ?></div>
 						</div>
 					</div>
 					<?php

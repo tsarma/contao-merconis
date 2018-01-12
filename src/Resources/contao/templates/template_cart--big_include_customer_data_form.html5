@@ -77,7 +77,7 @@ if ($this->allowCheckout == 'both' || $this->allowCheckout == 'withLogin') {
 						"
 					>
 						<?php
-							if (ls_shop_msg::checkMsg('customerDataSubmitted', 'customerDataSubmitted')) {
+							if (\Merconis\Core\ls_shop_msg::checkMsg('customerDataSubmitted', 'customerDataSubmitted')) {
 								?>
 								<p class="success"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText118']; ?></p>
 								<?php

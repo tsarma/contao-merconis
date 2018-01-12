@@ -2,7 +2,7 @@
 <div id="cart-checkout" class="<?php echo $this->strTemplate ?>">
 	<div id="checkoutContent" class="checkoutContent">
 		<?php
-		if (!ls_shop_cartX::getInstance()->numItems) {
+		if (!\Merconis\Core\ls_shop_cartX::getInstance()->numItems) {
 			?>
 			<p><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText025']; ?></p>
 			<?php
@@ -15,14 +15,14 @@
 			include(__DIR__.'/template_cart--big_include_payment_selection_form.html5');
 			?>
 
-			<?php if (ls_shop_generalHelper::check_finishingOrderIsAllowed()) { ?>
+			<?php if (\Merconis\Core\ls_shop_generalHelper::check_finishingOrderIsAllowed()) { ?>
 
 				<?php
 				// ########## LINK TO REVIEW AND CONFIRMATION PAGE ##########
 				// used for two page checkout if javascript isn't available
 				?>
 				<div class="submitBox borderless hideWhenLsjs">
-					<?php if (ls_shop_generalHelper::check_finishingOrderIsAllowed()) { ?>
+					<?php if (\Merconis\Core\ls_shop_generalHelper::check_finishingOrderIsAllowed()) { ?>
 						<a class="button continueCheckout" href="{{shopLink::reviewPage}}"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText033']; ?></a>
 					<?php } ?>
 				</div>
