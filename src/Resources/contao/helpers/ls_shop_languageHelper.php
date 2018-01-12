@@ -615,7 +615,7 @@ class ls_shop_languageHelper {
 		/*
 		 * Load all DCA definitions
 		 */
-		$str_pathToMerconisDCA = TL_ROOT.'/system/modules/zzz_merconis/dca';
+		$str_pathToMerconisDCA = TL_ROOT.'/vendor/leadingsystems/contao-merconis/src/Resources/contao/dca';
 		$arr_dcaFiles = scandir($str_pathToMerconisDCA);
 		foreach ($arr_dcaFiles as $str_filename) {
 			if ($str_filename == '.' || $str_filename == '..') {

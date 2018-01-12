@@ -87,11 +87,6 @@ $GLOBALS['TL_HOOKS']['getContentElement'][] = array('Merconis\Core\ls_shop_gener
  */
 $GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] = array('Merconis\Core\ls_shop_filterController', 'generateAndInsertFilterForms');
 
-/*
- * Hooks für Systemmeldungen
- */
-$GLOBALS['TL_HOOKS']['getSystemMessages'][] = array('Merconis\Core\ls_shop_systemMessagesController', 'getIncompleteInstallationMessage');
-
 $GLOBALS['TL_HOOKS']['outputFrontendTemplate'][] = array('Merconis\Core\ls_shop_generalHelper', 'callback_outputFrontendTemplate');
 
 /*
@@ -148,129 +143,79 @@ if (TL_MODE == 'BE') {
 	$GLOBALS['TL_CSS'][] = 'system/modules/zzz_merconis/css/beStyle.css';
 }
 
-if (ls_shop_installerController::getInstallationStatusStatic() == 'complete') {
-	array_insert($GLOBALS['BE_MOD'], 0, array(
-		'zzz_merconis' => array(
-			'ls_shop_settings' => array(
-				'tables' => array('tl_lsShopSettings'),
-				'icon' => 'system/modules/zzz_merconis/images/menu_settings.png',
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css'
-			),
-			'ls_shop_output_definitions' => array(
-				'tables' => array('tl_ls_shop_output_definitions'),
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css',
-				'icon' => 'system/modules/zzz_merconis/images/menu_outputDefinitions.png'
-			),
-			'ls_shop_delivery_info' => array(
-				'tables' => array('tl_ls_shop_delivery_info'),
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css',
-				'icon' => 'system/modules/zzz_merconis/images/menu_deliveryInfo.png'
-			),
-			'ls_shop_steuersaetze' => array(
-				'tables' => array('tl_ls_shop_steuersaetze'),
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css',
-				'icon' => 'system/modules/zzz_merconis/images/menu_taxrates.png'
-			),
-			'ls_shop_payment_methods' => array(
-				'tables' => array('tl_ls_shop_payment_methods'),
-				'icon' => 'system/modules/zzz_merconis/images/menu_paymentMethods.png',
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css'
-			),
-			'ls_shop_shipping_methods' => array(
-				'tables' => array('tl_ls_shop_shipping_methods'),
-				'icon' => 'system/modules/zzz_merconis/images/menu_shippingMethods.png',
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css'
-			),
-			'ls_shop_message_type' => array(
-				'tables' => array('tl_ls_shop_message_type', 'tl_ls_shop_message_model'),
-				'icon' => 'system/modules/zzz_merconis/images/menu_message_type.png',
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css'
-			),
-			'ls_shop_cross_seller' => array(
-				'tables' => array('tl_ls_shop_cross_seller'),
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css',
-				'icon' => 'system/modules/zzz_merconis/images/menu_crossSeller.png'
-			),
-			'ls_shop_coupon' => array(
-				'tables' => array('tl_ls_shop_coupon'),
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css',
-				'icon' => 'system/modules/zzz_merconis/images/menu_coupon.png'
-			),
+array_insert($GLOBALS['BE_MOD'], 0, array(
+	'zzz_merconis' => array(
+		'ls_shop_settings' => array(
+			'tables' => array('tl_lsShopSettings'),
+		),
+		'ls_shop_output_definitions' => array(
+			'tables' => array('tl_ls_shop_output_definitions'),
+		),
+		'ls_shop_delivery_info' => array(
+			'tables' => array('tl_ls_shop_delivery_info'),
+		),
+		'ls_shop_steuersaetze' => array(
+			'tables' => array('tl_ls_shop_steuersaetze'),
+		),
+		'ls_shop_payment_methods' => array(
+			'tables' => array('tl_ls_shop_payment_methods'),
+		),
+		'ls_shop_shipping_methods' => array(
+			'tables' => array('tl_ls_shop_shipping_methods'),
+		),
+		'ls_shop_message_type' => array(
+			'tables' => array('tl_ls_shop_message_type', 'tl_ls_shop_message_model'),
+		),
+		'ls_shop_cross_seller' => array(
+			'tables' => array('tl_ls_shop_cross_seller'),
+		),
+		'ls_shop_coupon' => array(
+			'tables' => array('tl_ls_shop_coupon'),
+		),
 
-			'ls_shop_attributes' => array(
-				'tables' => array('tl_ls_shop_attributes', 'tl_ls_shop_attribute_values'),
-				'icon' => 'system/modules/zzz_merconis/images/menu_attributes.png',
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css'
-			),
-			
-			'ls_shop_filter_fields' => array(
-				'tables' => array('tl_ls_shop_filter_fields', 'tl_ls_shop_filter_field_values'),
-				'icon' => 'system/modules/zzz_merconis/images/menu_filterFields.png',
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css'
-			),
-			
-			'ls_shop_configurator' => array(
-				'tables' => array('tl_ls_shop_configurator'),
-				'icon' => 'system/modules/zzz_merconis/images/menu_configurator.png',
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css'
-			),
-			
-			'ls_shop_product' => array(
-				'tables' => array('tl_ls_shop_product', 'tl_ls_shop_variant'),
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css',
-				'icon' => 'system/modules/zzz_merconis/images/menu_product.png'
-			),
-			
-			'ls_shop_import' => array(
-				'tables' => array('tl_ls_shop_import'),
-				'callback' => 'ls_shop_import',
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css',
-				'javascript' => 'system/modules/zzz_merconis/js/ls_shop_BE_import.js?rand='.rand(0,99999),
-				'icon' => 'system/modules/zzz_merconis/images/menu_import.png'
-			),
+		'ls_shop_attributes' => array(
+			'tables' => array('tl_ls_shop_attributes', 'tl_ls_shop_attribute_values'),
+		),
 
-			'ls_shop_productSearch' => array(
-				'callback' => 'ls_shop_beModule_productSearch',
-				'icon' => 'system/modules/zzz_merconis/images/menu_productSearch.png',
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css'
-			),
+		'ls_shop_filter_fields' => array(
+			'tables' => array('tl_ls_shop_filter_fields', 'tl_ls_shop_filter_field_values'),
+		),
 
-			'ls_shop_stockManagement' => array(
-				'callback' => 'ls_shop_beModule_stockManagement',
-				'icon' => 'system/modules/zzz_merconis/images/menu_stockManagement.png',
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css'
-			),
-			
-			'ls_shop_orders' => array(
-				'tables' => array('tl_ls_shop_orders'),
-				'icon' => 'system/modules/zzz_merconis/images/menu_orders.png',
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css'
-			),
+		'ls_shop_configurator' => array(
+			'tables' => array('tl_ls_shop_configurator'),
+		),
 
-			'ls_shop_export' => array(
-				'tables' => array('tl_ls_shop_export'),
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css',
-				'icon' => 'system/modules/zzz_merconis/images/menu_export.png'
-			),
-			
-			'ls_shop_messages_sent' => array(
-				'tables' => array('tl_ls_shop_messages_sent'),
-				'icon' => 'system/modules/zzz_merconis/images/menu_messages_sent.png',
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css'
-			)
+		'ls_shop_product' => array(
+			'tables' => array('tl_ls_shop_product', 'tl_ls_shop_variant'),
+		),
+
+		'ls_shop_import' => array(
+			'tables' => array('tl_ls_shop_import'),
+			'callback' => 'ls_shop_import',
+			'javascript' => 'system/modules/zzz_merconis/js/ls_shop_BE_import.js?rand='.rand(0,99999),
+		),
+
+		'ls_shop_productSearch' => array(
+			'callback' => 'ls_shop_beModule_productSearch',
+		),
+
+		'ls_shop_stockManagement' => array(
+			'callback' => 'ls_shop_beModule_stockManagement',
+		),
+
+		'ls_shop_orders' => array(
+			'tables' => array('tl_ls_shop_orders'),
+		),
+
+		'ls_shop_export' => array(
+			'tables' => array('tl_ls_shop_export'),
+		),
+
+		'ls_shop_messages_sent' => array(
+			'tables' => array('tl_ls_shop_messages_sent'),
 		)
-	));
-} else {
-	array_insert($GLOBALS['BE_MOD'], 0, array(
-		'zzz_merconis' => array(
-			'ls_shop_autoSetup' => array(
-				'callback' => 'ls_shop_beModule_autoSetup',
-				'icon' => 'system/modules/zzz_merconis/images/menu_settings.png',
-				'stylesheet' => 'system/modules/zzz_merconis/css/beShopHeaderStyle.css'
-			)
-		)
-	));
-}
+	)
+));
 
 $GLOBALS['BE_FFL']['listWizardDoubleValue'] = 'ListWizardDoubleValue';
 $GLOBALS['BE_FFL']['ls_x_ListWizardMultiValue'] = 'ls_x_ListWizardMultiValue';

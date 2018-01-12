@@ -4426,7 +4426,7 @@ class ls_shop_generalHelper
 	 */
 	public static function getMerconisFilesVersion($bln_removeInternalBuildNumber = false)
 	{
-		$objFile_ls_version = new \File('system/modules/zzz_merconis/ls_version.txt');
+		$objFile_ls_version = new \File('vendor/leadingsystems/contao-merconis/ls_version.txt');
 		$str_fileContent = $objFile_ls_version->getContent();
 		if ($bln_removeInternalBuildNumber) {
 			$str_fileContent = preg_replace('/\[.*\]/', '', $str_fileContent);
