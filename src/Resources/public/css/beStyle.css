@@ -1176,13 +1176,13 @@ ul.ls_shop_productSelectionWizard li .widgetProductSelection .selectedProductOut
  * importer: end
  */
 
-#tl_navigation li#zzz_merconis ul li:nth-child(10),
-#tl_navigation li#zzz_merconis ul li:nth-child(17) {
+#tl_navigation li#merconis ul li:nth-child(10),
+#tl_navigation li#merconis ul li:nth-child(17) {
 	margin-top: 5px;
 }
 
-#tl_navigation li#zzz_merconis ul li:nth-child(9),
-#tl_navigation li#zzz_merconis ul li:nth-child(16) {
+#tl_navigation li#merconis ul li:nth-child(9),
+#tl_navigation li#merconis ul li:nth-child(16) {
 	padding-bottom: 5px;
 	border-bottom: 1px dashed #555555;
 	width: 90%;

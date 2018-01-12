@@ -3,8 +3,7 @@
 	/*
 	 * Backend-Modules
 	 */
-	$GLOBALS['TL_LANG']['MOD']['zzz_merconis']					= 'MERCONIS - Shop';
-	$GLOBALS['TL_LANG']['MOD']['ls_shop_installer']				= array('INSTALLATION', 'Bitte f&uuml;hren Sie zun&auml;chst die automatische Installation aus!');
+	$GLOBALS['TL_LANG']['MOD']['merconis']					= 'MERCONIS - Shop';
 	$GLOBALS['TL_LANG']['MOD']['ls_shop_settings']				= array('Grundeinstellungen', 'Nehmen Sie hier die grundlegenden Shop-Einstellungen vor.');
 	$GLOBALS['TL_LANG']['MOD']['ls_shop_output_definitions']		= array('Darstellungsvorgaben', 'Stellen Sie hier ein, wie Produkte in der Produkt&uuml;bersicht und im CrossSeller dargestellt werden sollen. Die zu verwendenden Darstellungsvorgaben k&ouml;nnen seitenabh&auml;ngig in den jeweiligen Seiteneinstellungen hinterlegt werden.');
 	$GLOBALS['TL_LANG']['MOD']['ls_shop_steuersaetze']			= array('Steuers&auml;tze', 'Legen Sie hier die ben&ouml;tigten Steuers&auml;tze an.');

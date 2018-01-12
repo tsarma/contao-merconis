@@ -144,7 +144,7 @@ if (TL_MODE == 'BE') {
 }
 
 array_insert($GLOBALS['BE_MOD'], 0, array(
-	'zzz_merconis' => array(
+	'merconis' => array(
 		'ls_shop_settings' => array(
 			'tables' => array('tl_lsShopSettings'),
 		),
