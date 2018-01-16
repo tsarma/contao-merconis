@@ -152,7 +152,7 @@ class ls_shop_steuersaetze extends \Backend {
 		// Generate an alias if there is none
 		if ($varValue == '') {
 			$autoAlias = true;
-			$varValue = standardize(\StringUtil::restoreBasicEntities($dc->activeRecord->title));
+			$varValue = \StringUtil::generateAlias($dc->activeRecord->title);
 		}
 
 		$objAlias = \Database::getInstance()->prepare("SELECT id FROM tl_ls_shop_steuersaetze WHERE id=? OR alias=?")

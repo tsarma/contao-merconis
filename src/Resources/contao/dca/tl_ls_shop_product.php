@@ -1035,7 +1035,7 @@ class tl_ls_shop_product_controller extends \Backend {
 		 */
 		if ($str_value == '') {
 			$bln_createAutoAlias = true;
-			$str_value = standardize(\StringUtil::restoreBasicEntities($str_titleToUseForAutoAlias));
+			$str_value = \StringUtil::generateAlias($str_titleToUseForAutoAlias);
 		}
 		
 		/*

@@ -587,7 +587,7 @@ class ls_shop_productManagementApiHelper {
 	}
 
 	public static function generateProductAlias($str_title, $str_givenAlias = '', $int_productId = 0, $str_language = '') {
-		$str_alias = $str_givenAlias ? $str_givenAlias : standardize(\StringUtil::restoreBasicEntities($str_title));
+		$str_alias = $str_givenAlias ? $str_givenAlias : \StringUtil::generateAlias($str_title);
 
 		/*
 		 * The alias must not be longer than 128 characters
@@ -622,7 +622,7 @@ class ls_shop_productManagementApiHelper {
 	}
 
 	public static function generateVariantAlias($str_title, $str_givenAlias = '', $int_variantId = 0, $str_language = '') {
-		$str_alias = $str_givenAlias ? $str_givenAlias : standardize(\StringUtil::restoreBasicEntities($str_title));
+		$str_alias = $str_givenAlias ? $str_givenAlias : \StringUtil::generateAlias($str_title);
 
 		/*
 		 * The alias must not be longer than 128 characters

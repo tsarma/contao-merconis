@@ -225,7 +225,7 @@ class ls_shop_filter_fields extends \Backend {
 		// Generate an alias if there is none
 		if ($varValue == '') {
 			$autoAlias = true;
-			$varValue = standardize(\StringUtil::restoreBasicEntities($currentTitle));
+			$varValue = \StringUtil::generateAlias($currentTitle);
 		}
 		$objAlias = \Database::getInstance()->prepare("SELECT id FROM tl_ls_shop_filter_fields WHERE id=? OR alias=?")
 								   ->execute($dc->id, $varValue);

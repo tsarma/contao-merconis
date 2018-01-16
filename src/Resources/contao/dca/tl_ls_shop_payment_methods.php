@@ -330,7 +330,7 @@ class ls_shop_payment_methods extends \Backend {
 		// Generate an alias if there is none
 		if ($varValue == '') {
 			$autoAlias = true;
-			$varValue = standardize(\StringUtil::restoreBasicEntities($currentTitle));
+			$varValue = \StringUtil::generateAlias($currentTitle);
 		}
 		$objAlias = \Database::getInstance()->prepare("SELECT id FROM tl_ls_shop_payment_methods WHERE id=? OR alias=?")
 			->execute($dc->id, $varValue);
