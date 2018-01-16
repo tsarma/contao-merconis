@@ -135,8 +135,8 @@ $GLOBALS['TL_CRON']['daily'][] = array('Merconis\Core\ls_shop_generalHelper','se
 $GLOBALS['TL_CRON']['hourly'][] = array('Merconis\Core\ls_shop_generalHelper','sendMessagesOnStatusChangeCronHourly');
 
 if (TL_MODE == 'BE') {
-	$GLOBALS['TL_JAVASCRIPT'][] = 'vendor/leadingsystems/contao-merconis/src/Resources/contao/js/ls_shop_BE.js';
-	$GLOBALS['TL_JAVASCRIPT'][] = 'vendor/leadingsystems/contao-merconis/src/Resources/contao/js/ls_x_controller.js';
+	$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/leadingsystemsmerconis/js/ls_shop_BE.js';
+	$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/leadingsystemsmerconis/js/ls_x_controller.js';
 }
 
 if (TL_MODE == 'BE') {
@@ -192,7 +192,7 @@ array_insert($GLOBALS['BE_MOD'], 0, array(
 		'ls_shop_import' => array(
 			'tables' => array('tl_ls_shop_import'),
 			'callback' => 'Merconis\Core\ls_shop_import',
-			'javascript' => 'vendor/leadingsystems/contao-merconis/src/Resources/contao/js/ls_shop_BE_import.js?rand='.rand(0,99999),
+			'javascript' => 'bundles/leadingsystemsmerconis/js/ls_shop_BE_import.js?rand='.rand(0,99999),
 		),
 
 		'ls_shop_productSearch' => array(

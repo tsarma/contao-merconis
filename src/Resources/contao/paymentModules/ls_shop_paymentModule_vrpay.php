@@ -220,7 +220,7 @@ namespace Merconis\Core;
 					$str_backofficeUrl = $this->arr_vrpay_backofficeUrls[$this->arrCurrentSettings['vrpay_liveMode'] ? 'live' : 'test'];
 					?>
 					<a href="<?php echo $str_backofficeUrl; ?>" target="_blank">
-						<img src="vendor/leadingsystems/contao-merconis/src/Resources/contao/images/payment/vrpay_logo_medium.png" alt="VR Pay">
+						<img src="bundles/leadingsystemsmerconis/images/payment/vrpay_logo_medium.png" alt="VR Pay">
 					</a>
 					<?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['vrpay']['headlineBackendDetailsInfo']; ?>
 				</h2>
@@ -280,7 +280,7 @@ namespace Merconis\Core;
 			ob_start();
 			?>
 			<div class="paymentStatusInOverview vrpay <?php echo strtolower(preg_replace('/\s+/', '-', $arr_currentStatus['str_statusValue'])); ?>">
-				<img src="vendor/leadingsystems/contao-merconis/src/Resources/contao/images/payment/vrpay_logo_small.png" alt="VR Pay">
+				<img src="bundles/leadingsystemsmerconis/images/payment/vrpay_logo_small.png" alt="VR Pay">
 				<span class="status">
 					<?php echo strtoupper($arr_currentStatus['str_statusValue']); ?>
 				</span>

@@ -24,7 +24,7 @@ use function LeadingSystems\Helpers\ls_sub;
 		}
 		
 		public function modifyConfirmOrderForm($str_form = '') {
-			$outputToAdd = '<div class="confirmCheckoutMessagePayone"><img src="vendor/leadingsystems/contao-merconis/src/Resources/contao/images/payment/payone_logo_small.png" alt="PAYONE">'.$GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['payone']['confirmCheckoutMessage'].'</div>';
+			$outputToAdd = '<div class="confirmCheckoutMessagePayone"><img src="bundles/leadingsystemsmerconis/images/payment/payone_logo_small.png" alt="PAYONE">'.$GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['payone']['confirmCheckoutMessage'].'</div>';
 			$str_form = $str_form.$outputToAdd;
 			return $str_form;
 		}
@@ -70,7 +70,7 @@ use function LeadingSystems\Helpers\ls_sub;
 			<div class="paymentDetails payone">
 				<h2>
 					<a href="https://www.payone.de/" target="_blank">
-						<img src="vendor/leadingsystems/contao-merconis/src/Resources/contao/images/payment/payone_logo_small.png" alt="PAYONE">
+						<img src="bundles/leadingsystemsmerconis/images/payment/payone_logo_small.png" alt="PAYONE">
 					</a>
 					<?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['payone']['headlineBackendDetailsInfo']; ?>
 				</h2>
@@ -243,7 +243,7 @@ use function LeadingSystems\Helpers\ls_sub;
 			ob_start();
 			?>
 			<div class="paymentStatusInOverview payone <?php echo strtolower(preg_replace('/\s+/', '-', $arr_currentStatus['str_statusValue'])); ?>">
-				<img src="vendor/leadingsystems/contao-merconis/src/Resources/contao/images/payment/payone_logo_small.png" alt="PAYONE">
+				<img src="bundles/leadingsystemsmerconis/images/payment/payone_logo_small.png" alt="PAYONE">
 				<span class="status">
 					<?php echo strtoupper($arr_currentStatus['str_statusValue']); ?><?php echo $arr_currentStatus['str_statusValue'] == 'APPOINTED' && $arr_currentStatus['arr_statusDetails']['transaction_status'] && $arr_currentStatus['arr_statusDetails']['transaction_status'] != 'completed' ? ' ('.strtoupper($arr_currentStatus['arr_statusDetails']['transaction_status']).')' : ''; ?>
 				</span>

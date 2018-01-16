@@ -209,7 +209,7 @@ use function LeadingSystems\Helpers\ls_sub;
 					$str_backofficeUrl = $this->arr_saferpay_backofficeUrls[$this->arrCurrentSettings['saferpay_liveMode'] ? 'live' : 'test'];
 					?>
 					<a href="<?php echo $str_backofficeUrl; ?>" target="_blank">
-						<img src="vendor/leadingsystems/contao-merconis/src/Resources/contao/images/payment/saferpay_logo_small.png" alt="SAFERPAY">
+						<img src="bundles/leadingsystemsmerconis/images/payment/saferpay_logo_small.png" alt="SAFERPAY">
 					</a>
 					<?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['saferpay']['headlineBackendDetailsInfo']; ?>
 				</h2>
@@ -295,7 +295,7 @@ use function LeadingSystems\Helpers\ls_sub;
 			ob_start();
 			?>
 			<div class="paymentStatusInOverview saferpay <?php echo strtolower(preg_replace('/\s+/', '-', $arr_currentStatus['str_statusValue'])); ?>">
-				<img src="vendor/leadingsystems/contao-merconis/src/Resources/contao/images/payment/saferpay_logo_small.png" alt="SAFERPAY">
+				<img src="bundles/leadingsystemsmerconis/images/payment/saferpay_logo_small.png" alt="SAFERPAY">
 				<span class="status">
 					<?php echo strtoupper($arr_currentStatus['str_statusValue']); ?>
 				</span>
