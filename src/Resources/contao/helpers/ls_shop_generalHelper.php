@@ -60,7 +60,7 @@ class ls_shop_generalHelper
 			")
 				->execute(
 					$int_parentId,
-					($bln_parentIsVariant ? '1' : ''),
+					($bln_parentIsVariant ? '1' : '0'),
 					$arr_allocation[0],
 					$arr_allocation[1],
 					$int_sortingKey
