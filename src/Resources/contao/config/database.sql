@@ -160,7 +160,7 @@ CREATE TABLE `tl_ls_shop_product` (
 	`configurator` int(10) unsigned NOT NULL default '0',
 	`flex_contents` blob NULL,
 	`flex_contentsLanguageIndependent` blob NULL,
-	`lsShopProductAttributesValues` text NULL
+	`lsShopProductAttributesValues` blob NULL
 	PRIMARY KEY  (`id`),
 	KEY `lsShopProductCode` (`lsShopProductCode`),
 	KEY `alias` (`alias`)
@@ -182,7 +182,7 @@ CREATE TABLE `tl_ls_shop_variant` (
 	`shortDescription` text NULL,
 	`description` text NULL,
 	`published` char(1) NOT NULL default '',
-	`lsShopProductVariantAttributesValues` text NULL,
+	`lsShopProductVariantAttributesValues` blob NULL,
 
 	`lsShopVariantPrice` decimal(12,4) NOT NULL default '0.0000',
 	`lsShopVariantPriceType` varchar(255) NOT NULL default 'adjustmentPercentaged',
