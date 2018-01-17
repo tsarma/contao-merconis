@@ -21,7 +21,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			array('Merconis\Core\ls_shop_generalHelper', 'saveLastBackendDataChangeTimestamp')
 		)
 	),
-	
+
 	'list' => array(
 		'sorting' => array(
 			'mode' => 2,
@@ -29,13 +29,13 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'flag' => 11,
 			'panelLayout' => 'filter;sort,search,limit'
 		),
-		
+
 		'label' => array(
 			'fields' => array('title'),
 			'format' => '%s',
 			'label_callback' => array('Merconis\Core\tl_ls_shop_product_controller','createLabel')
 		),
-		
+
 		'global_operations' => array(
 			'all' => array
 			(
@@ -45,7 +45,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 				'attributes'          => 'onclick="Backend.getScrollOffset();" accesskey="e"'
 			)
 		),
-		
+
 		'operations' => array(
 			'edit' => array
 			(
@@ -83,8 +83,8 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 				'href'                => 'act=show',
 				'icon'                => 'show.gif'
 			)
-		
-		)	
+
+		)
 	),
 	'palettes' => array(
 		'__selector__' => array('useGroupPrices_1', 'useGroupPrices_2', 'useGroupPrices_3', 'useGroupPrices_4', 'useGroupPrices_5', 'useScalePrice', 'useScalePrice_1', 'useScalePrice_2', 'useScalePrice_3', 'useScalePrice_4', 'useScalePrice_5'),
@@ -168,7 +168,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 	/*
 	 * FIXME: Implement associatedProducts in MPM and importer!
 	 */
-	
+
 	'subpalettes' => array(
 		'useGroupPrices_1' => '
 			priceForGroups_1,
@@ -177,7 +177,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			lsShopProductPriceOld_1,
 			useOldPrice_1
 		',
-		
+
 		'useGroupPrices_2' => '
 			priceForGroups_2,
 			lsShopProductPrice_2,
@@ -185,7 +185,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			lsShopProductPriceOld_2,
 			useOldPrice_2
 		',
-		
+
 		'useGroupPrices_3' => '
 			priceForGroups_3,
 			lsShopProductPrice_3,
@@ -193,7 +193,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			lsShopProductPriceOld_3,
 			useOldPrice_3
 		',
-		
+
 		'useGroupPrices_4' => '
 			priceForGroups_4,
 			lsShopProductPrice_4,
@@ -201,7 +201,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			lsShopProductPriceOld_4,
 			useOldPrice_4
 		',
-		
+
 		'useGroupPrices_5' => '
 			priceForGroups_5,
 			lsShopProductPrice_5,
@@ -209,7 +209,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			lsShopProductPriceOld_5,
 			useOldPrice_5
 		',
-		
+
 		'useScalePrice' => 'scalePriceType,scalePriceQuantityDetectionMethod,scalePriceQuantityDetectionAlwaysSeparateConfigurations,scalePriceKeyword,scalePrice',
 		'useScalePrice_1' => 'scalePriceType_1,scalePriceQuantityDetectionMethod_1,scalePriceQuantityDetectionAlwaysSeparateConfigurations_1,scalePriceKeyword_1,scalePrice_1',
 		'useScalePrice_2' => 'scalePriceType_2,scalePriceQuantityDetectionMethod_2,scalePriceQuantityDetectionAlwaysSeparateConfigurations_2,scalePriceKeyword_2,scalePrice_2',
@@ -217,7 +217,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'useScalePrice_4' => 'scalePriceType_4,scalePriceQuantityDetectionMethod_4,scalePriceQuantityDetectionAlwaysSeparateConfigurations_4,scalePriceKeyword_4,scalePrice_4',
 		'useScalePrice_5' => 'scalePriceType_5,scalePriceQuantityDetectionMethod_5,scalePriceQuantityDetectionAlwaysSeparateConfigurations_5,scalePriceKeyword_5,scalePrice_5'
 	),
-	
+
 	'fields' => array(
 		'id' => array(
 			'sql' => 'int(10) unsigned NOT NULL auto_increment'
@@ -232,7 +232,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'flag' => 11,
 			'search'		=> true
 		),
-		
+
 		'description' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['description'],
 			'exclude' => true,
@@ -248,7 +248,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval'                    => array('rte'=>'tinyMCE', 'tl_class'=>'clr', 'merconis_multilanguage' => true, 'decodeEntities' => true),
 			'search'		=> true
 		),
-		
+
 		'keywords' => array (
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['keywords'],
 			'exclude' => true,
@@ -256,7 +256,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval' => array('style'=>'height:60px;', 'tl_class'=>'clr', 'merconis_multilanguage' => true, 'decodeEntities' => true),
 			'search'		=> true
 		),
-		
+
 		'flex_contents' => array(
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['flex_contents'],
 			'exclude' => true,
@@ -270,7 +270,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 				'preserveTags' => true
 			)
 		),
-		
+
 		'flex_contentsLanguageIndependent' => array(
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['flex_contentsLanguageIndependent'],
 			'exclude' => true,
@@ -282,7 +282,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 				'preserveTags' => true
 			)
 		),
-		
+
 		'lsShopProductCode' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductCode'],
 			'exclude' => true,
@@ -295,7 +295,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'flag' => 11,
 			'search'		=> true
 		),
-		
+
 		'alias' => array (
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['alias'],
 			'exclude' => true,
@@ -322,7 +322,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval'                    => array('doNotCopy'=>true, 'tl_class'=>'w50'),
 			'filter'		=> true
 		),
-		
+
 		'lsShopProductIsNew' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductIsNew'],
 			'exclude' => true,
@@ -330,7 +330,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval'                    => array('doNotCopy'=>true, 'tl_class'=>'w50'),
 			'filter'		=> true
 		),
-		
+
 		'lsShopProductIsOnSale' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductIsOnSale'],
 			'exclude' => true,
@@ -356,7 +356,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'filter' => true,
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
-		
+
 		'lsShopProductQuantityUnit' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductQuantityUnit'],
 			'exclude' => true,
@@ -367,7 +367,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 				array('Merconis\Core\ls_shop_generalHelper', 'beValuePickerWizard')
 			)
 		),
-		
+
 		'lsShopProductMengenvergleichUnit' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductMengenvergleichUnit'],
 			'exclude' => true,
@@ -377,7 +377,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 				array('Merconis\Core\ls_shop_generalHelper', 'beValuePickerWizard')
 			)
 		),
-		
+
 		'pages' => array(
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['pages'],
 			'exclude' => true,
@@ -387,7 +387,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 				array('Merconis\Core\tl_ls_shop_product_controller', 'convertPageSelection')
 			)
 		),
-		
+
 		'lsShopProductProducer' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductProducer'],
 			'exclude' => true,
@@ -408,22 +408,30 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval'			=> array('fieldType'=>'radio', 'files'=>true, 'filesOnly'=>true, 'extensions'=>'jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF', 'tl_class'=>'clr'),
 			'sql'                     => "binary(16) NULL"
 		),
-		
+
 		'lsShopProductMoreImages' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductMoreImages'],
 			'exclude' => true,
 			'inputType'		=>	'fileTree',
 			'eval'			=> array('multiple' => true, 'fieldType'=>'checkbox', 'files'=>true, 'filesOnly' => true, 'extensions'=>'jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF,flv,mp4,mp2,swf,mov,avi', 'tl_class'=>'clr')
 		),
-		
+
+//		'lsShopProductAttributesValues' => array (
+//			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductAttributesValues'],
+//			'default'                 => array(),
+//			'exclude' => true,
+//			'inputType'               => 'ls_shop_ListWizardAttributesValues',
+//			'eval'					  => array('merconis_multiField' => array('labels' => array($GLOBALS['TL_LANG']['tl_ls_shop_product']['attributesValues_label01'], $GLOBALS['TL_LANG']['tl_ls_shop_product']['attributesValues_label02'])))
+//		),
+
 		'lsShopProductAttributesValues' => array (
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductAttributesValues'],
-			'default'                 => array(),
+			'default'                 => '',
 			'exclude' => true,
-			'inputType'               => 'ls_shop_ListWizardAttributesValues',
-			'eval'					  => array('merconis_multiField' => array('labels' => array($GLOBALS['TL_LANG']['tl_ls_shop_product']['attributesValues_label01'], $GLOBALS['TL_LANG']['tl_ls_shop_product']['attributesValues_label02'])))
+			'inputType'               => 'text',
+			'eval'					  => array('tl_class' => 'merconis-component-autostart--merconisWidgetAttributesValues')
 		),
-		
+
 		'lsShopProductPrice' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductPrice'],
 			'exclude' => true,
@@ -440,7 +448,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval'                    => array('submitOnChange' => true, 'tl_class'=>'clr m12'),
 			'filter'		=> true
 		),
-		
+
 		'scalePriceType' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceType'],
 			'exclude' => true,
@@ -449,7 +457,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'reference'               => $GLOBALS['TL_LANG']['tl_ls_shop_product']['options']['scalePriceType'],
 			'eval'                    => array('helpwizard'=>true, 'tl_class'=>'clr')
 		),
-		
+
 		'scalePriceQuantityDetectionMethod' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceQuantityDetectionMethod'],
 			'exclude' => true,
@@ -458,7 +466,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'reference'               => $GLOBALS['TL_LANG']['tl_ls_shop_product']['options']['scalePriceQuantityDetectionMethod'],
 			'eval'                    => array('helpwizard'=>true, 'tl_class'=>'w50')
 		),
-		
+
 		'scalePriceQuantityDetectionAlwaysSeparateConfigurations' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceQuantityDetectionAlwaysSeparateConfigurations'],
 			'exclude' => true,
@@ -466,7 +474,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval'                    => array('tl_class'=>'w50 m12'),
 			'filter'		=> true
 		),
-		
+
 		'scalePriceKeyword' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceKeyword'],
 			'exclude' => true,
@@ -475,14 +483,14 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'search'		=> true,
 			'filter'		=> true
 		),
-		
+
 		'scalePrice' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
 			'inputType' => 'listWizardDoubleValue',
 			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
 		),
-		
+
 		'lsShopProductPriceOld' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductPriceOld'],
 			'exclude' => true,
@@ -497,7 +505,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval'                    => array('doNotCopy'=>true, 'tl_class'=>'w50 m12'),
 			'filter'		=> true
 		),
-		
+
 		'lsShopProductSteuersatz' => array(
 			'label'			=> &$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductSteuersatz'],
 			'exclude' => true,
@@ -506,28 +514,28 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval'			=> array('tl_class' => 'w50'),
 			'filter'		=> true
 		),
-		
+
 		'lsShopProductWeight' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductWeight'],
 			'exclude' => true,
 			'inputType'		=>	'text',
 			'eval'			=>	array('rgxp' => 'numberWithDecimals', 'tl_class' => 'w50', 'mandatory' => true)
 		),
-		
+
 		'lsShopProductQuantityDecimals' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductQuantityDecimals'],
 			'exclude' => true,
 			'inputType'		=>	'text',
 			'eval'			=> array('rgxp'=>'digit', 'maxlength'=>1, 'tl_class' => 'w50', 'mandatory' => true)
 		),
-		
+
 		'lsShopProductMengenvergleichDivisor' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductMengenvergleichDivisor'],
 			'exclude' => true,
 			'inputType'		=>	'text',
 			'eval'			=>	array('rgxp' => 'numberWithDecimals','tl_class' => 'w50', 'mandatory' => true)
 		),
-		
+
 		/*
 		 * Deviant price settings for group 1
 		 */
@@ -538,7 +546,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval'                    => array('submitOnChange' => true, 'doNotCopy'=>true, 'tl_class'=>'clr'),
 			'filter'		=> true
 		),
-		
+
 		'priceForGroups_1' => array (
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['priceForGroups'],
 			'exclude'                 => true,
@@ -546,7 +554,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'foreignKey'              => 'tl_member_group.name',
 			'eval'                    => array('mandatory'=>true, 'multiple'=>true)
 		),
-		
+
 		'lsShopProductPrice_1' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductPrice'],
 			'exclude' => true,
@@ -560,7 +568,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'inputType'               => 'checkbox',
 			'eval'                    => array('submitOnChange' => true, 'tl_class'=>'clr m12')
 		),
-		
+
 		'scalePriceType_1' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceType'],
 			'exclude' => true,
@@ -569,7 +577,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'reference'               => $GLOBALS['TL_LANG']['tl_ls_shop_product']['options']['scalePriceType'],
 			'eval'                    => array('helpwizard'=>true, 'tl_class'=>'clr')
 		),
-		
+
 		'scalePriceQuantityDetectionMethod_1' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceQuantityDetectionMethod'],
 			'exclude' => true,
@@ -578,28 +586,28 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'reference'               => $GLOBALS['TL_LANG']['tl_ls_shop_product']['options']['scalePriceQuantityDetectionMethod'],
 			'eval'                    => array('helpwizard'=>true, 'tl_class'=>'w50')
 		),
-		
+
 		'scalePriceQuantityDetectionAlwaysSeparateConfigurations_1' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceQuantityDetectionAlwaysSeparateConfigurations'],
 			'exclude' => true,
 			'inputType'               => 'checkbox',
 			'eval'                    => array('tl_class'=>'w50 m12')
 		),
-		
+
 		'scalePriceKeyword_1' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceKeyword'],
 			'exclude' => true,
 			'inputType'		=>	'text',
 			'eval'			=> array('tl_class' => 'w50', 'decodeEntities' => true, 'maxlength'=>255)
 		),
-		
+
 		'scalePrice_1' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
 			'inputType' => 'listWizardDoubleValue',
 			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
 		),
-		
+
 		'lsShopProductPriceOld_1' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductPriceOld'],
 			'exclude' => true,
@@ -613,7 +621,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'inputType'               => 'checkbox',
 			'eval'                    => array('doNotCopy'=>true, 'tl_class'=>'w50 m12')
 		),
-		
+
 		/*
 		 * Deviant price settings for group 2
 		 */
@@ -624,7 +632,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval'                    => array('submitOnChange' => true, 'doNotCopy'=>true, 'tl_class'=>'clr'),
 			'filter'		=> true
 		),
-		
+
 		'priceForGroups_2' => array (
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['priceForGroups'],
 			'exclude'                 => true,
@@ -632,7 +640,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'foreignKey'              => 'tl_member_group.name',
 			'eval'                    => array('mandatory'=>true, 'multiple'=>true)
 		),
-		
+
 		'lsShopProductPrice_2' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductPrice'],
 			'exclude' => true,
@@ -646,7 +654,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'inputType'               => 'checkbox',
 			'eval'                    => array('submitOnChange' => true, 'tl_class'=>'clr m12')
 		),
-		
+
 		'scalePriceType_2' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceType'],
 			'exclude' => true,
@@ -655,7 +663,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'reference'               => $GLOBALS['TL_LANG']['tl_ls_shop_product']['options']['scalePriceType'],
 			'eval'                    => array('helpwizard'=>true, 'tl_class'=>'clr')
 		),
-		
+
 		'scalePriceQuantityDetectionMethod_2' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceQuantityDetectionMethod'],
 			'exclude' => true,
@@ -664,28 +672,28 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'reference'               => $GLOBALS['TL_LANG']['tl_ls_shop_product']['options']['scalePriceQuantityDetectionMethod'],
 			'eval'                    => array('helpwizard'=>true, 'tl_class'=>'w50')
 		),
-		
+
 		'scalePriceQuantityDetectionAlwaysSeparateConfigurations_2' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceQuantityDetectionAlwaysSeparateConfigurations'],
 			'exclude' => true,
 			'inputType'               => 'checkbox',
 			'eval'                    => array('tl_class'=>'w50 m12')
 		),
-		
+
 		'scalePriceKeyword_2' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceKeyword'],
 			'exclude' => true,
 			'inputType'		=>	'text',
 			'eval'			=> array('tl_class' => 'w50', 'decodeEntities' => true, 'maxlength'=>255)
 		),
-		
+
 		'scalePrice_2' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
 			'inputType' => 'listWizardDoubleValue',
 			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
 		),
-		
+
 		'lsShopProductPriceOld_2' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductPriceOld'],
 			'exclude' => true,
@@ -699,7 +707,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'inputType'               => 'checkbox',
 			'eval'                    => array('doNotCopy'=>true, 'tl_class'=>'w50 m12')
 		),
-		
+
 		/*
 		 * Deviant price settings for group 3
 		 */
@@ -710,7 +718,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval'                    => array('submitOnChange' => true, 'doNotCopy'=>true, 'tl_class'=>'clr'),
 			'filter'		=> true
 		),
-		
+
 		'priceForGroups_3' => array (
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['priceForGroups'],
 			'exclude'                 => true,
@@ -718,7 +726,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'foreignKey'              => 'tl_member_group.name',
 			'eval'                    => array('mandatory'=>true, 'multiple'=>true)
 		),
-		
+
 		'lsShopProductPrice_3' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductPrice'],
 			'exclude' => true,
@@ -732,7 +740,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'inputType'               => 'checkbox',
 			'eval'                    => array('submitOnChange' => true, 'tl_class'=>'clr m12')
 		),
-		
+
 		'scalePriceType_3' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceType'],
 			'exclude' => true,
@@ -741,7 +749,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'reference'               => $GLOBALS['TL_LANG']['tl_ls_shop_product']['options']['scalePriceType'],
 			'eval'                    => array('helpwizard'=>true, 'tl_class'=>'clr')
 		),
-		
+
 		'scalePriceQuantityDetectionMethod_3' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceQuantityDetectionMethod'],
 			'exclude' => true,
@@ -750,28 +758,28 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'reference'               => $GLOBALS['TL_LANG']['tl_ls_shop_product']['options']['scalePriceQuantityDetectionMethod'],
 			'eval'                    => array('helpwizard'=>true, 'tl_class'=>'w50')
 		),
-		
+
 		'scalePriceQuantityDetectionAlwaysSeparateConfigurations_3' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceQuantityDetectionAlwaysSeparateConfigurations'],
 			'exclude' => true,
 			'inputType'               => 'checkbox',
 			'eval'                    => array('tl_class'=>'w50 m12')
 		),
-		
+
 		'scalePriceKeyword_3' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceKeyword'],
 			'exclude' => true,
 			'inputType'		=>	'text',
 			'eval'			=> array('tl_class' => 'w50', 'decodeEntities' => true, 'maxlength'=>255)
 		),
-		
+
 		'scalePrice_3' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
 			'inputType' => 'listWizardDoubleValue',
 			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
 		),
-		
+
 		'lsShopProductPriceOld_3' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductPriceOld'],
 			'exclude' => true,
@@ -785,7 +793,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'inputType'               => 'checkbox',
 			'eval'                    => array('doNotCopy'=>true, 'tl_class'=>'w50 m12')
 		),
-		
+
 		/*
 		 * Deviant price settings for group 4
 		 */
@@ -796,7 +804,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval'                    => array('submitOnChange' => true, 'doNotCopy'=>true, 'tl_class'=>'clr'),
 			'filter'		=> true
 		),
-		
+
 		'priceForGroups_4' => array (
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['priceForGroups'],
 			'exclude'                 => true,
@@ -804,7 +812,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'foreignKey'              => 'tl_member_group.name',
 			'eval'                    => array('mandatory'=>true, 'multiple'=>true)
 		),
-		
+
 		'lsShopProductPrice_4' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductPrice'],
 			'exclude' => true,
@@ -818,7 +826,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'inputType'               => 'checkbox',
 			'eval'                    => array('submitOnChange' => true, 'tl_class'=>'clr m12')
 		),
-		
+
 		'scalePriceType_4' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceType'],
 			'exclude' => true,
@@ -827,7 +835,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'reference'               => $GLOBALS['TL_LANG']['tl_ls_shop_product']['options']['scalePriceType'],
 			'eval'                    => array('helpwizard'=>true, 'tl_class'=>'clr')
 		),
-		
+
 		'scalePriceQuantityDetectionMethod_4' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceQuantityDetectionMethod'],
 			'exclude' => true,
@@ -836,28 +844,28 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'reference'               => $GLOBALS['TL_LANG']['tl_ls_shop_product']['options']['scalePriceQuantityDetectionMethod'],
 			'eval'                    => array('helpwizard'=>true, 'tl_class'=>'w50')
 		),
-		
+
 		'scalePriceQuantityDetectionAlwaysSeparateConfigurations_4' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceQuantityDetectionAlwaysSeparateConfigurations'],
 			'exclude' => true,
 			'inputType'               => 'checkbox',
 			'eval'                    => array('tl_class'=>'w50 m12')
 		),
-		
+
 		'scalePriceKeyword_4' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceKeyword'],
 			'exclude' => true,
 			'inputType'		=>	'text',
 			'eval'			=> array('tl_class' => 'w50', 'decodeEntities' => true, 'maxlength'=>255)
 		),
-		
+
 		'scalePrice_4' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
 			'inputType' => 'listWizardDoubleValue',
 			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
 		),
-		
+
 		'lsShopProductPriceOld_4' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductPriceOld'],
 			'exclude' => true,
@@ -871,7 +879,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'inputType'               => 'checkbox',
 			'eval'                    => array('doNotCopy'=>true, 'tl_class'=>'w50 m12')
 		),
-		
+
 		/*
 		 * Deviant price settings for group 5
 		 */
@@ -882,7 +890,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval'                    => array('submitOnChange' => true, 'doNotCopy'=>true, 'tl_class'=>'clr'),
 			'filter'		=> true
 		),
-		
+
 		'priceForGroups_5' => array (
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['priceForGroups'],
 			'exclude'                 => true,
@@ -890,7 +898,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'foreignKey'              => 'tl_member_group.name',
 			'eval'                    => array('mandatory'=>true, 'multiple'=>true)
 		),
-		
+
 		'lsShopProductPrice_5' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductPrice'],
 			'exclude' => true,
@@ -904,7 +912,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'inputType'               => 'checkbox',
 			'eval'                    => array('submitOnChange' => true, 'tl_class'=>'clr m12')
 		),
-		
+
 		'scalePriceType_5' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceType'],
 			'exclude' => true,
@@ -913,7 +921,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'reference'               => $GLOBALS['TL_LANG']['tl_ls_shop_product']['options']['scalePriceType'],
 			'eval'                    => array('helpwizard'=>true, 'tl_class'=>'clr')
 		),
-		
+
 		'scalePriceQuantityDetectionMethod_5' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceQuantityDetectionMethod'],
 			'exclude' => true,
@@ -922,28 +930,28 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'reference'               => $GLOBALS['TL_LANG']['tl_ls_shop_product']['options']['scalePriceQuantityDetectionMethod'],
 			'eval'                    => array('helpwizard'=>true, 'tl_class'=>'w50')
 		),
-		
+
 		'scalePriceQuantityDetectionAlwaysSeparateConfigurations_5' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceQuantityDetectionAlwaysSeparateConfigurations'],
 			'exclude' => true,
 			'inputType'               => 'checkbox',
 			'eval'                    => array('tl_class'=>'w50 m12')
 		),
-		
+
 		'scalePriceKeyword_5' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceKeyword'],
 			'exclude' => true,
 			'inputType'		=>	'text',
 			'eval'			=> array('tl_class' => 'w50', 'decodeEntities' => true, 'maxlength'=>255)
 		),
-		
+
 		'scalePrice_5' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
 			'inputType' => 'listWizardDoubleValue',
 			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
 		),
-		
+
 		'lsShopProductPriceOld_5' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductPriceOld'],
 			'exclude' => true,
@@ -957,9 +965,9 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'inputType'               => 'checkbox',
 			'eval'                    => array('doNotCopy'=>true, 'tl_class'=>'w50 m12')
 		),
-		
-		
-		
+
+
+
 		'lsShopProductDeliveryInfoSet' => array(
 			'label'			=> &$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductDeliveryInfoSet'],
 			'exclude' => true,
@@ -969,7 +977,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'filter'		=> true,
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
-		
+
 		'lsShopProductRecommendedProducts' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductRecommendedProducts'],
 			'exclude' => true,
@@ -983,7 +991,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'inputType'		=>	'ls_shop_productSelectionWizard',
 			'eval'			=> array('tl_class'=>'clr')
 		),
-		
+
 		'lsShopProductDetailsTemplate' => array(
 			'label'					  => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductDetailsTemplate'],
 			'exclude' => true,
@@ -1000,14 +1008,14 @@ class tl_ls_shop_product_controller extends \Backend {
 		parent::__construct();
 		$this->import('BackendUser', 'User');
 	}
-	
+
 	public function generateAlias($str_value, \DataContainer $dc) {
 		/*
 		 * By default we don't expect to have to create an auto alias.
 		 * Whether we have to do so or not, will be determined later
 		 */
 		$bln_createAutoAlias = false;
-		
+
 		/*
 		 * The alias is a multilanguage field so we have to determine its language
 		 * first in order to be able to create an auto alias from the corresponding
@@ -1021,7 +1029,7 @@ class tl_ls_shop_product_controller extends \Backend {
 			return $str_value;
 		}
 		$str_fieldLanguage = end(explode('_', $dc->field));
-		
+
 		$str_titleToUseForAutoAlias =
 			(
 					isset($dc->activeRecord->{'title_'.$str_fieldLanguage})
@@ -1037,7 +1045,7 @@ class tl_ls_shop_product_controller extends \Backend {
 			$bln_createAutoAlias = true;
 			$str_value = \StringUtil::generateAlias($str_titleToUseForAutoAlias);
 		}
-		
+
 		/*
 		 * The alias must not be longer than 128 characters
 		 */
@@ -1070,7 +1078,7 @@ class tl_ls_shop_product_controller extends \Backend {
 			if (!$bln_createAutoAlias) {
 				throw new \Exception(sprintf($GLOBALS['TL_LANG']['ERR']['aliasExists'], $str_value));
 			}
-			
+
 			$str_aliasSuffix = '-'.$dc->id;
 			$str_value = substr($str_value, 0, 128 - strlen($str_aliasSuffix)).$str_aliasSuffix;
 		}
@@ -1081,10 +1089,10 @@ class tl_ls_shop_product_controller extends \Backend {
 	public function createLabel ($row, $label) {
 		$this->loadLanguageFile('be_productSearch');
 		$objProductOutput = new ls_shop_productOutput($row['id'], '', 'template_productBackendOverview_03');
-		$label = '<div class="productViewBEList">'.$objProductOutput->parseOutput().'</div>';					
+		$label = '<div class="productViewBEList">'.$objProductOutput->parseOutput().'</div>';
 		return $label;
 	}
-	
+
 	public function toggleIcon($row, $href, $label, $title, $icon, $attributes) {
 		if (strlen(\Input::get('tid'))) {
 			$this->toggleVisibility(\Input::get('tid'), (\Input::get('state') == 1));
@@ -1099,7 +1107,7 @@ class tl_ls_shop_product_controller extends \Backend {
 
 		if (!$row['published']) {
 			$icon = 'invisible.gif';
-		}		
+		}
 
 		return '<a href="'.$this->addToUrl($href).'" title="'.specialchars($title).'"'.$attributes.'>'.\Image::getHtml($icon, $label).'</a> ';
 	}
@@ -1109,7 +1117,7 @@ class tl_ls_shop_product_controller extends \Backend {
 			\System::log('Not enough permissions to publish/unpublish product ID "'.$intId.'"', 'tl_ls_shop_product toggleVisibility', TL_ERROR);
 			$this->redirect('contao/main.php?act=error');
 		}
-		
+
 		ls_shop_generalHelper::saveLastBackendDataChangeTimestamp();
 
 		if (is_array($GLOBALS['TL_DCA']['tl_ls_shop_product']['fields']['published']['save_callback'])) {
@@ -1123,7 +1131,7 @@ class tl_ls_shop_product_controller extends \Backend {
 		\Database::getInstance()->prepare("UPDATE tl_ls_shop_product SET tstamp=". time() .", published='" . ($blnVisible ? 1 : '') . "' WHERE id=?")
 					   ->execute($intId);
 	}
-	
+
 	/*
 	 * This function checks whether a selected page is a main language page or a foreign language page. If it is a foreign
 	 * language page, the main language equivalent is used instead. This is necessary because from Contao 3 on we use the
@@ -1138,9 +1146,9 @@ class tl_ls_shop_product_controller extends \Backend {
 		if (!is_array($value)) {
 			$value = deserialize($value, true);
 		}
-		
+
 		$arrPageSelection = array();
-		
+
 		foreach ($value as $selctedPageID) {
 			$tmpMainLanguageID = ls_shop_languageHelper::getMainlanguagePageIDForPageID($selctedPageID);
 			if (!$tmpMainLanguageID) {
@@ -1148,9 +1156,9 @@ class tl_ls_shop_product_controller extends \Backend {
 			}
 			$arrPageSelection[] = (string) $tmpMainLanguageID;
 		}
-		
+
 		$value = serialize($arrPageSelection);
-		
+
 		return $value;
 	}
 }	
