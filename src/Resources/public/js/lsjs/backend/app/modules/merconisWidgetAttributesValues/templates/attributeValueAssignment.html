@@ -1,0 +1,13 @@
+<?
+	Array.each(
+		this.__models.main.data.arr_data,
+		function(arr_singleAttributeValueAssignment) {
+			?>
+			<div>
+				<input type="text" value="<?= arr_singleAttributeValueAssignment[0] =?>">
+				<input type="text" value="<?= arr_singleAttributeValueAssignment[1] =?>">
+			</div>
+			<?
+		}
+	);
+?>

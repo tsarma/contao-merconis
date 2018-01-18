@@ -2,8 +2,8 @@ var obj_classdef_model = {
 	name: 'main',
 	
 	data: {
-		json_value: '[]',
-		arr_value: []
+		json_data: '[]',
+		arr_data: []
 	},
 
 	obj_dataFunctionBindings: {
@@ -11,8 +11,8 @@ var obj_classdef_model = {
 		 * The data object holds the value in JSON format and in an array.
 		 * The following data function bindings make sure that each of them gets updated when the other is changed.
 		 */
-		'json_value': 'saveJsonValue',
-		'arr_value': 'saveArrValue'
+		'json_data': 'saveJsonData',
+		'arr_data': 'saveArrData'
 	},
 
 	start: function() {
@@ -23,17 +23,19 @@ var obj_classdef_model = {
 		this.__module.onModelLoaded();
 
 		this.loadOriginalJsonData();
+
+		this.__view.initializeGui();
 	},
 
 	loadOriginalJsonData: function() {
-		this.writeData('json_value', this.__view.el_originalInputField.getProperty('value'));
+		this.writeData('json_data', this.__view.el_originalInputField.getProperty('value'));
 	},
 
-	saveJsonValue: function(var_newData, str_registeredDataPath, var_originalData, str_actualDataPath) {
-		this.writeData('arr_value', JSON.parse(var_newData), false, false);
+	saveJsonData: function(var_newData, str_registeredDataPath, var_originalData, str_actualDataPath) {
+		this.writeData('arr_data', JSON.parse(var_newData), false, false);
 	},
 
-	saveArrValue: function(var_newData, str_registeredDataPath, var_originalData, str_actualDataPath) {
-		this.writeData('json_value', JSON.stringify(var_newData), false, false);
+	saveArrData: function(var_newData, str_registeredDataPath, var_originalData, str_actualDataPath) {
+		this.writeData('json_data', JSON.stringify(var_newData), false, false);
 	}
 };
