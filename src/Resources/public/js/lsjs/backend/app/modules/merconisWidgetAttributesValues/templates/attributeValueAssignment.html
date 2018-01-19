@@ -1,13 +1,35 @@
 <?
-	Array.each(
-		this.__models.main.data.arr_data,
-		function(arr_singleAttributeValueAssignment) {
-			?>
-			<div>
-				<input type="text" value="<?= arr_singleAttributeValueAssignment[0] =?>">
-				<input type="text" value="<?= arr_singleAttributeValueAssignment[1] =?>">
-			</div>
-			<?
-		}
-	);
+Array.each(
+	arg.__models.main.data.arr_data,
+	function(arr_singleAttributeValueAssignment) {
+		?>
+		<div class="fields-container">
+			<select data-lsjs-element="assignmentInput" class="attribute">
+				<?
+				Array.each(
+					arg.__models.config.data.obj_allAttributesAndValues,
+					function(obj_attribute) {
+						?>
+						<option value="<?= obj_attribute.id =?>"<?= (obj_attribute.id == arr_singleAttributeValueAssignment[0] ? 'selected' : '') =?>><?= obj_attribute.label =?></option>
+						<?
+					}
+				);
+				?>
+			</select>
+			<select data-lsjs-element="assignmentInput" class="value">
+				<?
+				Array.each(
+					arg.__models.config.getAttributeObjectForId(arr_singleAttributeValueAssignment[0]).values,
+					function(obj_value) {
+						?>
+						<option value="<?= obj_value.id =?>"<?= (obj_value.id == arr_singleAttributeValueAssignment[1] ? 'selected' : '') =?>><?= obj_value.label =?></option>
+						<?
+					}
+				);
+				?>
+			</select>
+		</div>
+		<?
+	}
+);
 ?>

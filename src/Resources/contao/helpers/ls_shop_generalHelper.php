@@ -3768,6 +3768,29 @@ class ls_shop_generalHelper
 		}
 	}
 
+	public static function getAllAttributesAndValues() {
+		$arr_attributesAndValues = array();
+		$arr_attributesRaw = ls_shop_generalHelper::getProductAttributes();
+
+		foreach ($arr_attributesRaw as $arr_attribute) {
+			$arr_valuesRaw = ls_shop_generalHelper::getAttributeValues($arr_attribute['id'], true);
+			$arr_values = [];
+			foreach ($arr_valuesRaw as $arr_valueRaw) {
+				$arr_values[] = [
+					'id' => $arr_valueRaw['id'],
+					'label' => ls_shop_languageHelper::getMultiLanguage($arr_valueRaw['id'], 'tl_ls_shop_attribute_values_languages', array('title'), array($GLOBALS['TL_LANGUAGE']), false, false) . ' (' . $arr_valueRaw['alias'] . ')'
+				];
+			}
+			$arr_attributesAndValues[] = [
+				'id' => $arr_attribute['id'],
+ 				'label' => ls_shop_languageHelper::getMultiLanguage($arr_attribute['id'], 'tl_ls_shop_attributes_languages', array('title'), array($GLOBALS['TL_LANGUAGE']), false, false) . ' (' . $arr_attribute['alias'] . ')',
+				'values' => $arr_values
+			];
+		}
+
+		return $arr_attributesAndValues;
+	}
+
 	public static function getAttributesAsOptions()
 	{
 		$attributes = ls_shop_generalHelper::getProductAttributes();
