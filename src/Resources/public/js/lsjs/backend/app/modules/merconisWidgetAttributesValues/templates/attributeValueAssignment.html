@@ -4,7 +4,7 @@ Array.each(
 	function(arr_singleAttributeValueAssignment, int_key) {
 		?>
 		<div class="fields-container" data-misc-field-row-key="<?= int_key =?>">
-			<select data-lsjs-element="assignmentInput" class="attribute">
+			<select data-lsjs-element="assignmentInput" class="attribute tl_select">
 				<?
 				Array.each(
 					arg.__models.config.data.obj_allAttributesAndValues,
@@ -16,7 +16,7 @@ Array.each(
 				);
 				?>
 			</select>
-			<select data-lsjs-element="assignmentInput" class="value">
+			<select data-lsjs-element="assignmentInput" class="value tl_select">
 				<?
 				Array.each(
 					arg.__models.config.getAttributeObjectForId(arr_singleAttributeValueAssignment[0]).values,
@@ -28,10 +28,10 @@ Array.each(
 				);
 				?>
 			</select>
-			<button type="button" data-lsjs-element="btn_copyRow">Copy</button>
-			<button type="button" data-lsjs-element="btn_delRow">Del</button>
-			<button type="button" data-lsjs-element="btn_rowUp">Up</button>
-			<button type="button" data-lsjs-element="btn_rowDown">Down</button>
+			<button type="button" data-lsjs-element="btn_copyRow"></button>
+			<button type="button" data-lsjs-element="btn_delRow"></button>
+			<button type="button" data-lsjs-element="btn_rowUp"></button>
+			<button type="button" data-lsjs-element="btn_rowDown"></button>
 		</div>
 		<?
 	}

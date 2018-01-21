@@ -1,10 +1,10 @@
-<h2><?= this.__view.str_label =?></h2>
 <input
 		type="text"
-		name="<?= this.__view.str_transferInputFieldName =?>"
+		name="<?= this.__view.el_originalInputField.getProperty('name') =?>"
+		class="<?= this.__view.el_originalInputField.getProperty('class') =?> invisible"
 		value=""
 		data-lsjs-bindToModel="main"
 		data-lsjs-bindToPath="json_data"
 >
-<button type="button" data-lsjs-element="btn_addRow">Add</button>
+<button type="button" data-lsjs-element="btn_addRow"></button>
 <div data-lsjs-element="attributeValueAssignment"></div>
