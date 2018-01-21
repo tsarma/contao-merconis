@@ -32,6 +32,11 @@ var obj_classdef = 	{
 			name: 'main'
 		});
 
+		this.__autoElements.main.btn_addRow.addEvent(
+			'click',
+			this.addRow.bind(this)
+		);
+
 		this.drawAttributeValueFields();
 	},
 
@@ -40,10 +45,14 @@ var obj_classdef = 	{
 			this.__autoElements.attributeValueAssignment = null;
 		}
 
-		this.tplReplace({
-			name: 'attributeValueAssignment',
-			parent: this.__autoElements.main.attributeValueAssignment
-		});
+		this.tplReplace(
+			{
+				name: 'attributeValueAssignment',
+				parent: this.__autoElements.main.attributeValueAssignment
+			},
+			null,
+			true
+		);
 
 		this.initializeFields();
 	},
@@ -53,6 +62,89 @@ var obj_classdef = 	{
 			'change',
 			this.updateStoredData.bind(this)
 		);
+
+		/*
+		 * The following events can not be added to the whole element list but instead has to be added
+		 * to each element individually because we want to pass the element as an attribute to the callback function
+		 */
+		Array.each(
+			this.__autoElements.attributeValueAssignment.btn_copyRow,
+			function(el_btn_copyRow) {
+				el_btn_copyRow.addEvent(
+					'click',
+					this.copyRow.bind(this, el_btn_copyRow)
+				);
+			}.bind(this)
+		);
+
+		Array.each(
+			this.__autoElements.attributeValueAssignment.btn_delRow,
+			function(el_btn_delRow) {
+				el_btn_delRow.addEvent(
+					'click',
+					this.delRow.bind(this, el_btn_delRow)
+				);
+			}.bind(this)
+		);
+
+		Array.each(
+			this.__autoElements.attributeValueAssignment.btn_rowUp,
+			function(el_btn_rowUp) {
+				el_btn_rowUp.addEvent(
+					'click',
+					this.rowUp.bind(this, el_btn_rowUp)
+				);
+			}.bind(this)
+		);
+
+		Array.each(
+			this.__autoElements.attributeValueAssignment.btn_rowDown,
+			function(el_btn_rowDown) {
+				el_btn_rowDown.addEvent(
+					'click',
+					this.rowDown.bind(this, el_btn_rowDown)
+				);
+			}.bind(this)
+		);
+	},
+
+	addRow: function() {
+		if (this.__models.main.addDataRow()) {
+			this.drawAttributeValueFields();
+		}
+	},
+
+	copyRow: function(el_buttonClicked) {
+		if (this.__models.main.copyDataRow(this.getFieldRowKeyForElement(el_buttonClicked))) {
+			this.drawAttributeValueFields();
+		}
+	},
+
+	delRow: function(el_buttonClicked) {
+		if (this.__models.main.deleteDataRow(this.getFieldRowKeyForElement(el_buttonClicked))) {
+			this.drawAttributeValueFields();
+		}
+	},
+
+	rowUp: function(el_buttonClicked) {
+		if (this.__models.main.moveDataRowUp(this.getFieldRowKeyForElement(el_buttonClicked))) {
+			this.drawAttributeValueFields();
+		}
+	},
+
+	rowDown: function(el_buttonClicked) {
+		if (this.__models.main.moveDataRowDown(this.getFieldRowKeyForElement(el_buttonClicked))) {
+			this.drawAttributeValueFields();
+		}
+	},
+
+	getFieldRowKeyForElement: function(el) {
+		var int_key = null;
+		var el_parentFieldsContainer = el.getParent('.fields-container');
+		if (typeOf(el_parentFieldsContainer) !== 'element') {
+			return int_key;
+		}
+		return parseInt(el_parentFieldsContainer.getProperty('data-misc-field-row-key'), 10);
 	},
 
 	updateStoredData: function() {

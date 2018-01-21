@@ -1,9 +1,9 @@
 <?
 Array.each(
 	arg.__models.main.data.arr_data,
-	function(arr_singleAttributeValueAssignment) {
+	function(arr_singleAttributeValueAssignment, int_key) {
 		?>
-		<div class="fields-container">
+		<div class="fields-container" data-misc-field-row-key="<?= int_key =?>">
 			<select data-lsjs-element="assignmentInput" class="attribute">
 				<?
 				Array.each(
@@ -28,6 +28,10 @@ Array.each(
 				);
 				?>
 			</select>
+			<button type="button" data-lsjs-element="btn_copyRow">Copy</button>
+			<button type="button" data-lsjs-element="btn_delRow">Del</button>
+			<button type="button" data-lsjs-element="btn_rowUp">Up</button>
+			<button type="button" data-lsjs-element="btn_rowDown">Down</button>
 		</div>
 		<?
 	}
