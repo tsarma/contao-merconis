@@ -30,6 +30,9 @@ var obj_classdef_model = {
 	},
 
 	saveJsonData: function(var_newData, str_registeredDataPath, var_originalData, str_actualDataPath) {
+		if (typeOf(var_newData) !== 'string' || !var_newData) {
+			var_newData = '[]';
+		}
 		this.writeData('arr_data', JSON.parse(var_newData), true, false);
 	},
 
