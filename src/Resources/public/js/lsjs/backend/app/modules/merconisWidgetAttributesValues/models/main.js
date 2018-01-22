@@ -1,8 +1,6 @@
 var obj_classdef_model = {
 	name: 'main',
 
-	var_defaultRowValue: ["40","40"],
-
 	data: {
 		json_data: '[]',
 		arr_data: []

@@ -191,6 +191,9 @@ class ls_shop_steuersaetze extends \Backend {
 	}
 	
 	/*
+	 * In order to understand what this function is all about, take a look at ls_shop_generalHelper::parseSteuersatz(),
+	 * $GLOBALS['MERCONIS_HOOKS']['customTaxRateCalculation'] and the comments for this hook!
+	 *
 	 * This function checks if this tax class is used with one or more products and if it
 	 * is it checks if a wildcard is used as a tax value because that is not allowed
 	 * for tax classes used with products.

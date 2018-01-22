@@ -800,6 +800,16 @@ class ls_shop_generalHelper
 
 			$steuersatz = null;
 
+			/*
+			 * It is possible to register a Merconis hook "customTaxRateCalculation" and calculate custom tax rates in this hook.
+			 * The hooked function will be called if instead of a numeric tax value there's a wildcard in the tax rate record.
+			 * Such a wildcard consists of "##" then a "name for the custom calculation" and then "##". The "name for the custom
+			 * calculation" will be passed as an argument the hooked function so that it can handle multiple different tax calculations.
+			 *
+			 * However, until today (2018-01-22) this whole functionality has never been officially released and is not documented
+			 * in the Merconis documentation and there are no details about how to use it in the dca language files for tl_ls_shop_steuersaetze.
+			 * If this functionality should be necessary in the future, it is important to provide a complete documentation.
+			 */
 			if (isset($GLOBALS['MERCONIS_HOOKS']['customTaxRateCalculation']) && is_array($GLOBALS['MERCONIS_HOOKS']['customTaxRateCalculation'])) {
 				foreach ($GLOBALS['MERCONIS_HOOKS']['customTaxRateCalculation'] as $mccb) {
 					$objMccb = \System::importStatic($mccb[0]);
