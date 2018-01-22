@@ -709,8 +709,8 @@ $GLOBALS['TL_DCA']['tl_lsShopSettings'] = array(
 		'ls_shop_sortingCharacterTranslationTable' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_sortingCharacterTranslationTable'],
 			'exclude'                 => true,
-			'inputType'				  => 'listWizardDoubleValue',
-			'eval'					  => array('decodeEntities' => true)
+			'inputType'				  => 'text',
+			'eval'					  => array('decodeEntities' => true, 'tl_class' => 'merconis-component-autostart--merconisWidgetMultiText')
 		),
 		
 		'ls_shop_dcaNamesWithoutMultilanguageSupport' => array(
