@@ -1556,7 +1556,7 @@ class ls_shop_productSearcher
 			);
 			
 			$skipNextReplacement = false;
-			$sortingCharacterTranslationTable = deserialize($GLOBALS['TL_CONFIG']['ls_shop_sortingCharacterTranslationTable']);
+			$sortingCharacterTranslationTable = json_decode($GLOBALS['TL_CONFIG']['ls_shop_sortingCharacterTranslationTable']);
 			
 			if (is_array($sortingCharacterTranslationTable)) {
 				foreach ($sortingCharacterTranslationTable as $k => $v) {
