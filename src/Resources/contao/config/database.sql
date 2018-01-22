@@ -517,7 +517,7 @@ CREATE TABLE `tl_ls_shop_filter_field_values` (
 
 CREATE TABLE `tl_ls_shop_attribute_allocation` (
   `pid` int(10) unsigned NOT NULL default '0',
-  `parentIsVariant` char(1) NOT NULL default '',
+  `parentIsVariant` char(1) NOT NULL default '0',
   `attributeID` int(10) unsigned NOT NULL default '0',
   `attributeValueID` int(10) unsigned NOT NULL default '0',
   `sorting` int(10) unsigned NOT NULL default '0'

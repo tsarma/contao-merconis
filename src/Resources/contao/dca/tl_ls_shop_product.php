@@ -416,20 +416,15 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'eval'			=> array('multiple' => true, 'fieldType'=>'checkbox', 'files'=>true, 'filesOnly' => true, 'extensions'=>'jpg,JPG,jpeg,JPEG,png,PNG,gif,GIF,flv,mp4,mp2,swf,mov,avi', 'tl_class'=>'clr')
 		),
 
-//		'lsShopProductAttributesValues' => array (
-//			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductAttributesValues'],
-//			'default'                 => array(),
-//			'exclude' => true,
-//			'inputType'               => 'ls_shop_ListWizardAttributesValues',
-//			'eval'					  => array('merconis_multiField' => array('labels' => array($GLOBALS['TL_LANG']['tl_ls_shop_product']['attributesValues_label01'], $GLOBALS['TL_LANG']['tl_ls_shop_product']['attributesValues_label02'])))
-//		),
-
 		'lsShopProductAttributesValues' => array (
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductAttributesValues'],
 			'default'                 => '',
 			'exclude' => true,
 			'inputType'               => 'text',
-			'eval'					  => array('tl_class' => 'merconis-component-autostart--merconisWidgetAttributesValues')
+			'eval'					  => array('tl_class' => 'merconis-component-autostart--merconisWidgetAttributesValues'),
+			'save_callback' => array (
+				array('Merconis\Core\tl_ls_shop_product_controller', 'insertAttributeValueAllocationsInAllocationTable')
+			)
 		),
 
 		'lsShopProductPrice' => array(
@@ -1022,7 +1017,7 @@ class tl_ls_shop_product_controller extends \Backend {
 		 * title field.
 		 * 
 		 * If we can't find an underscore in the field name, we can't figure out
-		 * the language and we probably don't deal with the exptected field, so
+		 * the language and we probably don't deal with the expected field, so
 		 * we return the field value unaltered.
 		 */
 		if (strpos($dc->field, '_') === false) {
@@ -1083,6 +1078,11 @@ class tl_ls_shop_product_controller extends \Backend {
 			$str_value = substr($str_value, 0, 128 - strlen($str_aliasSuffix)).$str_aliasSuffix;
 		}
 
+		return $str_value;
+	}
+
+	public function insertAttributeValueAllocationsInAllocationTable($str_value, \DataContainer $dc) {
+		ls_shop_generalHelper::insertAttributeValueAllocationsInAllocationTable(json_decode($str_value), $dc->id, 0);
 		return $str_value;
 	}
 

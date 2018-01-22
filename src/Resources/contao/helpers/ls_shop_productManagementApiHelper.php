@@ -444,7 +444,7 @@ class ls_shop_productManagementApiHelper {
 				$arr_propertyAndValue = array();
 			}
 		}
-		return serialize($arr_propertiesAndValues);
+		return json_encode($arr_propertiesAndValues);
 	}
 
 	/*

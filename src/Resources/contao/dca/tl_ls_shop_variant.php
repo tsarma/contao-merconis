@@ -351,10 +351,13 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 		
 		'lsShopProductVariantAttributesValues' => array (
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['lsShopProductVariantAttributesValues'],
-			'default'                 => array(),
+			'default'                 => '',
 			'exclude' => true,
-			'inputType'               => 'ls_shop_ListWizardAttributesValues',
-			'eval'					  => array('merconis_multiField' => array('labels' => array($GLOBALS['TL_LANG']['tl_ls_shop_variant']['attributesValues_label01'], $GLOBALS['TL_LANG']['tl_ls_shop_variant']['attributesValues_label02'])))
+			'inputType'               => 'text',
+			'eval'					  => array('tl_class' => 'merconis-component-autostart--merconisWidgetAttributesValues'),
+			'save_callback' => array (
+				array('Merconis\Core\tl_ls_shop_variant_controller', 'insertAttributeValueAllocationsInAllocationTable')
+			)
 		),
 		
 		'lsShopVariantPrice' => array (
@@ -1099,6 +1102,11 @@ class tl_ls_shop_variant_controller extends \Backend {
 			$str_value = substr($str_value, 0, 128 - strlen($str_aliasSuffix)).$str_aliasSuffix;
 		}
 
+		return $str_value;
+	}
+
+	public function insertAttributeValueAllocationsInAllocationTable($str_value, \DataContainer $dc) {
+		ls_shop_generalHelper::insertAttributeValueAllocationsInAllocationTable(json_decode($str_value), $dc->id, 1);
 		return $str_value;
 	}
 	

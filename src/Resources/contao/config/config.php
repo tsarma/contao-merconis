@@ -226,7 +226,6 @@ $GLOBALS['BE_FFL']['simpleOutput'] = 'Merconis\Core\ls_shop_simpleOutput';
 $GLOBALS['BE_FFL']['ls_shop_productSelection'] = 'Merconis\Core\ls_shop_productSelection';
 $GLOBALS['BE_FFL']['ls_shop_productSelectionWizard'] = 'Merconis\Core\ls_shop_productSelectionWizard';
 $GLOBALS['BE_FFL']['ls_shop_generatedTemplate'] = 'Merconis\Core\ls_shop_generatedTemplate';
-$GLOBALS['BE_FFL']['ls_shop_ListWizardAttributesValues'] = 'Merconis\Core\ls_shop_ListWizardAttributesValues';
 
 
 $GLOBALS['FE_MOD']['ls_shop'] = array(

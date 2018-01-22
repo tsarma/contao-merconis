@@ -33,11 +33,11 @@ class ls_shop_generalHelper
 		")
 			->execute(
 				$int_parentId,
-				($bln_parentIsVariant ? '1' : '')
+				($bln_parentIsVariant ? '1' : '0')
 			);
 
 
-		$arr_allocations = is_array($arr_allocations) ? $arr_allocations : deserialize($arr_allocations, true);
+		$arr_allocations = is_array($arr_allocations) ? $arr_allocations : json_decode($arr_allocations, true);
 
 		$int_sortingKey = 0;
 		foreach ($arr_allocations as $arr_allocation) {
@@ -4006,63 +4006,6 @@ class ls_shop_generalHelper
 					AND		`parentIsVariant` = ?
 			")
 			->execute('1');
-	}
-
-	/*
-	 * This function walks through all product and variant records, reads their serialized
-	 * attribute value allocation that's saved in the blob field directly in the record
-	 * and saves these allocations in a redundant way in the allocation table.
-	 */
-	public static function updateAllAttributeValueAllocationsInAllocationTable()
-	{
-		$objVariants = \Database::getInstance()->prepare("
-				SELECT		*
-				FROM		`tl_ls_shop_variant`
-				ORDER BY	`sorting`
-			")
-			->execute();
-
-		while ($objVariants->next()) {
-			ls_shop_generalHelper::insertAttributeValueAllocationsInAllocationTable($objVariants->lsShopProductVariantAttributesValues, $objVariants->id, 1);
-		}
-
-		$objProducts = \Database::getInstance()->prepare("
-				SELECT		*
-				FROM		`tl_ls_shop_product`
-				ORDER BY	`sorting`
-			")
-			->execute();
-
-		while ($objProducts->next()) {
-			ls_shop_generalHelper::insertAttributeValueAllocationsInAllocationTable($objProducts->lsShopProductAttributesValues, $objProducts->id, 0);
-		}
-	}
-
-	public static function getAttributeValueAllocationsFromAllocationTable($parentID = 0, $parentIsVariant = 0)
-	{
-		if (!$parentID) {
-			return;
-		}
-
-		/*
-		 * Get the attribute variant allocations from the allocation table
-		 */
-		$objAllocations = \Database::getInstance()->prepare("
-				SELECT		*
-				FROM		`tl_ls_shop_attribute_allocation`
-				WHERE		`pid` = ?
-					AND		`parentIsVariant` = ?
-				ORDER BY	`sorting` ASC
-			")
-			->execute($parentID, $parentIsVariant);
-
-		$arrAllocations = array();
-
-		while ($objAllocations->next()) {
-			$arrAllocations[] = array($objAllocations->attributeID, $objAllocations->attributeValueID);
-		}
-
-		return $arrAllocations;
 	}
 
 	public static function ls_calculateVariantPriceRegardingPriceType($priceType = false, $productPrice = false, $variantPrice = false)
