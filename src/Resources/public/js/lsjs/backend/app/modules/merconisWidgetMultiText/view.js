@@ -162,7 +162,6 @@ var obj_classdef = 	{
 		this.__models.main.updateData(this.__autoElements.valueAssignment.assignmentInput);
 
 		var el_toFocus = this.__el_container.getElement('input[data-misc-row-number="' + int_rowNumber_lastChange + '"][data-misc-field-number="' + int_fieldNumber_lastChange + '"]');
-		console.log(el_toFocus);
 		el_toFocus.focus();
 	}
 };
