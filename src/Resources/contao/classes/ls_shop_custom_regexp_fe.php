@@ -70,7 +70,7 @@ use function LeadingSystems\Helpers\createMultidimensionalArray;
 								/*
 								 * Trying to establish a SOAP connection with the options array given in the localconfig settings...
 								 */
-								$options = createMultidimensionalArray(deserialize($GLOBALS['TL_CONFIG']['ls_shop_VATIDValidationSOAPOptions']), 2, 1);
+								$options = createMultidimensionalArray(json_decode($GLOBALS['TL_CONFIG']['ls_shop_VATIDValidationSOAPOptions']), 2, 1);
 								$blnOptionsFilled = false;
 								foreach ($options as $k => $v) {
 									if ($k) {

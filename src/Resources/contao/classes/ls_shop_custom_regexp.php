@@ -16,27 +16,24 @@ namespace Merconis\Core;
 				}
 				return true;
 			} else if ($strRegexp == 'numberWithDecimalsAndHashsignLeftTextRight') {
-				/*
-				 * Diese Validierungsfunktion ist speziell für Doppel-Eingabefelder (inputType "listWizardDoubleValue"),
-				 * bei denen im linken Feld Zahlen mit Kommas und rechts ein Text erlaubt sind. Die Validierungsfunktion wird
-				 * in diesem Fall für jedes der beiden Felder nacheinander aufgerufen. Soll das linke Feld, dessen Wert
-				 * beim ersten Aufruf übergeben wird, anders validiert werden als das zweite, so muss gezählt werden,
-				 * um den wievielten Aufruf es sich handelt.
-				 */
-				if (!isset($GLOBALS['merconis_globals']['regexp']['numberWithDecimalsAndHashsignLeftTextRight']['count']) || $GLOBALS['merconis_globals']['regexp']['numberWithDecimalsAndHashsignLeftTextRight']['count'] > 1) {
-					$GLOBALS['merconis_globals']['regexp']['numberWithDecimalsAndHashsignLeftTextRight']['count'] = 1;
-				} else {
-					$GLOBALS['merconis_globals']['regexp']['numberWithDecimalsAndHashsignLeftTextRight']['count'] = 2;
+				$arr_values = json_decode($varValue);
+				if ($arr_values === null) {
+					$arr_values = [];
 				}
-				
-				if ($GLOBALS['merconis_globals']['regexp']['numberWithDecimalsAndHashsignLeftTextRight']['count'] == 1) {
-					if (preg_match('/[^-0-9\.#a-zA-Z]/siU', $varValue)) {
-						$objWidget->addError(sprintf($GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimals'], $objWidget->label));
-					}
-				} else if ($GLOBALS['merconis_globals']['regexp']['numberWithDecimalsAndHashsignLeftTextRight']['count'] == 2) {
+
+				foreach ($arr_values as $arr_value) {
 					/*
-					 * Bislang noch keine Validierung für die Texteingabe
+					 * We check the value in the left field (key 0) for a number with decimals and possibly a hash sign.
+					 * We check the value in the right field (key 1) for alphabetic characters and commas.
 					 */
+					if (preg_match('/[^-0-9\.#]/siU', $arr_value[0])) {
+						$objWidget->addError(sprintf($GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimalsAndHashsignLeftTextRight'], $objWidget->label));
+						return false;
+					}
+					if (preg_match('/[^a-z,]/siU', $arr_value[1])) {
+						$objWidget->addError(sprintf($GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimalsAndHashsignLeftTextRight'], $objWidget->label));
+						return false;
+					}
 				}
 				return true;
 			} else if ($strRegexp == 'feeFormula') {

@@ -98,8 +98,8 @@ $GLOBALS['TL_DCA']['tl_ls_shop_steuersaetze'] = array(
 		'steuerProzentPeriod1' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_steuersaetze']['steuerProzentPeriod1'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval' => array('decodeEntities' => true, 'rgxp' => 'numberWithDecimalsAndHashsignLeftTextRight'),
+			'inputType' => 'text',
+			'eval' => array('decodeEntities' => true, 'rgxp' => 'numberWithDecimalsAndHashsignLeftTextRight', 'tl_class' => 'merconis-component-autostart--merconisWidgetDoubleText'),
 			'save_callback' => array(
 				array('Merconis\Core\ls_shop_steuersaetze', 'checkIfWildcardsUsedAndAllowed')
 			)
@@ -122,8 +122,8 @@ $GLOBALS['TL_DCA']['tl_ls_shop_steuersaetze'] = array(
 		'steuerProzentPeriod2' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_steuersaetze']['steuerProzentPeriod2'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval' => array('decodeEntities' => true, 'rgxp' => 'numberWithDecimalsAndHashsignLeftTextRight'),
+			'inputType' => 'text',
+			'eval' => array('decodeEntities' => true, 'rgxp' => 'numberWithDecimalsAndHashsignLeftTextRight', 'tl_class' => 'merconis-component-autostart--merconisWidgetDoubleText'),
 			'save_callback' => array(
 				array('Merconis\Core\ls_shop_steuersaetze', 'checkIfWildcardsUsedAndAllowed')
 			)

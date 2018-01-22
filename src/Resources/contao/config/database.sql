@@ -291,10 +291,10 @@ CREATE TABLE `tl_ls_shop_steuersaetze` (
   `tstamp` int(10) unsigned NOT NULL default '0',
   `title` varchar(255) NOT NULL default '',
   `alias` varchar(128) COLLATE utf8_bin NOT NULL default '',
-  `steuerProzentPeriod1` blob NULL,
+  `steuerProzentPeriod1` text NULL,
   `startPeriod1` varchar(10) NOT NULL default '',
   `stopPeriod1` varchar(10) NOT NULL default '',
-  `steuerProzentPeriod2` blob NULL,
+  `steuerProzentPeriod2` text NULL,
   `startPeriod2` varchar(10) NOT NULL default '',
   `stopPeriod2` varchar(10) NOT NULL default ''
   PRIMARY KEY  (`id`),

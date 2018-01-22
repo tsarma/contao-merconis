@@ -563,8 +563,8 @@ $GLOBALS['TL_DCA']['tl_lsShopSettings'] = array(
 		'ls_shop_VATIDValidationSOAPOptions' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_VATIDValidationSOAPOptions'],
 			'exclude'                 => true,
-			'inputType'				  => 'listWizardDoubleValue',
-			'eval'					  => array('decodeEntities' => true)
+			'inputType'				  => 'text',
+			'eval'					  => array('decodeEntities' => true, 'tl_class' => 'merconis-component-autostart--merconisWidgetDoubleText')
 		),
 		
 		'ls_shop_productDetailsTemplate' => array(
