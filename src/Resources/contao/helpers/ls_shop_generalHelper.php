@@ -7,6 +7,7 @@ use function LeadingSystems\Helpers\ls_mul;
 use function LeadingSystems\Helpers\ls_div;
 use function LeadingSystems\Helpers\ls_add;
 use function LeadingSystems\Helpers\ls_sub;
+use function LeadingSystems\Helpers\createOneDimensionalArrayFromTwoDimensionalArray;
 use function LeadingSystems\Helpers\createMultidimensionalArray;
 use function LeadingSystems\Helpers\ls_getFilePathFromVariableSources;
 
@@ -1462,7 +1463,7 @@ class ls_shop_generalHelper
 						 * convert the onedimensional array from the listwizard in a multidimensional array, setting an associative index in the second dimension and sort by the
 						 * key 'weight'
 						 */
-						$methodInfo['feeWeightValues'] = createMultidimensionalArray(deserialize($methodInfo['feeWeightValues']), 2, 0, array('weight', 'price'), 'weight');
+						$methodInfo['feeWeightValues'] = createMultidimensionalArray(createOneDimensionalArrayFromTwoDimensionalArray(json_decode($methodInfo['feeWeightValues'])), 2, 0, array('weight', 'price'), 'weight');
 
 						$matched = false;
 						/*
@@ -1492,7 +1493,7 @@ class ls_shop_generalHelper
 						 * convert the onedimensional array from the listwizard in a multidimensional array, setting an associative index in the second dimension and sort by the
 						 * key 'cartPrice'
 						 */
-						$methodInfo['feePriceValues'] = createMultidimensionalArray(deserialize($methodInfo['feePriceValues']), 2, 0, array('cartPrice', 'price'), 'cartPrice');
+						$methodInfo['feePriceValues'] = createMultidimensionalArray(createOneDimensionalArrayFromTwoDimensionalArray(json_decode($methodInfo['feePriceValues'])), 2, 0, array('cartPrice', 'price'), 'cartPrice');
 
 						$matched = false;
 						/*

@@ -123,7 +123,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_shipping_methods'] = array(
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_shipping_methods']['formAdditionalData'],
 			'inputType' => 'select',
 			'foreignKey' => 'tl_form.title',
-			'eval' => array('includeBlankOption' => true),
+			'eval' => array('includeBlankOption' => true, 'tl_class' => 'w50'),
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
 		
@@ -245,15 +245,21 @@ $GLOBALS['TL_DCA']['tl_ls_shop_shipping_methods'] = array(
 		'feeWeightValues' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_shipping_methods']['feeWeightValues'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals')
+			'inputType' => 'text',
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'merconis-component-autostart--merconisWidgetDoubleText'
+			)
 		),
 		
 		'feePriceValues' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_shipping_methods']['feePriceValues'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals')
+			'inputType' => 'text',
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'merconis-component-autostart--merconisWidgetDoubleText'
+			)
 		),
 		
 		'infoAfterCheckout' => array (
@@ -304,7 +310,6 @@ $GLOBALS['TL_DCA']['tl_ls_shop_shipping_methods'] = array(
 
 class ls_shop_shipping_methods extends \Backend {
 	public function __construct() {
-		$this->import('Merconis\Core\ls_shop_shippingModule');
 		parent::__construct();
 	}
 
@@ -337,6 +342,7 @@ class ls_shop_shipping_methods extends \Backend {
 	 * Es werden hierbei die in der Zahlungsmodul-Definition definierten BE_formFields eingetragen
 	 */
 	public function modifyDCA($dc) {
+		$obj_shippingModule = new ls_shop_shippingModule();
 		if (!$dc->id) {
 			/*
 			 * Handelt es sich bei dem Aufruf nicht um einen datensatzbezogenen Aufruf,
@@ -348,35 +354,36 @@ class ls_shop_shipping_methods extends \Backend {
 											->limit(1)
 											->execute($dc->id);
 		$objShippingMethod->first();
-		if (!is_array($this->ls_shop_shippingModule->types[$objShippingMethod->type]['BE_formFields'])) {
+		if (!is_array($obj_shippingModule->types[$objShippingMethod->type]['BE_formFields'])) {
 			return false;
 		}
 		
 		/*
 		 * Einf�gen der BE_formFields in das Fields-Array dieser DCA-Definition
 		 */
-		array_insert($GLOBALS['TL_DCA']['tl_ls_shop_shipping_methods']['fields'], 0, $this->ls_shop_shippingModule->types[$objShippingMethod->type]['BE_formFields']);
+		array_insert($GLOBALS['TL_DCA']['tl_ls_shop_shipping_methods']['fields'], 0, $obj_shippingModule->types[$objShippingMethod->type]['BE_formFields']);
 
 		/*
 		 * Hinterlegen der Standard-Labels, sofern keine speziell im Zahlungsmodul hinterlegt wurden
 		 */
-		foreach ($this->ls_shop_shippingModule->types[$objShippingMethod->type]['BE_formFields'] as $formFieldTitle => $formFieldInfo) {
+		foreach ($obj_shippingModule->types[$objShippingMethod->type]['BE_formFields'] as $formFieldTitle => $formFieldInfo) {
 			$GLOBALS['TL_DCA']['tl_ls_shop_shipping_methods']['fields'][$formFieldTitle]['label'] = &$GLOBALS['TL_LANG']['tl_ls_shop_shipping_methods'][$formFieldTitle];
 		}
 		
 		/*
 		 * Einf�gen der BE_formFields in die Default-Palette
 		 */
-		$paletteInsertion = ';{'.$this->ls_shop_shippingModule->types[$objShippingMethod->type]['typeCode'].'_legend},';
-		foreach ($this->ls_shop_shippingModule->types[$objShippingMethod->type]['BE_formFields'] as $formFieldTitle => $formFieldInfo) {
+		$paletteInsertion = ';{'.$obj_shippingModule->types[$objShippingMethod->type]['typeCode'].'_legend},';
+		foreach ($obj_shippingModule->types[$objShippingMethod->type]['BE_formFields'] as $formFieldTitle => $formFieldInfo) {
 			$paletteInsertion .= $formFieldTitle.',';
 		}
 		$GLOBALS['TL_DCA']['tl_ls_shop_shipping_methods']['palettes']['default'] = preg_replace('/(;\{excludedGroups_legend\})/siU', $paletteInsertion.'$1', $GLOBALS['TL_DCA']['tl_ls_shop_shipping_methods']['palettes']['default']);
 	}
 	
 	public function getShippingModulesAsOptions() {
+		$obj_shippingModule = new ls_shop_shippingModule();
 		$shippingModules = array();
-		foreach ($this->ls_shop_shippingModule->types as $shippingModuleName => $shippingModuleInfo) {
+		foreach ($obj_shippingModule->types as $shippingModuleName => $shippingModuleInfo) {
 			$shippingModules[$shippingModuleName] = $shippingModuleInfo['title'];
 		}
 		return $shippingModules;

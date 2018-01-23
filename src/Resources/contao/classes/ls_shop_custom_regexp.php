@@ -15,6 +15,20 @@ namespace Merconis\Core;
 					$objWidget->addError(sprintf($GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimals'], $objWidget->label));
 				}
 				return true;
+			} else if ($strRegexp == 'numberWithDecimalsLeftAndRight') {
+				$arr_values = json_decode($varValue);
+				if ($arr_values === null) {
+					$arr_values = [];
+				}
+				foreach ($arr_values as $arr_value) {
+					foreach ($arr_value as $str_value) {
+						if (preg_match('/[^-0-9\.]/siU', $str_value)) {
+							$objWidget->addError(sprintf($GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimalsLeftAndRight'], $objWidget->label));
+							return false;
+						}
+					}
+				}
+				return true;
 			} else if ($strRegexp == 'numberWithDecimalsAndHashsignLeftTextRight') {
 				$arr_values = json_decode($varValue);
 				if ($arr_values === null) {

@@ -391,6 +391,7 @@ $GLOBALS['TL_LANG']['CTE']['lsShopCrossSellerCTE'] = array('CrossSeller', 'Inser
 
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['oneNumber'] = 'Field &quot;%s&quot; may only contain exactly one single-digit number';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimals'] = 'Field &quot;%s&quot; must contain a number';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimalsLeftAndRight'] = 'Field &quot;%s&quot; must only contain numbers';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimalsAndHashsignLeftTextRight'] = 'Field &quot;%s&quot; must contain the tax rate (numbers, decimal point if necessary) on the left side and a comma separated list of country codes (ISO 3166-1 ALPHA-2, lowercase) on the right side.';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['feeFormula'] = 'Field &quot;%s&quot; must contain a calculable formula. Besides the placeholders, only numbers and the following characters are allowed: +-*/.()';
 
