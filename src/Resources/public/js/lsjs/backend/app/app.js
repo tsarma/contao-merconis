@@ -11,12 +11,28 @@
 		
 		start: function() {
 			lsjs.apiInterface.str_apiUrl = 'contao?do=be_mod_ls_apiReceiver';
+
+			window.addEvent(
+				'ajax_change',
+				function() {
+					this.autoStartModules();
+				}.bind(this)
+			);
+
+			this.autoStartModules();
+		},
+
+		autoStartModules: function() {
 			/*
 			 * Create/start modules for autostart components
 			 */
-
 			// using data attributes
 			Array.each($$('[data-merconis-component-autostart]'), function(el_autostartComponentContainer) {
+				if (el_autostartComponentContainer.hasAttribute('data-merconis-component-started')) {
+					return;
+				}
+				el_autostartComponentContainer.setAttribute('data-merconis-component-started', '1');
+
 				var str_moduleName = el_autostartComponentContainer.getProperty('data-merconis-component-autostart');
 				lsjs.__moduleHelpers[str_moduleName].start({
 					__el_container: el_autostartComponentContainer
@@ -25,6 +41,11 @@
 
 			// using classes
 			Array.each($$('[class*="merconis-component-autostart"]'), function(el_autostartComponentContainer) {
+				if (el_autostartComponentContainer.hasAttribute('data-merconis-component-started')) {
+					return;
+				}
+				el_autostartComponentContainer.setAttribute('data-merconis-component-started', '1');
+
 				var str_completeClassString = el_autostartComponentContainer.getProperty('class');
 				if (typeOf(str_completeClassString) !== 'string') {
 					return;

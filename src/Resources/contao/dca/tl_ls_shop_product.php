@@ -482,8 +482,8 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'scalePrice' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
+			'inputType' => 'text',
+			'eval'			=> array('rgxp' => 'numberWithDecimalsLeftAndRight', 'tl_class' => 'clr merconis-component-autostart--merconisWidgetDoubleText')
 		),
 
 		'lsShopProductPriceOld' => array(
@@ -599,8 +599,8 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'scalePrice_1' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
+			'inputType' => 'text',
+			'eval'			=> array('rgxp' => 'numberWithDecimalsLeftAndRight', 'tl_class' => 'clr merconis-component-autostart--merconisWidgetDoubleText')
 		),
 
 		'lsShopProductPriceOld_1' => array(
@@ -685,8 +685,8 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'scalePrice_2' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
+			'inputType' => 'text',
+			'eval'			=> array('rgxp' => 'numberWithDecimalsLeftAndRight', 'tl_class' => 'clr merconis-component-autostart--merconisWidgetDoubleText')
 		),
 
 		'lsShopProductPriceOld_2' => array(
@@ -771,8 +771,8 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'scalePrice_3' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
+			'inputType' => 'text',
+			'eval'			=> array('rgxp' => 'numberWithDecimalsLeftAndRight', 'tl_class' => 'clr merconis-component-autostart--merconisWidgetDoubleText')
 		),
 
 		'lsShopProductPriceOld_3' => array(
@@ -857,8 +857,8 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'scalePrice_4' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
+			'inputType' => 'text',
+			'eval'			=> array('rgxp' => 'numberWithDecimalsLeftAndRight', 'tl_class' => 'clr merconis-component-autostart--merconisWidgetDoubleText')
 		),
 
 		'lsShopProductPriceOld_4' => array(
@@ -943,8 +943,8 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		'scalePrice_5' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePrice'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
+			'inputType' => 'text',
+			'eval'			=> array('rgxp' => 'numberWithDecimalsLeftAndRight', 'tl_class' => 'clr merconis-component-autostart--merconisWidgetDoubleText')
 		),
 
 		'lsShopProductPriceOld_5' => array(
