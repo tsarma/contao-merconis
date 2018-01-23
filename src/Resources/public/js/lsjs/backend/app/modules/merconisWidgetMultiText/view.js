@@ -149,8 +149,8 @@ var obj_classdef = 	{
 	},
 
 	updateStoredData: function(el_inputFieldChanged) {
-		var int_rowNumber_lastChange = el_inputFieldChanged.getProperty('data-misc-row-number');
-		var int_fieldNumber_lastChange = el_inputFieldChanged.getProperty('data-misc-field-number');
+		var int_rowNumber_lastChange = parseInt(el_inputFieldChanged.getProperty('data-misc-row-number'), 10);
+		var int_fieldNumber_lastChange = parseInt(el_inputFieldChanged.getProperty('data-misc-field-number'), 10);
 
 		/*
 		 * The update might lead to the value fields displaying different options than before because
@@ -161,8 +161,15 @@ var obj_classdef = 	{
 		this.__models.main.updateData(this.__autoElements.valueAssignment.assignmentInput);
 		this.__models.main.updateData(this.__autoElements.valueAssignment.assignmentInput);
 
-		var el_toFocus = this.__el_container.getElement('input[data-misc-row-number="' + int_rowNumber_lastChange + '"][data-misc-field-number="' + int_fieldNumber_lastChange + '"]');
-		el_toFocus.focus();
+		var el_toFocus = this.__el_container.getElement('input[data-misc-row-number="' + int_rowNumber_lastChange + '"][data-misc-field-number="' + (int_fieldNumber_lastChange + 1) + '"]');
+		if (typeOf(el_toFocus) !== 'element') {
+			el_toFocus = this.__el_container.getElement('input[data-misc-row-number="' + (int_rowNumber_lastChange + 1) + '"][data-misc-field-number="' + 0 + '"]');
+		}
+		if (typeOf(el_toFocus) !== 'element') {
+			el_toFocus = this.__el_container.getElement('input[data-misc-row-number="' + int_rowNumber_lastChange + '"][data-misc-field-number="' + int_fieldNumber_lastChange + '"]');
+		}
+
+		el_toFocus.select();
 	}
 };
 
