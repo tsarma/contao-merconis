@@ -217,7 +217,6 @@ array_insert($GLOBALS['BE_MOD'], 0, array(
 	)
 ));
 
-$GLOBALS['BE_FFL']['listWizardDoubleValue'] = 'Merconis\Core\ListWizardDoubleValue';
 $GLOBALS['BE_FFL']['ls_x_ListWizardMultiValue'] = 'Merconis\Core\ls_x_ListWizardMultiValue';
 $GLOBALS['BE_FFL']['listWizardDoubleValue_leftText_rightTextarea'] = 'Merconis\Core\ListWizardDoubleValue_leftText_rightTextarea';
 $GLOBALS['BE_FFL']['htmlDiv'] = 'Merconis\Core\ls_shop_htmlDiv';
