@@ -864,9 +864,9 @@ class ls_shop_generalHelper
 			$timestampToday = mktime(0, 0, 0, date("m", time()), date("d", time()), date("Y", time()));
 			$arrCurrentSteuersatzPeriod = array();
 			if ($objSteuersatz->startPeriod1 <= $timestampToday && $timestampToday <= $objSteuersatz->stopPeriod1) {
-				$arrCurrentSteuersatzPeriod = $objSteuersatz->steuerProzentPeriod1;
+				$arrCurrentSteuersatzPeriod = json_decode($objSteuersatz->steuerProzentPeriod1);
 			} else if ($objSteuersatz->startPeriod2 <= $timestampToday && $timestampToday <= $objSteuersatz->stopPeriod2) {
-				$arrCurrentSteuersatzPeriod = $objSteuersatz->steuerProzentPeriod2;
+				$arrCurrentSteuersatzPeriod = json_decode($objSteuersatz->steuerProzentPeriod2);
 			}
 			$arrCurrentSteuersatzPeriod = createMultidimensionalArray(deserialize($arrCurrentSteuersatzPeriod), 2, 0);
 
