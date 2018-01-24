@@ -1969,6 +1969,7 @@ ul.ls_shop_productSelectionWizard li .widgetProductSelection .selectedProductOut
 /*
  * LSJS backend widgets ->
  */
+/* key-value-widget -> */
 .key-value-widget .main .field-container {
 	display: block;
 	width: 100%;
@@ -2064,6 +2065,46 @@ ul.ls_shop_productSelectionWizard li .widgetProductSelection .selectedProductOut
 		margin-bottom: 25px;
 	}
 }
+/* <- key-value-widget */
+
+/* output-definition-user-sorting-fields-widget ->*/
+.output-definition-user-sorting-fields-widget .main .field-container {
+	width: calc(33% - 30px);
+	vertical-align: bottom;
+}
+
+.output-definition-user-sorting-fields-widget .main textarea {
+	height: 31px;
+}
+
+.output-definition-user-sorting-fields-widget .main .fields-container:not(:nth-child(1)) .field-container label {
+	display: none;
+}
+
+@media only screen and (max-width: 550px) {
+	.output-definition-user-sorting-fields-widget .main .fields-container {
+		border: 1px solid #DDDDDD;
+		padding: 10px;
+	}
+
+	.output-definition-user-sorting-fields-widget .main .fields-container .field-container label {
+		display: block !important;
+	}
+
+	.output-definition-user-sorting-fields-widget .main .field-container {
+		width: 100%;
+		display: block;
+	}
+
+	.output-definition-user-sorting-fields-widget .main .field-container {
+		margin-bottom: 10px;
+	}
+
+	.output-definition-user-sorting-fields-widget .main .fields-container {
+		margin-bottom: 10px;
+	}
+}
+/* <- output-definition-user-sorting-fields-widget*/
 /*
  * <- LSJS backend widgets
  */

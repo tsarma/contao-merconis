@@ -2133,7 +2133,7 @@ class ls_shop_generalHelper
 			}
 
 			$outputDefinition['overviewUserSorting'] = $arrOutputDefinitionSet['lsShopProductOverviewUserSorting'];
-			$outputDefinition['overviewUserSortingFields'] = deserialize($arrOutputDefinitionSet['lsShopProductOverviewUserSortingFields']);
+			$outputDefinition['overviewUserSortingFields'] = json_decode($arrOutputDefinitionSet['lsShopProductOverviewUserSortingFields']);
 			if (is_array($outputDefinition['overviewUserSortingFields'])) {
 				foreach ($outputDefinition['overviewUserSortingFields'] as $k => $v) {
 					$outputDefinition['overviewUserSortingFields'][$k] = array();
@@ -2152,7 +2152,7 @@ class ls_shop_generalHelper
 			}
 
 			$outputDefinition['overviewUserSorting_crossSeller'] = $arrOutputDefinitionSet['lsShopProductOverviewUserSorting_crossSeller'];
-			$outputDefinition['overviewUserSortingFields_crossSeller'] = deserialize($arrOutputDefinitionSet['lsShopProductOverviewUserSortingFields_crossSeller']);
+			$outputDefinition['overviewUserSortingFields_crossSeller'] = json_decode($arrOutputDefinitionSet['lsShopProductOverviewUserSortingFields_crossSeller']);
 			if (is_array($outputDefinition['overviewUserSortingFields_crossSeller'])) {
 				foreach ($outputDefinition['overviewUserSortingFields_crossSeller'] as $k => $v) {
 					$outputDefinition['overviewUserSortingFields_crossSeller'][$k] = array();

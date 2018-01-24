@@ -809,13 +809,13 @@ CREATE TABLE `tl_ls_shop_output_definitions` (
   `lsShopProductOverviewSorting` varchar(255) NOT NULL default '',
   `lsShopProductOverviewSortingKeyOrAlias` varchar(255) NOT NULL default '',
   `lsShopProductOverviewUserSorting` varchar(255) NOT NULL default '',
-  `lsShopProductOverviewUserSortingFields` blob NULL,
+  `lsShopProductOverviewUserSortingFields` text NULL,
   `lsShopProductOverviewPagination` int(3) unsigned NOT NULL default '0',
   `lsShopProductTemplate_crossSeller` varchar(255) NOT NULL default '',
   `lsShopProductOverviewSorting_crossSeller` varchar(255) NOT NULL default '',
   `lsShopProductOverviewSortingKeyOrAlias_crossSeller` varchar(255) NOT NULL default '',
   `lsShopProductOverviewUserSorting_crossSeller` varchar(255) NOT NULL default '',
-  `lsShopProductOverviewUserSortingFields_crossSeller` blob NULL,
+  `lsShopProductOverviewUserSortingFields_crossSeller` text NULL,
   `lsShopProductOverviewPagination_crossSeller` int(3) unsigned NOT NULL default '0'
   PRIMARY KEY  (`id`),
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

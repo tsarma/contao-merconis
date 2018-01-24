@@ -41,6 +41,28 @@ Array.each(
 							><?= (arr_singleValueAssignment[i] !== undefined ? arr_singleValueAssignment[i] : '') =?></textarea>
 							<?
 							break;
+
+						case 'select':
+							?>
+							<select
+								data-lsjs-element="assignmentInput"
+								data-misc-row-number="<?= int_key =?>"
+								data-misc-field-number="<?= i =?>"
+								class="tl_select"
+							>
+								<?
+								Array.each(
+									arg.__models.options.data.arr_fields[i].options,
+									function(obj_option) {
+										?>
+										<option value="<?= obj_option.value =?>"<?= (obj_option.value == arr_singleValueAssignment[i] ? 'selected' : '') =?>><?= obj_option.label =?></option>
+										<?
+									}
+								);
+								?>
+							</select>
+							<?
+							break;
 					}
 					?>
 				</div>

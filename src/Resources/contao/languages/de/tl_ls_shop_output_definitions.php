@@ -21,40 +21,40 @@
 
 	$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewUserSortingFields']['labels'] = array(
 		'field1' => 'Sortierfeld',
-		'field2' => 'Alias oder Schl&uuml;sselwort<br />f&uuml;r Sortierung nach<br />Merkmal oder FlexContent',
-		'field3' => 'Bezeichnung<br />(iflng insert-tags m&ouml;glich)'
+		'field2' => 'Alias oder Schl&uuml;sselwort f&uuml;r Sortierung nach Merkmal oder FlexContent',
+		'field3' => 'Bezeichnung (iflng insert-tags m&ouml;glich)'
 	);
 
 	$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSorting']['reference']		= array(
-		'title_sortDir_ASC' => array('Produktbezeichnung aufsteigend'),
-		'title_sortDir_DESC' => array('Produktbezeichnung absteigend'),
+		'title_sortDir_ASC' => 'Produktbezeichnung aufsteigend',
+		'title_sortDir_DESC' => 'Produktbezeichnung absteigend',
 		
-		'lsShopProductPrice_sortDir_ASC' => array('Preis aufsteigend'),
-		'lsShopProductPrice_sortDir_DESC' => array('Preis absteigend'),
+		'lsShopProductPrice_sortDir_ASC' => 'Preis aufsteigend',
+		'lsShopProductPrice_sortDir_DESC' => 'Preis absteigend',
 
-		'lsShopProductCode_sortDir_ASC' => array('Artikelnummer aufsteigend'),
-		'lsShopProductCode_sortDir_DESC' => array('Artikelnummer absteigend'),
+		'lsShopProductCode_sortDir_ASC' => 'Artikelnummer aufsteigend',
+		'lsShopProductCode_sortDir_DESC' => 'Artikelnummer absteigend',
 		
-		'sorting_sortDir_ASC' => array('Sortierzahl aufsteigend'),
-		'sorting_sortDir_DESC' => array('Sortierzahl absteigend'),
+		'sorting_sortDir_ASC' => 'Sortierzahl aufsteigend',
+		'sorting_sortDir_DESC' => 'Sortierzahl absteigend',
 		
-		'lsShopProductProducer_sortDir_ASC' => array('Hersteller aufsteigend'),
-		'lsShopProductProducer_sortDir_DESC' => array('Hersteller absteigend'),
+		'lsShopProductProducer_sortDir_ASC' => 'Hersteller aufsteigend',
+		'lsShopProductProducer_sortDir_DESC' => 'Hersteller absteigend',
 		
-		'lsShopProductWeight_sortDir_ASC' => array('Gewicht aufsteigend'),
-		'lsShopProductWeight_sortDir_DESC' => array('Gewicht absteigend'),
+		'lsShopProductWeight_sortDir_ASC' => 'Gewicht aufsteigend',
+		'lsShopProductWeight_sortDir_DESC' => 'Gewicht absteigend',
 		
-		'priority_sortDir_ASC' => array('Priorit&auml;t aufsteigend (nur bei Produktsuche verf&uuml;gbar)'),
-		'priority_sortDir_DESC' => array('Priorit&auml;t absteigend (nur bei Produktsuche verf&uuml;gbar)'),
+		'priority_sortDir_ASC' => 'Priorit&auml;t aufsteigend (nur bei Produktsuche verf&uuml;gbar)',
+		'priority_sortDir_DESC' => 'Priorit&auml;t absteigend (nur bei Produktsuche verf&uuml;gbar)',
 		
-		'flex_contentsLanguageIndependentKEYORALIAS_sortDir_ASC' => array('FlexContent (einsprachig) aufsteigend'),
-		'flex_contentsLanguageIndependentKEYORALIAS_sortDir_DESC' => array('FlexContent (einsprachig) absteigend'),
+		'flex_contentsLanguageIndependentKEYORALIAS_sortDir_ASC' => 'FlexContent (einsprachig) aufsteigend',
+		'flex_contentsLanguageIndependentKEYORALIAS_sortDir_DESC' => 'FlexContent (einsprachig) absteigend',
 
-		'flex_contentsKEYORALIAS_sortDir_ASC' => array('FlexContent (mehrsprachig) aufsteigend'),
-		'flex_contentsKEYORALIAS_sortDir_DESC' => array('FlexContent (mehrsprachig) absteigend'),
+		'flex_contentsKEYORALIAS_sortDir_ASC' => 'FlexContent (mehrsprachig) aufsteigend',
+		'flex_contentsKEYORALIAS_sortDir_DESC' => 'FlexContent (mehrsprachig) absteigend',
 
-		'lsShopProductAttributesValuesKEYORALIAS_sortDir_ASC' => array('Merkmal aufsteigend'),
-		'lsShopProductAttributesValuesKEYORALIAS_sortDir_DESC' => array('Merkmal absteigend')
+		'lsShopProductAttributesValuesKEYORALIAS_sortDir_ASC' => 'Merkmal aufsteigend',
+		'lsShopProductAttributesValuesKEYORALIAS_sortDir_DESC' => 'Merkmal absteigend'
 	);
 
 	$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewUserSorting']['reference']		= array(

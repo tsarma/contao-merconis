@@ -12,11 +12,25 @@ var obj_classdef_model = {
 			arr_fields: [
 				{
 					'type': 'text',
-					'label': ''
+					'label': 'Text field example'
 				},
 				{
-					'type': 'text',
-					'label': ''
+					'type': 'textarea',
+					'label': 'Textarea example'
+				},
+				{
+					'type': 'select',
+					'label': 'Select field example',
+					'options': [
+						{
+							"value": "Value 1",
+							"label": "Label 1"
+						},
+						{
+							"value": "Value 2",
+							"label": "Label 2"
+						}
+					]
 				}
 			],
 
