@@ -47,7 +47,7 @@ var obj_classdef_model = {
 		Array.each(
 			els_inputs,
 			function(el_input) {
-				var el_parent = el_input.getParent();
+				var el_parent = el_input.getParent('.fields-container');
 
 				if (el_parent !== el_lastParent) {
 					int_arrKeyCounterLevel1++;
