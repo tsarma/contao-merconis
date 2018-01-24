@@ -386,7 +386,7 @@ CREATE TABLE `tl_ls_shop_export` (
 	`tstamp` int(10) unsigned NOT NULL default '0',
 	`title` varchar(255) NOT NULL default '',
 	`template` varchar(64) NOT NULL default '',
-	`flex_parameters` blob NULL,
+	`flex_parameters` text NULL,
 	`dataSource` varchar(255) NOT NULL default '',
 	`tableName` varchar(255) NOT NULL default '',
 	`simulateGroup` int(10) unsigned NOT NULL default '0',

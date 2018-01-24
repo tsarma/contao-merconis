@@ -248,7 +248,22 @@ $GLOBALS['TL_DCA']['tl_ls_shop_shipping_methods'] = array(
 			'inputType' => 'text',
 			'eval'			=> array(
 				'rgxp' => 'numberWithDecimalsLeftAndRight',
-				'tl_class' => 'merconis-component-autostart--merconisWidgetDoubleText'
+				'tl_class' => 'merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
 			)
 		),
 		
@@ -258,7 +273,22 @@ $GLOBALS['TL_DCA']['tl_ls_shop_shipping_methods'] = array(
 			'inputType' => 'text',
 			'eval'			=> array(
 				'rgxp' => 'numberWithDecimalsLeftAndRight',
-				'tl_class' => 'merconis-component-autostart--merconisWidgetDoubleText'
+				'tl_class' => 'merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
 			)
 		),
 		

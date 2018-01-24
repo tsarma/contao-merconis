@@ -154,12 +154,25 @@ $GLOBALS['TL_DCA']['tl_ls_shop_export'] = array(
 		'flex_parameters' => array(
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_export']['flex_parameters'],
 			'exclude' => true,
-			'inputType' => 'listWizardDoubleValue_leftText_rightTextarea',
+			'inputType' => 'text',
 			'eval'                    => array(
-				'tl_class'=>'clr topLinedGroup flex_contents',
-				'label01' => &$GLOBALS['TL_LANG']['tl_ls_shop_export']['flex_parameters_label01'],
-				'label02' => &$GLOBALS['TL_LANG']['tl_ls_shop_export']['flex_parameters_label02'],
-				'decodeEntities' => true
+				'tl_class'=>'clr topLinedGroup merconis-component-autostart--merconisWidgetMultiText',
+				'decodeEntities' => true,
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": "'.$GLOBALS['TL_LANG']['tl_ls_shop_export']['flex_parameters_label01'].'"
+							},
+							{
+								"type": "textarea",
+								"label": "'.$GLOBALS['TL_LANG']['tl_ls_shop_export']['flex_parameters_label02'].'"
+							}
+						],
+						"cssClass": "key-value-widget"
+					}
+				'
 			)
 		),
 
@@ -767,7 +780,12 @@ class ls_shop_export_dc extends \Backend {
 
 		$obj_template->arr_row = $arr_row;
 
-		$obj_template->str_ajaxUrl = \Environment::get('base').\Controller::generateFrontendUrl(ls_shop_languageHelper::getLanguagePage('ls_shop_ajaxPages', false, 'array'), '/resource/exportFeed').'?feedName='.$arr_row['feedName'].($arr_row['feedPassword'] ? '&pwd='.$arr_row['feedPassword'] : '');
+		$arr_ajaxPage = ls_shop_languageHelper::getLanguagePage('ls_shop_ajaxPages', false, 'array');
+		if (is_array($arr_ajaxPage)) {
+			$obj_template->str_ajaxUrl = \Environment::get('base').\Controller::generateFrontendUrl($arr_ajaxPage, '/resource/exportFeed').'?feedName='.$arr_row['feedName'].($arr_row['feedPassword'] ? '&pwd='.$arr_row['feedPassword'] : '');
+		} else {
+			$obj_template->str_ajaxUrl = 'AJAX PAGE NOT FOUND';
+		}
 
 		$arr_existingExportFiles = array();
 

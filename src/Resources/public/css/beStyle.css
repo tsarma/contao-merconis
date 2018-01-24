@@ -978,7 +978,7 @@ ul.ls_shop_productSelectionWizard li .widgetProductSelection .selectedProductOut
 }
 
 .topLinedGroup.flex_contents h3 {
-	margin-bottom: 60px;
+	margin-bottom: 30px;
 }
 
 .topLinedGroup.flex_contents p.tl_tip {
@@ -1964,4 +1964,106 @@ ul.ls_shop_productSelectionWizard li .widgetProductSelection .selectedProductOut
 }
 /*
  * <- Export
+ */
+
+/*
+ * LSJS backend widgets ->
+ */
+.key-value-widget .main .field-container {
+	display: block;
+	width: 100%;
+}
+
+.key-value-widget .main.merconisWidgetMultiText input {
+	width: 200px;
+}
+
+.key-value-widget .main textarea {
+	width: calc(100% - 30px);
+	height: 80px;
+}
+
+.key-value-widget .fields-container {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.key-value-widget .buttons-container {
+	position: absolute;
+	top: 10px;
+	right: 30px;
+	width: 75px;
+}
+
+.key-value-widget .main button {
+	background-repeat: no-repeat;
+	background-color: transparent;
+	border: none;
+	width: 16px;
+	height: 16px;
+}
+
+.key-value-widget .main button[data-lsjs-element="btn_addRow"] {
+	background-image: url("/system/themes/flexible/icons/copy.svg");
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.key-value-widget .main button[data-lsjs-element="btn_copyRow"] {
+	background-image: url("/system/themes/flexible/icons/copy.svg");
+}
+
+.key-value-widget .main button[data-lsjs-element="btn_delRow"] {
+	background-image: url("/system/themes/flexible/icons/delete.svg");
+}
+
+.key-value-widget .main button[data-lsjs-element="btn_rowUp"] {
+	background-image: url("/system/themes/flexible/icons/up.svg");
+}
+
+.key-value-widget .main button[data-lsjs-element="btn_rowDown"] {
+	background-image: url("/system/themes/flexible/icons/down.svg");
+}
+
+.key-value-widget .main .field-container {
+	position: relative;
+}
+
+.key-value-widget .main .field-container label {
+	font-weight: bold;
+}
+
+.key-value-widget .main .field-container:nth-child(1) label {
+	position: absolute;
+	left: 210px;
+	top: 10px;
+}
+
+.key-value-widget .main .field-container:nth-child(2) label {
+	position: absolute;
+	right: 140px;
+	top: -25px;
+}
+
+@media only screen and (max-width: 660px) {
+	.key-value-widget .main .field-container:nth-child(1) label,
+	.key-value-widget .main .field-container:nth-child(2) label {
+		position: relative;
+		right: auto;
+		top: auto;
+		left: auto;
+		bottom: auto;
+		display: block;
+	}
+
+	.key-value-widget .main .field-container:nth-child(2) {
+		margin-top: 10px;
+	}
+
+	.key-value-widget .main .fields-container {
+		margin-bottom: 25px;
+	}
+}
+/*
+ * <- LSJS backend widgets
  */

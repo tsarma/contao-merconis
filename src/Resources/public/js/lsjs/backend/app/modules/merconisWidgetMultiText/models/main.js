@@ -74,7 +74,7 @@ var obj_classdef_model = {
 		var i;
 		var arr_tmp_toModify = this.data.arr_data;
 		var arr_defaultRowValue = [];
-		for(i = 0; i < this.__models.options.data.int_numValuesPerRow; i++) {
+		for(i = 0; i < this.__models.options.data.arr_fields.length; i++) {
 			arr_defaultRowValue.push('');
 		}
 		arr_tmp_toModify.splice(arr_tmp_toModify.length, 0, arr_defaultRowValue);

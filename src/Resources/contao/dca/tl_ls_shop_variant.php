@@ -423,7 +423,25 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['scalePrice'],
 			'inputType' => 'text',
-			'eval'			=> array('rgxp' => 'numberWithDecimalsLeftAndRight', 'tl_class' => 'clr merconis-component-autostart--merconisWidgetDoubleText')
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'clr merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			)
 		),
 		
 		'useOldPrice' => array(
@@ -528,7 +546,25 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['scalePrice'],
 			'inputType' => 'text',
-			'eval'			=> array('rgxp' => 'numberWithDecimalsLeftAndRight', 'tl_class' => 'clr merconis-component-autostart--merconisWidgetDoubleText')
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'clr merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			)
 		),
 		
 		'useOldPrice_1' => array(
@@ -632,7 +668,25 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['scalePrice'],
 			'inputType' => 'text',
-			'eval'			=> array('rgxp' => 'numberWithDecimalsLeftAndRight', 'tl_class' => 'clr merconis-component-autostart--merconisWidgetDoubleText')
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'clr merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			)
 		),
 		
 		'useOldPrice_2' => array(
@@ -736,7 +790,25 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['scalePrice'],
 			'inputType' => 'text',
-			'eval'			=> array('rgxp' => 'numberWithDecimalsLeftAndRight', 'tl_class' => 'clr merconis-component-autostart--merconisWidgetDoubleText')
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'clr merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			)
 		),
 		
 		'useOldPrice_3' => array(
@@ -840,7 +912,25 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['scalePrice'],
 			'inputType' => 'text',
-			'eval'			=> array('rgxp' => 'numberWithDecimalsLeftAndRight', 'tl_class' => 'clr merconis-component-autostart--merconisWidgetDoubleText')
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'clr merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			)
 		),
 		
 		'useOldPrice_4' => array(
@@ -944,7 +1034,25 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['scalePrice'],
 			'inputType' => 'text',
-			'eval'			=> array('rgxp' => 'numberWithDecimalsLeftAndRight', 'tl_class' => 'clr merconis-component-autostart--merconisWidgetDoubleText')
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'clr merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			)
 		),
 		
 		'useOldPrice_5' => array(

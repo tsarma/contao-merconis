@@ -13,11 +13,22 @@ var obj_classdef = 	{
 			console.error('original input field not found.')
 		}
 
+		/*
+		 * If the original input field has an options attribute, we read these attributes and store them in the options model
+		 */
+		if (this.el_originalInputField.hasAttribute('data-merconis-widget-options')) {
+			this.__models.options.set(JSON.parse(this.el_originalInputField.getAttribute('data-merconis-widget-options')), false);
+		}
+
 		this.__models.main.loadOriginalJsonData();
 		this.initializeGui();
 	},
 
 	initializeGui: function() {
+		if (typeOf(this.__models.options.data.cssClass) === 'string' && this.__models.options.data.cssClass != '') {
+			this.__el_container.addClass(this.__models.options.data.cssClass);
+		}
+
 		var el_mainGui = this.tplPure({
 			name: 'main'
 		});
@@ -161,12 +172,12 @@ var obj_classdef = 	{
 		this.__models.main.updateData(this.__autoElements.valueAssignment.assignmentInput);
 		this.__models.main.updateData(this.__autoElements.valueAssignment.assignmentInput);
 
-		var el_toFocus = this.__el_container.getElement('input[data-misc-row-number="' + int_rowNumber_lastChange + '"][data-misc-field-number="' + (int_fieldNumber_lastChange + 1) + '"]');
+		var el_toFocus = this.__el_container.getElement('[data-lsjs-element="assignmentInput"][data-misc-row-number="' + int_rowNumber_lastChange + '"][data-misc-field-number="' + (int_fieldNumber_lastChange + 1) + '"]');
 		if (typeOf(el_toFocus) !== 'element') {
-			el_toFocus = this.__el_container.getElement('input[data-misc-row-number="' + (int_rowNumber_lastChange + 1) + '"][data-misc-field-number="' + 0 + '"]');
+			el_toFocus = this.__el_container.getElement('[data-lsjs-element="assignmentInput"][data-misc-row-number="' + (int_rowNumber_lastChange + 1) + '"][data-misc-field-number="' + 0 + '"]');
 		}
 		if (typeOf(el_toFocus) !== 'element') {
-			el_toFocus = this.__el_container.getElement('input[data-misc-row-number="' + int_rowNumber_lastChange + '"][data-misc-field-number="' + int_fieldNumber_lastChange + '"]');
+			el_toFocus = this.__el_container.getElement('[data-lsjs-element="assignmentInput"][data-misc-row-number="' + int_rowNumber_lastChange + '"][data-misc-field-number="' + int_fieldNumber_lastChange + '"]');
 		}
 
 		el_toFocus.select();

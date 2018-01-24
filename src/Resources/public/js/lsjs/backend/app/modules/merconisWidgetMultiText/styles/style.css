@@ -1,5 +1,10 @@
-.main.merconisWidgetMultiText input {
+.main.merconisWidgetMultiText .field-container {
+	display: inline-block;
 	width: calc(50% - 80px);
+}
+
+.main.merconisWidgetMultiText input {
+	width: 100%;
 }
 
 .main.merconisWidgetMultiText button {

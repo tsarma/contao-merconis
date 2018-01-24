@@ -6,23 +6,53 @@ Array.each(
 		?>
 		<div class="fields-container" data-misc-field-row-key="<?= int_key =?>">
 			<?
-			for(i = 0; i < arg.__models.options.data.int_numValuesPerRow; i++) {
+			for(i = 0; i < arg.__models.options.data.arr_fields.length; i++) {
 				?>
-				<input
-						data-lsjs-element="assignmentInput"
-						data-misc-row-number="<?= int_key =?>"
-						data-misc-field-number="<?= i =?>"
-						type="text"
-						class="tl_text"
-						value="<?= (arr_singleValueAssignment[i] !== undefined ? arr_singleValueAssignment[i] : '') =?>"
-				>
+				<div class="field-container">
+					<?
+						if (typeOf(arg.__models.options.data.arr_fields[i].label === 'string') && arg.__models.options.data.arr_fields[i].label != '') {
+							?>
+							<label><?= arg.__models.options.data.arr_fields[i].label =?></label>
+							<?
+						}
+					?>
+					<?
+					switch (arg.__models.options.data.arr_fields[i].type) {
+						case 'text':
+							?>
+							<input
+								data-lsjs-element="assignmentInput"
+								data-misc-row-number="<?= int_key =?>"
+								data-misc-field-number="<?= i =?>"
+								type="text"
+								class="tl_text"
+								value="<?= (arr_singleValueAssignment[i] !== undefined ? arr_singleValueAssignment[i] : '') =?>"
+							>
+							<?
+							break;
+
+						case 'textarea':
+							?>
+							<textarea
+								data-lsjs-element="assignmentInput"
+								data-misc-row-number="<?= int_key =?>"
+								data-misc-field-number="<?= i =?>"
+								class="tl_textarea"
+							><?= (arr_singleValueAssignment[i] !== undefined ? arr_singleValueAssignment[i] : '') =?></textarea>
+							<?
+							break;
+					}
+					?>
+				</div>
 				<?
 			}
 			?>
-			<button type="button" data-lsjs-element="btn_copyRow" tabindex="-1"></button>
-			<button type="button" data-lsjs-element="btn_delRow" tabindex="-1"></button>
-			<button type="button" data-lsjs-element="btn_rowUp" tabindex="-1"></button>
-			<button type="button" data-lsjs-element="btn_rowDown" tabindex="-1"></button>
+			<span class="buttons-container">
+				<button type="button" data-lsjs-element="btn_copyRow" tabindex="-1"></button>
+				<button type="button" data-lsjs-element="btn_delRow" tabindex="-1"></button>
+				<button type="button" data-lsjs-element="btn_rowUp" tabindex="-1"></button>
+				<button type="button" data-lsjs-element="btn_rowDown" tabindex="-1"></button>
+			</span>
 		</div>
 		<?
 	}
