@@ -515,7 +515,7 @@ you can use the method "\Image::get" to get the image in the size you need: \Ima
 					return false;
 				}
 
-				return createMultidimensionalArray(deserialize($flexContents), 2, 1);
+				return createMultidimensionalArray(createOneDimensionalArrayFromTwoDimensionalArray(json_decode($flexContents)), 2, 1);
 				break;
 
 			case '_flexContentsLanguageIndependent':
@@ -524,7 +524,7 @@ you can use the method "\Image::get" to get the image in the size you need: \Ima
 					return false;
 				}
 
-				return createMultidimensionalArray(deserialize($flexContents), 2, 1);
+				return createMultidimensionalArray(createOneDimensionalArrayFromTwoDimensionalArray(json_decode($flexContents)), 2, 1);
 				break;
 
 			case '_hasFlexContents':

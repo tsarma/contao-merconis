@@ -869,7 +869,7 @@ class ls_shop_generalHelper
 			} else if ($objSteuersatz->startPeriod2 <= $timestampToday && $timestampToday <= $objSteuersatz->stopPeriod2) {
 				$arrCurrentSteuersatzPeriod = createOneDimensionalArrayFromTwoDimensionalArray(json_decode($objSteuersatz->steuerProzentPeriod2));
 			}
-			$arrCurrentSteuersatzPeriod = createMultidimensionalArray(deserialize($arrCurrentSteuersatzPeriod), 2, 0);
+			$arrCurrentSteuersatzPeriod = createMultidimensionalArray($arrCurrentSteuersatzPeriod, 2, 0);
 
 			$foundMatchingSteuerzone = false;
 			foreach ($arrCurrentSteuersatzPeriod as $arrSteuerzonen) {

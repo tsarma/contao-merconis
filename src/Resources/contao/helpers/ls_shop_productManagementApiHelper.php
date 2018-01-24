@@ -166,7 +166,7 @@ class ls_shop_productManagementApiHelper {
 			$arr_flexContents[] = $str_flexImportFieldKey;
 			$arr_flexContents[] = $arr_row[$str_flexImportFieldKey];
 		}
-		return serialize($arr_flexContents);
+		return json_encode($arr_flexContents);
 	}
 
 	public static function generateFlexContentsStringLanguageIndependent($arr_row) {
@@ -175,7 +175,7 @@ class ls_shop_productManagementApiHelper {
 			$arr_flexContents[] = $str_flexImportFieldKey;
 			$arr_flexContents[] = $arr_row[$str_flexImportFieldKey];
 		}
-		return serialize($arr_flexContents);
+		return json_encode($arr_flexContents);
 	}
 
 	public static function getImportFlexFieldKeys() {
@@ -403,7 +403,7 @@ class ls_shop_productManagementApiHelper {
 			}
 		}
 
-		return serialize($arr_scalePrice);
+		return json_encode($arr_scalePrice);
 	}
 
 	public static function preparePropertiesAndValues($arr_row = null) {

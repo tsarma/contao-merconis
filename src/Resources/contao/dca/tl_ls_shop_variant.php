@@ -311,26 +311,51 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 		'flex_contents' => array(
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contents'],
 			'exclude' => true,
-			'inputType' => 'listWizardDoubleValue_leftText_rightTextarea',
+			'inputType' => 'text',
 			'eval'                    => array(
-				'tl_class'=>'clr',
-				'label01' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contents_label01'],
-				'label02' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contents_label02'],
+				'tl_class'=>'clr merconis-component-autostart--merconisWidgetMultiText',
 				'merconis_multilanguage' => true,
-				'merconis_multilanguage_wrapperClass' => 'flex_contents',
-				'preserveTags' => true
+				'preserveTags' => true,
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": "'.$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contents_label01'].'"
+							},
+							{
+								"type": "textarea",
+								"label": "'.$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contents_label02'].'"
+							}
+						],
+						"cssClass": "key-value-widget"
+					}
+				'
 			)
 		),
 
 		'flex_contentsLanguageIndependent' => array(
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contentsLanguageIndependent'],
 			'exclude' => true,
-			'inputType' => 'listWizardDoubleValue_leftText_rightTextarea',
+			'inputType' => 'text',
 			'eval'                    => array(
-				'tl_class'=>'clr topLinedGroup flex_contents',
-				'label01' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contentsLanguageIndependent_label01'],
-				'label02' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contentsLanguageIndependent_label02'],
-				'preserveTags' => true
+				'tl_class'=>'clr topLinedGroup merconis-component-autostart--merconisWidgetMultiText',
+				'preserveTags' => true,
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": "'.$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contentsLanguageIndependent_label01'].'"
+							},
+							{
+								"type": "textarea",
+								"label": "'.$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contentsLanguageIndependent_label02'].'"
+							}
+						],
+						"cssClass": "key-value-widget"
+					}
+				'
 			)
 		),
 		
