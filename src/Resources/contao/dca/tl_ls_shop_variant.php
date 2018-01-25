@@ -311,26 +311,51 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 		'flex_contents' => array(
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contents'],
 			'exclude' => true,
-			'inputType' => 'listWizardDoubleValue_leftText_rightTextarea',
+			'inputType' => 'text',
 			'eval'                    => array(
-				'tl_class'=>'clr',
-				'label01' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contents_label01'],
-				'label02' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contents_label02'],
+				'tl_class'=>'clr merconis-component-autostart--merconisWidgetMultiText',
 				'merconis_multilanguage' => true,
-				'merconis_multilanguage_wrapperClass' => 'flex_contents',
-				'preserveTags' => true
+				'preserveTags' => true,
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": "'.$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contents_label01'].'"
+							},
+							{
+								"type": "textarea",
+								"label": "'.$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contents_label02'].'"
+							}
+						],
+						"cssClass": "key-value-widget"
+					}
+				'
 			)
 		),
 
 		'flex_contentsLanguageIndependent' => array(
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contentsLanguageIndependent'],
 			'exclude' => true,
-			'inputType' => 'listWizardDoubleValue_leftText_rightTextarea',
+			'inputType' => 'text',
 			'eval'                    => array(
-				'tl_class'=>'clr topLinedGroup flex_contents',
-				'label01' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contentsLanguageIndependent_label01'],
-				'label02' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contentsLanguageIndependent_label02'],
-				'preserveTags' => true
+				'tl_class'=>'clr topLinedGroup merconis-component-autostart--merconisWidgetMultiText',
+				'preserveTags' => true,
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": "'.$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contentsLanguageIndependent_label01'].'"
+							},
+							{
+								"type": "textarea",
+								"label": "'.$GLOBALS['TL_LANG']['tl_ls_shop_variant']['flex_contentsLanguageIndependent_label02'].'"
+							}
+						],
+						"cssClass": "key-value-widget"
+					}
+				'
 			)
 		),
 		
@@ -351,10 +376,13 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 		
 		'lsShopProductVariantAttributesValues' => array (
 			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['lsShopProductVariantAttributesValues'],
-			'default'                 => array(),
+			'default'                 => '',
 			'exclude' => true,
-			'inputType'               => 'ls_shop_ListWizardAttributesValues',
-			'eval'					  => array('merconis_multiField' => array('labels' => array($GLOBALS['TL_LANG']['tl_ls_shop_variant']['attributesValues_label01'], $GLOBALS['TL_LANG']['tl_ls_shop_variant']['attributesValues_label02'])))
+			'inputType'               => 'text',
+			'eval'					  => array('tl_class' => 'merconis-component-autostart--merconisWidgetAttributesValues'),
+			'save_callback' => array (
+				array('Merconis\Core\tl_ls_shop_variant_controller', 'insertAttributeValueAllocationsInAllocationTable')
+			)
 		),
 		
 		'lsShopVariantPrice' => array (
@@ -419,8 +447,26 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 		'scalePrice' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['scalePrice'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
+			'inputType' => 'text',
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'clr merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			)
 		),
 		
 		'useOldPrice' => array(
@@ -524,8 +570,26 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 		'scalePrice_1' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['scalePrice'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
+			'inputType' => 'text',
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'clr merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			)
 		),
 		
 		'useOldPrice_1' => array(
@@ -628,8 +692,26 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 		'scalePrice_2' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['scalePrice'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
+			'inputType' => 'text',
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'clr merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			)
 		),
 		
 		'useOldPrice_2' => array(
@@ -732,8 +814,26 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 		'scalePrice_3' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['scalePrice'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
+			'inputType' => 'text',
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'clr merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			)
 		),
 		
 		'useOldPrice_3' => array(
@@ -836,8 +936,26 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 		'scalePrice_4' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['scalePrice'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
+			'inputType' => 'text',
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'clr merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			)
 		),
 		
 		'useOldPrice_4' => array(
@@ -940,8 +1058,26 @@ $GLOBALS['TL_DCA']['tl_ls_shop_variant'] = array(
 		'scalePrice_5' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_variant']['scalePrice'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals', 'tl_class' => 'clr')
+			'inputType' => 'text',
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'clr merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			)
 		),
 		
 		'useOldPrice_5' => array(
@@ -1099,6 +1235,11 @@ class tl_ls_shop_variant_controller extends \Backend {
 			$str_value = substr($str_value, 0, 128 - strlen($str_aliasSuffix)).$str_aliasSuffix;
 		}
 
+		return $str_value;
+	}
+
+	public function insertAttributeValueAllocationsInAllocationTable($str_value, \DataContainer $dc) {
+		ls_shop_generalHelper::insertAttributeValueAllocationsInAllocationTable(json_decode($str_value), $dc->id, 1);
 		return $str_value;
 	}
 	

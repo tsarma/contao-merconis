@@ -217,16 +217,10 @@ array_insert($GLOBALS['BE_MOD'], 0, array(
 	)
 ));
 
-$GLOBALS['BE_FFL']['listWizardDoubleValue'] = 'Merconis\Core\ListWizardDoubleValue';
-$GLOBALS['BE_FFL']['ls_x_ListWizardMultiValue'] = 'Merconis\Core\ls_x_ListWizardMultiValue';
-$GLOBALS['BE_FFL']['listWizardDoubleValue_doubleSelect'] = 'Merconis\Core\ListWizardDoubleValue_doubleSelect';
-$GLOBALS['BE_FFL']['listWizardDoubleValue_leftText_rightTextarea'] = 'Merconis\Core\ListWizardDoubleValue_leftText_rightTextarea';
 $GLOBALS['BE_FFL']['htmlDiv'] = 'Merconis\Core\ls_shop_htmlDiv';
 $GLOBALS['BE_FFL']['simpleOutput'] = 'Merconis\Core\ls_shop_simpleOutput';
-$GLOBALS['BE_FFL']['ls_shop_productSelection'] = 'Merconis\Core\ls_shop_productSelection';
 $GLOBALS['BE_FFL']['ls_shop_productSelectionWizard'] = 'Merconis\Core\ls_shop_productSelectionWizard';
 $GLOBALS['BE_FFL']['ls_shop_generatedTemplate'] = 'Merconis\Core\ls_shop_generatedTemplate';
-$GLOBALS['BE_FFL']['ls_shop_ListWizardAttributesValues'] = 'Merconis\Core\ls_shop_ListWizardAttributesValues';
 
 
 $GLOBALS['FE_MOD']['ls_shop'] = array(

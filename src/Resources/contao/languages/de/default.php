@@ -392,6 +392,8 @@ $GLOBALS['TL_LANG']['CTE']['lsShopCrossSellerCTE'] = array('CrossSeller', 'Binde
 
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['oneNumber'] = 'Feld &quot;%s&quot; darf nur exakt eine einstellige Zahl enthalten.';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimals'] = 'Feld &quot;%s&quot; muss eine Zahl enthalten.';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimalsLeftAndRight'] = 'Feld &quot;%s&quot; darf nur Zahlen enthalten.';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimalsAndHashsignLeftTextRight'] = 'Feld &quot;%s&quot; muss links den Steuersatz (Zahlen, ggf. mit Dezimalpunkt) und rechts eine kommagetrennte Liste zweistelliger L&auml;nderk&uuml;rzel (ISO 3166-1 ALPHA-2, Kleinbuchstaben) enthalten.';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['feeFormula'] = 'Feld &quot;%s&quot; muss eine berechenbare Formel enthalten. Erlaubt sind au&szlig;er den Platzhaltern nur Zahlen und die Zeichen +-*/.()';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['yes'] = 'Ja';

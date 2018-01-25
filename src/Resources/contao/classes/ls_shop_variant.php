@@ -5,6 +5,7 @@ use function LeadingSystems\Helpers\ls_mul;
 use function LeadingSystems\Helpers\ls_div;
 use function LeadingSystems\Helpers\ls_add;
 use function LeadingSystems\Helpers\ls_sub;
+use function LeadingSystems\Helpers\createOneDimensionalArrayFromTwoDimensionalArray;
 use function LeadingSystems\Helpers\createMultidimensionalArray;
 use function LeadingSystems\Helpers\ls_getFilePathFromVariableSources;
 
@@ -417,7 +418,7 @@ you can use the method "\Image::get" to get the image in the size you need: \Ima
 					return false;
 				}
 
-				return createMultidimensionalArray(deserialize($flexContents), 2, 1);
+				return createMultidimensionalArray(createOneDimensionalArrayFromTwoDimensionalArray(json_decode($flexContents)), 2, 1);
 				break;
 
 			case '_flexContentsLanguageIndependent':
@@ -426,7 +427,7 @@ you can use the method "\Image::get" to get the image in the size you need: \Ima
 					return false;
 				}
 
-				return createMultidimensionalArray(deserialize($flexContents), 2, 1);
+				return createMultidimensionalArray(createOneDimensionalArrayFromTwoDimensionalArray(json_decode($flexContents)), 2, 1);
 				break;
 
 			case '_hasFlexContents':
@@ -647,8 +648,8 @@ Indicates whether or not stock is insufficient. Returns true if stock should be 
 				if (!$this->_useScalePrice) {
 					return null;
 				}
-				$scalePrice = isset($this->mainData['scalePrice']) ? deserialize($this->mainData['scalePrice']) : null;
-				return is_array($scalePrice) ? createMultidimensionalArray($scalePrice, 2, 0, array('minQuantity', 'price')) : null;
+				$scalePrice = isset($this->mainData['scalePrice']) ? json_decode($this->mainData['scalePrice']) : null;
+				return is_array($scalePrice) ? createMultidimensionalArray(createOneDimensionalArrayFromTwoDimensionalArray($scalePrice), 2, 0, array('minQuantity', 'price')) : null;
 				break;
 
 			case '_scalePricesOutput'

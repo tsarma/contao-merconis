@@ -1436,7 +1436,7 @@ class ls_shop_productSearcher
 						return;
 					}
 					foreach ($arrProductsAfterFilter as $k => $arrProduct) {
-						$arrFlexContents = createMultidimensionalArray(deserialize($arrProduct['flex_contents'.($searchLanguage ? "_".$searchLanguage : "")]), 2, 1);
+						$arrFlexContents = createMultidimensionalArray(\LeadingSystems\Helpers\createOneDimensionalArrayFromTwoDimensionalArray(json_decode($arrProduct['flex_contents'.($searchLanguage ? "_".$searchLanguage : "")])), 2, 1);
 
 						if (!isset($arrFlexContents[$sortingField['variableFieldKey']])) {
 							$arr_tmpProductsToPlaceBehindTheOthers[$k] = $arrProduct;
@@ -1453,7 +1453,7 @@ class ls_shop_productSearcher
 						return;
 					}
 					foreach ($arrProductsAfterFilter as $k => $arrProduct) {
-						$arrFlexContents = createMultidimensionalArray(deserialize($arrProduct['flex_contentsLanguageIndependent']), 2, 1);
+						$arrFlexContents = createMultidimensionalArray(\LeadingSystems\Helpers\createOneDimensionalArrayFromTwoDimensionalArray(json_decode($arrProduct['flex_contentsLanguageIndependent'])), 2, 1);
 
 						if (!isset($arrFlexContents[$sortingField['variableFieldKey']])) {
 							$arr_tmpProductsToPlaceBehindTheOthers[$k] = $arrProduct;
@@ -1484,7 +1484,7 @@ class ls_shop_productSearcher
 					}
 					
 					foreach ($arrProductsAfterFilter as $k => $arrProduct) {
-						$arrAttributesValuesAllocation = deserialize($arrProduct['lsShopProductAttributesValues']);
+						$arrAttributesValuesAllocation = json_decode($arrProduct['lsShopProductAttributesValues']);
 						$bln_foundRequiredAttributeValueAllocationForThisProduct = false;
 						
 						foreach($arrAttributesValuesAllocation as $arrAttributeValueAllocation) {
@@ -1556,7 +1556,7 @@ class ls_shop_productSearcher
 			);
 			
 			$skipNextReplacement = false;
-			$sortingCharacterTranslationTable = deserialize($GLOBALS['TL_CONFIG']['ls_shop_sortingCharacterTranslationTable']);
+			$sortingCharacterTranslationTable = \LeadingSystems\Helpers\createOneDimensionalArrayFromTwoDimensionalArray(json_decode($GLOBALS['TL_CONFIG']['ls_shop_sortingCharacterTranslationTable']));
 			
 			if (is_array($sortingCharacterTranslationTable)) {
 				foreach ($sortingCharacterTranslationTable as $k => $v) {

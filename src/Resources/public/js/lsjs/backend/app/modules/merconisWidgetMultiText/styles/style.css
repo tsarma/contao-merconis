@@ -1,0 +1,38 @@
+.main.merconisWidgetMultiText .field-container {
+	display: inline-block;
+	width: calc(50% - 80px);
+}
+
+.main.merconisWidgetMultiText input {
+	width: 100%;
+}
+
+.main.merconisWidgetMultiText button {
+	background-repeat: no-repeat;
+	background-color: transparent;
+	border: none;
+	width: 16px;
+	height: 16px;
+}
+
+.main.merconisWidgetMultiText button[data-lsjs-element="btn_addRow"] {
+	background-image: url("/system/themes/flexible/icons/copy.svg");
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.main.merconisWidgetMultiText button[data-lsjs-element="btn_copyRow"] {
+	background-image: url("/system/themes/flexible/icons/copy.svg");
+}
+
+.main.merconisWidgetMultiText button[data-lsjs-element="btn_delRow"] {
+	background-image: url("/system/themes/flexible/icons/delete.svg");
+}
+
+.main.merconisWidgetMultiText button[data-lsjs-element="btn_rowUp"] {
+	background-image: url("/system/themes/flexible/icons/up.svg");
+}
+
+.main.merconisWidgetMultiText button[data-lsjs-element="btn_rowDown"] {
+	background-image: url("/system/themes/flexible/icons/down.svg");
+}

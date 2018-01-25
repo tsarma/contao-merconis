@@ -125,7 +125,7 @@ class ls_shop_export
 
 		$this->obj_template->arr_data = $arr_data;
 		$this->obj_template->str_mode = $this->str_mode;
-		$this->obj_template->arr_flex_parameters = createMultidimensionalArray(deserialize($this->arr_exportRecord['flex_parameters']), 2, 1);
+		$this->obj_template->arr_flex_parameters = createMultidimensionalArray(\LeadingSystems\Helpers\createOneDimensionalArrayFromTwoDimensionalArray(json_decode($this->arr_exportRecord['flex_parameters'])), 2, 1);
 
 		if (is_object($this->obj_segmentizer)) {
 			$this->obj_template->useSegmentation = true;

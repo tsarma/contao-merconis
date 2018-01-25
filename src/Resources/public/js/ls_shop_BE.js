@@ -273,14 +273,6 @@ var ls_shop_backend = {
 	},
 	
 	makeMerconisWizardsSortable: function() {
-		$$('.listWizardDoubleValue_doubleSelect').each(function(el) {
-			new Sortables(el.getElement('.sortable'), {
-				contstrain: true,
-				opacity: 0.6,
-				handle: '.drag-handle'
-			});
-		});
-
 		$$('.listWizardMultiValue').each(function(el) {
 			new Sortables(el.getElement('.sortable'), {
 				contstrain: true,

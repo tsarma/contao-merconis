@@ -1,0 +1,39 @@
+<?
+Array.each(
+	arg.__models.main.data.arr_data,
+	function(arr_singleAttributeValueAssignment, int_key) {
+		?>
+		<div class="fields-container" data-misc-field-row-key="<?= int_key =?>">
+			<select data-lsjs-element="assignmentInput" class="attribute tl_select">
+				<?
+				Array.each(
+					arg.__models.config.data.obj_allAttributesAndValues,
+					function(obj_attribute) {
+						?>
+						<option value="<?= obj_attribute.id =?>"<?= (obj_attribute.id == arr_singleAttributeValueAssignment[0] ? 'selected' : '') =?>><?= obj_attribute.label =?></option>
+						<?
+					}
+				);
+				?>
+			</select>
+			<select data-lsjs-element="assignmentInput" class="value tl_select">
+				<?
+				Array.each(
+					arg.__models.config.getAttributeObjectForId(arr_singleAttributeValueAssignment[0]).values,
+					function(obj_value) {
+						?>
+						<option value="<?= obj_value.id =?>"<?= (obj_value.id == arr_singleAttributeValueAssignment[1] ? 'selected' : '') =?>><?= obj_value.label =?></option>
+						<?
+					}
+				);
+				?>
+			</select>
+			<button type="button" data-lsjs-element="btn_copyRow" tabindex="-1"></button>
+			<button type="button" data-lsjs-element="btn_delRow" tabindex="-1"></button>
+			<button type="button" data-lsjs-element="btn_rowUp" tabindex="-1"></button>
+			<button type="button" data-lsjs-element="btn_rowDown" tabindex="-1"></button>
+		</div>
+		<?
+	}
+);
+?>

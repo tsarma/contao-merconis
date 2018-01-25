@@ -7,6 +7,7 @@ use function LeadingSystems\Helpers\ls_mul;
 use function LeadingSystems\Helpers\ls_div;
 use function LeadingSystems\Helpers\ls_add;
 use function LeadingSystems\Helpers\ls_sub;
+use function LeadingSystems\Helpers\createOneDimensionalArrayFromTwoDimensionalArray;
 use function LeadingSystems\Helpers\createMultidimensionalArray;
 use function LeadingSystems\Helpers\ls_getFilePathFromVariableSources;
 
@@ -33,11 +34,11 @@ class ls_shop_generalHelper
 		")
 			->execute(
 				$int_parentId,
-				($bln_parentIsVariant ? '1' : '')
+				($bln_parentIsVariant ? '1' : '0')
 			);
 
 
-		$arr_allocations = is_array($arr_allocations) ? $arr_allocations : deserialize($arr_allocations, true);
+		$arr_allocations = is_array($arr_allocations) ? $arr_allocations : json_decode($arr_allocations, true);
 
 		$int_sortingKey = 0;
 		foreach ($arr_allocations as $arr_allocation) {
@@ -800,6 +801,16 @@ class ls_shop_generalHelper
 
 			$steuersatz = null;
 
+			/*
+			 * It is possible to register a Merconis hook "customTaxRateCalculation" and calculate custom tax rates in this hook.
+			 * The hooked function will be called if instead of a numeric tax value there's a wildcard in the tax rate record.
+			 * Such a wildcard consists of "##" then a "name for the custom calculation" and then "##". The "name for the custom
+			 * calculation" will be passed as an argument the hooked function so that it can handle multiple different tax calculations.
+			 *
+			 * However, until today (2018-01-22) this whole functionality has never been officially released and is not documented
+			 * in the Merconis documentation and there are no details about how to use it in the dca language files for tl_ls_shop_steuersaetze.
+			 * If this functionality should be necessary in the future, it is important to provide a complete documentation.
+			 */
 			if (isset($GLOBALS['MERCONIS_HOOKS']['customTaxRateCalculation']) && is_array($GLOBALS['MERCONIS_HOOKS']['customTaxRateCalculation'])) {
 				foreach ($GLOBALS['MERCONIS_HOOKS']['customTaxRateCalculation'] as $mccb) {
 					$objMccb = \System::importStatic($mccb[0]);
@@ -854,11 +865,11 @@ class ls_shop_generalHelper
 			$timestampToday = mktime(0, 0, 0, date("m", time()), date("d", time()), date("Y", time()));
 			$arrCurrentSteuersatzPeriod = array();
 			if ($objSteuersatz->startPeriod1 <= $timestampToday && $timestampToday <= $objSteuersatz->stopPeriod1) {
-				$arrCurrentSteuersatzPeriod = $objSteuersatz->steuerProzentPeriod1;
+				$arrCurrentSteuersatzPeriod = createOneDimensionalArrayFromTwoDimensionalArray(json_decode($objSteuersatz->steuerProzentPeriod1));
 			} else if ($objSteuersatz->startPeriod2 <= $timestampToday && $timestampToday <= $objSteuersatz->stopPeriod2) {
-				$arrCurrentSteuersatzPeriod = $objSteuersatz->steuerProzentPeriod2;
+				$arrCurrentSteuersatzPeriod = createOneDimensionalArrayFromTwoDimensionalArray(json_decode($objSteuersatz->steuerProzentPeriod2));
 			}
-			$arrCurrentSteuersatzPeriod = createMultidimensionalArray(deserialize($arrCurrentSteuersatzPeriod), 2, 0);
+			$arrCurrentSteuersatzPeriod = createMultidimensionalArray($arrCurrentSteuersatzPeriod, 2, 0);
 
 			$foundMatchingSteuerzone = false;
 			foreach ($arrCurrentSteuersatzPeriod as $arrSteuerzonen) {
@@ -1452,7 +1463,7 @@ class ls_shop_generalHelper
 						 * convert the onedimensional array from the listwizard in a multidimensional array, setting an associative index in the second dimension and sort by the
 						 * key 'weight'
 						 */
-						$methodInfo['feeWeightValues'] = createMultidimensionalArray(deserialize($methodInfo['feeWeightValues']), 2, 0, array('weight', 'price'), 'weight');
+						$methodInfo['feeWeightValues'] = createMultidimensionalArray(createOneDimensionalArrayFromTwoDimensionalArray(json_decode($methodInfo['feeWeightValues'])), 2, 0, array('weight', 'price'), 'weight');
 
 						$matched = false;
 						/*
@@ -1482,7 +1493,7 @@ class ls_shop_generalHelper
 						 * convert the onedimensional array from the listwizard in a multidimensional array, setting an associative index in the second dimension and sort by the
 						 * key 'cartPrice'
 						 */
-						$methodInfo['feePriceValues'] = createMultidimensionalArray(deserialize($methodInfo['feePriceValues']), 2, 0, array('cartPrice', 'price'), 'cartPrice');
+						$methodInfo['feePriceValues'] = createMultidimensionalArray(createOneDimensionalArrayFromTwoDimensionalArray(json_decode($methodInfo['feePriceValues'])), 2, 0, array('cartPrice', 'price'), 'cartPrice');
 
 						$matched = false;
 						/*
@@ -2122,7 +2133,7 @@ class ls_shop_generalHelper
 			}
 
 			$outputDefinition['overviewUserSorting'] = $arrOutputDefinitionSet['lsShopProductOverviewUserSorting'];
-			$outputDefinition['overviewUserSortingFields'] = deserialize($arrOutputDefinitionSet['lsShopProductOverviewUserSortingFields']);
+			$outputDefinition['overviewUserSortingFields'] = json_decode($arrOutputDefinitionSet['lsShopProductOverviewUserSortingFields']);
 			if (is_array($outputDefinition['overviewUserSortingFields'])) {
 				foreach ($outputDefinition['overviewUserSortingFields'] as $k => $v) {
 					$outputDefinition['overviewUserSortingFields'][$k] = array();
@@ -2141,7 +2152,7 @@ class ls_shop_generalHelper
 			}
 
 			$outputDefinition['overviewUserSorting_crossSeller'] = $arrOutputDefinitionSet['lsShopProductOverviewUserSorting_crossSeller'];
-			$outputDefinition['overviewUserSortingFields_crossSeller'] = deserialize($arrOutputDefinitionSet['lsShopProductOverviewUserSortingFields_crossSeller']);
+			$outputDefinition['overviewUserSortingFields_crossSeller'] = json_decode($arrOutputDefinitionSet['lsShopProductOverviewUserSortingFields_crossSeller']);
 			if (is_array($outputDefinition['overviewUserSortingFields_crossSeller'])) {
 				foreach ($outputDefinition['overviewUserSortingFields_crossSeller'] as $k => $v) {
 					$outputDefinition['overviewUserSortingFields_crossSeller'][$k] = array();
@@ -3768,6 +3779,29 @@ class ls_shop_generalHelper
 		}
 	}
 
+	public static function getAllAttributesAndValues() {
+		$arr_attributesAndValues = array();
+		$arr_attributesRaw = ls_shop_generalHelper::getProductAttributes();
+
+		foreach ($arr_attributesRaw as $arr_attribute) {
+			$arr_valuesRaw = ls_shop_generalHelper::getAttributeValues($arr_attribute['id'], true);
+			$arr_values = [];
+			foreach ($arr_valuesRaw as $arr_valueRaw) {
+				$arr_values[] = [
+					'id' => $arr_valueRaw['id'],
+					'label' => ls_shop_languageHelper::getMultiLanguage($arr_valueRaw['id'], 'tl_ls_shop_attribute_values_languages', array('title'), array($GLOBALS['TL_LANGUAGE']), false, false) . ' (' . $arr_valueRaw['alias'] . ')'
+				];
+			}
+			$arr_attributesAndValues[] = [
+				'id' => $arr_attribute['id'],
+ 				'label' => ls_shop_languageHelper::getMultiLanguage($arr_attribute['id'], 'tl_ls_shop_attributes_languages', array('title'), array($GLOBALS['TL_LANGUAGE']), false, false) . ' (' . $arr_attribute['alias'] . ')',
+				'values' => $arr_values
+			];
+		}
+
+		return $arr_attributesAndValues;
+	}
+
 	public static function getAttributesAsOptions()
 	{
 		$attributes = ls_shop_generalHelper::getProductAttributes();
@@ -3983,63 +4017,6 @@ class ls_shop_generalHelper
 					AND		`parentIsVariant` = ?
 			")
 			->execute('1');
-	}
-
-	/*
-	 * This function walks through all product and variant records, reads their serialized
-	 * attribute value allocation that's saved in the blob field directly in the record
-	 * and saves these allocations in a redundant way in the allocation table.
-	 */
-	public static function updateAllAttributeValueAllocationsInAllocationTable()
-	{
-		$objVariants = \Database::getInstance()->prepare("
-				SELECT		*
-				FROM		`tl_ls_shop_variant`
-				ORDER BY	`sorting`
-			")
-			->execute();
-
-		while ($objVariants->next()) {
-			ls_shop_generalHelper::insertAttributeValueAllocationsInAllocationTable($objVariants->lsShopProductVariantAttributesValues, $objVariants->id, 1);
-		}
-
-		$objProducts = \Database::getInstance()->prepare("
-				SELECT		*
-				FROM		`tl_ls_shop_product`
-				ORDER BY	`sorting`
-			")
-			->execute();
-
-		while ($objProducts->next()) {
-			ls_shop_generalHelper::insertAttributeValueAllocationsInAllocationTable($objProducts->lsShopProductAttributesValues, $objProducts->id, 0);
-		}
-	}
-
-	public static function getAttributeValueAllocationsFromAllocationTable($parentID = 0, $parentIsVariant = 0)
-	{
-		if (!$parentID) {
-			return;
-		}
-
-		/*
-		 * Get the attribute variant allocations from the allocation table
-		 */
-		$objAllocations = \Database::getInstance()->prepare("
-				SELECT		*
-				FROM		`tl_ls_shop_attribute_allocation`
-				WHERE		`pid` = ?
-					AND		`parentIsVariant` = ?
-				ORDER BY	`sorting` ASC
-			")
-			->execute($parentID, $parentIsVariant);
-
-		$arrAllocations = array();
-
-		while ($objAllocations->next()) {
-			$arrAllocations[] = array($objAllocations->attributeID, $objAllocations->attributeValueID);
-		}
-
-		return $arrAllocations;
 	}
 
 	public static function ls_calculateVariantPriceRegardingPriceType($priceType = false, $productPrice = false, $variantPrice = false)

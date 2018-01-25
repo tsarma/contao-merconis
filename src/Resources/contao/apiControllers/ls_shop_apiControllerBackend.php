@@ -187,4 +187,14 @@ class ls_shop_apiControllerBackend
 
 		$this->obj_apiReceiver->set_data($arr_resultOutput);
 	}
+
+	/**
+	 * Returns all attributes and values
+	 */
+	protected function apiResource_backend_loadAttributesAndValues() {
+		$arr_return = ls_shop_generalHelper::getAllAttributesAndValues();
+
+		$this->obj_apiReceiver->success();
+		$this->obj_apiReceiver->set_data($arr_return);
+	}
 }

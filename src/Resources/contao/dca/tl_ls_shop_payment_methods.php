@@ -123,7 +123,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_payment_methods'] = array(
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['formAdditionalData'],
 			'inputType' => 'select',
 			'foreignKey' => 'tl_form.title',
-			'eval' => array('includeBlankOption' => true),
+			'eval' => array('includeBlankOption' => true, 'tl_class' => 'w50'),
 			'sql'                     => "int(10) unsigned NOT NULL default '0'"
 		),
 		
@@ -259,15 +259,51 @@ $GLOBALS['TL_DCA']['tl_ls_shop_payment_methods'] = array(
 		'feeWeightValues' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['feeWeightValues'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals')
+			'inputType' => 'text',
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			)
 		),
 		
 		'feePriceValues' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['feePriceValues'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval'			=> array('rgxp' => 'numberWithDecimals')
+			'inputType' => 'text',
+			'eval'			=> array(
+				'rgxp' => 'numberWithDecimalsLeftAndRight',
+				'tl_class' => 'merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			)
 		),
 		
 		'infoAfterCheckout' => array (
@@ -318,7 +354,6 @@ $GLOBALS['TL_DCA']['tl_ls_shop_payment_methods'] = array(
 
 class ls_shop_payment_methods extends \Backend {
 	public function __construct() {
-		$this->import('Merconis\Core\ls_shop_paymentModule');
 		parent::__construct();
 	}
 
@@ -352,6 +387,7 @@ class ls_shop_payment_methods extends \Backend {
 	 */
 	public function modifyDCA($dc)
 	{
+		$obj_paymentModule = new ls_shop_paymentModule();
 		if (!$dc->id) {
 			/*
 			 * Handelt es sich bei dem Aufruf nicht um einen datensatzbezogenen Aufruf,
@@ -369,7 +405,7 @@ class ls_shop_payment_methods extends \Backend {
 		 * in this case subpalette form fields wouldn't make any sense even if they were registered in the payment
 		 * method class.
 		 */
-		if (!is_array($this->ls_shop_paymentModule->types[$objPaymentMethod->type]['BE_formFields'])) {
+		if (!is_array($obj_paymentModule->types[$objPaymentMethod->type]['BE_formFields'])) {
 			return;
 		}
 
@@ -379,28 +415,30 @@ class ls_shop_payment_methods extends \Backend {
 	}
 
 	protected function addBeFormFields($str_paymentMethodType) {
-		if (!is_array($this->ls_shop_paymentModule->types[$str_paymentMethodType]['BE_formFields'])) {
+		$obj_paymentModule = new ls_shop_paymentModule();
+		if (!is_array($obj_paymentModule->types[$str_paymentMethodType]['BE_formFields'])) {
 			return;
 		}
 
-		$this->addBeFormFieldsAndStandardLabels($this->ls_shop_paymentModule->types[$str_paymentMethodType]['BE_formFields']);
+		$this->addBeFormFieldsAndStandardLabels($obj_paymentModule->types[$str_paymentMethodType]['BE_formFields']);
 
 		/*
 		 * Einfügen der BE_formFields in die Default-Palette
 		 */
-		$paletteInsertion = ';{' . $this->ls_shop_paymentModule->types[$str_paymentMethodType]['typeCode'] . '_legend},';
-		foreach ($this->ls_shop_paymentModule->types[$str_paymentMethodType]['BE_formFields'] as $formFieldTitle => $formFieldInfo) {
+		$paletteInsertion = ';{' . $obj_paymentModule->types[$str_paymentMethodType]['typeCode'] . '_legend},';
+		foreach ($obj_paymentModule->types[$str_paymentMethodType]['BE_formFields'] as $formFieldTitle => $formFieldInfo) {
 			$paletteInsertion .= $formFieldTitle . ',';
 		}
 		$GLOBALS['TL_DCA']['tl_ls_shop_payment_methods']['palettes']['default'] = preg_replace('/(;\{excludedGroups_legend\})/siU', $paletteInsertion . '$1', $GLOBALS['TL_DCA']['tl_ls_shop_payment_methods']['palettes']['default']);
 	}
 
 	protected function addBeFormFieldSubpalettes($str_paymentMethodType) {
-		if (!is_array($this->ls_shop_paymentModule->types[$str_paymentMethodType]['BE_formFields_subpalettes'])) {
+		$obj_paymentModule = new ls_shop_paymentModule();
+		if (!is_array($obj_paymentModule->types[$str_paymentMethodType]['BE_formFields_subpalettes'])) {
 			return;
 		}
 
-		foreach ($this->ls_shop_paymentModule->types[$str_paymentMethodType]['BE_formFields_subpalettes'] as $str_subpaletteName => $arr_subpalette) {
+		foreach ($obj_paymentModule->types[$str_paymentMethodType]['BE_formFields_subpalettes'] as $str_subpaletteName => $arr_subpalette) {
 			if (!in_array($arr_subpalette['selector'], $GLOBALS['TL_DCA']['tl_ls_shop_payment_methods']['palettes']['__selector__'])) {
 				$GLOBALS['TL_DCA']['tl_ls_shop_payment_methods']['palettes']['__selector__'][] = $arr_subpalette['selector'];
 			}
@@ -427,7 +465,8 @@ class ls_shop_payment_methods extends \Backend {
 	
 	public function getPaymentModulesAsOptions() {
 		$paymentModules = array();
-		foreach ($this->ls_shop_paymentModule->types as $paymentModuleName => $paymentModuleInfo) {
+		$obj_paymentModule = new ls_shop_paymentModule();
+		foreach ($obj_paymentModule->types as $paymentModuleName => $paymentModuleInfo) {
 			$paymentModules[$paymentModuleName] = $paymentModuleInfo['title'];
 		}
 		return $paymentModules;

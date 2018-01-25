@@ -98,8 +98,27 @@ $GLOBALS['TL_DCA']['tl_ls_shop_steuersaetze'] = array(
 		'steuerProzentPeriod1' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_steuersaetze']['steuerProzentPeriod1'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval' => array('decodeEntities' => true, 'rgxp' => 'numberWithDecimalsAndHashsignLeftTextRight'),
+			'inputType' => 'text',
+			'eval'			=> array(
+				'decodeEntities' => true,
+				'rgxp' => 'numberWithDecimalsAndHashsignLeftTextRight',
+				'tl_class' => 'merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			),
 			'save_callback' => array(
 				array('Merconis\Core\ls_shop_steuersaetze', 'checkIfWildcardsUsedAndAllowed')
 			)
@@ -122,8 +141,27 @@ $GLOBALS['TL_DCA']['tl_ls_shop_steuersaetze'] = array(
 		'steuerProzentPeriod2' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_steuersaetze']['steuerProzentPeriod2'],
-			'inputType' => 'listWizardDoubleValue',
-			'eval' => array('decodeEntities' => true, 'rgxp' => 'numberWithDecimalsAndHashsignLeftTextRight'),
+			'inputType' => 'text',
+			'eval'			=> array(
+				'decodeEntities' => true,
+				'rgxp' => 'numberWithDecimalsAndHashsignLeftTextRight',
+				'tl_class' => 'merconis-component-autostart--merconisWidgetMultiText',
+				'data-merconis-widget-options' => '
+					{
+						"arr_fields": [
+							{
+								"type": "text",
+								"label": ""
+							},
+							{
+								"type": "text",
+								"label": ""
+							}
+						],
+						"cssClass": ""
+					}
+				'
+			),
 			'save_callback' => array(
 				array('Merconis\Core\ls_shop_steuersaetze', 'checkIfWildcardsUsedAndAllowed')
 			)
@@ -191,6 +229,9 @@ class ls_shop_steuersaetze extends \Backend {
 	}
 	
 	/*
+	 * In order to understand what this function is all about, take a look at ls_shop_generalHelper::parseSteuersatz(),
+	 * $GLOBALS['MERCONIS_HOOKS']['customTaxRateCalculation'] and the comments for this hook!
+	 *
 	 * This function checks if this tax class is used with one or more products and if it
 	 * is it checks if a wildcard is used as a tax value because that is not allowed
 	 * for tax classes used with products.
