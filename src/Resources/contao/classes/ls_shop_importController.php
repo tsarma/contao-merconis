@@ -14,7 +14,7 @@ class ls_shop_importController
 	protected $intNumMaxRowsToProcessInOneRound = 100;
 	
 	
-	protected function __construct() {
+	public function __construct() {
 		setlocale(LC_ALL, (isset($GLOBALS['TL_CONFIG']['ls_shop_importCsvLocale']) && $GLOBALS['TL_CONFIG']['ls_shop_importCsvLocale'] ? $GLOBALS['TL_CONFIG']['ls_shop_importCsvLocale'] : 'en_US.utf-8'));
 
 		$this->dataRowTypesInOrderToProcess = ls_shop_productManagementApiHelper::$dataRowTypesInOrderToProcess;
@@ -1529,7 +1529,7 @@ class ls_shop_importController
 				}
 				$arrAttributeAndValueAliases = ls_shop_productManagementApiHelper::getAttributeAndValueAliases();
 				for ($i=1; $i <= ls_shop_productManagementApiHelper::$int_numImportableAttributesAndValues; $i++) {
-					if ($row['value'.$i] && !in_array($row['value'.$i], $arrAttributeAndValueAliases['attributeValueAliases'])) {
+					if ($row['property'.$i] && !in_array($row['value'.$i], $arrAttributeAndValueAliases['attributeValueAliases'])) {
 						return true;
 					}
 				}

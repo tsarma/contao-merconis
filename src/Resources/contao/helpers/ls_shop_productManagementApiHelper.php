@@ -403,6 +403,12 @@ class ls_shop_productManagementApiHelper {
 			}
 		}
 
+		/*
+		 * Since Merconis we store this value JSON encoded and as a two-dimensional array whereas it previously was
+		 * one-dimensional.
+		 */
+		$arr_scalePrice = \LeadingSystems\Helpers\createMultidimensionalArray($arr_scalePrice, 2);
+
 		return json_encode($arr_scalePrice);
 	}
 

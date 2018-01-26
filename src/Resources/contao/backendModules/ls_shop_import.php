@@ -13,7 +13,7 @@ class ls_shop_import extends \BackendModule {
 			return;
 		}
 		
-		$this->import('Merconis\Core\ls_shop_importController');
+		$obj_importController = new ls_shop_importController();
 		
 		// Create the file upload field
 		$objFfl_importFileUpload = new \FileUpload(array(
@@ -32,7 +32,7 @@ class ls_shop_import extends \BackendModule {
 				/*
 				 * Remove all files from import folder
 				 */
-				$this->ls_shop_importController->clearImportFolder();
+				$obj_importController->clearImportFolder();
 				
 				/*
 				 * We only accept csv files and to achieve this, we have to temporarily override the

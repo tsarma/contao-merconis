@@ -193,12 +193,10 @@ class ls_shop_beModule_stockManagement extends \BackendModule {
 		$arrProductsOutput = array();
 		foreach ($arrProducts as $productID) {
 			$objProductOutput = new ls_shop_productOutput($productID, '', 'template_productBackendOverview_04');
-			$objProductOutput->Template->action = \Environment::get('request');
+			$objProductOutput->obj_template->action = \Environment::get('request');
 			$arrProductsOutput[$productID] = $objProductOutput->parseOutput();
 		}
 		
 		$this->Template->arrProductsOutput = $arrProductsOutput;
 	}
 }
-
-?>
