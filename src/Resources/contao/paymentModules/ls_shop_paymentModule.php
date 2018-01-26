@@ -39,13 +39,13 @@ namespace Merconis\Core;
 			'standard' => array(
 				'typeCode' => 'standard',
 				'title' => 'Standard',
-				'className' => 'ls_shop_paymentModule_standard',
+				'className' => 'Merconis\Core\ls_shop_paymentModule_standard',
 				'BE_formFields' => array()
 			),
 			'sofortueberweisung' => array(
 				'typeCode' => 'sofortueberweisung',
 				'title' => 'Sofortueberweisung',
-				'className' => 'ls_shop_paymentModule_sofortueberweisung',
+				'className' => 'Merconis\Core\ls_shop_paymentModule_sofortueberweisung',
 				'BE_formFields' => array(
 					'sofortueberweisungConfigkey' => array(
 						'label' => '',
@@ -60,7 +60,7 @@ namespace Merconis\Core;
 			'santanderWebQuick' => array(
 				'typeCode' => 'santanderWebQuick',
 				'title' => 'Santander WebQuick',
-				'className' => 'ls_shop_paymentModule_santanderWebQuick',
+				'className' => 'Merconis\Core\ls_shop_paymentModule_santanderWebQuick',
 				'BE_formFields' => array(
 					'santanderWebQuickVendorNumber' => array(
 						'label' => '',
@@ -115,7 +115,7 @@ namespace Merconis\Core;
 			'paypal' => array(
 				'typeCode' => 'paypal', // Dieser Wert muss dem Array-Key im $types-Array entsprechen, da er z. B. für die Legend-Bezeichnung, also als Array-Key, Verwendung findet
 				'title' => 'PayPal', // Der Title wird als Options-Name im Select-Feld (DCA) verwendet. Mit diesem Namen können im Options-Referenz-Sprach Array eine mehrsprachige Bezeichnung sowie eine Erklärung für den helpwizard hinterlegt werden
-				'className' => 'ls_shop_paymentModule_payPal',
+				'className' => 'Merconis\Core\ls_shop_paymentModule_payPal',
 				'BE_formFields' => array(
 					'paypalAPIUsername' => array(
 						'label' => '', // Wird hier kein Label eingetragen, so wird automatisch ein Label-Verweis zur Sprachdatei mit dem Feldnamen (Array-Key) verwendet (Standard)
@@ -195,7 +195,7 @@ namespace Merconis\Core;
 			'payPalPlus' => array(
 				'typeCode' => 'payPalPlus', // Dieser Wert muss dem Array-Key im $types-Array entsprechen, da er z. B. für die Legend-Bezeichnung, also als Array-Key, Verwendung findet
 				'title' => 'PayPal Plus', // Der Title wird als Options-Name im Select-Feld (DCA) verwendet. Mit diesem Namen können im Options-Referenz-Sprach Array eine mehrsprachige Bezeichnung sowie eine Erklärung für den helpwizard hinterlegt werden
-				'className' => 'ls_shop_paymentModule_payPalPlus',
+				'className' => 'Merconis\Core\ls_shop_paymentModule_payPalPlus',
 				'BE_formFields' => array(
 					'payPalPlus_clientID' => array(
 						'label' => '', // Wird hier kein Label eingetragen, so wird automatisch ein Label-Verweis zur Sprachdatei mit dem Feldnamen (Array-Key) verwendet (Standard)
@@ -252,7 +252,7 @@ namespace Merconis\Core;
 			'payone' => array(
 				'typeCode' => 'payone',
 				'title' => 'PAYONE',
-				'className' => 'ls_shop_paymentModule_payone',
+				'className' => 'Merconis\Core\ls_shop_paymentModule_payone',
 				'BE_formFields' => array(
 					'payone_subaccountId' => array(
 						'label' => '',
@@ -335,7 +335,7 @@ namespace Merconis\Core;
 			'saferpay' => array(
 				'typeCode' => 'saferpay',
 				'title' => 'SAFERPAY',
-				'className' => 'ls_shop_paymentModule_saferpay',
+				'className' => 'Merconis\Core\ls_shop_paymentModule_saferpay',
 				'BE_formFields' => array(
 					'saferpay_username' => array(
 						'label' => '',
@@ -387,7 +387,7 @@ namespace Merconis\Core;
 			'vrpay' => array(
 				'typeCode' => 'vrpay',
 				'title' => 'VR Pay',
-				'className' => 'ls_shop_paymentModule_vrpay',
+				'className' => 'Merconis\Core\ls_shop_paymentModule_vrpay',
 				'BE_formFields' => array(
 					'vrpay_userId' => array(
 						'label' => '',
