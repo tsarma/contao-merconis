@@ -29,8 +29,6 @@ localconfig foreign key relations are also noted here although their parent tabl
 @localconfig.ls_shop_checkoutFinishPages@tl_page.id=array@
 @localconfig.ls_shop_afterCheckoutPages@tl_page.id=array@
 @localconfig.ls_shop_paymentAfterCheckoutPages@tl_page.id=array@
-@localconfig.ls_shop_productDetailsTopInsertPages@tl_page.id=array@
-@localconfig.ls_shop_productDetailsBottomInsertPages@tl_page.id=array@
 @localconfig.ls_shop_ajaxPages@tl_page.id=array@
 @localconfig.ls_shop_searchResultPages@tl_page.id=array@
 @localconfig.ls_shop_myOrdersPages@tl_page.id=array@

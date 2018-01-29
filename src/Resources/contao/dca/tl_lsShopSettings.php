@@ -28,7 +28,7 @@ $GLOBALS['TL_DCA']['tl_lsShopSettings'] = array(
 		{liveHits_legend},ls_shop_liveHitFields,ls_shop_liveHitImageSizeWidth,ls_shop_liveHitImageSizeHeight,ls_shop_liveHitsMaxNumHits,ls_shop_liveHitsMinLengthSearchTerm,ls_shop_liveHitsNoAutoPosition,ls_shop_liveHitsDOMSelector;
 		
 		{systemImages_legend},ls_shop_systemImages_videoDummyCover,ls_shop_systemImages_videoCoverOverlay,ls_shop_systemImages_videoCoverOverlaySmall,ls_shop_systemImages_isNewOverlay,ls_shop_systemImages_isNewOverlaySmall,ls_shop_systemImages_isOnSaleOverlay,ls_shop_systemImages_isOnSaleOverlaySmall;
-		{pageSettings_legend},ls_shop_shippingInfoPages,ls_shop_cartPages,ls_shop_reviewPages,ls_shop_signUpPages,ls_shop_checkoutPaymentErrorPages,ls_shop_checkoutShippingErrorPages,ls_shop_checkoutFinishPages,ls_shop_paymentAfterCheckoutPages,ls_shop_afterCheckoutPages,ls_shop_productDetailsTopInsertPages,ls_shop_productDetailsBottomInsertPages,ls_shop_ajaxPages,ls_shop_searchResultPages,ls_shop_myOrdersPages,ls_shop_myOrderDetailsPages;
+		{pageSettings_legend},ls_shop_shippingInfoPages,ls_shop_cartPages,ls_shop_reviewPages,ls_shop_signUpPages,ls_shop_checkoutPaymentErrorPages,ls_shop_checkoutShippingErrorPages,ls_shop_checkoutFinishPages,ls_shop_paymentAfterCheckoutPages,ls_shop_afterCheckoutPages,ls_shop_ajaxPages,ls_shop_searchResultPages,ls_shop_myOrdersPages,ls_shop_myOrderDetailsPages;
 		{systemSettings_legend},ls_shop_loginModuleID,ls_shop_miniCartModuleID;
 		{performanceSettings_legend},ls_shop_maxNumParallelSearchCaches,ls_shop_searchCacheLifetimeSec,ls_shop_considerGroupPricesInFilterAndSorting;
 		{importSettings_legend},ls_shop_standardProductImportFolder,ls_shop_importFlexFieldKeys,ls_shop_importFlexFieldKeysLanguageIndependent,ls_shop_importCsvDelimiter,ls_shop_importCsvEnclosure,ls_shop_importCsvEscape,ls_shop_importCsvLocale,ls_shop_numMaxImportRecordsPerRound;
@@ -413,20 +413,6 @@ $GLOBALS['TL_DCA']['tl_lsShopSettings'] = array(
 			'eval' => array('fieldType'=>'checkbox', 'multiple' => true)
 		),
 
-		'ls_shop_productDetailsTopInsertPages' => array(
-			'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_productDetailsTopInsertPages'],
-			'exclude' => true,
-			'inputType' => 'pageTree',
-			'eval' => array('fieldType'=>'checkbox', 'multiple' => true)
-		),
-		
-		'ls_shop_productDetailsBottomInsertPages' => array(
-			'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_productDetailsBottomInsertPages'],
-			'exclude' => true,
-			'inputType' => 'pageTree',
-			'eval' => array('fieldType'=>'checkbox', 'multiple' => true)
-		),
-		
 		'ls_shop_ajaxPages' => array(
 			'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_ajaxPages'],
 			'exclude' => true,

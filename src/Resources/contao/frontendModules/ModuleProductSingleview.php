@@ -84,37 +84,6 @@ class ModuleProductSingleview extends \Module {
 		}
 		
 		$this->Template->product = $objProductOutput->parseOutput();
-		
-		/*
-		 * Ermitteln der "Insert-Seite zur Darstellung über der Produkt-Einzelansicht"
-		 * und der "Insert-Seite zur Darstellung unter der Produkt-Einzelansicht"
-		 * und ans Template übergeben.
-		 */	
-		// drüber
-		$topInsertPageId = ls_shop_languageHelper::getLanguagePage('ls_shop_productDetailsTopInsertPages', false, 'id');
-
-		// Auslesen aller Artikel-IDs, die dieser Seite untergeordnet sind, da diese per Insert Tag eingefügt werden sollen
-		$objInsertArticles = \Database::getInstance()->prepare("SELECT `id` FROM `tl_article` WHERE `pid` = ? ORDER BY `sorting`")
-											->execute($topInsertPageId);
-		$topInsertTags = '';
-		while ($objInsertArticles->next()) {
-			$topInsertTags .= '{{insert_article::'.$objInsertArticles->id.'}}';
-		}
-		$this->Template->insertionAboveProductSingleview = $topInsertTags;
-
-
-		// drunter
-		$bottomInsertPageId = ls_shop_languageHelper::getLanguagePage('ls_shop_productDetailsBottomInsertPages', false, 'id');
-
-		// Auslesen aller Artikel-IDs, die dieser Seite untergeordnet sind, da diese per Insert Tag eingefügt werden sollen
-		$objInsertArticles = \Database::getInstance()->prepare("SELECT `id` FROM `tl_article` WHERE `pid` = ? ORDER BY `sorting`")
-											->execute($bottomInsertPageId);
-		$bottomInsertTags = '';
-		while ($objInsertArticles->next()) {
-			$bottomInsertTags .= '{{insert_article::'.$objInsertArticles->id.'}}';
-		}
-		$this->Template->insertionUnderProductSingleview = $bottomInsertTags;
-
 	}
 }
 ?>
