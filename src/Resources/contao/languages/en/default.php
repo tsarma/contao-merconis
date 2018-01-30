@@ -378,6 +378,9 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['shippingData']['fieldNames'] = array(
 	'timeTransporter' => 'Time',
 	'dayTransporter' => 'Day'
 );
+
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['finishOrderButtonLabel'] = 'Buy now';
+
 /*
  * <- Frontend
  */

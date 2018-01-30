@@ -4,7 +4,6 @@ namespace Merconis\Core;
 
 class ModuleAfterCheckout extends \Module {
 	public function generate() {
-		$this->import('Merconis\Core\ls_shop_paymentModule');
 		if (FE_USER_LOGGED_IN) {
 			$this->import('FrontendUser', 'User');
 		}
@@ -19,6 +18,8 @@ class ModuleAfterCheckout extends \Module {
 	
 	public function compile() {
 		$this->strTemplate = $this->ls_shop_afterCheckout_template;
+
+		$obj_paymentModule = new ls_shop_paymentModule();
 		
 		/**
 		 * Nach dem Umbau des Bestellabschlusshandlings wird hier nicht mehr mit einer in der Session abgelegten Bestellung gearbeitet.
@@ -69,11 +70,11 @@ class ModuleAfterCheckout extends \Module {
 		}
 		
 		if ($int_callbackPaymentMethodId) {
-			$this->ls_shop_paymentModule->specializeManuallyWithPaymentID($int_callbackPaymentMethodId);
+			$obj_paymentModule->specializeManuallyWithPaymentID($int_callbackPaymentMethodId);
 			$bln_paymentModuleAlreadySpecialized = true;
 			
 			// ### paymentMethod callback ########################
-			$str_oixFromCallback = $this->ls_shop_paymentModule->determineOix();
+			$str_oixFromCallback = $obj_paymentModule->determineOix();
 			// ###################################################
 		}
 		/*
@@ -117,9 +118,9 @@ class ModuleAfterCheckout extends \Module {
 			$arrOrder = ls_shop_generalHelper::getOrder($idFromOix);
 			// ### paymentMethod callback ########################
 			if (!$bln_paymentModuleAlreadySpecialized) {
-				$this->ls_shop_paymentModule->specializeManuallyWithPaymentID($arrOrder['paymentMethod_id']);
+				$obj_paymentModule->specializeManuallyWithPaymentID($arrOrder['paymentMethod_id']);
 			}
-			$this->ls_shop_paymentModule->onAfterCheckoutPage($arrOrder);
+			$obj_paymentModule->onAfterCheckoutPage($arrOrder);
 			// ###################################################
 
 		}

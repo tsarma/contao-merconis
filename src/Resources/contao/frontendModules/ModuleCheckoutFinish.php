@@ -11,9 +11,6 @@ class ModuleCheckoutFinish extends \Module {
 	private $orderNr = null;
 	
 	public function generate() {
-		$this->import('Merconis\Core\ls_shop_paymentModule');
-		$this->import('Merconis\Core\ls_shop_shippingModule');
-
 		if (FE_USER_LOGGED_IN) {
 			$this->import('FrontendUser', 'User');
 		}
@@ -37,11 +34,13 @@ class ModuleCheckoutFinish extends \Module {
 	}
 	
 	public function compile() {
+		$obj_paymentModule = new ls_shop_paymentModule();
+
 		// ### paymentMethod callback ########################
-		$this->ls_shop_paymentModule->beforeCheckoutFinish();
+		$obj_paymentModule->beforeCheckoutFinish();
 		// ###################################################
 				
-		if ($this->ls_shop_paymentModule->checkoutFinishAllowed()) {
+		if ($obj_paymentModule->checkoutFinishAllowed()) {
 			
 			/*
 			 * Anfang: Verfügbarkeitsprüfung
@@ -180,14 +179,14 @@ class ModuleCheckoutFinish extends \Module {
 
 
 			// ### paymentMethod callback ########################
-			$this->ls_shop_paymentModule->afterCheckoutFinish($orderIdInDb, $order, $afterCheckoutUrl, $oix);
+			$obj_paymentModule->afterCheckoutFinish($orderIdInDb, $order, $afterCheckoutUrl, $oix);
 			// ###################################################	
 
 			$str_paymentAfterCheckoutUrl = ls_shop_languageHelper::getLanguagePage('ls_shop_paymentAfterCheckoutPages');
 			$str_paymentAfterCheckoutUrlWithOih = $str_paymentAfterCheckoutUrl.(preg_match('/\?/', $str_paymentAfterCheckoutUrl) ? '&' : '?').'oih='.$order['orderIdentificationHash'];
 
 			// ### paymentMethod callback ########################
-			$bln_usePaymentAfterCheckoutPage = $this->ls_shop_paymentModule->check_usePaymentAfterCheckoutPage($orderIdInDb, $order);
+			$bln_usePaymentAfterCheckoutPage = $obj_paymentModule->check_usePaymentAfterCheckoutPage($orderIdInDb, $order);
 			// ###################################################
 
 			if ($bln_usePaymentAfterCheckoutPage) {
@@ -197,7 +196,7 @@ class ModuleCheckoutFinish extends \Module {
 			}
 		} else {
 			// ### paymentMethod callback ########################
-			$this->ls_shop_paymentModule->redirectToErrorPage('checkoutFinish not allowed');
+			$obj_paymentModule->redirectToErrorPage('checkoutFinish not allowed');
 			// ###################################################
 		}
 	}
@@ -321,6 +320,9 @@ class ModuleCheckoutFinish extends \Module {
 	}
 	
 	public function createOrder() {
+		$obj_paymentModule = new ls_shop_paymentModule();
+		$obj_shippingModule = new ls_shop_shippingModule();
+
 		/** @var \PageModel $objPage */
 		global $objPage;
 
@@ -419,7 +421,7 @@ class ModuleCheckoutFinish extends \Module {
 			$arrOrder['paymentMethod']['id'] = ls_shop_cartX::getInstance()->calculation['paymentFee']['info']['id']; // no language
 			$arrOrder['paymentMethod']['alias'] = ls_shop_cartX::getInstance()->calculation['paymentFee']['info']['alias']; // no language
 			$arrOrder['paymentMethod']['feeInfo_customerLanguage'] = ls_shop_cartX::getInstance()->calculation['paymentFee']['info']['feeInfo']; // customer language
-			$arrOrder['paymentMethod']['moduleReturnData'] = $this->ls_shop_paymentModule->getPaymentInfo(); // language depends on module behaviour, most likely shop language
+			$arrOrder['paymentMethod']['moduleReturnData'] = $obj_paymentModule->getPaymentInfo(); // language depends on module behaviour, most likely shop language
 			$arrOrder['paymentMethod']['amount'] = ls_shop_cartX::getInstance()->calculation['paymentFee'][0]; // no language
 			$arrOrder['paymentMethod']['amountTaxedWith'] = array(); // no language
 			foreach (ls_shop_cartX::getInstance()->calculation['paymentFee'] as $taxClassID => $value) {
@@ -443,7 +445,7 @@ class ModuleCheckoutFinish extends \Module {
 			$arrOrder['shippingMethod']['id'] = ls_shop_cartX::getInstance()->calculation['shippingFee']['info']['id']; // no language
 			$arrOrder['shippingMethod']['alias'] = ls_shop_cartX::getInstance()->calculation['shippingFee']['info']['alias']; // no language
 			$arrOrder['shippingMethod']['feeInfo_customerLanguage'] = ls_shop_cartX::getInstance()->calculation['shippingFee']['info']['feeInfo']; // customer language
-			$arrOrder['shippingMethod']['moduleReturnData'] = $this->ls_shop_shippingModule->getShippingInfo(); // language depends on module behaviour, most likely shop language
+			$arrOrder['shippingMethod']['moduleReturnData'] = $obj_shippingModule->getShippingInfo(); // language depends on module behaviour, most likely shop language
 			$arrOrder['shippingMethod']['amount'] = ls_shop_cartX::getInstance()->calculation['shippingFee'][0]; // no language
 			$arrOrder['shippingMethod']['amountTaxedWith'] = array(); // no language
 			foreach (ls_shop_cartX::getInstance()->calculation['shippingFee'] as $taxClassID => $value) {

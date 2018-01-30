@@ -6,8 +6,6 @@ use LeadingSystems\Helpers\FlexWidget;
 
 class ModuleCart extends \Module {
 	public function generate() {
-		$this->import('Merconis\Core\ls_shop_paymentModule', 'ls_shop_paymentModule');
-		
 		if (TL_MODE == 'BE') {
 			$objTemplate = new \BackendTemplate('be_wildcard');
 			$objTemplate->wildcard = '### MERCONIS Warenkorb ###';
@@ -77,7 +75,8 @@ class ModuleCart extends \Module {
 
 		$formConfirmOrder = ls_shop_checkoutData::getInstance()->formConfirmOrder;
 		// ### paymentMethod callback ########################
-		$formConfirmOrder = $this->ls_shop_paymentModule->modifyConfirmOrderForm($formConfirmOrder);
+		$obj_paymentModule = new ls_shop_paymentModule();
+		$formConfirmOrder = $obj_paymentModule->modifyConfirmOrderForm($formConfirmOrder);
 		// ###################################################
 		$this->Template->formConfirmOrder = $formConfirmOrder;
 
