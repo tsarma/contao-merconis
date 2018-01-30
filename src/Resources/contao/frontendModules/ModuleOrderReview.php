@@ -4,6 +4,8 @@ namespace Merconis\Core;
 
 class ModuleOrderReview extends \Module {
 	public function generate() {
+		$this->import('Merconis\Core\ls_shop_paymentModule');
+		
 		if (TL_MODE == 'BE') {
 			$objTemplate = new \BackendTemplate('be_wildcard');
 			$objTemplate->wildcard = '### MERCONIS order review ###';
@@ -22,8 +24,7 @@ class ModuleOrderReview extends \Module {
 
 		$formConfirmOrder = ls_shop_checkoutData::getInstance()->formConfirmOrder;
 		// ### paymentMethod callback ########################
-		$obj_paymentModule = new ls_shop_paymentModule();
-		$formConfirmOrder = $obj_paymentModule->modifyConfirmOrderForm($formConfirmOrder);
+		$formConfirmOrder = $this->ls_shop_paymentModule->modifyConfirmOrderForm($formConfirmOrder);
 		// ###################################################
 		$this->Template->formConfirmOrder = $formConfirmOrder;
 
