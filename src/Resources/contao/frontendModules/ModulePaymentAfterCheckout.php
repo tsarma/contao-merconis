@@ -4,7 +4,6 @@ namespace Merconis\Core;
 
 class ModulePaymentAfterCheckout extends \Module {
 	public function generate() {
-		$this->import('Merconis\Core\ls_shop_paymentModule');
 		if (FE_USER_LOGGED_IN) {
 			$this->import('FrontendUser', 'User');
 		}
@@ -36,8 +35,9 @@ class ModulePaymentAfterCheckout extends \Module {
 		}
 
 		// ### paymentMethod callback ########################
-		$this->ls_shop_paymentModule->specializeManuallyWithPaymentID($arr_order['paymentMethod_id']);
-		$arr_paymentModuleReturn = $this->ls_shop_paymentModule->onPaymentAfterCheckoutPage($arr_order);
+		$obj_paymentModule = new ls_shop_paymentModule();
+		$obj_paymentModule->specializeManuallyWithPaymentID($arr_order['paymentMethod_id']);
+		$arr_paymentModuleReturn = $obj_paymentModule->onPaymentAfterCheckoutPage($arr_order);
 		// ###################################################
 
 		$this->Template = new \FrontendTemplate($this->strTemplate);

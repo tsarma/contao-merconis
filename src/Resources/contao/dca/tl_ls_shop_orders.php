@@ -358,7 +358,6 @@ $GLOBALS['TL_DCA']['tl_ls_shop_orders'] = array(
 class ls_shop_orders extends \Backend {
 	public function __construct() {
 		$this->import('BackendUser', 'User');
-		$this->import('Merconis\Core\ls_shop_paymentModule');
 		parent::__construct();
 	}
 	
@@ -375,8 +374,9 @@ class ls_shop_orders extends \Backend {
 		$objTemplate->arrMessageTypes = ls_shop_generalHelper::getMessageTypesForOrderOverview($arrOrder);
 		
 		// ### paymentMethod callback ########################
-		$this->ls_shop_paymentModule->specializeManuallyWithPaymentID($arrOrder['paymentMethod_id']);
-		$paymentModuleOutput = $this->ls_shop_paymentModule->showPaymentStatusInOverview($arrOrder, $arrOrder['paymentMethod_moduleReturnData']);
+		$obj_paymentModule = new ls_shop_paymentModule();
+		$obj_paymentModule->specializeManuallyWithPaymentID($arrOrder['paymentMethod_id']);
+		$paymentModuleOutput = $obj_paymentModule->showPaymentStatusInOverview($arrOrder, $arrOrder['paymentMethod_moduleReturnData']);
 		$objTemplate->paymentModuleOutput = !is_null($paymentModuleOutput) ? $paymentModuleOutput : '';
 		// ###################################################
 
@@ -394,8 +394,9 @@ class ls_shop_orders extends \Backend {
 
 		// ### paymentMethod callback ########################
 		try {
-			$this->ls_shop_paymentModule->specializeManuallyWithPaymentID($arrOrder['paymentMethod_id']);
-			$paymentModuleOutput = $this->ls_shop_paymentModule->showPaymentDetailsInBackendOrderDetailView($arrOrder, $varValue);
+			$obj_paymentModule = new ls_shop_paymentModule();
+			$obj_paymentModule->specializeManuallyWithPaymentID($arrOrder['paymentMethod_id']);
+			$paymentModuleOutput = $obj_paymentModule->showPaymentDetailsInBackendOrderDetailView($arrOrder, $varValue);
 		} catch (\Exception $e) {
 			return $e->getMessage();
 		}
