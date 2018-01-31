@@ -1,10 +1,4 @@
 <?php
-
-	/*
-	 * Form fields
-	 */
-	$GLOBALS['TL_LANG']['FFL']['ls_shop_configuratorFileUpload']      = array('MERCONIS: Konfigurator-Datei-Upload', 'Ein Datei-Upload-Feld speziell zur Verwendung in einem Merconis-Produkt-Konfigurator.');
-
 	/*
 	 * Fields
 	 */

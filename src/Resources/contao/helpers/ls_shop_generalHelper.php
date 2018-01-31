@@ -3215,22 +3215,7 @@ class ls_shop_generalHelper
 			$tmpPostValue = isset($_POST[$fieldName]) ? \Input::post($fieldName) : null;
 			\Input::setPost($fieldName, $arrValidateData[$fieldName]['value']);
 
-			if ($objWidget instanceof ls_shop_configuratorFileUpload) {
-				/*
-				 * Ist das Widget eine Instanz von ls_shop_configuratorFileUpload, so muss an die Validierungsfunktion für den
-				 * Parameter "doNotProcessUpload" true übergeben bekommen. So wird verhindert, dass ein aktueller Upload zu diesem
-				 * Zeitpunkt schon ausgeführt wird. Dies wäre nämlich problematisch, da das Verarbeiten eines Uploads durch dieses
-				 * Widget eine POST-Manipulation zur Folge hat, die zu Nichte gemacht würde, wenn hier nach der Validierung der
-				 * alte POST-Zustand wieder zurückgesetzt wird.
-				 *
-				 * Durch diesen Parameter wird also dafür gesorgt, dass hier wirklich nur der aktuelle Zustand - also der bereits
-				 * vorhandene Wert für dieses Feld - geprüft wird und dass das Verarbeiten eines Uploads erst bei der regulären
-				 * Validierung des Feldes im Zuge der vollständigen Formular-Verarbeitung erfolgt.
-				 */
-				$objWidget->validate(true);
-			} else {
-				$objWidget->validate();
-			}
+			$objWidget->validate();
 
 			\Input::setPost($fieldName, $tmpPostValue);
 

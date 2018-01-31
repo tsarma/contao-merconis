@@ -240,8 +240,6 @@ $GLOBALS['FE_MOD']['ls_shop'] = array(
 	'ls_shop_productManagementApiInspector' => 'Merconis\Core\ModuleProductManagementApiInspector'
 );
 
-$GLOBALS['TL_FFL']['ls_shop_configuratorFileUpload'] = 'Merconis\Core\ls_shop_configuratorFileUpload';
-
 /**
  * Hinzufügen von Content-Elementen
  */
