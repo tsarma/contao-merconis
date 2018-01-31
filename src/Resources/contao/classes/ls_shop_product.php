@@ -1336,11 +1336,11 @@ returns the product price or the cheapest variant price.
 			 <--*/
 
 			case '_attributes':
-				return ls_shop_generalHelper::processProductAttributesValues(deserialize($this->mainData['lsShopProductAttributesValues']));
+				return ls_shop_generalHelper::processProductAttributesValues(json_decode($this->mainData['lsShopProductAttributesValues']));
 				break;
 
 			case '_attributeValueIds':
-				return ls_shop_generalHelper::getProductAttributeValueIds(deserialize($this->mainData['lsShopProductAttributesValues']));
+				return ls_shop_generalHelper::getProductAttributeValueIds(json_decode($this->mainData['lsShopProductAttributesValues']));
 				break;
 
 			case '_attributesAsString':

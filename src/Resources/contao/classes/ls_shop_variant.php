@@ -990,11 +990,11 @@ with the separately existing properties &quot;_scalePricesOutputUnconfigured&quo
 			 <--*/
 
 			case '_attributes':
-				return ls_shop_generalHelper::processProductAttributesValues(deserialize($this->mainData['lsShopProductVariantAttributesValues']));
+				return ls_shop_generalHelper::processProductAttributesValues(json_decode($this->mainData['lsShopProductVariantAttributesValues']));
 				break;
 
 			case '_attributeValueIds':
-				return ls_shop_generalHelper::getProductAttributeValueIds(deserialize($this->mainData['lsShopProductVariantAttributesValues']));
+				return ls_shop_generalHelper::getProductAttributeValueIds(json_decode($this->mainData['lsShopProductVariantAttributesValues']));
 				break;
 
 			case '_attributesAsString':
