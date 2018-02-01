@@ -4505,7 +4505,7 @@ class ls_shop_generalHelper
 							'reference' => $productVariantIDToPutInCart
 						));
 					} else {
-						$cartKeyToPutInCart = $obj_productOrVariant->_cartKey;
+						$cartKeyToPutInCart = $obj_productOrVariant->_objectType === 'product' ? $obj_productOrVariant->_cartKey : $obj_productOrVariant->_objParentProduct->_cartKey;
 
 						/*--> Prüfen, ob das Produkt vorher schon im Warenkorb ist <--*/
 						$tmpBlnCartKeyAlreadyInCart = false;
