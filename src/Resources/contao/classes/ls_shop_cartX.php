@@ -22,6 +22,18 @@ class ls_shop_cartX {
 	 * Prevent direct instantiation (Singleton)
 	 */
 	protected function __construct() {
+		/*
+		 * FIXME: The singleton architecture doesn't really work here because when processing getCartFromSession()
+		 * somewhere in the program flow ls_shop_cartX::getInstance() is being called before the first call of
+		 * ls_shop_cartX::getInstance was able to store the self-reference.
+		 *
+		 * Of course this is an unintended flaw in the program design and it should be rearranged, so that the
+		 * singleton concept here actually works as intended. However, simply preventing the cascaded initialization
+		 * causes problems, because other parts of the program somehow rely on this behaviour. For example, determining
+		 * the cart price and detecting payment and shipping methods' price limits won't work as expected.
+		 *
+		 * So, for now we leave it as it is, but it should definitely be improved.
+		 */
 		$this->getCartFromSession();
 	}
 
@@ -64,7 +76,11 @@ class ls_shop_cartX {
 		
 		if (isset($this->items) && is_array($this->items)) {
 			foreach ($this->items as $productCartKey => $arrCartItem) {
-				$objProduct = ls_shop_generalHelper::getObjProduct($productCartKey, __METHOD__);
+				/*
+				 * IMPORTANT: The refresh parameter must be set to true when calling ls_shop_generalHelper::getObjProduct
+				 * because otherwise detecting payment and shipping methods' price limits won't work.
+				 */
+				$objProduct = ls_shop_generalHelper::getObjProduct($productCartKey, __METHOD__, true);
 				$this->itemsExtended[$productCartKey] = array(
 					'objProduct' => $objProduct,
 					'price' => !$objProduct->_variantIsSelected ? $objProduct->_priceAfterTax : $objProduct->_selectedVariant->_priceAfterTax,
