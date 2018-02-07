@@ -23,8 +23,8 @@
 	<?php if ($this->str_selectedResource) { ?>
 		<h2><?php echo $this->str_selectedResource; ?></h2>
 		<p><?php echo $this->str_resourceDescription; ?></p>
-		<p><strong>Relative resource URL:</strong> <?php echo \Environment::get('base'); ?><?php echo $this->str_apiResourceUrl; ?></p>
-		<p><strong>Absolute resource URL:</strong> <?php echo $this->str_apiResourceUrl; ?></p>
+		<p><strong>Absolute resource URL:</strong> <?php echo \Environment::get('base'); ?><?php echo $this->str_apiResourceUrl; ?></p>
+		<p><strong>Relative resource URL:</strong> <?php echo $this->str_apiResourceUrl; ?></p>
 		<div class="dataInput">
 			<h2>Input</h2>
 			<form>

@@ -1514,7 +1514,7 @@ class ls_shop_productManagementApiHelper {
 		if (!isset($GLOBALS['merconis_globals']['cache']['arr_productManagementApiResourceDescriptions'])) {
 			$arr_resourceDescriptions = array();
 
-			$obj_reflection = new \ReflectionClass('ls_shop_apiController_productManagement');
+			$obj_reflection = new \ReflectionClass('Merconis\Core\ls_shop_apiController_productManagement');
 			$arr_reflectionMethods = $obj_reflection->getMethods();
 
 			if (is_array($arr_reflectionMethods)) {

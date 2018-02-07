@@ -35,7 +35,7 @@ if ($this->objProduct->_variantIsSelected) {
 				</div>
 			<?php } ?>
 			<div class="finalPrice">
-				<div class="label">Dein Preis:</div>
+				<div class="label"></div>
 				<div class="value">
 					<?php
 						/*

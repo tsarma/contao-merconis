@@ -18,6 +18,10 @@
 	color: #FF0000;
 }
 
+.widget > div.simpleOutput {
+	font-size: 0.875rem;
+}
+
 /*
  * Pagination
  */

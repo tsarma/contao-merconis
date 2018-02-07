@@ -803,7 +803,7 @@ class ls_shop_productManagementApiPreprocessor
 			'str_responseType' => 'json',
 			'arr_fields' => array(
 				'type' => array(
-					'preprocessor' => 'preprocess_rowType',
+					'preprocessor' => 'preprocess_rowTypeNoLanguage',
 					'description' => '',
 					'fieldType' => 'input_output',
 					'exceptionSkipsRow' => true
@@ -1040,6 +1040,32 @@ class ls_shop_productManagementApiPreprocessor
 
 		if (!in_array($str_output, ls_shop_productManagementApiHelper::$dataRowTypesInOrderToProcess)) {
 			throw new \Exception('wrong row type given (allowed values: \''.implode('\', \'', ls_shop_productManagementApiHelper::$dataRowTypesInOrderToProcess).'\')');
+		}
+		return $str_output;
+	}
+
+	/**
+	 * Expected input: 'product', 'variant'
+	 * Accepted input: as expected
+	 * Normalization: none
+	 */
+	protected static function preprocess_rowTypeNoLanguage($var_input, $arr_row, $str_fieldName, $str_context, $arr_normalizedRow) {
+		$str_output = trim($var_input);
+
+		$arr_allowedRowTypes = array();
+		foreach (ls_shop_productManagementApiHelper::$dataRowTypesInOrderToProcess as $str_rowType) {
+			if (strpos($str_rowType, 'Language') !== false) {
+				continue;
+			}
+			$arr_allowedRowTypes[] = $str_rowType;
+		}
+
+		if (!$str_output) {
+			throw new \Exception('no row type given (allowed values: \''.implode('\', \'', $arr_allowedRowTypes).'\')');
+		}
+
+		if (!in_array($str_output, $arr_allowedRowTypes)) {
+			throw new \Exception('wrong row type given (allowed values: \''.implode('\', \'', $arr_allowedRowTypes).'\')');
 		}
 		return $str_output;
 	}
