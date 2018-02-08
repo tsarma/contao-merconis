@@ -26,7 +26,7 @@
 	 * Parse outsourced templates and get html responses to include later in this template
 	 */
 	$str_html_gallery = $this->objProduct->_useCustomTemplate('template_productIncludes_imageOutput_01');
-	$str_html_attributesInfo = $this->objProduct->_useCustomTemplate('template_productIncludes_detailedAttributesAndValues_01');
+	$str_html_attributesInfo = $this->objProduct->_useCustomTemplate('template_productIncludes_detailedAttrAndVal_01');
 	$str_html_deliveryInfo = $this->objProduct->_useCustomTemplate('template_productIncludes_deliveryInfo_01');
 	$str_html_stockInfo = $this->objProduct->_useCustomTemplate('template_productIncludes_stockInfo_01');
 	$str_html_variantSelector = $this->objProduct->_useCustomTemplate('template_productIncludes_variantSelector_01');
