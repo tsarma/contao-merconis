@@ -4,7 +4,7 @@
 		<div class="userSortingForm">
 			<form action="<?php echo \Environment::get('request'); ?>" method="post" onsubmit="lsjs.scrollAssistant.__controller.getLSFEScrollOffset();">
 				<div>
-					<input type="hidden" name="REQUEST_TOKEN" value="<?php echo REQUEST_TOKEN; ?>" />
+					<input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}" />
 					<input type="hidden" name="FORM_SUBMIT" value="userSorting">
 					<input type="hidden" name="identifyCorrespondingOutputDefinition" value="<?php echo $this->identifyCorrespondingOutputDefinition; ?>">
 					<?php echo $this->fflSorting; ?>
