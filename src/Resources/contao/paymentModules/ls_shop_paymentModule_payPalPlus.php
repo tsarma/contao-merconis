@@ -37,8 +37,6 @@ class ls_shop_paymentModule_payPalPlus extends ls_shop_paymentModule_standard {
 	);
 
 	public function initialize($specializedManually = false) {
-		require_once __DIR__.'/vendor/paypal/PayPal-PHP-SDK/autoload.php';
-		
 		if (!isset($_SESSION['lsShopPaymentProcess']['payPalPlus']) || !is_array($_SESSION['lsShopPaymentProcess']['payPalPlus'])) {
 			$this->payPalPlus_resetSessionStatus();
 		}

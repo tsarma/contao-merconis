@@ -15,7 +15,8 @@
     "leadingsystems/contao-api": "*",
     "leadingsystems/contao-cajax": "*",
     "leadingsystems/contao-languageselector": "*",
-    "leadingsystems/contao-datacollector": "*"
+    "leadingsystems/contao-datacollector": "*",
+    "paypal/rest-api-sdk-php": "*"
   },
   "autoload": {
     "psr-4": {
