@@ -2488,29 +2488,12 @@ class ls_shop_generalHelper
 	}
 
 	/*
-	 * Diese Funktion wird im BE verwendet und dient dem Zweck, die aktuelle URL ohne
+	 * Diese Funktion dient dem Zweck, die aktuelle URL ohne
 	 * bestimmte oder alle GET-Parameter zu erhalten.
 	 */
 	public static function getUrl($blnEncode = true, $removeKeys = array(), $keepKeys = array())
 	{
-		$url = ampersand(\Environment::get('request'), $blnEncode);
-
-		if (is_array($removeKeys)) {
-			foreach ($removeKeys as $v) {
-				$url = preg_replace('/(&|&amp;|\?)' . $v . '=.*((&|&amp;)|$)/siU', '\\3', $url);
-			}
-		} else if ($removeKeys == 'all') {
-			$url = preg_replace('/\?.*$/siU', '', $url);
-
-			array_insert($keepKeys, 0, array('do'));
-			$count = 0;
-			foreach ($keepKeys as $key) {
-				$url = $url . (!$count ? '?' : '&') . $key . '=' . \Input::get($key);
-				$count++;
-			}
-		}
-
-		return $url;
+		return \LeadingSystems\Helpers\ls_helpers_controller::getUrl($blnEncode, $removeKeys, $keepKeys);
 	}
 
 	/*
