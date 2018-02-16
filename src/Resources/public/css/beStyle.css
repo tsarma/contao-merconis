@@ -1,3 +1,7 @@
+#tl_navigation .group-merconis {
+	background: url("../icons/be/default.svg") 3px 1px no-repeat;
+}
+
 .clearFloat {
 	clear: both;
 	height: 0.1px;
