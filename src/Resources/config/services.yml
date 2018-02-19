@@ -3,3 +3,8 @@ services:
     class: LeadingSystems\MerconisBundle\Controller\ProductSearchController
     arguments:
       - "@contao.framework"
+
+  merconis.controller.backend.pick_value:
+    class: LeadingSystems\MerconisBundle\Controller\ValuePickerController
+    arguments:
+      - "@contao.framework"
