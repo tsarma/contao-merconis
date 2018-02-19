@@ -1,58 +1,58 @@
 <?php
 
-namespace Merconis\Core;
+namespace LeadingSystems\MerconisBundle\Controller;
+
+use Contao\Ajax;
+use Contao\CoreBundle\Framework\ContaoFrameworkInterface;
+use Contao\Input;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Initialize the system
+ * Configures the bundle.
+ *
+ * @author Leading Systems GmbH
  */
-define('TL_MODE', 'BE');
-require_once('../../../initialize.php');
-
-
-class ls_shop_beProductSearch extends \Backend
+class ProductSearchController extends \Backend
 {
+	/**
+	 * Contao framework.
+	 *
+	 * @var ContaoFrameworkInterface
+	 */
+	private $framework;
 
 	/**
-	 * Current Ajax object
-	 * @var object
+	 * ProductSearchController constructor.
+	 *
+	 * @param ContaoFrameworkInterface $framework Contao framework.
 	 */
-	protected $objAjax;
-
-
-	/**
-	 * Initialize the controller
-	 * 
-	 * 1. Import the user
-	 * 2. Call the parent constructor
-	 * 3. Authenticate the user
-	 * 4. Load the language files
-	 * DO NOT CHANGE THIS ORDER!
-	 */
-	public function __construct()
+	public function __construct(ContaoFrameworkInterface $framework)
 	{
-		$this->import('BackendUser', 'User');
-		parent::__construct();
+		$this->framework = $framework;
+		$this->framework->initialize();
 
-		$this->User->authenticate();
+		parent::__construct();
 
 		$this->loadLanguageFile('default');
 		$this->loadLanguageFile('modules');
 	}
 
-
 	/**
-	 * Run the controller and parse the login template
+	 * Handle the search action.
+	 *
+	 * @return Response
 	 */
-	public function run()
+	public function searchAction()
 	{
+
 		$this->Template = new \BackendTemplate('be_productSearch');
 		$this->Template->main = '';
 
 		// Ajax request
 		if ($_POST && \Environment::get('isAjaxRequest'))
 		{
-			$this->objAjax = new \Ajax(\Input::post('action'));
-			$this->objAjax->executePreActions();
+			$ajax = new Ajax(Input::post('action'));
+			$ajax->executePreActions();
 		}
 
 		$this->Template->main .= $this->getBackendModule('ls_shop_productSearch');
@@ -74,15 +74,6 @@ class ls_shop_beProductSearch extends \Backend
 		$this->Template->request = ampersand(\Environment::get('request'));
 		$this->Template->top = $GLOBALS['TL_LANG']['MSC']['backToTop'];
 
-		$this->Template->output();
+		return $this->Template->getResponse();
 	}
 }
-
-
-/**
- * Instantiate the controller
- */
-$obj_ls_shop_beProductSearch = new ls_shop_beProductSearch();
-$obj_ls_shop_beProductSearch->run();
-
-?>
