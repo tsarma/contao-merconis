@@ -1,0 +1,5 @@
+services:
+  merconis.controller.backend.product_search:
+    class: LeadingSystems\MerconisBundle\Controller\ProductSearchController
+    arguments:
+      - "@contao.framework"
