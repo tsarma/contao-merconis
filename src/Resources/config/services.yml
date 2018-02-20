@@ -8,3 +8,8 @@ services:
     class: LeadingSystems\MerconisBundle\Controller\ValuePickerController
     arguments:
       - "@contao.framework"
+
+  merconis.controller.backend.show_mail:
+    class: LeadingSystems\MerconisBundle\Controller\ShowMailController
+    arguments:
+      - "@contao.framework"
