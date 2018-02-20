@@ -31,6 +31,7 @@ class Plugin implements BundlePluginInterface
 						'LeadingSystems\DataCollectorBundle\LeadingSystemsDataCollectorBundle'
 					]
 				)
+				->setReplace(['zzz_merconis'])
 		];
 	}
 }
