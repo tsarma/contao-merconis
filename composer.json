@@ -11,13 +11,13 @@
   "require": {
     "php": ">=7.0.0",
     "contao/core-bundle": "~4.4",
-    "leadingsystems/contao-helpers": "*",
-    "leadingsystems/contao-lsjs4c": "*",
-    "leadingsystems/contao-api": "*",
-    "leadingsystems/contao-cajax": "*",
-    "leadingsystems/contao-languageselector": "*",
-    "leadingsystems/contao-datacollector": "*",
-    "paypal/rest-api-sdk-php": "*"
+    "leadingsystems/contao-helpers": "^2.0",
+    "leadingsystems/contao-lsjs4c": "^2.0",
+    "leadingsystems/contao-api": "^2.0",
+    "leadingsystems/contao-cajax": "^2.0",
+    "leadingsystems/contao-languageselector": "^2.0",
+    "leadingsystems/contao-datacollector": "^2.0",
+    "paypal/rest-api-sdk-php": "^1.13"
   },
   "autoload": {
     "psr-4": {
@@ -34,6 +34,9 @@
     ]
   },
   "extra": {
-    "contao-manager-plugin": "LeadingSystems\\MerconisBundle\\ContaoManager\\Plugin"
+    "contao-manager-plugin": "LeadingSystems\\MerconisBundle\\ContaoManager\\Plugin",
+    "branch-alias": {
+      "dev-master": "4.0.x-dev"
+    }
   }
 }
