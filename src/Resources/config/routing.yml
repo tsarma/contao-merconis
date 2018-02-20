@@ -15,7 +15,9 @@ merconis.backend.pick_value:
     _custom_backend_view: true
 
 merconis.backend.show_mail_html_body:
-  path: /contao/merconis/mail
+  path: /contao/merconis/mail/{messageId}
+  requirements:
+    messageId: '\d+'
   defaults:
     _controller: merconis.controller.backend.show_mail:htmlBodyAction
     _scope:      "backend"

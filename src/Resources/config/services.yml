@@ -12,4 +12,5 @@ services:
   merconis.controller.backend.show_mail:
     class: LeadingSystems\MerconisBundle\Controller\ShowMailController
     arguments:
-      - "@contao.framework"
+      - "@database_connection"
+      - "@templating"
