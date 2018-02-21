@@ -1,0 +1,25 @@
+merconis.backend.product_search:
+  path: /contao/merconis/products/search
+  defaults:
+    _controller: merconis.controller.backend.product_search:searchAction
+    _scope:      "backend"
+    _token_check: true
+    _custom_backend_view: true
+
+merconis.backend.pick_value:
+  path: /contao/merconis/value
+  defaults:
+    _controller: merconis.controller.backend.pick_value:pickAction
+    _scope:      "backend"
+    _token_check: true
+    _custom_backend_view: true
+
+merconis.backend.show_mail_html_body:
+  path: /contao/merconis/mail/{messageId}
+  requirements:
+    messageId: '\d+'
+  defaults:
+    _controller: merconis.controller.backend.show_mail:htmlBodyAction
+    _scope:      "backend"
+    _token_check: true
+    _custom_backend_view: true

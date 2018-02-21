@@ -1,0 +1,16 @@
+services:
+  merconis.controller.backend.product_search:
+    class: LeadingSystems\MerconisBundle\Controller\ProductSearchController
+    arguments:
+      - "@contao.framework"
+
+  merconis.controller.backend.pick_value:
+    class: LeadingSystems\MerconisBundle\Controller\ValuePickerController
+    arguments:
+      - "@contao.framework"
+
+  merconis.controller.backend.show_mail:
+    class: LeadingSystems\MerconisBundle\Controller\ShowMailController
+    arguments:
+      - "@database_connection"
+      - "@templating"
