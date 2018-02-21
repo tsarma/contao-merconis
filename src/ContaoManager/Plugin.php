@@ -34,6 +34,7 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface
 						'LeadingSystems\DataCollectorBundle\LeadingSystemsDataCollectorBundle'
 					]
 				)
+				->setReplace(['zzz_merconis'])
 		];
 	}
 
