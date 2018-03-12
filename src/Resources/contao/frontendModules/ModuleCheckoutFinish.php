@@ -68,7 +68,9 @@ class ModuleCheckoutFinish extends \Module {
 									`tl_ls_shop_product` WRITE,
 									`tl_ls_shop_variant` WRITE,
 									`tl_ls_shop_delivery_info` READ,
-									`tl_ls_shop_steuersaetze` READ
+									`tl_ls_shop_steuersaetze` READ,
+									`tl_ls_shop_attributes` READ,
+									`tl_ls_shop_attribute_values` READ
 				")->execute();
 			}
 			
