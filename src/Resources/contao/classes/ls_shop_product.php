@@ -101,7 +101,7 @@ class ls_shop_product
 	 * des Produkt-Objektes und analysiert dafür die Methoden "__get()" und "__call()"
 	 <--*/
 	protected function ls_outputOptions() {
-		$fileContent = file_get_contents(TL_ROOT.'/vendor/leadingsystems/contao-merconis/src/Resources/contao/ls_shop_product.php');
+		$fileContent = file_get_contents(TL_ROOT.'/vendor/leadingsystems/contao-merconis/src/Resources/contao/classes/ls_shop_product.php');
 
 		/*-->
 		 * Properties
