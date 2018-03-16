@@ -12,7 +12,7 @@
     "php": ">=7.0.0",
     "contao/core-bundle": "~4.4",
     "leadingsystems/contao-helpers": "^2.0",
-    "leadingsystems/contao-lsjs4c": "^2.0",
+    "leadingsystems/contao-lsjs4c": "^2.0.2",
     "leadingsystems/contao-api": "^2.0",
     "leadingsystems/contao-cajax": "^2.0",
     "leadingsystems/contao-languageselector": "^2.0",
