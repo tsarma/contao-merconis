@@ -15,7 +15,7 @@
     "leadingsystems/contao-lsjs4c": "^2.0.2",
     "leadingsystems/contao-api": "^2.0",
     "leadingsystems/contao-cajax": "^2.0",
-    "leadingsystems/contao-languageselector": "^2.0",
+    "leadingsystems/merconis-languageselector": "^2.0",
     "leadingsystems/contao-datacollector": "^2.0",
     "paypal/rest-api-sdk-php": "^1.13"
   },
