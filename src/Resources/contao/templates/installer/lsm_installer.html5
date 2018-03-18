@@ -8,6 +8,8 @@
 	} else {
 		?>
 		<p><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['installer']['notInstalledYet']; ?></p>
+
+		<div data-merconis-component-autostart="installer"></div>
 		<?php
 	}
 	?>
