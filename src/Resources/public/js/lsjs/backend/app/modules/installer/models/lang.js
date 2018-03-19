@@ -17,6 +17,7 @@ var obj_classdef_model = {
 		lsjs.apiInterface.request({
 			str_resource: 'loadLanguageFiles',
 			obj_params: {
+				'ls_api_key': lsjs.__appHelpers.merconisBackendApp.obj_config.API_KEY,
 				'var_name': 'lsm_installer',
 				'var_keys': 'TL_LANG.lsm_installer'
 			},
