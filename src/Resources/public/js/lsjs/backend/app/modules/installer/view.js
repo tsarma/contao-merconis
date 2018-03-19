@@ -12,9 +12,17 @@ var obj_classdef = 	{
 	initializeGui: function() {
 		var self = this;
 
-		this.registerElements(this.__el_container, 'main', true);
+		var el_mainGui = this.tplAdd({
+			parent: this.__el_container,
+			name: 'main'
+		});
 
-		console.log(this.__autoElements);
+		this.__autoElements.main.btn_install.addEvent(
+			'click',
+			function() {
+				self.__controller.callInstallationResource();
+			}
+		)
 	}
 };
 

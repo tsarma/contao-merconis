@@ -6,8 +6,33 @@ var str_moduleName = '__moduleName__';
 
 var obj_classdef = {
 	start: function() {
-	}
+	},
 
+	callInstallationResource: function() {
+		lsjs.loadingIndicator.__controller.show(this.__models.lang.readData('MSC.ls_shop.installer.pleaseWait_installation'));
+		lsjs.apiInterface.request({
+			str_resource: 'merconisInstaller',
+			obj_params: {
+				'ls_api_key': lsjs.__appHelpers.merconisBackendApp.obj_config.API_KEY
+			},
+			func_onSuccess: function(obj_data) {
+				lsjs.__moduleHelpers.messageBox.open({
+					str_msg: this.__models.lang.readData('MSC.ls_shop.installer.installationSuccessful')
+				});
+
+				lsjs.loadingIndicator.__controller.hide();
+ 			}.bind(this),
+			obj_additionalRequestOptions: {
+				onFailure: function(obj_request) {
+					lsjs.__moduleHelpers.messageBox.open({
+						str_msg: this.__models.lang.readData('MSC.ls_shop.installer.unspecificErrorMsg')
+					});
+
+					lsjs.loadingIndicator.__controller.hide(true);
+				}.bind(this)
+			}
+		});
+	}
 };
 
 lsjs.addControllerClass(str_moduleName, obj_classdef);

@@ -11,15 +11,12 @@ var obj_classdef_model = {
 	loadData: function() {
 		lsjs.loadingIndicator.__controller.show();
 
-		/*
-		 * FIXME: The api request doesn't work yet because we don't use the api key yet.
-		 */
 		lsjs.apiInterface.request({
 			str_resource: 'loadLanguageFiles',
 			obj_params: {
 				'ls_api_key': lsjs.__appHelpers.merconisBackendApp.obj_config.API_KEY,
 				'var_name': 'lsm_installer',
-				'var_keys': 'TL_LANG.lsm_installer'
+				'var_keys': 'TL_LANG.MSC.ls_shop.installer'
 			},
 			func_onSuccess: function(obj_data) {
 				this.data = obj_data;
