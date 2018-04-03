@@ -11,11 +11,12 @@ var obj_classdef = {
 	callInstallationResource: function() {
 		lsjs.loadingIndicator.__controller.show(this.__models.lang.readData('MSC.ls_shop.installer.pleaseWait_installation'));
 		lsjs.apiInterface.request({
-			str_resource: 'merconisInstaller',
+			str_resource: 'merconisInstaller_test',
 			obj_params: {
 				'ls_api_key': lsjs.__appHelpers.merconisBackendApp.obj_config.API_KEY
 			},
 			func_onSuccess: function(obj_data) {
+                this.__models.status.getCurrentStatus(this.initializeGui.bind(this));
 				lsjs.__moduleHelpers.messageBox.open({
 					str_msg: this.__models.lang.readData('MSC.ls_shop.installer.installationSuccessful')
 				});
@@ -32,7 +33,11 @@ var obj_classdef = {
 				}.bind(this)
 			}
 		});
-	}
+	},
+
+    initializeGui: function() {
+        this.__view.initializeGui();
+    }
 };
 
 lsjs.addControllerClass(str_moduleName, obj_classdef);

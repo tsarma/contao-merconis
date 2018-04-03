@@ -1,3 +1,13 @@
 <div>
-	<button data-lsjs-element="btn_install">TEST INSTALLATION RESOURCE</button>
+	<h1><?= arg.__models.lang.data.MSC.ls_shop.installer.status[arg.__models.status.data.str_currentInstallationStatus] =?></h1>
+	<?
+	switch(arg.__models.status.data.str_currentInstallationStatus) {
+		case 'notInstalledYet':
+			?>
+			<p><?= arg.__models.lang.data.MSC.ls_shop.installer.msg001 =?></p>
+			<?
+			break;
+	}
+	?>
+	<button data-lsjs-element="btn_install"><?= arg.__models.lang.data.MSC.ls_shop.installer.goOn =?></button>
 </div>

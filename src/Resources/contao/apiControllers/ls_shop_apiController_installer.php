@@ -43,18 +43,47 @@ class ls_shop_apiController_installer
 	}
 
 	/**
-	 * Merconis Installer
+	 * Merconis Installer:
+     *
+     * Test
 	 *
 	 * Scope: BE
 	 *
 	 * Allowed user types: beUser
 	 */
-	protected function apiResource_merconisInstaller()
+	protected function apiResource_merconisInstaller_test()
 	{
 		$this->obj_apiReceiver->requireScope(['BE']);
 		$this->obj_apiReceiver->requireUser(['beUser']);
 
+        \Config::persist('ls_shop_installationStatus', 'installedCompletely');
+
 		$this->obj_apiReceiver->success();
 		$this->obj_apiReceiver->set_data('TEST');
+	}
+
+	/**
+	 * Merconis Installer:
+     *
+     * Returns the current installation status.
+	 *
+	 * Scope: BE
+	 *
+	 * Allowed user types: beUser
+	 */
+	protected function apiResource_merconisInstaller_getStatus()
+	{
+		$this->obj_apiReceiver->requireScope(['BE']);
+		$this->obj_apiReceiver->requireUser(['beUser']);
+
+		$str_currentInstallationStatus = $GLOBALS['TL_CONFIG']['ls_shop_installationStatus'];
+		if (!$str_currentInstallationStatus) {
+		    $str_currentInstallationStatus = 'notInstalledYet';
+        }
+
+		$this->obj_apiReceiver->success();
+		$this->obj_apiReceiver->set_data([
+		    'str_currentInstallationStatus' => $str_currentInstallationStatus
+        ]);
 	}
 }

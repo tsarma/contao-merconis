@@ -12,7 +12,7 @@ var obj_classdef = 	{
 	initializeGui: function() {
 		var self = this;
 
-		var el_mainGui = this.tplAdd({
+		var el_mainGui = this.tplReplace({
 			parent: this.__el_container,
 			name: 'main'
 		});

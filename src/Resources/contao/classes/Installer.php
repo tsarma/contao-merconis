@@ -6,8 +6,6 @@ class Installer
 {
 	protected $obj_template = null;
 
-	protected $bln_installedCompletely = false;
-
 	/*
 	 * Current object instance (Singleton)
 	 */
@@ -36,12 +34,6 @@ class Installer
 	{
 		\System::loadLanguageFile('lsm_installer');
 		$this->obj_template = new \FrontendTemplate('lsm_installer');
-
-		if (isset($GLOBALS['TL_CONFIG']['ls_shop_installedCompletely']) && $GLOBALS['TL_CONFIG']['ls_shop_installedCompletely']) {
-			$this->bln_installedCompletely = true;
-		}
-
-		$this->obj_template->__set('bln_installedCompletely', $this->bln_installedCompletely);
 	}
 
 	public function parse()
