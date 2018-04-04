@@ -1,5 +1,7 @@
 <div class="contaoBeMainContainer">
-	<div id="merconis-dashboard">
-		<?php echo $this->str_output; ?>
-	</div>
+    <div id="merconis-dashboard">
+        <div data-merconis-component-autostart="dashboard"></div>
+    </div>
+
+    <?php echo $this->str_output; ?>
 </div>

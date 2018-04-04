@@ -15,8 +15,8 @@ var obj_classdef_model = {
 			str_resource: 'loadLanguageFiles',
 			obj_params: {
 				'ls_api_key': lsjs.__appHelpers.merconisBackendApp.obj_config.API_KEY,
-				'var_name': 'lsm_installer',
-				'var_keys': 'TL_LANG.MSC.ls_shop.installer'
+				'var_name': 'lsm_dashboard',
+				'var_keys': 'TL_LANG.MSC.ls_shop.dashboard'
 			},
 			func_onSuccess: function(obj_data) {
 				this.data = obj_data;

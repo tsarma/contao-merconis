@@ -17,11 +17,11 @@ var obj_classdef = 	{
 			name: 'main'
 		});
 
-		if (typeOf(this.__autoElements.main.btn_installStep01) === 'element') {
-            this.__autoElements.main.btn_installStep01.addEvent(
+		if (typeOf(this.__autoElements.main.btn_test) === 'element') {
+            this.__autoElements.main.btn_test.addEvent(
                 'click',
                 function() {
-                    self.__controller.callInstallationResource_step01();
+                    self.__controller.callDashboardResource_test01();
                 }
             );
 		}

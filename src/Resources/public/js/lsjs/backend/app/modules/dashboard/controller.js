@@ -8,17 +8,16 @@ var obj_classdef = {
 	start: function() {
 	},
 
-    callInstallationResource_step01: function() {
-		lsjs.loadingIndicator.__controller.show(this.__models.lang.readData('MSC.ls_shop.installer.pleaseWait_installation'));
+    callDashboardResource_test01: function() {
+		lsjs.loadingIndicator.__controller.show(this.__models.lang.readData('MSC.ls_shop.dashboard.pleaseWait'));
 		lsjs.apiInterface.request({
-			str_resource: 'merconisInstaller_step01',
+			str_resource: 'merconisDashboard_test01',
 			obj_params: {
 				'ls_api_key': lsjs.__appHelpers.merconisBackendApp.obj_config.API_KEY
 			},
 			func_onSuccess: function(obj_data) {
-                this.__models.status.getCurrentStatus(this.initializeGui.bind(this));
 				lsjs.__moduleHelpers.messageBox.open({
-					str_msg: this.__models.lang.readData('MSC.ls_shop.installer.installationSuccessful')
+					str_msg: this.__models.lang.readData('MSC.ls_shop.dashboard.requestSuccessful')
 				});
 
 				lsjs.loadingIndicator.__controller.hide();
@@ -26,7 +25,7 @@ var obj_classdef = {
 			obj_additionalRequestOptions: {
 				onFailure: function(obj_request) {
 					lsjs.__moduleHelpers.messageBox.open({
-						str_msg: this.__models.lang.readData('MSC.ls_shop.installer.unspecificErrorMsg')
+						str_msg: this.__models.lang.readData('MSC.ls_shop.dashboard.requestFailed')
 					});
 
 					lsjs.loadingIndicator.__controller.hide(true);
