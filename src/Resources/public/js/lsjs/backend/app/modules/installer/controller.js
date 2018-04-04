@@ -8,10 +8,10 @@ var obj_classdef = {
 	start: function() {
 	},
 
-	callInstallationResource: function() {
+    callInstallationResource_step01: function() {
 		lsjs.loadingIndicator.__controller.show(this.__models.lang.readData('MSC.ls_shop.installer.pleaseWait_installation'));
 		lsjs.apiInterface.request({
-			str_resource: 'merconisInstaller_test',
+			str_resource: 'merconisInstaller_step01',
 			obj_params: {
 				'ls_api_key': lsjs.__appHelpers.merconisBackendApp.obj_config.API_KEY
 			},
