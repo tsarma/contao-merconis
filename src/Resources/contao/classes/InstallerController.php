@@ -61,7 +61,7 @@ class InstallerController extends \Controller {
 		'3_0_0_stable_4_0_0_stable',
 	);
 
-	protected $pathToThemePreviewImages = 'files/merconisThemeSource/theme%s/misc/previewImage.jpg';
+	protected $pathToThemePreviewImages = 'files/merconisThemeFiles/theme%s/misc/previewImage.jpg';
 
 
 	public function __construct() {
@@ -372,7 +372,7 @@ class InstallerController extends \Controller {
 
 					$_SESSION['lsShop']['installer_selectedTheme']['id'] = $arrThemeIDAndVersion[0];
 					$_SESSION['lsShop']['installer_selectedTheme']['version'] = $arrThemeIDAndVersion[1];
-					$_SESSION['lsShop']['installer_selectedTheme']['srcPath'] = 'files/merconisThemeSource/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'];
+					$_SESSION['lsShop']['installer_selectedTheme']['srcPath'] = 'files/merconisThemeFiles/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'];
 					$_SESSION['lsShop']['installer_selectedTheme']['templateFolderName'] = 'merconisTemplatesTheme'.$_SESSION['lsShop']['installer_selectedTheme']['id'];
 					$_SESSION['lsShop']['installer_selectedTheme']['srcPathTemplates'] = $_SESSION['lsShop']['installer_selectedTheme']['srcPath'].'/'.$_SESSION['lsShop']['installer_selectedTheme']['templateFolderName'];
 					$_SESSION['lsShop']['installer_selectedTheme']['srcPathExportTablesDat'] = $_SESSION['lsShop']['installer_selectedTheme']['srcPath'].'/data/exportTables.dat';
@@ -387,7 +387,7 @@ class InstallerController extends \Controller {
 				}
 
 				if (isset($_SESSION['lsShop']['installer_selectedTheme'])) {
-					if (true || !$this->checkIfThemeCanBeInstalled()) {
+					if (!$this->checkIfThemeCanBeInstalled()) {
                         \System::log(
                             'MERCONIS INSTALLER: Installation not possible with theme '.$_SESSION['lsShop']['installer_selectedTheme']['id'],
                             'MERCONIS MESSAGES',
@@ -438,7 +438,7 @@ class InstallerController extends \Controller {
 					$this->obj_config->update("\$GLOBALS['TL_CONFIG']['".$k."']", $v);
 				}
 
-				\Controller::redirect('contao/main.php?lsShopInstallationStep=3');
+				\Controller::redirect('contao?do=ls_shop_dashboard&lsShopInstallationStep=3');
 				break;
 
 			case 3:
@@ -476,7 +476,7 @@ class InstallerController extends \Controller {
 
 				\System::log('MERCONIS INSTALLER: Setting installation complete flag in localconfig.php', 'MERCONIS INSTALLER', TL_MERCONIS_INSTALLER);
 
-				\Controller::redirect('contao/main.php');
+				\Controller::redirect('contao?do=ls_shop_dashboard');
 				break;
 		}
 	}
@@ -558,11 +558,9 @@ class InstallerController extends \Controller {
 	}
 
 	protected function copyFiles() {
-## cc3a ##
-		$targetPath = (version_compare(VERSION, '3.0', '>=') ? 'files' : 'tl_files').'/merconisfiles';
-		\System::log('MERCONIS INSTALLER: Copying MERCONIS files to '.$targetPath, 'MERCONIS INSTALLER', TL_MERCONIS_INSTALLER);
-		$this->dirCopy('system/modules/zzz_merconis/installerResources/merconisfiles', $targetPath);
-## cc3e ##
+		$targetPath = 'files/merconisfiles';
+		\System::log('MERCONIS INSTALLER: Copying Merconis files to '.$targetPath, 'MERCONIS INSTALLER', TL_MERCONIS_INSTALLER);
+		$this->dirCopy('vendor/leadingsystems/contao-merconis/src/Resources/contao/installerResources/merconisfiles', $targetPath);
 	}
 
 	protected function deleteUnnecessaryThemeFiles() {
@@ -1038,7 +1036,7 @@ class InstallerController extends \Controller {
 
 	protected function lsShopGetDatabaseRelations() {
 		$arrRelations = array();
-		$strDatabaseFile = file_get_contents(TL_ROOT.'/system/modules/zzz_merconis/config/database.sql');
+		$strDatabaseFile = file_get_contents(TL_ROOT.'/vendor/leadingsystems/contao-merconis/src/Resources/contao/config/database.sql');
 		preg_match_all('/@(.*)\.(.*)@(.*)\.(.*)=(.*)@/', $strDatabaseFile, $matches);
 		foreach ($matches[0] as $k => $v) {
 			$arrRelations[] = array(
@@ -1049,7 +1047,7 @@ class InstallerController extends \Controller {
 				'relationType' => $matches[5][$k]
 			);
 		}
-		lsErrorLog('$arrRelations', $arrRelations, 'lslog_14');
+        \LeadingSystems\Helpers\lsErrorLog('$arrRelations', $arrRelations, 'lslog_14');
 		return $arrRelations;
 	}
 
@@ -1070,9 +1068,9 @@ class InstallerController extends \Controller {
 			\System::log('MERCONIS INSTALLER: Hash could not be retrieved', 'MERCONIS INSTALLER', TL_MERCONIS_ERROR);
 		}
 
-		$zipTargetPath = 'files/merconisThemeSource';
+		$zipTargetPath = 'files/merconisThemeFiles';
 		$zipTargetFilename = $zipTargetPath.'/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'].'.zip';
-		$unzipTargetPath = 'files/merconisThemeSource';
+		$unzipTargetPath = 'files/merconisThemeFiles';
 		$unzipTargetFoldername = $unzipTargetPath.'/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'];
 
 		$downloadUrl = 'http://themerepository.merconis.com/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'].'/'.$_SESSION['lsShop']['installer_selectedTheme']['version'].'/merconisThemeExport/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'].($_SESSION['lsShop']['merconisThemeRepositoryMode'] ? '.'.$_SESSION['lsShop']['merconisThemeRepositoryMode'] : '').'.zip';
@@ -1322,7 +1320,7 @@ class InstallerController extends \Controller {
 		 */
 		$arrThemeInfos = array();
 
-		$themeFolderPath = TL_ROOT.'/files/merconisThemeSource';
+		$themeFolderPath = TL_ROOT.'/files/merconisThemeFiles';
 		if (!is_dir($themeFolderPath)) {
 		    mkdir($themeFolderPath);
         }
