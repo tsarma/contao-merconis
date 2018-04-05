@@ -4371,14 +4371,14 @@ class ls_shop_generalHelper
 	 */
 	public static function getMerconisFilesVersion($bln_removeInternalBuildNumber = false)
 	{
-		$objFile_ls_version = new \File('vendor/leadingsystems/contao-merconis/ls_version.txt');
+		$objFile_ls_version = new \File('vendor/leadingsystems/contao-merconis/CHANGELOG.md');
 		$str_fileContent = $objFile_ls_version->getContent();
-		if ($bln_removeInternalBuildNumber) {
-			$str_fileContent = preg_replace('/\[.*\]/', '', $str_fileContent);
-		}
-		$str_fileContent = trim($str_fileContent);
 
-		return $str_fileContent;
+		preg_match('/###\s*(.*?)\s*\(\d{4}-\d{2}-\d{2}\)/', $str_fileContent, $arr_matches);
+
+		$str_merconisVersion = $arr_matches[1];
+
+		return $str_merconisVersion;
 	}
 
 	/*
