@@ -2,7 +2,7 @@
 
 namespace Merconis\Core;
 
-class ls_shop_apiController_dashboard
+class ls_shop_apiController_themeExporter
 {
     protected static $objInstance;
 
@@ -53,12 +53,12 @@ class ls_shop_apiController_dashboard
      *
      * Allowed user types: beUser
      */
-    protected function apiResource_merconisDashboard_test01()
+    protected function apiResource_merconisThemeExporter_test01()
     {
         $this->obj_apiReceiver->requireScope(['BE']);
         $this->obj_apiReceiver->requireUser(['beUser']);
 
         $this->obj_apiReceiver->success();
-        $this->obj_apiReceiver->set_data('TEST 01!');
+        $this->obj_apiReceiver->set_data('TEST: ' . __METHOD__);
     }
 }

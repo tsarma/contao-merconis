@@ -25,6 +25,15 @@ var obj_classdef = 	{
                 }
             );
 		}
+
+		if (typeOf(this.__autoElements.main.btn_themeExporterTest) === 'element') {
+            this.__autoElements.main.btn_themeExporterTest.addEvent(
+                'click',
+                function() {
+                    self.__controller.callThemeExporter_test01();
+                }
+            );
+		}
 	}
 };
 

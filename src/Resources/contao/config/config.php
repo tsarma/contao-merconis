@@ -139,6 +139,7 @@ if (TL_MODE === 'BE') {
 if (TL_MODE === 'BE') {
 	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('Merconis\Core\ls_shop_apiControllerBackend', 'processRequest');
 	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('Merconis\Core\ls_shop_apiController_dashboard', 'processRequest');
+	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('Merconis\Core\ls_shop_apiController_themeExporter', 'processRequest');
 }
 /*
  * <-
