@@ -61,7 +61,7 @@ class InstallerController extends \Controller {
 		'3_0_0_stable_4_0_0_stable',
 	);
 
-	protected $pathToThemePreviewImages = 'files/merconisThemeFiles/theme%s/misc/previewImage.jpg';
+	protected $pathToThemePreviewImages = 'files/merconisfiles/themes//theme%s/misc/previewImage.jpg';
 
 
 	public function __construct() {
@@ -372,7 +372,7 @@ class InstallerController extends \Controller {
 
 					$_SESSION['lsShop']['installer_selectedTheme']['id'] = $arrThemeIDAndVersion[0];
 					$_SESSION['lsShop']['installer_selectedTheme']['version'] = $arrThemeIDAndVersion[1];
-					$_SESSION['lsShop']['installer_selectedTheme']['srcPath'] = 'files/merconisThemeFiles/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'];
+					$_SESSION['lsShop']['installer_selectedTheme']['srcPath'] = 'files/merconisfiles/themes/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'];
 					$_SESSION['lsShop']['installer_selectedTheme']['templateFolderName'] = 'merconisTemplatesTheme'.$_SESSION['lsShop']['installer_selectedTheme']['id'];
 					$_SESSION['lsShop']['installer_selectedTheme']['srcPathTemplates'] = $_SESSION['lsShop']['installer_selectedTheme']['srcPath'].'/'.$_SESSION['lsShop']['installer_selectedTheme']['templateFolderName'];
 					$_SESSION['lsShop']['installer_selectedTheme']['srcPathExportTablesDat'] = $_SESSION['lsShop']['installer_selectedTheme']['srcPath'].'/data/exportTables.dat';
@@ -1068,9 +1068,9 @@ class InstallerController extends \Controller {
 			\System::log('MERCONIS INSTALLER: Hash could not be retrieved', 'MERCONIS INSTALLER', TL_MERCONIS_ERROR);
 		}
 
-		$zipTargetPath = 'files/merconisThemeFiles';
+		$zipTargetPath = 'vendor/leadingsystems/contao-merconis/src/Resources/contao/installerResources/merconisfiles/themes';
 		$zipTargetFilename = $zipTargetPath.'/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'].'.zip';
-		$unzipTargetPath = 'files/merconisThemeFiles';
+		$unzipTargetPath = 'vendor/leadingsystems/contao-merconis/src/Resources/contao/installerResources/merconisfiles/themes';
 		$unzipTargetFoldername = $unzipTargetPath.'/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'];
 
 		$downloadUrl = 'http://themerepository.merconis.com/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'].'/'.$_SESSION['lsShop']['installer_selectedTheme']['version'].'/merconisThemeExport/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'].($_SESSION['lsShop']['merconisThemeRepositoryMode'] ? '.'.$_SESSION['lsShop']['merconisThemeRepositoryMode'] : '').'.zip';
@@ -1320,7 +1320,7 @@ class InstallerController extends \Controller {
 		 */
 		$arrThemeInfos = array();
 
-		$themeFolderPath = TL_ROOT.'/files/merconisThemeFiles';
+		$themeFolderPath = TL_ROOT.'/vendor/leadingsystems/contao-merconis/src/Resources/contao/installerResources/merconisfiles/themes';
 		if (!is_dir($themeFolderPath)) {
 		    mkdir($themeFolderPath);
         }
