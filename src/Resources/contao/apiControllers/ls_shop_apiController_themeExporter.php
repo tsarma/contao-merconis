@@ -121,6 +121,7 @@ class ls_shop_apiController_themeExporter
         }
 
         $this->themeSrcDir = count($arrThemeFolders) == 1 ? $this->themeSrcParentDir . '/' . current($arrThemeFolders) : null;
+
         $this->themeSrcDirName = count($arrThemeFolders) == 1 ? current($arrThemeFolders) : null;
     }
 
@@ -228,6 +229,7 @@ class ls_shop_apiController_themeExporter
 
         $objFile = new \File($this->tmpExportDir . '/' . $this->themeSrcDirName . '/data/exportLocalconfig.dat');
         $objFile->write(serialize($arrLocalconfigExport));
+        $objFile->close();
     }
 
     /**
@@ -288,6 +290,7 @@ class ls_shop_apiController_themeExporter
 
         $objFile = new \File($this->tmpExportDir . '/' . $this->themeSrcDirName . '/data/exportTables.dat');
         $objFile->write(serialize($arrTables));
+        $objFile->close();
     }
 
     protected function writeZipExportFile()

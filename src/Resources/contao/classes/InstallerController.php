@@ -18,11 +18,6 @@ class InstallerController extends \Controller {
 	protected $arrMapOldIDToNewID = array(); // In diesem Array wird der Zusammenhang zwischen ursprünglicher ID (Key) und neuer ID (Value) hergestellt
 	protected $alreadyExistingRootPageID = null;
 
-	/*
-	 * Should not be required anymore because we export a theme as well now
-	 * 
-	protected $alreadyExistingThemeID = null;
-	 */
 	protected $arrVersionHistory = array(
 		'2.0.0 stable',
 		'2.0.1 stable',
@@ -306,40 +301,6 @@ class InstallerController extends \Controller {
 		return $rootID;
 	}
 
-#
-#	Should not be required anymore because we export a theme as well now
-#	
-#	protected function ls_getThemeID() {
-#		/*
-#		 * Ermitteln des erstbesten Theme (weil diesem die Module zugeordnet werden müssen)
-#		 */
-#		$themeID = 0;
-#		$objThemes = \Database::getInstance()->prepare("
-#			SELECT		*
-#			FROM		`tl_theme`
-#		")
-#		->executeUncached();
-#		if ($objThemes->numRows) {
-#			$objThemes->first();
-#			$themeID = $objThemes->id;
-#		} else {
-#			/* 
-#			 * Create a default theme if no theme exists yet.
-#			 */
-#			$objInsert = \Database::getInstance()->prepare("
-#				INSERT INTO	`tl_theme`
-#				SET			`tstamp` = ?,
-#							`name` = ?,
-#							`author` = ?
-#			")
-#			->execute(time(), 'MERCONIS EXAMPLE THEME', 'MERCONIS');
-#			$themeID = $objInsert->insertId;
-#		}
-#		
-#		return $themeID;
-#	}
-#
-
 	public function shopInstallation() {
 		// nichts machen, wenn Version niedriger als 2.11
 		if (version_compare(VERSION, '2.11', '<')) {
@@ -571,16 +532,7 @@ class InstallerController extends \Controller {
 		$targetPath = 'files/merconisfiles';
 		\System::log('MERCONIS INSTALLER: Copying Merconis files to '.$targetPath, 'MERCONIS INSTALLER', TL_MERCONIS_INSTALLER);
 		$this->dirCopy('vendor/leadingsystems/contao-merconis/src/Resources/contao/installerResources/merconisfiles', $targetPath);
-
-		/*
-		 * FIXME: 'files/merconisfiles' must be a public folder but that should already have been taken care of if it is
-		 * a public folder in the theme project which the exported theme bases on because the corresponding record
-		 * in tl_files should already have the public flag set.
-		 */
-
-		/*
-		 * FIXME: Empty the installerResources!
-		 */
+		$this->rmdirRecursively(TL_ROOT.'/vendor/leadingsystems/contao-merconis/src/Resources/contao/installerResources');
 	}
 
 	protected function deleteUnnecessaryThemeFiles() {
@@ -844,12 +796,6 @@ class InstallerController extends \Controller {
 	protected function lsShopImportTables($arrImport) {
 		// Festhalten der ID der bereits vor dem Datenimport existierenden Root-Page
 		$this->alreadyExistingRootPageID = $this->ls_getRootPageID();
-
-		/*
-		 * Should not be required anymore because we export a theme as well now
-		 * 
-		$this->alreadyExistingThemeID = $this->ls_getThemeID();
-		 */
 
 		\System::log('MERCONIS INSTALLER: Importing tables ', 'MERCONIS INSTALLER', TL_MERCONIS_INSTALLER);
 
