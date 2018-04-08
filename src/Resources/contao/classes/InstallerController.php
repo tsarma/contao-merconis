@@ -413,9 +413,10 @@ class InstallerController extends \Controller {
 				break;
 
 			case 3:
+                $this->import('Automator');
+
 				// Purge internal cache because it can cause problems for the merconis installer
 				if (is_dir(TL_ROOT . '/system/cache/dca')) {
-					$this->import('Automator');
 					$this->Automator->purgeInternalCache();
 				}
 
@@ -447,7 +448,9 @@ class InstallerController extends \Controller {
 
 				\System::log('MERCONIS INSTALLER: Setting installation complete flag in localconfig.php', 'MERCONIS INSTALLER', TL_MERCONIS_INSTALLER);
 
-				\Controller::redirect('contao?do=ls_shop_dashboard');
+                $this->Automator->generateSymlinks();
+
+                \Controller::redirect('contao?do=ls_shop_dashboard');
 				break;
 		}
 	}
