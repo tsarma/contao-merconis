@@ -61,7 +61,7 @@ class InstallerController extends \Controller {
 		'3_0_0_stable_4_0_0_stable',
 	);
 
-	protected $pathToThemePreviewImages = 'files/merconisfiles/themes//theme%s/misc/previewImage.jpg';
+	protected $pathToThemePreviewImages = 'vendor/leadingsystems/contao-merconis/src/Resources/contao/installerResources/merconisfiles/themes/theme%s/misc/previewImage.jpg';
 
 
 	public function __construct() {
@@ -167,7 +167,17 @@ class InstallerController extends \Controller {
 			||	!is_dir(TL_ROOT.'/'.$_SESSION['lsShop']['installer_selectedTheme']['srcPath'])
 			||	!$_SESSION['lsShop']['installer_selectedTheme']['srcPathTemplates']
 		) {
-			\System::log('MERCONIS INSTALLER: The theme has not been selected correctly. Please try again and contact the MERCONIS support if it still does not work.', 'MERCONIS INSTALLER', TL_MERCONIS_ERROR);
+			\System::log(
+			    "MERCONIS INSTALLER: The theme has not been selected correctly. Please try again and contact the MERCONIS support if it still does not work.
+			    ||
+                \$_SESSION['lsShop']['installer_selectedTheme']['id'] is \"".$_SESSION['lsShop']['installer_selectedTheme']['id']."\"
+                ||
+                \$_SESSION['lsShop']['installer_selectedTheme']['srcPath'] is \"".$_SESSION['lsShop']['installer_selectedTheme']['srcPath']."\" (".(is_dir(TL_ROOT.'/'.$_SESSION['lsShop']['installer_selectedTheme']['srcPath']) ? 'exists' : 'does not exist').")
+                ||
+                \$_SESSION['lsShop']['installer_selectedTheme']['srcPathTemplates'] is \"".$_SESSION['lsShop']['installer_selectedTheme']['srcPathTemplates']."\"
+			    ",
+                'MERCONIS INSTALLER',
+                TL_MERCONIS_ERROR);
 			$blnPossible = false;
 		}
 
@@ -372,7 +382,7 @@ class InstallerController extends \Controller {
 
 					$_SESSION['lsShop']['installer_selectedTheme']['id'] = $arrThemeIDAndVersion[0];
 					$_SESSION['lsShop']['installer_selectedTheme']['version'] = $arrThemeIDAndVersion[1];
-					$_SESSION['lsShop']['installer_selectedTheme']['srcPath'] = 'files/merconisfiles/themes/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'];
+					$_SESSION['lsShop']['installer_selectedTheme']['srcPath'] = 'vendor/leadingsystems/contao-merconis/src/Resources/contao/installerResources/merconisfiles/themes/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'];
 					$_SESSION['lsShop']['installer_selectedTheme']['templateFolderName'] = 'merconisTemplatesTheme'.$_SESSION['lsShop']['installer_selectedTheme']['id'];
 					$_SESSION['lsShop']['installer_selectedTheme']['srcPathTemplates'] = $_SESSION['lsShop']['installer_selectedTheme']['srcPath'].'/'.$_SESSION['lsShop']['installer_selectedTheme']['templateFolderName'];
 					$_SESSION['lsShop']['installer_selectedTheme']['srcPathExportTablesDat'] = $_SESSION['lsShop']['installer_selectedTheme']['srcPath'].'/data/exportTables.dat';
@@ -561,6 +571,16 @@ class InstallerController extends \Controller {
 		$targetPath = 'files/merconisfiles';
 		\System::log('MERCONIS INSTALLER: Copying Merconis files to '.$targetPath, 'MERCONIS INSTALLER', TL_MERCONIS_INSTALLER);
 		$this->dirCopy('vendor/leadingsystems/contao-merconis/src/Resources/contao/installerResources/merconisfiles', $targetPath);
+
+		/*
+		 * FIXME: 'files/merconisfiles' must be a public folder but that should already have been taken care of if it is
+		 * a public folder in the theme project which the exported theme bases on because the corresponding record
+		 * in tl_files should already have the public flag set.
+		 */
+
+		/*
+		 * FIXME: Empty the installerResources!
+		 */
 	}
 
 	protected function deleteUnnecessaryThemeFiles() {

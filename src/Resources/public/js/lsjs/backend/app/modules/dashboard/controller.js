@@ -37,7 +37,7 @@ var obj_classdef = {
     callThemeExporter_test01: function() {
 		lsjs.loadingIndicator.__controller.show(this.__models.lang.readData('MSC.ls_shop.dashboard.pleaseWait'));
 		lsjs.apiInterface.request({
-			str_resource: 'merconisThemeExporter_test01',
+			str_resource: 'merconisThemeExporter_export',
 			obj_params: {
 				'ls_api_key': lsjs.__appHelpers.merconisBackendApp.obj_config.API_KEY
 			},
