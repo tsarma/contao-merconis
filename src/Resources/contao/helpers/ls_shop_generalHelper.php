@@ -4580,8 +4580,6 @@ class ls_shop_generalHelper
 
     public function manipulateBackendNavigation($arr_modules, $blnShowAll)
     {
-        dump($arr_modules);
-
         \System::loadLanguageFile('lsm_installer');
 
         if (
