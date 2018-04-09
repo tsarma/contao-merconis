@@ -261,3 +261,5 @@ $GLOBALS['FE_MOD']['ls_shop'] = array(
  * Hinzufügen von Content-Elementen
  */
 $GLOBALS['TL_CTE']['lsShop']['lsShopCrossSellerCTE'] = 'Merconis\Core\ls_shop_cross_sellerCTE';
+
+$GLOBALS['TL_HOOKS']['getUserNavigation'][] = array('Merconis\Core\ls_shop_generalHelper', 'manipulateBackendNavigation');

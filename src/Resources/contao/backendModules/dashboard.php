@@ -8,10 +8,8 @@ class dashboard extends \BackendModule {
 	
 	
 	protected function compile() {
-		$this->Template->str_output = '';
-
 		$obj_installer = Installer::getInstance();
-		$this->Template->str_output .= $obj_installer->parse();
+		$this->Template->str_installerOutput = $obj_installer->parse();
 	}
 }
 ?>

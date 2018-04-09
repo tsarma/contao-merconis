@@ -8,33 +8,7 @@ var obj_classdef = {
 	start: function() {
 	},
 
-    callDashboardResource_test01: function() {
-		lsjs.loadingIndicator.__controller.show(this.__models.lang.readData('MSC.ls_shop.dashboard.pleaseWait'));
-		lsjs.apiInterface.request({
-			str_resource: 'merconisDashboard_test01',
-			obj_params: {
-				'ls_api_key': lsjs.__appHelpers.merconisBackendApp.obj_config.API_KEY
-			},
-			func_onSuccess: function(obj_data) {
-				lsjs.__moduleHelpers.messageBox.open({
-					str_msg: this.__models.lang.readData('MSC.ls_shop.dashboard.requestSuccessful')
-				});
-
-				lsjs.loadingIndicator.__controller.hide();
- 			}.bind(this),
-			obj_additionalRequestOptions: {
-				onFailure: function(obj_request) {
-					lsjs.__moduleHelpers.messageBox.open({
-						str_msg: this.__models.lang.readData('MSC.ls_shop.dashboard.requestFailed')
-					});
-
-					lsjs.loadingIndicator.__controller.hide(true);
-				}.bind(this)
-			}
-		});
-	},
-
-    callThemeExporter_test01: function() {
+    callThemeExporter_export: function() {
 		lsjs.loadingIndicator.__controller.show(this.__models.lang.readData('MSC.ls_shop.dashboard.pleaseWait'));
 		lsjs.apiInterface.request({
 			str_resource: 'merconisThemeExporter_export',

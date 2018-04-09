@@ -17,20 +17,11 @@ var obj_classdef = 	{
 			name: 'main'
 		});
 
-		if (typeOf(this.__autoElements.main.btn_test) === 'element') {
-            this.__autoElements.main.btn_test.addEvent(
+		if (typeOf(this.__autoElements.main.btn_themeExporter) === 'element') {
+            this.__autoElements.main.btn_themeExporter.addEvent(
                 'click',
                 function() {
-                    self.__controller.callDashboardResource_test01();
-                }
-            );
-		}
-
-		if (typeOf(this.__autoElements.main.btn_themeExporterTest) === 'element') {
-            this.__autoElements.main.btn_themeExporterTest.addEvent(
-                'click',
-                function() {
-                    self.__controller.callThemeExporter_test01();
+                    self.__controller.callThemeExporter_export();
                 }
             );
 		}
