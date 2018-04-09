@@ -278,11 +278,11 @@ class Installer
                 <div class="merconisThemeSourceSwitch">
                     <div class="switch">
                         <a onclick="this.blur();"
-                           class="<?php echo !isset($_SESSION['lsShop']['themeSource']) || $_SESSION['lsShop']['themeSource'] == 'local' ? 'active' : 'inactive'; ?>"
-                           href="contao?do=ls_shop_dashboard&switchThemeSource=local"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-14']; ?></a>
-                        <a onclick="this.blur();"
-                           class="<?php echo isset($_SESSION['lsShop']['themeSource']) && $_SESSION['lsShop']['themeSource'] == 'repository' ? 'active' : 'inactive'; ?>"
+                           class="<?php echo !isset($_SESSION['lsShop']['themeSource']) || $_SESSION['lsShop']['themeSource'] == 'repository' ? 'active' : 'inactive'; ?>"
                            href="contao?do=ls_shop_dashboard&switchThemeSource=repository"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-15']; ?></a>
+                        <a onclick="this.blur();"
+                           class="<?php echo isset($_SESSION['lsShop']['themeSource']) && $_SESSION['lsShop']['themeSource'] == 'local' ? 'active' : 'inactive'; ?>"
+                           href="contao?do=ls_shop_dashboard&switchThemeSource=local"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-14']; ?></a>
                     </div>
                     <form action="contao?do=ls_shop_dashboard&lsShopInstallationStep=2" method="post">
                         <input type="hidden" name="FORM_SUBMIT" value="installer_themeSelection">

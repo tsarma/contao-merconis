@@ -324,6 +324,8 @@ class InstallerController extends \Controller {
                 }
 
                 \Config::persist('ls_shop_installedCompletely', false);
+
+                \Controller::redirect('contao?do=ls_shop_dashboard');
 			    break;
 
 			case 2:
@@ -1278,8 +1280,8 @@ class InstallerController extends \Controller {
 		/*
 		 * Get the theme infos from the merconis theme repository if this is the currently selected source
 		 */
-		// Use the repository as the theme source if it has been selected
-		if (isset($_SESSION['lsShop']['themeSource']) && $_SESSION['lsShop']['themeSource'] == 'repository') {
+		// Use the repository as the theme source if it has been selected or if no source has been selected yet
+		if (!isset($_SESSION['lsShop']['themeSource']) || $_SESSION['lsShop']['themeSource'] == 'repository') {
 			$arrThemeInfos = $this->loadThemeInfoFromThemeRepository();
 			return $arrThemeInfos;
 		}
