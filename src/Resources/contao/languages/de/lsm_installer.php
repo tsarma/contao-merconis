@@ -11,6 +11,7 @@ nicht alle relevanten Einstellungen vorgenommen wurden.</p>
 <p><a href="%s">Einrichtung beginnen</a></p>
 ';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-02'] = 'Bitte führen Sie nun das <a href="%s">Contao-Install-Tool</a> aus.';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-03'] = 'Um Merconis einrichten zu können, müssen Sie aus Sicherheitsgründen zunächst einen sogenannten API-Key erstellen. Bitte wählen Sie in der Navigation links im Bereich "LS API" den Menüpunkt "API-Key" und folgen Sie den Anweisungen auf dieser Seite. Klicken Sie wieder auf den Menüpunkt "Einrichtung", sobald Sie den API-Key erstellt haben.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-06'] = 'Bitte wählen Sie, mit welchem Theme Sie Merconis einrichten möchten.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-07'] = 'Mit gewähltem Theme einrichten';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-08'] = 'Live-Vorschau';

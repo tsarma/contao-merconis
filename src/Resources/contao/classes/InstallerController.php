@@ -109,6 +109,7 @@ class InstallerController extends \Controller {
 			'languageSelectorDBOkay' => false,
 			'shopDBOkay' => false,
 			'wholeDBOkay' => false,
+			'noApiKey' => false,
 			'rootPageExists' => false
 		);
 
@@ -129,8 +130,15 @@ class InstallerController extends \Controller {
 			&&	$arrStatus['languageSelectorDBOkay']
 		) {
 			$arrStatus['wholeDBOkay'] = true;
-
 		}
+
+		if (
+		    !isset($GLOBALS['TL_CONFIG']['ls_api_key'])
+            || !$GLOBALS['TL_CONFIG']['ls_api_key']
+        ) {
+		    $arrStatus['noApiKey'] = true;
+        }
+
 		return $arrStatus;
 	}
 

@@ -9,7 +9,9 @@ and do not perform any other backend activities. Until the successful completion
 of the Merconis setup, some basic Contao functions may work incorrectly, as not all
 relevant settings have been made yet.</p>
 <p><a href="%s">Start setup</a></p>
-';$GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-02'] = 'Please run the <a href="%s">Contao Installation Tool</a> now.';
+';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-02'] = 'Please run the <a href="%s">Contao Installation Tool</a> now.';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-03'] = 'To set up Merconis, you must first create an API key for security reasons. Please select the menu item "API-Key" in the navigation on the left in the "LS API" section and follow the instructions on this page. Once you have created the API key, click on the "Setup" menu item again.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-06'] = 'Please choose the theme to use for setup.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-07'] = 'Install with selected theme';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-08'] = 'Live preview';

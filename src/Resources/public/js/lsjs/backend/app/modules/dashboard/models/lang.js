@@ -9,6 +9,11 @@ var obj_classdef_model = {
 	},
 	
 	loadData: function() {
+		if (!lsjs.__appHelpers.merconisBackendApp.obj_config.API_KEY) {
+            this.__module.onModelLoaded();
+			return;
+		}
+
 		lsjs.loadingIndicator.__controller.show();
 
 		lsjs.apiInterface.request({

@@ -238,11 +238,21 @@ class Installer
             return ob_get_clean();
         }
 
+        if ($arrInstallationStatus['noApiKey']) {
+            ob_start();
+            ?>
+            <div class="ls_shop ls_shop_systemMessage contaoInstallScriptNotRun">
+                <?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-03']); ?>
+            </div>
+            <?php
+            return ob_get_clean();
+        }
+
         if (!$arrInstallationStatus['wholeDBOkay']) {
             ob_start();
             ?>
             <div class="ls_shop ls_shop_systemMessage contaoInstallScriptNotRun">
-                <?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-02'], 'contao/install.php'); ?>
+                <?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-02'], 'contao/install'); ?>
             </div>
             <?php
             return ob_get_clean();
