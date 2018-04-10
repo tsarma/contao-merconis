@@ -9,6 +9,7 @@ relevant foreign key relations concerning tables which are not defined in this f
 @tl_layout.modules@tl_module.id=special@
 @tl_page.ls_cnc_languageSelector_correspondingMainLanguagePage@tl_page.id=single@
 @tl_page.jumpTo@tl_page.id=single@
+@tl_newsletter_channel.jumpTo@tl_page.id=single@
 @tl_page.layout@tl_layout.id=single@
 @tl_page.mobileLayout@tl_layout.id=single@
 @tl_page.groups@tl_member_group.id=array@
