@@ -4,10 +4,13 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-01
 <p>Sie haben eine gute Wahl getroffen und Merconis in Ihr Contao-Projekt installiert.</p>
 <p>Der Einrichtungsassistent von Merconis wird in Ihrem bestehenden Contao-Projekt nun vollautomatisch
 alle benötigten Seiten, Artikel, Module und Formulare anlegen und Demo-Daten einfügen.</p>
-<p class="shopHint"><strong>Hinweis:</strong> Bitte folgen Sie nun den Installationsanweisungen
-und führen Sie keine anderen Backend-Aktivitäten durch. Bis zum vollständigen Abschluss der
-Merconis-Einrichtung arbeiten einige Contao-Grundfunktionen möglicherweise fehlerhaft, da noch
-nicht alle relevanten Einstellungen vorgenommen wurden.</p>
+<p class="shopHint"><strong>Hinweis:</strong> Bitte führen Sie zunächst eine vollständige Sicherung
+Ihres Projektes durch - sowohl Datenbank als auch Projektdateien. Im Regelfall läuft die Einrichtung
+von Merconis reibungslos, sollte es aber im Ausnahmefall zu einem Problem bei der Einrichtung kommen,
+ist es wichtig, dass Sie durch das Zurückspielen Ihrer Sicherung den Ursprungszustand wiederherstellen können.</p>
+<p>Folgen Sie dann den Installationsanweisungen und führen Sie keine anderen Backend-Aktivitäten durch.
+Bis zum vollständigen Abschluss der Merconis-Einrichtung arbeiten einige Contao-Grundfunktionen möglicherweise
+fehlerhaft, da noch nicht alle relevanten Einstellungen vorgenommen wurden.</p>
 <p><a href="%s">Einrichtung beginnen</a></p>
 ';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-02'] = 'Bitte führen Sie nun das <a href="%s">Contao-Install-Tool</a> aus.';

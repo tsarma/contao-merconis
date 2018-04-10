@@ -4,10 +4,13 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-01
 <p>You made a good choice and installed Merconis in your Contao project.</p>
 <p>The Merconis setup wizard will now automatically create all required pages, 
 articles, modules and forms in your existing Contao project and insert demo data.</p>
-<p class="shopHint"><strong>Note:</strong> Please follow the installation instructions
-and do not perform any other backend activities. Until the successful completion
-of the Merconis setup, some basic Contao functions may work incorrectly, as not all
-relevant settings have been made yet.</p>
+<p class="shopHint"><strong>Note:</strong> Please create a complete backup of your project
+first - database as well as project files. Normally the setup runs smoothly but if in an
+exceptional case a problem should occur during setup, it is important that you are able
+to restore the original state of your project using your backup.</p>
+<p>Next, follow the installation instructions and do not perform any other backend activities.
+Until the successful completion of the Merconis setup, some basic Contao functions may work
+incorrectly, as not all relevant settings have been made yet.</p>
 <p><a href="%s">Start setup</a></p>
 ';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-02'] = 'Please run the <a href="%s">Contao Installation Tool</a> now.';
