@@ -1,0 +1,7 @@
+<div class="contaoBeMainContainer">
+    <?php echo $this->str_installerOutput; ?>
+
+    <div id="merconis-dashboard">
+        <div data-merconis-component-autostart="dashboard"></div>
+    </div>
+</div>

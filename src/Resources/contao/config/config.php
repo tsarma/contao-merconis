@@ -18,8 +18,20 @@ $GLOBALS['TL_HOOKS']['addCustomRegexp'][] = array('Merconis\Core\ls_shop_custom_
  * Include the lsjs app for the merconis backend
  */
 if (TL_MODE === 'BE') {
-	$GLOBALS['TL_JAVASCRIPT'][] = 'assets/lsjs/core/appBinder/binder.php?output=js&pathToApp='.urldecode('_dup4_/web/bundles/leadingsystemsmerconis/js/lsjs/backend/app').'&includeCore=no&includeCoreModules=no';
-	$GLOBALS['TL_CSS'][] = 'assets/lsjs/core/appBinder/binder.php?output=css&pathToApp='.urldecode('_dup4_/web/bundles/leadingsystemsmerconis/js/lsjs/backend/app').'&includeCore=no&includeCoreModules=no';
+	$GLOBALS['TL_MOOTOOLS'][] = "
+		<script type=\"text/javascript\">
+			window.addEvent('domready', function () {
+				if (lsjs.__appHelpers.merconisBackendApp !== undefined && lsjs.__appHelpers.merconisBackendApp !== null) {
+					lsjs.__appHelpers.merconisBackendApp.obj_config.REQUEST_TOKEN = '".\RequestToken::get()."';
+					lsjs.__appHelpers.merconisBackendApp.obj_config.API_KEY = '".$GLOBALS['TL_CONFIG']['ls_api_key']."';
+					lsjs.__appHelpers.merconisBackendApp.start();
+				}
+			});
+		</script>
+	";
+
+	$GLOBALS['TL_JAVASCRIPT'][] = 'assets/lsjs/core/appBinder/binder.php?output=js&pathToApp='.urldecode('_dup4_/web/bundles/leadingsystemsmerconis/js/lsjs/backend/app').'&includeCore=no&includeCoreModules=no'.($GLOBALS['TL_CONFIG']['ls_shop_lsjsDebugMode'] ? '&debug=1' : '').($GLOBALS['TL_CONFIG']['ls_shop_lsjsNoCacheMode'] ? '&no-cache=1' : '').($GLOBALS['TL_CONFIG']['ls_shop_lsjsNoMinifierMode'] ? '&&no-minifier=1' : '');
+	$GLOBALS['TL_CSS'][] = 'assets/lsjs/core/appBinder/binder.php?output=css&pathToApp='.urldecode('_dup4_/web/bundles/leadingsystemsmerconis/js/lsjs/backend/app').'&includeCore=no&includeCoreModules=no'.($GLOBALS['TL_CONFIG']['ls_shop_lsjsNoCacheMode'] ? '&no-cache=1' : '').($GLOBALS['TL_CONFIG']['ls_shop_lsjsNoMinifierMode'] ? '&&no-minifier=1' : '');
 }
 
 if (TL_MODE == 'FE') {
@@ -126,6 +138,8 @@ if (TL_MODE === 'BE') {
 
 if (TL_MODE === 'BE') {
 	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('Merconis\Core\ls_shop_apiControllerBackend', 'processRequest');
+	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('Merconis\Core\ls_shop_apiController_dashboard', 'processRequest');
+	$GLOBALS['LS_API_HOOKS']['apiReceiver_processRequest'][] = array('Merconis\Core\ls_shop_apiController_themeExporter', 'processRequest');
 }
 /*
  * <-
@@ -145,6 +159,9 @@ if (TL_MODE == 'BE') {
 
 array_insert($GLOBALS['BE_MOD'], 0, array(
 	'merconis' => array(
+		'ls_shop_dashboard' => array(
+			'callback' => 'Merconis\Core\dashboard'
+		),
 		'ls_shop_settings' => array(
 			'tables' => array('tl_lsShopSettings'),
 		),
@@ -244,3 +261,5 @@ $GLOBALS['FE_MOD']['ls_shop'] = array(
  * Hinzufügen von Content-Elementen
  */
 $GLOBALS['TL_CTE']['lsShop']['lsShopCrossSellerCTE'] = 'Merconis\Core\ls_shop_cross_sellerCTE';
+
+$GLOBALS['TL_HOOKS']['getUserNavigation'][] = array('Merconis\Core\ls_shop_generalHelper', 'manipulateBackendNavigation');
