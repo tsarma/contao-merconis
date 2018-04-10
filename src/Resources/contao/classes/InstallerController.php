@@ -346,7 +346,7 @@ class InstallerController extends \Controller {
 				if (\Input::post('FORM_SUBMIT') && \Input::post('FORM_SUBMIT') == 'installer_themeSelection') {
 					if (!\Input::post('installer_selectedTheme')) {
 						$_SESSION['lsShop']['noThemeSelected'] = true;
-						\Controller::redirect('contao/main.php');
+						\Controller::redirect('contao?do=ls_shop_dashboard');
 					}
 
 					$arrThemeIDAndVersion = explode('|', \Input::post('installer_selectedTheme'));
@@ -363,7 +363,7 @@ class InstallerController extends \Controller {
 				/*
 				 * Download the theme if we are in repository mode
 				 */
-				if (isset($_SESSION['lsShop']['themeSource']) && $_SESSION['lsShop']['themeSource'] != 'local') {
+				if (!isset($_SESSION['lsShop']['themeSource']) || $_SESSION['lsShop']['themeSource'] == 'repository') {
 					$this->downloadThemeFromRepository();
 				}
 
@@ -1078,7 +1078,6 @@ class InstallerController extends \Controller {
 
 		curl_setopt($curl, CURLOPT_TIMEOUT, $timeout);
 		curl_setopt($curl, CURLOPT_FILE, $fp);
-
 		curl_exec($curl);
 		curl_close($curl);
 		fclose($fp);
@@ -1201,9 +1200,9 @@ class InstallerController extends \Controller {
 					}
 
 					/*
-					 * Override the preview image with the local ressource if the current source is local
+					 * Override the preview image with the local resource if the current source is local
 					 */
-					if (!isset($_SESSION['lsShop']['themeSource']) || $_SESSION['lsShop']['themeSource'] == 'local') {
+					if (isset($_SESSION['lsShop']['themeSource']) && $_SESSION['lsShop']['themeSource'] == 'local') {
 						$arrThemeInfo['imgUrl'] = sprintf($this->pathToThemePreviewImages, $arrThemeInfo['id']);
 					}
 
@@ -1358,7 +1357,7 @@ class InstallerController extends \Controller {
 		switch ($updateAction) {
 			case 'setInstalledVersion':
 				if (!\Input::get('installedVersion') || !in_array(\Input::get('installedVersion'), $this->arrVersionHistory)) {
-					\Controller::redirect('contao/main.php');
+					\Controller::redirect('contao?do=ls_shop_dashboard');
 				}
 				$GLOBALS['merconis_globals']['update']['arrUpdateStatus'] = array(
 					'updateInProgress' => false,
@@ -1366,34 +1365,34 @@ class InstallerController extends \Controller {
 				);
 				$this->obj_config->update("\$GLOBALS['TL_CONFIG']['ls_shop_installedVersion']", \Input::get('installedVersion'));
 				$this->writeUpdateStatus();
-				\Controller::redirect('contao/main.php');
+				\Controller::redirect('contao?do=ls_shop_dashboard');
 				break;
 
 			case 'startUpdateProgress':
 				$GLOBALS['merconis_globals']['update']['arrUpdateStatus']['updateInProgress'] = true;
 				$GLOBALS['merconis_globals']['update']['arrUpdateStatus']['currentStep'] = 'versionTrailInformation';
 				$this->writeUpdateStatus();
-				\Controller::redirect('contao/main.php');
+				\Controller::redirect('contao?do=ls_shop_dashboard');
 				break;
 
 			case 'converterRoutine_2_0_3_stable_2_1_0_stable':
 				$this->{$updateAction}();
-				\Controller::redirect('contao/main.php');
+				\Controller::redirect('contao?do=ls_shop_dashboard');
 				break;
 
 			case 'converterRoutine_2_1_4_stable_2_1_5_stable':
 				$this->{$updateAction}();
-				\Controller::redirect('contao/main.php');
+				\Controller::redirect('contao?do=ls_shop_dashboard');
 				break;
 
 			case 'converterRoutine_2_2_0_stable_2_2_1_stable':
 				$this->{$updateAction}();
-				\Controller::redirect('contao/main.php');
+				\Controller::redirect('contao?do=ls_shop_dashboard');
 				break;
 
 			case 'converterRoutine_2_2_1_stable_3_0_0_stable':
 				$this->{$updateAction}();
-				\Controller::redirect('contao/main.php');
+				\Controller::redirect('contao?do=ls_shop_dashboard');
 				break;
 
 			case 'markUpdateAsFinished':
@@ -1403,7 +1402,7 @@ class InstallerController extends \Controller {
 				);
 				$this->obj_config->update("\$GLOBALS['TL_CONFIG']['ls_shop_installedVersion']", $varUpdateSituation['currentProgramFilesVersion']);
 				$this->writeUpdateStatus();
-				\Controller::redirect('contao/main.php');
+				\Controller::redirect('contao?do=ls_shop_dashboard');
 				break;
 		}
 	}
