@@ -22,7 +22,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-12
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-13'] = 'Please choose a theme';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-14'] = 'Downloaded themes';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-15'] = 'Online Theme Repository';
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-16'] = 'Direct access to the online theme repository isn\'t possible at the moment%s. If you want to use another theme instead of the included theme "Basic", please visit <a target="_blank" href="http://themes.merconis.com">themes.merconis.com</a>, download the favored theme from there and continue installation afterwards.';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-16'] = 'Direct access to the online theme repository isn\'t possible at the moment%s.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-17'] = 'CURL extension not available';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-18'] = 'No data received';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-19'] = 'Retrieving a theme from the online theme repository usually only takes a few seconds. Depending on the internet connection it may take up to 1 minute.';

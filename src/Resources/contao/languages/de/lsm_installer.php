@@ -22,7 +22,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-12
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-13'] = 'Bitte wählen Sie ein Theme';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-14'] = 'Heruntergeladene Themes';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-15'] = 'Online Theme Repository';
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-16'] = 'Der direkte Zugriff auf das Online-Theme-Repository ist aktuell nicht möglich%s. Sollten Sie ein anderes Theme als das bereits mitgelieferte Theme "Basic" verwenden wollen, besuchen Sie bitte zunächst <a target="_blank" href="http://themes.merconis.com">themes.merconis.com</a>, laden das gewünschte Theme dort herunter und setzen danach die Installation fort.';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-16'] = 'Der direkte Zugriff auf das Online-Theme-Repository ist aktuell nicht möglich%s.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-17'] = 'CURL-Erweiterung nicht verfügbar';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-18'] = 'Keine Daten empfangen';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-19'] = 'Der Abruf eines Themes aus dem Online Theme Repository dauert üblicherweise nur einige Sekunden, kann aber abhängig von der Internetverbindung unter Umständen bis zu einer Minute dauern.';
