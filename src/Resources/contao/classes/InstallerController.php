@@ -834,20 +834,6 @@ class InstallerController extends \Controller {
 				if (preg_match('/^tl_ls_shop_/', $tableName)) {
 					$preserveID = true;
 					$preserveAlias = true;
-				} else if ($tableName == 'tl_page' && ($row['alias'] == 'merconis-installer-redirection' || preg_match('/merconis-root-page/', $row['alias']))) {
-					/*
-					 * Handelt es sich beim einzufügenden Datensatz um die Merconis-Installer-Weiterleitungsseite,
-					 * so wird ihr Alias erhalten, da er zur Identifizierung für die spätere Verschiebung unter
-					 * die bereits bestehende Root-Page wichtig ist.
-					 */
-					$preserveAlias = true;
-				} else if ($tableName == 'tl_page' && in_array($row['alias'], array('merconis-kategorie01', 'merconis-u-kategorie01-01', 'merconis-u-kategorie01-02', 'merconis-kategorie02', 'merconis-u-kategorie02-01', 'merconis-u-kategorie02-02', 'merconis-variantenbeispiele', 'merconis-category01', 'merconis-s-category01-01', 'merconis-s-category01-02', 'merconis-category02', 'merconis-s-category02-01', 'merconis-s-category02-02', 'merconis-variant-examples'))) {
-					/*
-					 * Handelt es sich beim einzufügenden Datensatz um eine der Kategorie-Seiten, so wird der Alias
-					 * beibehalten, um sicherzustellen, dass die im MPM hinterlegten Aliase, die denen in merconis02dev
-					 * entsprechen auch zu dem Zustand nach einer neuen Merconis-Installation passen.
-					 */
-					$preserveAlias = true;
 				} else if ($tableName == 'tl_page' && $row['alias'] == 'merconis-root-page-main-language') {
 					/*
 					 * Handelt es sich beim einzufügenden Datensatz um die Merconis main language root page,
@@ -864,9 +850,14 @@ class InstallerController extends \Controller {
 					 */
 					$preserveAlias = true;
 					$row['sorting'] = 9999999;
-				}
+				} else if (isset($row['alias']) && strpos($row['alias'], 'merconis') !== false) {
+				    /*
+				     * If the record has an alias containing the string "merconis", we preserve the alias
+				     */
+                    $preserveAlias = true;
+                }
 
-				$newID = $this->lsShopInsertData($tableName, $row, $preserveID, $preserveAlias);
+                $newID = $this->lsShopInsertData($tableName, $row, $preserveID, $preserveAlias);
 
 				$detailsAboutImportedRows .= ($detailsAboutImportedRows ? ", " : "").$newID;
 				$this->arrMapOldIDToNewID[$tableName][$row['id']] = $newID;
