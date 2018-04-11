@@ -38,7 +38,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['lsShopOutputDefinitionSet'] = array (
 	'inputType'               => 'select',
 	'foreignKey'		  	=> 'tl_ls_shop_output_definitions.title',
 	'reference'				  => &$GLOBALS['TL_LANG']['tl_page']['lsShopOutputDefinitionSet']['reference'],
-	'eval'					  => array('helpwizard' => true, 'includeBlankOption' => true),
+	'eval'					  => array('tl_class'=>'w50', 'helpwizard' => true, 'includeBlankOption' => true),
 	'sql'                     => "int(10) unsigned NOT NULL default '0'"
 );
 
@@ -46,7 +46,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['lsShopIncludeLayoutForDetailsView'] = a
 	'label'                   => &$GLOBALS['TL_LANG']['tl_page']['lsShopIncludeLayoutForDetailsView'],
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
-	'eval'                    => array('submitOnChange'=>true),
+	'eval'                    => array('tl_class'=>'w50', 'submitOnChange'=>true),
 	'sql'                     => "char(1) NOT NULL default ''"
 );
 
