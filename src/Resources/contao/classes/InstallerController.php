@@ -1048,7 +1048,12 @@ class InstallerController extends \Controller {
 		}
 
 		$zipTargetPath = 'vendor/leadingsystems/contao-merconis/src/Resources/contao/installerResources/merconisfiles/themes';
-		$zipTargetFilename = $zipTargetPath.'/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'].'.zip';
+
+        if (!is_dir(TL_ROOT . '/' . $zipTargetPath)) {
+            mkdir(TL_ROOT . '/' . $zipTargetPath);
+        }
+
+        $zipTargetFilename = $zipTargetPath.'/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'].'.zip';
 		$unzipTargetPath = 'vendor/leadingsystems/contao-merconis/src/Resources/contao/installerResources/merconisfiles/themes';
 		$unzipTargetFoldername = $unzipTargetPath.'/theme'.$_SESSION['lsShop']['installer_selectedTheme']['id'];
 
