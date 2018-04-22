@@ -436,7 +436,7 @@ class InstallerController extends \Controller {
 
 				$this->restoreForeignKeyRelations();
 
-				$this->updateInsertTagCorrelations();
+				$this->updateInsertTagCorrelations__insert_module();
 
 				$this->moveMerconisInstallerRedirectionsPage();
 
@@ -498,47 +498,69 @@ class InstallerController extends \Controller {
 	 * Diese Funktion sucht Insert-Tags, die Module einbinden, und aktualisiert die dort angegebenen
 	 * Modul-IDs, damit sie gültige Referenzen zu den nach dem Import neuen IDs der Module ergeben.
 	 */
-	protected function updateInsertTagCorrelations() {
+	protected function updateInsertTagCorrelations__insert_module() {
 		$pattern = '/(\{\{insert_module::)(.*)(\}\})/siU';
 
-		foreach ($this->arrMapOldIDToNewID['tl_module'] as $insertedModuleID) {
-			$objModule = \Database::getInstance()->prepare("
-				SELECT		*
-				FROM		`tl_module`
-				WHERE		`id` = ?
-			")
-				->limit(1)
-				->execute($insertedModuleID);
-			$arrModule = $objModule->first()->row();
+		$arr_tablesToConsider = array('tl_module', 'tl_content');
 
-			$setStatement = '';
-			foreach ($arrModule as $fieldName => $value) {
-				preg_match_all($pattern, $value, $matches);
-				if (is_array($matches[2]) && count($matches[2])) {
-					foreach ($matches[2] as $key => $oldModuleID) {
-						$insertTagToReplace = '/\{\{insert_module::'.$oldModuleID.'\}\}/siU';
-						$insertTagNew = $matches[1][$key].$this->arrMapOldIDToNewID['tl_module'][$oldModuleID].$matches[3][$key];
-						$arrModule[$fieldName] = preg_replace($insertTagToReplace, $insertTagNew, $arrModule[$fieldName]);
-					}
-				}
+		foreach ($arr_tablesToConsider as $str_tableName) {
+		    if (!isset($this->arrMapOldIDToNewID[$str_tableName]) || !is_array($this->arrMapOldIDToNewID[$str_tableName])) {
+		        continue;
+            }
 
-				if ($setStatement) {
-					$setStatement .= ",\r\n";
-				}
-				$setStatement .= "`".$fieldName."` = ?";
-			}
+            foreach ($this->arrMapOldIDToNewID[$str_tableName] as $int_insertedElementId) {
+                $obj_dbres_recordsToHandle = \Database::getInstance()
+                    ->prepare("
+                        SELECT		*
+                        FROM		`'.$str_tableName.'`
+                        WHERE		`id` = ?
+                    ")
+                    ->limit(1)
+                    ->execute($int_insertedElementId);
 
-			$arrQueryValues = $arrModule;
-			$arrQueryValues[] = $arrModule['id'];
+                $arr_currentRecordToHandle = $obj_dbres_recordsToHandle->first()->row();
 
-			$objUpdate = \Database::getInstance()->prepare("
-				UPDATE		`tl_module`
-				SET			".$setStatement."
-				WHERE		`id` = ?
-			")
-				->limit(1)
-				->execute($arrQueryValues);
-		}
+                $setStatement = '';
+                foreach ($arr_currentRecordToHandle as $fieldName => $value) {
+                    preg_match_all($pattern, $value, $matches);
+                    if (is_array($matches[2]) && count($matches[2])) {
+                        foreach ($matches[2] as $key => $oldModuleID) {
+                            $insertTagToReplace = '/\{\{insert_module::'.$oldModuleID.'\}\}/siU';
+
+                            /*
+                             * Get the new module id to replace the old one used in the original insert tag
+                             * and then place it in the replacement string.
+                             *
+                             * The usage of 'tl_module' here has nothing to do with the tables to consider
+                             * when looking for occurrences of insert tags to update! So even if we currently
+                             * handle insert tags in another table, we still have to get a new module ID for
+                             * an old one and find it in the mapping array for tl_module.
+                             */
+                            $insertTagNew = $matches[1][$key].$this->arrMapOldIDToNewID['tl_module'][$oldModuleID].$matches[3][$key];
+
+                            $arr_currentRecordToHandle[$fieldName] = preg_replace($insertTagToReplace, $insertTagNew, $arr_currentRecordToHandle[$fieldName]);
+                        }
+                    }
+
+                    if ($setStatement) {
+                        $setStatement .= ",\r\n";
+                    }
+                    $setStatement .= "`".$fieldName."` = ?";
+                }
+
+                $arrQueryValues = $arr_currentRecordToHandle;
+                $arrQueryValues[] = $arr_currentRecordToHandle['id'];
+
+                $objUpdate = \Database::getInstance()
+                    ->prepare("
+                        UPDATE		`'.$str_tableName.'`
+                        SET			" . $setStatement . "
+                        WHERE		`id` = ?
+                    ")
+                    ->limit(1)
+                    ->execute($arrQueryValues);
+            }
+        }
 	}
 
 	protected function copyFiles() {
