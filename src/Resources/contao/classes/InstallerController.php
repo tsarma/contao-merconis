@@ -512,7 +512,7 @@ class InstallerController extends \Controller {
                 $obj_dbres_recordsToHandle = \Database::getInstance()
                     ->prepare("
                         SELECT		*
-                        FROM		`'.$str_tableName.'`
+                        FROM		`" . $str_tableName . "`
                         WHERE		`id` = ?
                     ")
                     ->limit(1)
@@ -553,7 +553,7 @@ class InstallerController extends \Controller {
 
                 $objUpdate = \Database::getInstance()
                     ->prepare("
-                        UPDATE		`'.$str_tableName.'`
+                        UPDATE		`" . $str_tableName . "`
                         SET			" . $setStatement . "
                         WHERE		`id` = ?
                     ")
