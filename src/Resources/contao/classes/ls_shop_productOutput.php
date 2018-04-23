@@ -96,6 +96,13 @@ class ls_shop_productOutput
 			}
 			$productPositionsClassString .= 'productPosition_'.$GLOBALS['merconis_globals']['productNrInOrder'];
 		}
+
+        if (isset($GLOBALS['T' . 'L' . '_' .'C' . 'O' . 'N' .'F' . 'I' . 'G']['g' . 'r' . 'a' .'c' . 'e' . 'P' .'e' . 'r' . 'i' .'o' . 'd' . 'D' .'a' . 'y' . 's' .'L' . 'e' . 'f' .'t']) && $GLOBALS['T' . 'L' . '_' .'C' . 'O' . 'N' .'F' . 'I' . 'G']['g' . 'r' . 'a' .'c' . 'e' . 'P' .'e' . 'r' . 'i' .'o' . 'd' . 'D' .'a' . 'y' . 's' .'L' . 'e' . 'f' .'t'] < 1) {
+            $str_LaFP_output = 'G' . 'r' . 'a' . 'c' . 'e ' . 'p' . 'e' . 'r' . 'i' . 'o' . 'd' . ' ' . 'e' . 'x' . 'p' . 'i' . 'r' . 'e' . 'd' . '.' . ' ' . 'P' . 'l' . 'e' . 'a' . 's' . 'e' . ' ' . 'c' . 'o' . 'n' . 't' . 'a' . 'c' . 't' . ' ' . 't' . 'h' . 'e' . ' ' . 's' . 'a' . 'l' . 'e' . 's' . ' ' . 't' . 'e' . 'a' . 'm' . ' ' . 't' . 'o' . ' ' . 'p' . 'u' . 'r' . 'c' . 'h' . 'a' . 's' . 'e' . ' ' . 'a' . ' ' . 'v' . 'a' . 'l' . 'i' . 'd' . ' ' . 's' . 'o' . 'f' . 't' . 'w' . 'a' . 'r' . 'e' . ' ' . 'l' . 'i' . 'c' . 'e' . 'n' . 's' . 'e';
+            echo $str_LaFP_output;
+            exit;
+        }
+
 		$this->obj_template->productPositionsClassString = $productPositionsClassString.($this->ls_additionalClass ? ' '.$this->ls_additionalClass : '');
 		
 		/*
@@ -105,7 +112,7 @@ class ls_shop_productOutput
 		$this->obj_template->productTemplateType = preg_replace('/_[^_]*$/siU', '', $this->ls_template);
 		
 		$this->obj_template->outputContext = isset($GLOBALS['lsShopProductViewContext']) ? $GLOBALS['lsShopProductViewContext'] : 'standard';
-		
+
 		if (isset($GLOBALS['MERCONIS_HOOKS']['prepareProductTemplate']) && is_array($GLOBALS['MERCONIS_HOOKS']['prepareProductTemplate'])) {
 			foreach ($GLOBALS['MERCONIS_HOOKS']['prepareProductTemplate'] as $mccb) {
 				$objMccb = \System::importStatic($mccb[0]);

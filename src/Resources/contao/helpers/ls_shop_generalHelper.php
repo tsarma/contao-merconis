@@ -467,6 +467,9 @@ class ls_shop_generalHelper
                 }
             }
         }
+
+        ls_shop_generalHelper::LaFP();
+
         return $GLOBALS['merconis_globals']['groupInfo'];
     }
 
@@ -526,6 +529,40 @@ class ls_shop_generalHelper
         return ls_shop_checkoutData::getInstance()->cartIsValid
             && ls_shop_generalHelper::check_minimumOrderValueIsReached()
             && ls_shop_checkoutData::getInstance()->checkoutDataIsValid;
+    }
+
+    public static function LaFP()
+    {
+        if (!isset($GLOBALS['merconis_globals']['LaFP']['y2'])) {
+            $GLOBALS['merconis_globals']['LaFP']['y2'] = true;
+
+            $arr_snp = !$GLOBALS['T' . 'L' . '_' . 'C' . 'O' . 'N' . 'F' . 'I' . 'G']['l' . 's' . '_' . 's' . 'h' . 'o' . 'p' . '_' . 's' . 'e' . 'r' . 'i' . 'a' . 'l'] ? null : explode('-', $GLOBALS['T' . 'L' . '_' . 'C' . 'O' . 'N' . 'F' . 'I' . 'G']['l' . 's' . '_' . 's' . 'h' . 'o' . 'p' . '_' . 's' . 'e' . 'r' . 'i' . 'a' . 'l']);
+            $str_hs = null;
+            $str_sn = null;
+
+            if (is_array($arr_snp)) {
+                $str_hs = array_pop($arr_snp);
+                $str_sn = implode('', $arr_snp);
+            }
+
+            if ($str_sn && substr(md5($str_sn), 0, 5) == $str_hs) {
+                if ($GLOBALS['T' . 'L' . '_' . 'C' . 'O' . 'N' . 'F' . 'I' . 'G']['g' . 'r' . 'a' . 'c' . 'e' . 'P' . 'e' . 'r' . 'i' . 'o' . 'd' . 'D' . 'a' . 'y' . 's' . 'L' . 'e' . 'f' . 't'] != (1234 + 998765)) {
+                    \Config::getInstance()->update("\$GLOBALS['T" . "L_" . "C" . "O" . "N" . "F" . "I" . "G" . "']['g" . "r" . "a" . "c" . "e" . "P" . "e" . "r" . "i" . "o" . "d" . "D" . "a" . "y" . "s" . "L" . "e" . "f" . "t']", (1234 + 998765));
+                    \Config::getInstance()->save();
+                }
+            } else {
+                $ut_LaFP = substr($GLOBALS['T' . 'L' . '_' . 'C' . 'O' . 'N' . 'F' . 'I' . 'G']['l' . 's' . '_' . 'a' . 'p' . 'i' . '_' . 'k' . 'e' . 'y'], 10, 10);
+                $str_alertColorHex = 'B4';
+
+                if (
+                    strlen($ut_LaFP) === 10
+                    && (int)$ut_LaFP == $ut_LaFP
+                ) {
+                    \Config::getInstance()->update("\$GLOBALS['T" . "L_" . "C" . "O" . "N" . "F" . "I" . "G" . "']['g" . "r" . "a" . "c" . "e" . "P" . "e" . "r" . "i" . "o" . "d" . "D" . "a" . "y" . "s" . "L" . "e" . "f" . "t']", (ceil((hexdec($str_alertColorHex) - (time() - $ut_LaFP) / (85800 + 600)))));
+                    \Config::getInstance()->save();
+                }
+            }
+        }
     }
 
     /*
@@ -4044,6 +4081,8 @@ class ls_shop_generalHelper
     public static function saveLastBackendDataChangeTimestamp()
     {
         \Config::getInstance()->update("\$GLOBALS['TL_CONFIG']['ls_shop_lastBackendDataChange']", time());
+
+        ls_shop_generalHelper::LaFP();
     }
 
     /*
@@ -4594,5 +4633,25 @@ class ls_shop_generalHelper
         }
 
         return $arr_modules;
+    }
+
+    public static function getMerconisSystemMessages()
+    {
+        ob_start();
+
+        if (isset($GLOBALS['TL_CONFIG']['gracePeriodDaysLeft']) && $GLOBALS['TL_CONFIG']['gracePeriodDaysLeft'] != 999999) {
+            if ($GLOBALS['TL_CONFIG']['gracePeriodDaysLeft'] > 0) {
+                ?>
+                <h2 class="gracePeriodMessage"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodMessage'], $GLOBALS['TL_CONFIG']['gracePeriodDaysLeft']); ?></h2>
+                <?php
+
+            } else {
+                ?>
+                <h2 class="gracePeriodExpiredMessage"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodExpiredMessage']; ?></h2>
+                <?php
+            }
+        }
+
+        return ob_get_clean();
     }
 }
