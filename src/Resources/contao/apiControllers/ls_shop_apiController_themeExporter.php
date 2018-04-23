@@ -210,6 +210,14 @@ class ls_shop_apiController_themeExporter
         if ($this->themeTemplatesSrcDir) {
             $this->dirCopy($this->themeTemplatesSrcDir, $this->tmpExportDir . '/' . $this->themeSrcDirName . '/' . $this->themeTemplatesSrcDirName);
         }
+
+        /*
+         * Remove forbidden folders from tmp export directory
+         */
+        if (is_dir(TL_ROOT . '/' . $this->tmpExportDir)) {
+            $this->rmdirRecursively(TL_ROOT . '/' . $this->tmpExportDir, 'doNotExport');
+        }
+
     }
 
     /**
@@ -394,13 +402,22 @@ class ls_shop_apiController_themeExporter
         }
     }
 
-    protected function rmdirRecursively($dir = null)
+    protected function rmdirRecursively($dir = null, $str_dirNamePattern = null)
     {
         if (!$dir) {
             return;
         }
 
         if (is_dir($dir)) {
+            if (
+                $str_dirNamePattern === null
+                || strpos($dir, $str_dirNamePattern) !== false
+            ) {
+                $bln_deleteThisDir = true;
+            } else {
+                $bln_deleteThisDir = false;
+            }
+
             $objects = scandir($dir);
 
             foreach ($objects as $object) {
@@ -409,13 +426,17 @@ class ls_shop_apiController_themeExporter
                 }
 
                 if (is_dir($dir . "/" . $object)) {
-                    $this->rmdirRecursively($dir . "/" . $object);
+                    $this->rmdirRecursively($dir . "/" . $object, $bln_deleteThisDir ? null : $str_dirNamePattern);
                 } else {
-                    unlink($dir . "/" . $object);
+                    if ($bln_deleteThisDir) {
+                        unlink($dir . "/" . $object);
+                    }
                 }
             }
 
-            rmdir($dir);
+            if ($bln_deleteThisDir) {
+                $var_deletedDir = rmdir($dir);
+            }
         }
     }
 }
