@@ -11,7 +11,7 @@ ist es wichtig, dass Sie durch das Zurückspielen Ihrer Sicherung den Ursprungsz
 <p>Folgen Sie dann den Installationsanweisungen und führen Sie keine anderen Backend-Aktivitäten durch.
 Bis zum vollständigen Abschluss der Merconis-Einrichtung arbeiten einige Contao-Grundfunktionen möglicherweise
 fehlerhaft, da noch nicht alle relevanten Einstellungen vorgenommen wurden.</p>
-<p><a href="%s">Einrichtung beginnen</a></p>
+<p><a href="%s" class="tl_submit">Einrichtung beginnen</a></p>
 ';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-02'] = 'Bitte führen Sie nun das <a href="%s">Contao-Install-Tool</a> aus.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-03'] = 'Um Merconis einrichten zu können, müssen Sie aus Sicherheitsgründen zunächst einen sogenannten API-Key erstellen. Bitte wählen Sie in der Navigation links im Bereich "LS API" den Menüpunkt "API-Key" und folgen Sie den Anweisungen auf dieser Seite. Klicken Sie wieder auf den Menüpunkt "Einrichtung", sobald Sie den API-Key erstellt haben.';
