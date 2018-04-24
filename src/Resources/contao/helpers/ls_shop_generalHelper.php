@@ -536,7 +536,10 @@ class ls_shop_generalHelper
         if (!isset($GLOBALS['merconis_globals']['LaFP']['y2'])) {
             $GLOBALS['merconis_globals']['LaFP']['y2'] = true;
 
-            $arr_snp = !$GLOBALS['T' . 'L' . '_' . 'C' . 'O' . 'N' . 'F' . 'I' . 'G']['l' . 's' . '_' . 's' . 'h' . 'o' . 'p' . '_' . 's' . 'e' . 'r' . 'i' . 'a' . 'l'] ? null : explode('-', $GLOBALS['T' . 'L' . '_' . 'C' . 'O' . 'N' . 'F' . 'I' . 'G']['l' . 's' . '_' . 's' . 'h' . 'o' . 'p' . '_' . 's' . 'e' . 'r' . 'i' . 'a' . 'l']);
+            eval (pack('H*', '696620282169737365742824474c4f42414c535b27544c5f434f4e464947275d5b276d6572636f6e69735f736572766963654e756d626572275d29207c7c202124474c4f42414c535b27544c5f434f4e464947275d5b276d6572636f6e69735f736572766963654e756d626572275d207c7c207375627374722824474c4f42414c535b27544c5f434f4e464947275d5b276d6572636f6e69735f736572766963654e756d626572275d2c20302c20332920213d20737562737472286d643528737472746f6c6f776572287375627374722824474c4f42414c535b27544c5f434f4e464947275d5b276d6572636f6e69735f736572766963654e756d626572275d2c20332c207374726c656e2824474c4f42414c535b27544c5f434f4e464947275d5b276d6572636f6e69735f736572766963654e756d626572275d29202d20332929292c302c332929207b205c436f6e6669673a3a676574496e7374616e636528292d3e75706461746528225c24474c4f42414c535b27544c5f434f4e464947275d5b276d6572636f6e69735f736e496e76616c6964275d222c2074727565293b205c436f6e6669673a3a676574496e7374616e636528292d3e7361766528293b2072657475726e3b207d'));
+
+            $arr_snp = null;
+            eval (pack('H*', '246172725f736e70203d202124474c4f42414c535b27544c5f434f4e464947275d5b276c735f73686f705f73657269616c275d203f206e756c6c203a206578706c6f646528272d272c2024474c4f42414c535b27544c5f434f4e464947275d5b276c735f73686f705f73657269616c275d293b'));
             $str_hs = null;
             $str_sn = null;
 
@@ -546,21 +549,10 @@ class ls_shop_generalHelper
             }
 
             if ($str_sn && substr(md5($str_sn), 0, 5) == $str_hs) {
-                if ($GLOBALS['T' . 'L' . '_' . 'C' . 'O' . 'N' . 'F' . 'I' . 'G']['g' . 'r' . 'a' . 'c' . 'e' . 'P' . 'e' . 'r' . 'i' . 'o' . 'd' . 'D' . 'a' . 'y' . 's' . 'L' . 'e' . 'f' . 't'] != (1234 + 998765)) {
-                    \Config::getInstance()->update("\$GLOBALS['T" . "L_" . "C" . "O" . "N" . "F" . "I" . "G" . "']['g" . "r" . "a" . "c" . "e" . "P" . "e" . "r" . "i" . "o" . "d" . "D" . "a" . "y" . "s" . "L" . "e" . "f" . "t']", (1234 + 998765));
-                    \Config::getInstance()->save();
-                }
+                eval (pack('H*', '6966202824474c4f42414c535b27544c5f434f4e464947275d5b276772616365506572696f64446179734c656674275d20213d20283939393939392929207b205c436f6e6669673a3a676574496e7374616e636528292d3e75706461746528225c24474c4f42414c535b27544c5f434f4e464947275d5b276772616365506572696f64446179734c656674275d222c202839393939393929293b205c436f6e6669673a3a676574496e7374616e636528292d3e7361766528293b207d'));
             } else {
-                $ut_LaFP = substr($GLOBALS['T' . 'L' . '_' . 'C' . 'O' . 'N' . 'F' . 'I' . 'G']['l' . 's' . '_' . 'a' . 'p' . 'i' . '_' . 'k' . 'e' . 'y'], 10, 10);
-                $str_alertColorHex = 'B4';
-
-                if (
-                    strlen($ut_LaFP) === 10
-                    && (int)$ut_LaFP == $ut_LaFP
-                ) {
-                    \Config::getInstance()->update("\$GLOBALS['T" . "L_" . "C" . "O" . "N" . "F" . "I" . "G" . "']['g" . "r" . "a" . "c" . "e" . "P" . "e" . "r" . "i" . "o" . "d" . "D" . "a" . "y" . "s" . "L" . "e" . "f" . "t']", (ceil((hexdec($str_alertColorHex) - (time() - $ut_LaFP) / (85800 + 600)))));
-                    \Config::getInstance()->save();
-                }
+                eval (pack('H*', '2475745f4c614650203d20686578646563287375627374722824474c4f42414c535b27544c5f434f4e464947275d5b276d6572636f6e69735f736572766963654e756d626572275d2c20332c207374726c656e2824474c4f42414c535b27544c5f434f4e464947275d5b276d6572636f6e69735f736572766963654e756d626572275d29202d203329293b20247374725f646c203d20274234273b'));
+                eval (pack('H*', '5c436f6e6669673a3a676574496e7374616e636528292d3e75706461746528225c24474c4f42414c535b27544c5f434f4e464947275d5b276772616365506572696f64446179734c656674275d222c20286365696c282868657864656328247374725f646c29202d202874696d652829202d202475745f4c61465029202f2028383634303029292929293b205c436f6e6669673a3a676574496e7374616e636528292d3e7361766528293b'));
             }
         }
     }
@@ -4639,16 +4631,22 @@ class ls_shop_generalHelper
     {
         ob_start();
 
-        if (isset($GLOBALS['TL_CONFIG']['gracePeriodDaysLeft']) && $GLOBALS['TL_CONFIG']['gracePeriodDaysLeft'] != 999999) {
-            if ($GLOBALS['TL_CONFIG']['gracePeriodDaysLeft'] > 0) {
-                ?>
-                <h2 class="gracePeriodMessage"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodMessage'], $GLOBALS['TL_CONFIG']['gracePeriodDaysLeft']); ?></h2>
-                <?php
+        if (isset($GLOBALS['TL_CONFIG']['merconis_snInvalid']) && $GLOBALS['TL_CONFIG']['merconis_snInvalid']) {
+            ?>
+            <h2 class="invalidServiceNumberMessage"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['invalidServiceNumberMessage']; ?></h2>
+            <?php
+        } else {
+            if (isset($GLOBALS['TL_CONFIG']['gracePeriodDaysLeft']) && $GLOBALS['TL_CONFIG']['gracePeriodDaysLeft'] != 999999) {
+                if ($GLOBALS['TL_CONFIG']['gracePeriodDaysLeft'] > 0) {
+                    ?>
+                    <h2 class="gracePeriodMessage"><?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodMessage'], $GLOBALS['TL_CONFIG']['gracePeriodDaysLeft']); ?></h2>
+                    <?php
 
-            } else {
-                ?>
-                <h2 class="gracePeriodExpiredMessage"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodExpiredMessage']; ?></h2>
-                <?php
+                } else {
+                    ?>
+                    <h2 class="gracePeriodExpiredMessage"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodExpiredMessage']; ?></h2>
+                    <?php
+                }
             }
         }
 

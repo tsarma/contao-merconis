@@ -1,4 +1,5 @@
 <div class="contaoBeMainContainer">
+    <?php echo \Merconis\Core\ls_shop_generalHelper::getMerconisSystemMessages(); ?>
     <?php echo $this->str_installerOutput; ?>
 
     <div id="merconis-dashboard">

@@ -35,7 +35,8 @@
 	margin-bottom: 50px !important;
 }
 
-.gracePeriodExpiredMessage {
+.gracePeriodExpiredMessage,
+.invalidServiceNumberMessage {
 	font-size: 30px;
 	font-weight: bold;
 	color: #FFFFFF;
