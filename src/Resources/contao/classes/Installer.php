@@ -113,7 +113,7 @@ class Installer
                         /*
                          * Display a introduction if we have an update situation but the update is not in progress yet
                          */
-                        echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage11'], $varUpdateSituation['installedVersion'], $varUpdateSituation['currentProgramFilesVersion'], 'contao/main.php?lsShopUpdateAction=startUpdateProgress');
+                        echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage11'], $varUpdateSituation['installedVersion'], $varUpdateSituation['currentProgramFilesVersion'], 'contao?do=ls_shop_dashboard&lsShopUpdateAction=startUpdateProgress');
                     } else {
                         /*
                          * If the update is in progress we show different messages depending on the current update step
@@ -164,7 +164,7 @@ class Installer
                                                 } else {
                                                     ?>
                                                     &nbsp;&nbsp;&nbsp;<a
-                                                            href="contao/main.php?lsShopUpdateAction=<?php echo $arrConverterRoutineInfo['routineName']; ?>"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage18']; ?></a>
+                                                            href="contao?do=ls_shop_dashboard&lsShopUpdateAction=<?php echo $arrConverterRoutineInfo['routineName']; ?>"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage18']; ?></a>
                                                     <?php
                                                 }
                                             } else {
@@ -180,7 +180,7 @@ class Installer
                                 }
                                 echo '<hr>';
                                 ?>
-                                <?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage14'], 'contao/main.php?lsShopUpdateAction=markUpdateAsFinished'); ?>
+                                <?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage14'], 'contao?do=ls_shop_dashboard&lsShopUpdateAction=markUpdateAsFinished'); ?>
                                 <?php
                                 break;
                         }
@@ -196,13 +196,13 @@ class Installer
                                 break;
                             }
                             ?>
-                            <a href="contao/main.php?lsShopUpdateAction=setInstalledVersion&installedVersion=<?php echo urlencode($versionInHistory); ?>"><?php echo $versionInHistory; ?></a>
+                            <a href="contao?do=ls_shop_dashboard&lsShopUpdateAction=setInstalledVersion&installedVersion=<?php echo urlencode($versionInHistory); ?>"><?php echo $versionInHistory; ?></a>
                             <br/>
                             <?php
                         }
                     } else {
                         echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['updateErrors'][$varUpdateSituation['errorCode']];
-                        echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage14'], 'contao/main.php?lsShopUpdateAction=markUpdateAsFinished');
+                        echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage14'], 'contao?do=ls_shop_dashboard&lsShopUpdateAction=markUpdateAsFinished');
                     }
                 }
                 ?>
@@ -263,7 +263,7 @@ class Installer
             ob_start();
             ?>
             <div class="ls_shop ls_shop_systemMessage">
-                <?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-06'], 'contao/main.php?lsShopInstallationStep=2'); ?>
+                <?php echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage01-06'], 'contao?do=ls_shop_dashboard&lsShopInstallationStep=2'); ?>
 
                 <?php
                 if ($_SESSION['lsShop']['selectedThemeCanNotBeInstalled']) {
