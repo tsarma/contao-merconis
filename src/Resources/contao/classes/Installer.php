@@ -302,6 +302,9 @@ class Installer
                         <?php
                         if (is_array($obj_installerController->availableThemes) && count($obj_installerController->availableThemes)) {
                             foreach ($obj_installerController->availableThemes as $arrTheme) {
+                                if (!$arrTheme['compatibleWithMerconisVersion']) {
+                                    continue;
+                                }
                                 ?>
                                 <div class="installerThemeSelection">
                                     <?php

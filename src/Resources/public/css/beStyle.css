@@ -1852,6 +1852,10 @@ ul.ls_shop_productSelectionWizard li .widgetProductSelection .selectedProductOut
 .installerThemeSelection .img {
 	float: left;
 	margin-right: 10px;
+	max-width: 400px;
+}
+.installerThemeSelection > label span.img img {
+	width: 100%;
 }
 
 .installerThemeSelection .name {
