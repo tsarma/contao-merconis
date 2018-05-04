@@ -1,10 +1,16 @@
 {
   "name": "leadingsystems/contao-merconis",
-  "description": "Leading Systems Merconis as a Contao 4 bundle",
+  "description": "Your Onlineshop/Webshop with the CMS Contao. MERCONIS, the professional shop extension. Thanks to automatic installation it is ready to go in no time.",
   "keywords": [
-    "contao",
+    "Contao",
     "leading systems",
-    "bundle"
+    "bundle",
+    "Onlineshop",
+    "Webshop",
+    "Shopsystem",
+    "eCommerce",
+    "Contao-Erweiterung",
+    "Shopmodul"
   ],
   "type": "contao-bundle",
   "license": "proprietary",
