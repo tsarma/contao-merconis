@@ -976,6 +976,7 @@ CREATE TABLE `tl_ls_shop_messages_sent` (
 @tl_module.ls_shop_cross_seller@tl_ls_shop_cross_seller.id=single@
 @tl_module.jumpTo@tl_page.id=single@
 @tl_module.reg_jumpTo@tl_page.id=single@
+@tl_module.ls_shop_productManagementApiInspector_apiPage@tl_page.id=single@
 */
 CREATE TABLE `tl_module` (
   `ls_shop_cart_template` varchar(64) NOT NULL default '',
