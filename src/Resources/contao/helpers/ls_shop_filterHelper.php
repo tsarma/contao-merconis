@@ -609,7 +609,7 @@ class ls_shop_filterHelper {
 					}
 
 					foreach($varValue['value'] as $k => $v) {
-						if (!$v) {
+						if (!$v || $v == '--reset--' || $v == '--checkall--') {
 							unset($varValue['value'][$k]);
 						}
 					}
@@ -649,7 +649,7 @@ class ls_shop_filterHelper {
 					}
 
 					foreach($varValue as $k => $v) {
-						if (!$v) {
+						if (!$v || $v == '--reset--' || $v == '--checkall--') {
 							unset($varValue[$k]);
 						}
 					}
