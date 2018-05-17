@@ -4399,8 +4399,7 @@ class ls_shop_generalHelper
     }
 
     /*
-     * This function reads the current merconis version from the ls_version.txt
-     * and, if required, removes the square brackets part
+     * This function reads the current merconis version from the changelog.md
      */
     public static function getMerconisFilesVersion($bln_removeInternalBuildNumber = false)
     {
