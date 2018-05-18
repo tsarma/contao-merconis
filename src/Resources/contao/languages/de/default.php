@@ -537,8 +537,6 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importErrors'] = array(
 	'valueInvalid_scalePriceKeyword' => 'Zeile(n) Nr. %s: Feldwert f&uuml;r &quot;scalePriceKeyword&quot; ist ung&uuml;ltig'
 );
 
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['updateErrors']['currentVersionSituationInvalid'] = '<p class="shopHint">Die ermittelten Versionsnummern f&uuml;r den Einrichtungszustand und die vorliegenden Programmdateien sind fehlerhaft. Dieser Fehler tritt z. B. auf, wenn der Einrichtungszustand einer h&ouml;heren Version entspricht als die aktuell vorhandenen Dateien. Dies w&uuml;rde eine Herabstufung der MERCONIS-Version bedeuten und wird vom UPDATE HELPER nicht unterst&uuml;tzt. Falls Sie dennoch eine Herabstufung durchf&uuml;hren wollen, f&uuml;hren Sie die notwendigen &Auml;nderungen (Einstellungen, Module etc.) bitte nach eigenem Ermessen durch.</p>';
-
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['msg001'] = '<div style="font-weight: bold; border: 5px solid #FF0000; padding: 20px; background-color: #FFFFFF;">Bitte beachten Sie, dass Sie mit der unlizensierten Demo-Version von MERCONIS maximal 10 Produkte anbieten k&ouml;nnen.</div>';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['validationMessages']['productCode01'] = 'Eine Artikelnummer muss angegeben werden.';

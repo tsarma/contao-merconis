@@ -1,7 +1,7 @@
 Leading Systems Contao Merconis bundle changelog
 ===========================================
 
-### 4.0.1 beta 1 (2018-05-17)
+### 4.0.1 unreleased (2018-05-18)
 
  * Add database relation for ls_shop_productManagementApiInspector_apiPage to make sure that
  the page reference is updated properly by the Merconis installer

@@ -35,7 +35,7 @@ class InstallerController extends \Controller {
 		'2.2.0 stable',
 		'2.2.1 stable',
 		'3.0.0 stable',
-		'4.0.0 stable'
+		'4.0.0'
 	);
 	protected $arrUpdateStepsWithInstructions = array(
 // no instructions		'2_0_0_stable_2_0_1_stable',
@@ -1474,7 +1474,9 @@ class InstallerController extends \Controller {
 			$keyCurrentProgramFilesVersion = array_search($currentProgramFilesVersion, $this->arrVersionHistory);
 
 			$errorCode = '';
-			if ($keyInstalledVersion === false || $keyCurrentProgramFilesVersion === false || $keyCurrentProgramFilesVersion < $keyInstalledVersion) {
+			if (strpos($currentProgramFilesVersion, 'unreleased') !== false) {
+                $errorCode = 'currentFilesVersionUnreleased';
+            } else if ($keyInstalledVersion === false || $keyCurrentProgramFilesVersion === false || $keyCurrentProgramFilesVersion < $keyInstalledVersion) {
 				if ($installedVersion == 'unknown') {
 					$errorCode = 'installedVersionUnknown';
 				} else {

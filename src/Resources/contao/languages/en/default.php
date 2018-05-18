@@ -537,8 +537,6 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importErrors'] = array(
 	'valueInvalid_scalePriceKeyword' => 'Line(s) no. %s: Field value for &quot;scalePriceKeyword&quot; is invalid',
 );
 
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['updateErrors']['currentVersionSituationInvalid'] = '<p class="shopHint">The identified version numbers for the current installation state and the existing program files are faulty. This error occurs e.g. if the installation state corresponds to a higher version than the version of the currently existing program files. This would mean downgrading your MERCONIS version which is not supported by the UPDATE HELPER. If you actually want to perform this downgrade, please arrange the necessary changes (settings, modules etc.) as you see fit.</p>';
-
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['msg001'] = '<div style="font-weight: bold; border: 5px solid #FF0000; padding: 20px; background-color: #FFFFFF;">Please note that you can only offer 10 products in the unlicensed demo version of MERCONIS.</div>';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['validationMessages']['productCode01'] = 'Please enter an item number.';

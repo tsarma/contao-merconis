@@ -202,7 +202,9 @@ class Installer
                         }
                     } else {
                         echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['updateErrors'][$varUpdateSituation['errorCode']];
-                        echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage14'], 'contao?do=ls_shop_dashboard&lsShopUpdateAction=markUpdateAsFinished');
+                        if ($varUpdateSituation['errorCode'] != 'currentFilesVersionUnreleased') {
+                            echo sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['installToolMessage14'], 'contao?do=ls_shop_dashboard&lsShopUpdateAction=markUpdateAsFinished');
+                        }
                     }
                 }
                 ?>
