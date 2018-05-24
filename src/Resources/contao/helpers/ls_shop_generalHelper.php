@@ -2652,10 +2652,47 @@ class ls_shop_generalHelper
                 }
             }
 
+            /*
+             * Try to get a dummy image if no product image could be found
+             */
+            if (!count($allImages)) {
+                $str_dummyImage = ls_shop_generalHelper::getDummyProductImage();
+                if ($str_dummyImage) {
+                    $allImages[] = $str_dummyImage;
+                }
+            }
+
             $GLOBALS['merconis_globals']['getAllProductImages'][$globalCacheKey] = $allImages;
         }
 
         return $GLOBALS['merconis_globals']['getAllProductImages'][$globalCacheKey];
+    }
+
+    public static function getDummyProductImage() {
+        if (!isset($GLOBALS['merconis_globals']['getDummyProductImage'])) {
+            $str_dummyProductImage = '';
+
+            $str_pathToStandardProductImageFolder = ls_getFilePathFromVariableSources($GLOBALS['TL_CONFIG']['ls_shop_standardProductImageFolder']);
+
+            if (!file_exists(TL_ROOT . '/' . $str_pathToStandardProductImageFolder)) {
+                error_log("the standard folder for product images possibly doesn't exist.");
+                $GLOBALS['merconis_globals']['getDummyProductImage'] = $str_dummyProductImage;
+                return $GLOBALS['merconis_globals']['getDummyProductImage'];
+            }
+
+            $arr_allowedDummyImageSuffixes = array('jpg', 'jpeg', 'JPG', 'JPEG', 'png', 'PNG', 'gif', 'GIF');
+
+            foreach ($arr_allowedDummyImageSuffixes as $str_suffix) {
+                if (file_exists(TL_ROOT . '/' . $str_pathToStandardProductImageFolder . '/dummy.' . $str_suffix)) {
+                    $str_dummyProductImage = $str_pathToStandardProductImageFolder . '/dummy.' . $str_suffix;
+                    break;
+                }
+            }
+
+            $GLOBALS['merconis_globals']['getDummyProductImage'] = $str_dummyProductImage;
+        }
+
+        return $GLOBALS['merconis_globals']['getDummyProductImage'];
     }
 
     public static function checkForUniqueProductCode($varValue, \DataContainer $dc)
