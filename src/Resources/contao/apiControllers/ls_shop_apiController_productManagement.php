@@ -222,6 +222,24 @@ class ls_shop_apiController_productManagement
 	}
 
 	/**
+	 * Synchronize DBAFS
+	 *
+	 * Scope: FE
+	 *
+	 * Allowed user types: apiUser
+	 */
+	protected function apiResource_syncDbafs()
+	{
+		$this->obj_apiReceiver->requireScope(['FE']);
+		$this->obj_apiReceiver->requireUser(['apiUser']);
+
+        \Dbafs::syncFiles();
+
+		$this->obj_apiReceiver->success();
+		$this->obj_apiReceiver->set_data(true);
+	}
+
+	/**
 	 * Returns a list containing the names of all images that are stored in the standard product image folder
 	 *
 	 * Scope: FE

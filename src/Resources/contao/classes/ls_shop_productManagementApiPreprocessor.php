@@ -865,6 +865,10 @@ class ls_shop_productManagementApiPreprocessor
 			'arr_fields' => array()
 		),
 
+		'apiResource_syncDbafs' => array(
+			'arr_fields' => array()
+		),
+
 		'apiResource_getProductImageNames' => array(
 			'arr_fields' => array()
 		),
@@ -1207,19 +1211,21 @@ class ls_shop_productManagementApiPreprocessor
 
 		$arr_categories = ls_shop_generalHelper::explodeWithoutBlanksAndSpaces(',', $str_output);
 
-		if (!count($arr_categories)) {
-			throw new \Exception('a value is mandatory for row type \'' . $arr_row['type'] . '\'');
-		}
-
 		$arr_pageAliases = ls_shop_productManagementApiHelper::getPageAliases();
 
-		foreach ($arr_categories as $str_category) {
-			if (!in_array($str_category, $arr_pageAliases)) {
-				throw new \Exception('at least one of the given page/category aliases does not exist');
-			}
-		}
+        $arr_categoriesToWrite = array();
 
-		$str_output = implode(',', $arr_categories);
+        if (count($arr_categories)) {
+            foreach ($arr_categories as $str_category) {
+                if (!in_array($str_category, $arr_pageAliases)) {
+                    continue;
+                }
+
+                $arr_categoriesToWrite[] = $str_category;
+            }
+        }
+
+		$str_output = implode(',', $arr_categoriesToWrite);
 
 		$str_output = ls_shop_productManagementApiHelper::generatePageListFromCategoryValue($str_output);
 
