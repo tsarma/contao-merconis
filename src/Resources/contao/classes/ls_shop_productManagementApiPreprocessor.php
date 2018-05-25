@@ -861,6 +861,10 @@ class ls_shop_productManagementApiPreprocessor
 			'arr_fields' => array()
 		),
 
+		'apiResource_getStandardProductImagePath' => array(
+			'arr_fields' => array()
+		),
+
 		'apiResource_getProductImageNames' => array(
 			'arr_fields' => array()
 		),

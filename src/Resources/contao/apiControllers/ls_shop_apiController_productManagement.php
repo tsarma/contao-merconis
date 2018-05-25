@@ -204,6 +204,24 @@ class ls_shop_apiController_productManagement
 	}
 
 	/**
+	 * Returns the standard product image path as defined in the Merconis settings in the Contao backend
+	 *
+	 * Scope: FE
+	 *
+	 * Allowed user types: apiUser
+	 */
+	protected function apiResource_getStandardProductImagePath()
+	{
+		$this->obj_apiReceiver->requireScope(['FE']);
+		$this->obj_apiReceiver->requireUser(['apiUser']);
+
+        $str_pathToStandardProductImageFolder = ls_getFilePathFromVariableSources($GLOBALS['TL_CONFIG']['ls_shop_standardProductImageFolder']);
+
+		$this->obj_apiReceiver->success();
+		$this->obj_apiReceiver->set_data($str_pathToStandardProductImageFolder);
+	}
+
+	/**
 	 * Returns a list containing the names of all images that are stored in the standard product image folder
 	 *
 	 * Scope: FE
