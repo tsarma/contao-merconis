@@ -385,6 +385,8 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['shippingData']['fieldNames'] = array(
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['finishOrderButtonLabel'] = 'Kaufen';
 
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['variantSelector']['nothingSelectedYet'] = 'Bitte wählen';
+
 /*
  * <- Frontend
  */
