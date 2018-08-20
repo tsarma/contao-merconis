@@ -438,7 +438,9 @@ class ls_shop_checkoutData {
 		$this->formPaymentMethodRadio = $this->getPaymentOrShippingMethodForm('payment');
 		$this->formShippingMethodRadio = $this->getPaymentOrShippingMethodForm('shipping');
 		
-		$this->formConfirmOrder = \Controller::getForm($this->formConfirmOrderID);
+		if ($obj_paymentModule->checkoutFinishAllowed()) {
+			$this->formConfirmOrder = \Controller::getForm($this->formConfirmOrderID);
+		}
 
 	}
 	
