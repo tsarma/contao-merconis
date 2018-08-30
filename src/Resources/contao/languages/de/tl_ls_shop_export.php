@@ -5,6 +5,7 @@
  */
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['title']										= array('Bezeichnung');
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['template']									= array('Ausgabetemplate');
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['customLogicFile']			        			= array('Datei mit eigener Datenvorbereitungslogik', 'Bitte geben Sie hier bei Bedarf die Datei an, die das Programm mit Ihrer eigenen Datenvorbereitungslogik enth&auml;lt.');
 
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['flex_parameters']								= array('Flexible Parameter', 'Hier k&ouml;nnen Sie beliebig viele Parameter hinterlegen, die in Templates &uuml;ber das Schl&uuml;sselwort referenziert und auf beliebige Art genutzt werden k&ouml;nnen. Informationen &uuml;ber die vom Template unterst&uuml;tzten bzw. ben&ouml;tigten Parameter erhalten Sie in der Template-Datei.');
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['flex_parameters_label01']						= 'Parameter-Schl&uuml;sselwort';
@@ -106,6 +107,7 @@ $GLOBALS['TL_LANG']['tl_ls_shop_export']['overview']['createExport'] = 'Exportda
  */
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['title_legend']   = 'Bezeichnung';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['template_legend']   = 'Ausgabeformat';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['customLogic_legend'] = 'Eigene Logik für Datenvorbereitung';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['dataSource_legend']   = 'Datenquelle';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['dataTable_legend']   = 'Daten aus Tabelle';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['dataOrders_legend']   = 'Daten aus Bestellungen';

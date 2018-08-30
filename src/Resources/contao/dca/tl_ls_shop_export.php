@@ -73,10 +73,10 @@ $GLOBALS['TL_DCA']['tl_ls_shop_export'] = array(
 
 	'palettes' => array(
 		'__selector__' => array('feedActive', 'fileExportActive', 'useSegmentedOutput', 'dataSource', 'activateFilterByStatus01', 'activateFilterByStatus02', 'activateFilterByStatus03', 'activateFilterByStatus04', 'activateFilterByStatus05', 'activateAutomaticChangeStatus01', 'activateAutomaticChangeStatus02', 'activateAutomaticChangeStatus03', 'activateAutomaticChangeStatus04', 'activateAutomaticChangeStatus05', 'activateFilterByPaymentMethod', 'activateFilterByShippingMethod'),
-		'default' => '{title_legend},title;{template_legend},template,flex_parameters;{feed_legend},feedActive;{fileExport_legend},fileExportActive;{segmentedOutput_legend},useSegmentedOutput;{dataSource_legend},dataSource;',
-		'dataTable' => '{title_legend},title;{template_legend},template,flex_parameters;{feed_legend},feedActive;{fileExport_legend},fileExportActive;{segmentedOutput_legend},useSegmentedOutput;{dataSource_legend},dataSource;{dataTable_legend},tableName',
-		'directSelection' => '{title_legend},title;{template_legend},template,flex_parameters;{feed_legend},feedActive;{fileExport_legend},fileExportActive;{segmentedOutput_legend},useSegmentedOutput;{dataSource_legend},dataSource,createProductObjects;{group_legend},simulateGroup;{directSelection_legend},productDirectSelection',
-		'searchSelection' => '{title_legend},title;{template_legend},template,flex_parameters;{feed_legend},feedActive;{fileExport_legend},fileExportActive;{segmentedOutput_legend},useSegmentedOutput;{dataSource_legend},dataSource,createProductObjects;{group_legend},simulateGroup;{searchSelection_legend},
+		'default' => '{title_legend},title;{template_legend},template;{customLogic_legend},customLogicFile,flex_parameters;{feed_legend},feedActive;{fileExport_legend},fileExportActive;{segmentedOutput_legend},useSegmentedOutput;{dataSource_legend},dataSource;',
+		'dataTable' => '{title_legend},title;{template_legend},template;{customLogic_legend},customLogicFile,flex_parameters;{feed_legend},feedActive;{fileExport_legend},fileExportActive;{segmentedOutput_legend},useSegmentedOutput;{dataSource_legend},dataSource;{dataTable_legend},tableName',
+		'directSelection' => '{title_legend},title;{template_legend},template;{customLogic_legend},customLogicFile,flex_parameters;{feed_legend},feedActive;{fileExport_legend},fileExportActive;{segmentedOutput_legend},useSegmentedOutput;{dataSource_legend},dataSource,createProductObjects;{group_legend},simulateGroup;{directSelection_legend},productDirectSelection',
+		'searchSelection' => '{title_legend},title;{template_legend},template;{customLogic_legend},customLogicFile,flex_parameters;{feed_legend},feedActive;{fileExport_legend},fileExportActive;{segmentedOutput_legend},useSegmentedOutput;{dataSource_legend},dataSource,createProductObjects;{group_legend},simulateGroup;{searchSelection_legend},
 									groupStartSearchSelectionNewProduct,
 									activateSearchSelectionNewProduct,
 									searchSelectionNewProduct,
@@ -111,7 +111,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_export'] = array(
 									activateSearchSelectionTags,
 									searchSelectionTags,
 									groupStopSearchSelectionTags',
-		'dataOrders' => '{title_legend},title;{template_legend},template,flex_parameters;{feed_legend},feedActive;{fileExport_legend},fileExportActive;{segmentedOutput_legend},useSegmentedOutput;{dataSource_legend},dataSource;{dataOrders_legend},changedWithinMinutes,activateFilterByStatus01,activateFilterByStatus02,activateFilterByStatus03,activateFilterByStatus04,activateFilterByStatus05,activateFilterByPaymentMethod,activateFilterByShippingMethod,activateAutomaticChangeStatus01,activateAutomaticChangeStatus02,activateAutomaticChangeStatus03,activateAutomaticChangeStatus04,activateAutomaticChangeStatus05,sendOrderMailsOnStatusChange'
+		'dataOrders' => '{title_legend},title;{template_legend},template;{customLogic_legend},customLogicFile,flex_parameters;{feed_legend},feedActive;{fileExport_legend},fileExportActive;{segmentedOutput_legend},useSegmentedOutput;{dataSource_legend},dataSource;{dataOrders_legend},changedWithinMinutes,activateFilterByStatus01,activateFilterByStatus02,activateFilterByStatus03,activateFilterByStatus04,activateFilterByStatus05,activateFilterByPaymentMethod,activateFilterByShippingMethod,activateAutomaticChangeStatus01,activateAutomaticChangeStatus02,activateAutomaticChangeStatus03,activateAutomaticChangeStatus04,activateAutomaticChangeStatus05,sendOrderMailsOnStatusChange'
 	),
 
 	'subpalettes' => array(
@@ -150,6 +150,14 @@ $GLOBALS['TL_DCA']['tl_ls_shop_export'] = array(
 			'filter' => true,
 			'eval'					  => array('tl_class' => 'w50', 'includeBlankOption' => true)
 		),
+
+        'customLogicFile' => array(
+            'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_export']['customLogicFile'],
+            'exclude' => true,
+            'inputType'		=>	'fileTree',
+            'eval'			=> array('fieldType'=>'radio', 'files'=>true, 'filesOnly'=>true, 'extensions'=>'php', 'tl_class'=>'clr'),
+            'sql'                     => "binary(16) NULL"
+        ),
 
 		'flex_parameters' => array(
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_export']['flex_parameters'],

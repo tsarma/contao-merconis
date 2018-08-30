@@ -5,6 +5,7 @@
  */
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['title']										= array('Designation');
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['template']									= array('Output template');
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['customLogicFile']							    = array('File with custom data preparation logic', 'If required, please indicate the file containing the custom data preparation logic here.');
 
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['flex_parameters']								= array('Flexible Parameters', 'You can add as many parameters as you like and they can be used in templates for any purpose by referencing them with their keyword. Information about parameters supported or required by a template can be found in the template file.');
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['flex_parameters_label01']						= 'Parameter key';
@@ -105,6 +106,7 @@ $GLOBALS['TL_LANG']['tl_ls_shop_export']['overview']['createExport'] = 'Create e
  */
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['title_legend']   = 'Designation';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['template_legend']   = 'Output format';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['customLogic_legend'] = 'Custom logic for data preparation';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['dataSource_legend']   = 'Data source';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['dataTable_legend']   = 'Data from table';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['dataOrders_legend']   = 'Data from orders';

@@ -2,6 +2,7 @@
 
 namespace Merconis\Core;
 use function LeadingSystems\Helpers\createMultidimensionalArray;
+use function LeadingSystems\Helpers\ls_getFilePathFromVariableSources;
 
 class ls_shop_export
 {
@@ -182,6 +183,21 @@ class ls_shop_export
 				$arr_data = $this->getTableData();
 				break;
 		}
+
+        /*
+         * Use a customLogic file if one exists
+         */
+        $str_pathToCustomLogicFile = ls_getFilePathFromVariableSources($this->arr_exportRecord['customLogicFile']);
+
+        if ($str_pathToCustomLogicFile && file_exists(TL_ROOT."/".$str_pathToCustomLogicFile) && is_file(TL_ROOT."/".$str_pathToCustomLogicFile)) {
+            require_once(TL_ROOT."/".$str_pathToCustomLogicFile);
+            $str_customLogicClassName = '\Merconis\Core\\'.preg_replace('/(^.*\/)([^\/\.]*)(\.php$)/', '\\2', $str_pathToCustomLogicFile);
+
+            $obj_customLogic = new $str_customLogicClassName($this);
+
+            $arr_data = $obj_customLogic->prepareData($arr_data, $this);
+        }
+
 
 		if (isset($GLOBALS['MERCONIS_HOOKS']['exporter_manipulateData']) && is_array($GLOBALS['MERCONIS_HOOKS']['exporter_manipulateData'])) {
 			foreach ($GLOBALS['MERCONIS_HOOKS']['exporter_manipulateData'] as $mccb) {
