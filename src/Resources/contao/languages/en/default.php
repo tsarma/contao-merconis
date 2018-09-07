@@ -217,6 +217,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['scalePriceQuantityFrom'] = 'from'
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['priceScale'] = 'Price scale';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['quantityForScalePrice'] = 'Quantity considered for scale price:';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['noVAT'] = 'Tax-free according to § 4 No. 1b Value Added Tax Act, VAT ident no. of vendor: %s';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['noVAT2'] = 'Tax-free according to § 4 No. 1b Value Added Tax Act, VAT ident no. of vendor: %s, VAT ident no. of customer: %s';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['hasBeenPutInCart'] = '%s of this/these product(s) has/have been added to the shopping cart!';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['hasBeenPutInCartStockNotSufficient'] = 'Unfortunately, the desired quantity of %s is no longer available. Instead, %s has/have been added to the shopping cart.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['couldNotBePutInCart'] = 'The product could not be added to the shopping cart.';
