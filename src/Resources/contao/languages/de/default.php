@@ -217,6 +217,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['scalePriceQuantityFrom'] = 'ab';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['priceScale'] = 'Preisstaffel';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['quantityForScalePrice'] = 'F&uuml;r Preisstaffel zu ber&uuml;cksichtigende Menge:';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['noVAT'] = 'Steuerfrei nach § 4 Nr. 1b UstG, USt-IdNr. des Verk&auml;ufers: %s';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['noVAT2'] = 'Steuerfrei nach § 4 Nr. 1b UstG, USt-IdNr. des Verk&auml;ufers: %s, USt-IdNr. des K&auml;ufers: %s';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['hasBeenPutInCart'] = '%s dieses Produktes wurde(n) dem Warenkorb hinzugef&uuml;gt!';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['hasBeenPutInCartStockNotSufficient'] = 'Die gew&uuml;nschte Menge von %s ist leider nicht mehr verf&uuml;gbar. Dem Warenkorb wurden stattdessen %s hinzugef&uuml;gt.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['couldNotBePutInCart'] = 'Das Produkt konnte dem Warenkorb nicht hinzugef&uuml;gt werden.';
