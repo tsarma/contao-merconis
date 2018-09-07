@@ -370,7 +370,7 @@ class dynamicAttachment_invoice_01 extends \Controller {
 			$y += 4;
 
 			$this->pdf->SetXY($this->leftIndention, $y, true);
-			$this->pdf->Cell(201 - $this->leftIndention, 4, html_entity_decode(sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['noVAT'], $GLOBALS['TL_CONFIG']['ls_shop_ownVATID']), ENT_COMPAT, 'UTF-8'), $strBorder);
+			$this->pdf->Cell(201 - $this->leftIndention, 4, html_entity_decode(sprintf($GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['noVAT2'], $GLOBALS['TL_CONFIG']['ls_shop_ownVATID'], $this->arrOrder['customerData']['personalData']['VATID']), ENT_COMPAT, 'UTF-8'), $strBorder);
 		}
 
 
