@@ -1,7 +1,7 @@
 Leading Systems Contao Merconis bundle changelog
 ===========================================
 
-### 4.0.1 unreleased (2018-08-30)
+### 4.0.1 (2018-09-07)
 
  * Allow a customLogic file to be used for export data preparation
 
