@@ -2113,7 +2113,7 @@ class ls_shop_productManagementApiPreprocessor
 			);
 		}
 
-		return $arr_propertiesAndValues;
+		return json_encode($arr_propertiesAndValues);
 	}
 
 	/**
