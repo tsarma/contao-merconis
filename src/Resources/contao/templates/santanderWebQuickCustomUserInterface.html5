@@ -23,7 +23,16 @@
 					?>
 
 					<p><?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc03']; ?></p>
-					<form class="santanderWebQuickCheckStatus" action="<?php echo $this->formAction ?>" method="post">
+					<form class="santanderWebQuickCheckStatus" action="<?php echo $this->formAction ?>" method="post"
+                            data-lsjs-component="cajaxCaller"
+                            data-lsjs-cajaxCallerOptions="
+                             {
+                                'obj_cajaxRequestData': {
+                                    'requestedElementID': 'checkoutContent'
+                                }
+                             }
+                            "
+                    >
 						<input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}" />
 						<input type="hidden" name="FORM_SUBMIT" value="santanderWebQuickCheckStatus" />
 						<input type="submit" class="submit" name="submit" value="<?php echo $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc04']; ?>" />
@@ -72,7 +81,16 @@
 				unset($_SESSION['lsShopPaymentProcess']['santanderWebQuick']['str_birthdayError']);
 			}
 			?>
-			<form class="santanderWebQuickBirthday" action="<?php echo $this->formAction ?>" method="post">
+			<form class="santanderWebQuickBirthday" action="<?php echo $this->formAction ?>" method="post"
+                            data-lsjs-component="cajaxCaller"
+                            data-lsjs-cajaxCallerOptions="
+                             {
+                                'obj_cajaxRequestData': {
+                                    'requestedElementID': 'checkoutContent'
+                                }
+                             }
+                            "
+                    >
 				<input type="hidden" name="REQUEST_TOKEN" value="{{request_token}}" />
 				<input type="hidden" name="FORM_SUBMIT" value="santanderWebQuickBirthday" />
 				<div class="inputBlock">
