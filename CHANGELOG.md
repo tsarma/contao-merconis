@@ -1,6 +1,12 @@
 Leading Systems Contao Merconis bundle changelog
 ===========================================
 
+### 4.0.2 (2018-10-02)
+
+ * Use cajaxCaller in santander forms
+ * Revert: "Add functionality to try to get a dummy image if no product image could be found" (8569124)
+
+
 ### 4.0.1 (2018-09-07)
 
  * Allow a customLogic file to be used for export data preparation
