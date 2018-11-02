@@ -2117,28 +2117,34 @@ class ls_shop_productManagementApiPreprocessor
 	}
 
 	/**
-	 * Expected input: an empty string if flex contents should not be used or a comma separated list of field names that are not part of the standard field set expected by the api and that should be used as flex contents. The field names will be used as flex content keys and the respective field values are used as the flex content values.
+	 * Expected input: An empty string if flex contents should not be used. If they should be used, either a string like [[&quot;flexkey1&quot;,&quot;flexvalue1&quot;],[&quot;flexkey2&quot;,&quot;flexvalue2&quot;]] or a comma separated list of field names that are not part of the standard field set expected by the api (but are being sent with the api request anyway) and that should be used as flex contents. The field names will be used as flex content keys and the respective field values are used as the flex content values.
 	 * Accepted input: as expected
 	 * Normalization: an import-ready flex content collection will be created
 	 */
 	protected static function preprocess_flexContents($var_input, $arr_row, $str_fieldName, $str_context, $arr_normalizedRow) {
 		$str_output = trim($var_input);
 
-		$arr_flexContentFields = ls_shop_generalHelper::explodeWithoutBlanksAndSpaces(',', $str_output);
-		$arr_flexContents = array();
+		$arr_flexContents = json_decode($str_output, true);
 
-		foreach ($arr_flexContentFields as $str_flexContentFieldKey) {
-			$arr_flexContents[] = $str_flexContentFieldKey;
-			$arr_flexContents[] = isset($arr_row[$str_flexContentFieldKey]) ? $arr_row[$str_flexContentFieldKey] : '';
-		}
+		if (!is_array($arr_flexContents)) {
+            $arr_flexContentFields = ls_shop_generalHelper::explodeWithoutBlanksAndSpaces(',', $str_output);
+            $arr_flexContents = array();
 
-		$str_output = serialize($arr_flexContents);
+            foreach ($arr_flexContentFields as $str_flexContentFieldKey) {
+                $arr_flexContents[] = array(
+                    $str_flexContentFieldKey,
+                    isset($arr_row[$str_flexContentFieldKey]) ? $arr_row[$str_flexContentFieldKey] : ''
+                );
+            }
+        }
+
+        $str_output = json_encode($arr_flexContents);
 
 		return $str_output;
 	}
 
 	/**
-	 * Expected input: an empty string if langauge independent flex contents should not be used or a comma separated list of field names that are not part of the standard field set expected by the api and that should be used as language independent flex contents. The field names will be used as flex content keys and the respective field values are used as the flex content values.
+	 * Expected input: An empty string if flex contents should not be used. If they should be used, either a string like [[&quot;flexkey1&quot;,&quot;flexvalue1&quot;],[&quot;flexkey2&quot;,&quot;flexvalue2&quot;]] or a comma separated list of field names that are not part of the standard field set expected by the api (but are being sent with the api request anyway) and that should be used as flex contents. The field names will be used as flex content keys and the respective field values are used as the flex content values.
 	 * Accepted input: as expected
 	 * Normalization: an import-ready flex content collection will be created
 	 */
@@ -2151,15 +2157,21 @@ class ls_shop_productManagementApiPreprocessor
 
 		$str_output = trim($var_input);
 
-		$arr_flexContentFields = ls_shop_generalHelper::explodeWithoutBlanksAndSpaces(',', $str_output);
-		$arr_flexContents = array();
+        $arr_flexContents = json_decode($str_output, true);
 
-		foreach ($arr_flexContentFields as $str_flexContentFieldKey) {
-			$arr_flexContents[] = $str_flexContentFieldKey;
-			$arr_flexContents[] = isset($arr_row[$str_flexContentFieldKey]) ? $arr_row[$str_flexContentFieldKey] : '';
-		}
+        if (!is_array($arr_flexContents)) {
+            $arr_flexContentFields = ls_shop_generalHelper::explodeWithoutBlanksAndSpaces(',', $str_output);
+            $arr_flexContents = array();
 
-		$str_output = serialize($arr_flexContents);
+            foreach ($arr_flexContentFields as $str_flexContentFieldKey) {
+                $arr_flexContents[] = array(
+                    $str_flexContentFieldKey,
+                    isset($arr_row[$str_flexContentFieldKey]) ? $arr_row[$str_flexContentFieldKey] : ''
+                );
+            }
+        }
+
+		$str_output = json_encode($arr_flexContents);
 
 		return $str_output;
 	}
