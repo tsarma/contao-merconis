@@ -654,17 +654,7 @@ Array. If the product has variants, this array contains all the variant objects.
 returns true/false, indicates whether a variant of this product has currently been selected
 				 */
 				:
-				$selectedVariantID = \Input::get('selectVariant') ? \Input::get('selectVariant') : $this->ls_currentVariantID;
-
-				/*
-				 * If the given variant does not solely consist of digits,
-				 * it must be an alias that has to be translated
-				 */
-				if ($selectedVariantID && !ctype_digit($selectedVariantID)) {
-					$selectedVariantID = ls_shop_generalHelper::getVariantIdForAlias($selectedVariantID);
-				}
-
-				return $selectedVariantID && is_object($this->ls_variants[$selectedVariantID]) ? true : false;
+				return $this->ls_currentVariantID && is_object($this->ls_variants[$this->ls_currentVariantID]) ? true : false;
 				break;
 
 			case '_selectedVariantID'
@@ -672,18 +662,8 @@ returns true/false, indicates whether a variant of this product has currently be
 returns the id of the variant that has currently been selected
 				 */
 				:
-				$selectedVariantID = \Input::get('selectVariant') ? \Input::get('selectVariant') : $this->ls_currentVariantID;
-
-				/*
-				 * If the given variant does not solely consist of digits,
-				 * it must be an alias that has to be translated
-				 */
-				if ($selectedVariantID && !ctype_digit($selectedVariantID)) {
-					$selectedVariantID = ls_shop_generalHelper::getVariantIdForAlias($selectedVariantID);
-				}
-
-				if ($selectedVariantID && is_object($this->ls_variants[$selectedVariantID])) {
-					return $selectedVariantID;
+				if ($this->_variantIsSelected) {
+					return $this->ls_currentVariantID;
 				} else {
 					return 0;
 				}
