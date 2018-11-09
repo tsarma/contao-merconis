@@ -1,6 +1,11 @@
 Leading Systems Contao Merconis bundle changelog
 ===========================================
 
+### 4.0.3 (2018-11-09)
+
+ * Issue #29 closed
+
+
 ### 4.0.2 (2018-10-02)
 
  * Use cajaxCaller in santander forms
