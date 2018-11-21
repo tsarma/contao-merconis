@@ -91,7 +91,7 @@ $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['confirmDeleteFile_no'] = 'Nein
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['pleaseWait_write'] = 'Bitte warten - Datei wird erzeugt';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['pleaseWait_delete'] = 'Bitte warten - Datei wird gel&ouml;scht';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['fileDeleted'] = 'Datei &quot;{fileName}&quot; wurde gel&ouml;scht.';
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['anErrorOccurred'] = 'Ein Fehler ist aufgetreten. Bitte stellen Sie sicher, dass Sie einen g&uuml;ltigen Dateispeicherort und Dateinamen angegeben haben.';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['anErrorOccurred'] = 'Ein Fehler ist aufgetreten. Bitte stellen Sie sicher, dass Sie einen g&uuml;ltigen Dateispeicherort und Dateinamen angegeben haben. Auch fehlende flexible Parameter in den Einstellungen der Exportvorlage können das Speichern des Exports verhindern. Bitte werfen Sie einen Blick in das Export-Template und prüfen Sie, ob dort in einem Dokumentationsabschnitt zwingend benötigte Parameter genannt sind.';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['partXOfY'] = 'Teil {currentSegment} von {numSegmentsTotal}';
 
 /*
