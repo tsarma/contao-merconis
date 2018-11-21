@@ -90,7 +90,7 @@ $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['confirmDeleteFile_no'] = 'No';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['pleaseWait_write'] = 'Please wait - file is being created';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['pleaseWait_delete'] = 'Please wait - file is being deleted';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['fileDeleted'] = 'File &quot;{fileName}&quot; has been deleted.';
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['anErrorOccurred'] = 'An error occurred. Please make sure that you have defined a valid storage location and file name.';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['anErrorOccurred'] = 'An error occurred. Please make sure that you have defined a valid storage location and file name. Missing flexible parameters in the settings of the export template can also prevent the export from being saved. Please take a look at the export template and check whether there are any mandatory parameters mentioned in a documentation section.';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['partXOfY'] = 'Part {currentSegment} of {numSegmentsTotal}';
 
 /*
