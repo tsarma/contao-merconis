@@ -580,8 +580,7 @@ use function LeadingSystems\Helpers\ls_sub;
 				'RequestId' => md5(microtime().rand(0, 1000)), // FIXME: Will work but is not the intended use because we don't consider retries
 				'RetryIndicator' => 0, // FIXME: Will work but is not the intended use because we don't consider retries
 				'ClientInfo' => array(
-					'ShopInfo' => 'MERCONIS '.ls_shop_generalHelper::getMerconisFilesVersion(),
-					'OsInfo' => php_uname()
+					'ShopInfo' => 'MERCONIS '.ls_shop_generalHelper::getMerconisFilesVersion()
 				)
 			);
 			
