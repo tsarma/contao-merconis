@@ -1,6 +1,11 @@
 Leading Systems Contao Merconis bundle changelog
 ===========================================
 
+### 4.0.4 (2019-01-14)
+
+ * Don't send the OsInfo parameter when communicating with the saferpay API
+
+
 ### 4.0.3 (2018-11-09)
 
  * Issue #29 closed
