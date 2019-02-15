@@ -545,6 +545,9 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['msg001'] = '<div style=
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['validationMessages']['productCode01'] = 'Eine Artikelnummer muss angegeben werden.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['validationMessages']['productCode02'] = 'Die angegebene Artikelnummer ist bereits f&uuml;r ein anderes Produkt bzw. eine andere Variante vergeben.';
 
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentFee'] = 'Zahlungsgebühr';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['shippingFee'] = 'Versandgebühr';
+
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['payPalPlus']['saleTransactionCode'] = 'Transaktionscode';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['payPalPlus']['errorMsgLabel'] = 'Fehlermeldung';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['payPalPlus']['status'] = 'Status';
