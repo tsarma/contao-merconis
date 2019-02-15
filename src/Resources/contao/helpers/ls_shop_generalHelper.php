@@ -4651,4 +4651,53 @@ class ls_shop_generalHelper
 
         return ob_get_clean();
     }
+
+    public static function getSubPageIdsRecursively($int_pageId = 0, $bln_considerUnpublishedPages = false, $bln_considerHiddenPages = false, $int_currentLevel = 0) {
+        $arr_pageIds = [];
+
+        $obj_dbres_subPageIds = \Database::getInstance()
+            ->prepare("
+                SELECT      `id`
+                FROM        `tl_page`
+                WHERE       `".($int_currentLevel === 0 ? "id" : "pid")."` = ?
+                  ".($bln_considerUnpublishedPages ? "" : "AND       `published` = '1'")."
+                  ".($bln_considerHiddenPages ? "" : "AND       `hide` = ''")."
+            ")
+            ->execute(
+                $int_pageId
+            );
+
+        $int_nextLevel = $int_currentLevel + 1;
+
+        while ($obj_dbres_subPageIds->next()) {
+            $arr_pageIds[$obj_dbres_subPageIds->id] = [
+                'pageId' => $obj_dbres_subPageIds->id,
+                'subPageIds' => self::getSubPageIdsRecursively(($int_currentLevel === 0 ? $int_pageId : $obj_dbres_subPageIds->id), $bln_considerUnpublishedPages, $bln_considerHiddenPages, $int_nextLevel)
+            ];
+        }
+
+        return $arr_pageIds;
+    }
+
+    public static function flattenSubPageIdsArray($arr_structuredPageIds = [], $int_startLevel = 0, $int_stopLevel = 0, $int_currentLevel = 0) {
+        $arr_pageIds = [];
+
+        $int_nextLevel = $int_currentLevel + 1;
+
+        foreach ($arr_structuredPageIds as $arr_page) {
+            if (
+                    $int_currentLevel >= $int_startLevel
+                    && (
+                        !$int_stopLevel
+                        || $int_currentLevel <= $int_stopLevel
+                    )
+            ) {
+                $arr_pageIds[] = $arr_page['pageId'];
+            }
+            $arr_subPageIds = self::flattenSubPageIdsArray($arr_page['subPageIds'], $int_startLevel, $int_stopLevel, $int_nextLevel);
+            $arr_pageIds = array_merge($arr_pageIds, $arr_subPageIds);
+        }
+
+        return $arr_pageIds;
+    }
 }
