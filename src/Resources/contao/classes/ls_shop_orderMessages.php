@@ -546,15 +546,15 @@ class ls_shop_orderMessages
 	}
 
 	protected function ls_replaceWildcards($text) {
-		$text = ls_shop_generalHelper::ls_replaceOrderWildcards($text, $this->arrOrder);
-		
 		/*
 		 * Replace the counterNr wildcard
 		 */
 		if ($this->counterNr) {
 			$text = preg_replace('/(&#35;&#35;counterNr&#35;&#35;)|(##counterNr##)/siU', $this->counterNr, $text);
 		}
-		
+
+        $text = ls_shop_generalHelper::ls_replaceOrderWildcards($text, $this->arrOrder);
+
 		return $text;
 	}
 }
