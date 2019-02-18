@@ -22,14 +22,25 @@ class ls_shop_productList
 	protected $numProducts = 0;
 	
 	protected $blnIsFrontendSearch = false;
-	
-	public function __construct($productListID = '') {
+	protected $bln_showProductsFromSubordinatePages = false;
+	protected $bln_considerUnpublishedPages = false;
+	protected $bln_considerHiddenPages = false;
+	protected $int_startLevel = 0;
+	protected $int_stopLevel = 0;
+
+	public function __construct($productListID = '', $bln_showProductsFromSubordinatePages = null, $bln_considerUnpublishedPages = null, $bln_considerHiddenPages = null, $int_startLevel = null, $int_stopLevel = null) {
 		/** @var \PageModel $objPage */
 		global $objPage;
 		if ($productListID) {
 			$this->productListID = $productListID;
 		}
-		
+
+		$this->bln_showProductsFromSubordinatePages = isset($bln_showProductsFromSubordinatePages) ? $bln_showProductsFromSubordinatePages : $this->bln_showProductsFromSubordinatePages;
+		$this->bln_considerUnpublishedPages = isset($bln_considerUnpublishedPages) ? $bln_considerUnpublishedPages : $this->bln_considerUnpublishedPages;
+		$this->bln_considerHiddenPages = isset($bln_considerHiddenPages) ? $bln_considerHiddenPages : $this->bln_considerHiddenPages;
+		$this->int_startLevel = isset($int_startLevel) ? $int_startLevel : $this->int_startLevel;
+		$this->int_stopLevel = isset($int_stopLevel) ? $int_stopLevel : $this->int_stopLevel;
+
 		if ($this->productListID == 'standard') {
 			$this->blnUseFilter = (!isset($GLOBALS['merconis_globals']['ls_shop_activateFilter']) || !$GLOBALS['merconis_globals']['ls_shop_activateFilter']) ? false : (isset($GLOBALS['merconis_globals']['ls_shop_useFilterInStandardProductlist']) && $GLOBALS['merconis_globals']['ls_shop_useFilterInStandardProductlist'] ? true : false);
 		} else {
@@ -59,7 +70,12 @@ class ls_shop_productList
 		$this->currentPage = \Input::get('page_'.$this->productListID) ? \Input::get('page_'.$this->productListID) : 1;
 		
 		$this->outputDefinition = ls_shop_generalHelper::getOutputDefinition();
-		$this->arrSearchCriteria = array('pages' => ls_shop_languageHelper::getMainlanguagePageIDForPageID($objPage->id));
+
+		if ($this->bln_showProductsFromSubordinatePages) {
+            $this->arrSearchCriteria = array('pages' => ls_shop_generalHelper::flattenSubPageIdsArray(ls_shop_generalHelper::getSubPageIdsRecursively(ls_shop_languageHelper::getMainlanguagePageIDForPageID($objPage->id), $this->bln_considerUnpublishedPages, $this->bln_considerHiddenPages), $this->int_startLevel, $this->int_stopLevel));
+        } else {
+            $this->arrSearchCriteria = array('pages' => ls_shop_languageHelper::getMainlanguagePageIDForPageID($objPage->id));
+        }
 	}
 	
 	public function __get($what) {

@@ -2,6 +2,9 @@
 
 namespace Merconis\Core;
 
+$GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'ls_shop_productOverviewShowProductsFromSubordinatePages';
+
+$GLOBALS['TL_DCA']['tl_module']['palettes']['ls_shop_productOverview'] = '{title_legend},name,type;{lsShopProductOverview_legend},ls_shop_productOverviewShowProductsFromSubordinatePages,';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['ls_shop_cart'] = '{title_legend},name,headline,type;{lsShopCart_legend},ls_shop_cart_template;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['ls_shop_orderReview'] = '{title_legend},name,headline,type;{lsShopOrderReview_legend},ls_shop_orderReview_template;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['ls_shop_checkoutFinish'] = '{title_legend},name,headline,type;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
@@ -13,6 +16,45 @@ $GLOBALS['TL_DCA']['tl_module']['palettes']['ls_shop_myOrderDetails'] = '{title_
 $GLOBALS['TL_DCA']['tl_module']['palettes']['ls_shop_filterForm'] = '{title_legend},name,headline,type;{lsShopFilterForm_legend},ls_shop_filterForm_template;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['ls_shop_productSearch'] = '{title_legend},name,headline,type;{lsShopProductSearch_legend},ls_shop_productSearch_template,ls_shop_productSearch_minlengthInput';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['ls_shop_productManagementApiInspector'] = '{title_legend},name,headline,type;{ls_shop_productManagementApiInspector},ls_shop_productManagementApiInspector_apiPage;';
+
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['ls_shop_productOverviewShowProductsFromSubordinatePages'] = 'ls_shop_productOverviewConsiderUnpublishedPages,ls_shop_productOverviewConsiderHiddenPages,ls_shop_productOverviewStartLevel,ls_shop_productOverviewStopLevel';
+
+
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['ls_shop_productOverviewShowProductsFromSubordinatePages'] = array (
+    'label'                   => &$GLOBALS['TL_LANG']['tl_module']['ls_shop_productOverviewShowProductsFromSubordinatePages'],
+    'exclude'                 => true,
+    'inputType'               => 'checkbox',
+    'eval'                    => array('tl_class'=>'clr', 'submitOnChange' => true)
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['ls_shop_productOverviewConsiderUnpublishedPages'] = array (
+    'label'                   => &$GLOBALS['TL_LANG']['tl_module']['ls_shop_productOverviewConsiderUnpublishedPages'],
+    'exclude'                 => true,
+    'inputType'               => 'checkbox',
+    'eval'                    => array('tl_class'=>'w50')
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['ls_shop_productOverviewConsiderHiddenPages'] = array (
+    'label'                   => &$GLOBALS['TL_LANG']['tl_module']['ls_shop_productOverviewConsiderHiddenPages'],
+    'exclude'                 => true,
+    'inputType'               => 'checkbox',
+    'eval'                    => array('tl_class'=>'w50')
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['ls_shop_productOverviewStartLevel'] = array (
+    'label'                   => &$GLOBALS['TL_LANG']['tl_module']['ls_shop_productOverviewStartLevel'],
+    'exclude'                 => true,
+    'inputType'               => 'text',
+    'eval'                    => array('maxlength'=>5, 'rgxp'=>'natural', 'tl_class'=>'w50')
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['ls_shop_productOverviewStopLevel'] = array (
+    'label'                   => &$GLOBALS['TL_LANG']['tl_module']['ls_shop_productOverviewStopLevel'],
+    'exclude'                 => true,
+    'inputType'               => 'text',
+    'eval'                    => array('maxlength'=>5, 'rgxp'=>'natural', 'tl_class'=>'w50')
+);
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['ls_shop_productManagementApiInspector_apiPage'] = array (
 	'label'                   => &$GLOBALS['TL_LANG']['tl_module']['ls_shop_productManagementApiInspector_apiPage'],

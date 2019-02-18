@@ -18,7 +18,14 @@ class ModuleProductOverview extends \Module {
 	}
 	
 	public function compile() {
-		$objProductList = new ls_shop_productList();
+		$objProductList = new ls_shop_productList(
+		    '',
+            $this->ls_shop_productOverviewShowProductsFromSubordinatePages,
+            $this->ls_shop_productOverviewConsiderUnpublishedPages,
+            $this->ls_shop_productOverviewConsiderHiddenPages,
+            $this->ls_shop_productOverviewStartLevel,
+            $this->ls_shop_productOverviewStopLevel
+        );
 		$this->Template = new \FrontendTemplate('productOverview');
 		$this->Template->output = $objProductList->parseOutput();
 	}

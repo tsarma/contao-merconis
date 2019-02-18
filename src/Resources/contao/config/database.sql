@@ -991,7 +991,12 @@ CREATE TABLE `tl_module` (
   `ls_shop_productSearch_template` varchar(64) NOT NULL default '',
   `ls_shop_productSearch_minlengthInput` int(10) unsigned NOT NULL default '0',
   `ls_shop_cross_seller` int(10) unsigned NOT NULL default '0',
-  `ls_shop_productManagementApiInspector_apiPage` int(10) unsigned NOT NULL default '0'
+  `ls_shop_productManagementApiInspector_apiPage` int(10) unsigned NOT NULL default '0',
+  `ls_shop_productOverviewShowProductsFromSubordinatePages` char(1) NOT NULL default '',
+  `ls_shop_productOverviewConsiderUnpublishedPages` char(1) NOT NULL default '',
+  `ls_shop_productOverviewConsiderHiddenPages` char(1) NOT NULL default '',
+  `ls_shop_productOverviewStartLevel` smallint(5) unsigned NOT NULL default '0',
+  `ls_shop_productOverviewStopLevel` smallint(5) unsigned NOT NULL default '0'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*
