@@ -332,6 +332,7 @@ class ls_shop_productManagementApiHelper {
 				SELECT		`id`,
                             `alias`
 				FROM		`tl_page`
+				WHERE       `ls_shop_useAsCategoryForErp` = '1'
 			")
 			->execute();
 
