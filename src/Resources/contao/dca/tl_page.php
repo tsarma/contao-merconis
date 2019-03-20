@@ -6,10 +6,18 @@ $GLOBALS['TL_DCA']['tl_page']['config']['onsubmit_callback'][] = array('Merconis
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'lsShopIncludeLayoutForDetailsView';
 $GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = preg_replace('/(;\{cache_legend:.*\})/siU',';{lsShop_legend},ls_shop_currencyBeforeValue,ls_shop_decimalsSeparator,ls_shop_thousandsSeparator,lsShopOutputDefinitionSet,lsShopIncludeLayoutForDetailsView\\1',$GLOBALS['TL_DCA']['tl_page']['palettes']['root']);
-$GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = preg_replace('/(;\{cache_legend:.*\})/siU',';{lsShop_legend},lsShopOutputDefinitionSet,lsShopIncludeLayoutForDetailsView\\1',$GLOBALS['TL_DCA']['tl_page']['palettes']['regular']);
+$GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = preg_replace('/(;\{cache_legend:.*\})/siU',';{lsShop_legend},lsShopOutputDefinitionSet,lsShopIncludeLayoutForDetailsView,ls_shop_useAsCategoryForErp\\1',$GLOBALS['TL_DCA']['tl_page']['palettes']['regular']);
 $GLOBALS['TL_DCA']['tl_page']['subpalettes']['lsShopIncludeLayoutForDetailsView'] = 'lsShopLayoutForDetailsView,lsShopMobileLayoutForDetailsView';
 
 // Definieren des Formularfeldes
+$GLOBALS['TL_DCA']['tl_page']['fields']['ls_shop_useAsCategoryForErp'] = array (
+    'label'                   => &$GLOBALS['TL_LANG']['tl_page']['ls_shop_useAsCategoryForErp'],
+    'exclude'                 => true,
+    'inputType'               => 'checkbox',
+    'eval'                    => array('tl_class'=>'w50'),
+    'sql'                     => "char(1) NOT NULL default ''"
+);
+
 $GLOBALS['TL_DCA']['tl_page']['fields']['ls_shop_currencyBeforeValue'] = array(
 	'exclude' => true,
 	'label' => &$GLOBALS['TL_LANG']['tl_page']['ls_shop_currencyBeforeValue'],

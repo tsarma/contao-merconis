@@ -1059,7 +1059,8 @@ CREATE TABLE `tl_page` (
 	`lsShopMobileLayoutForDetailsView` int(10) unsigned NOT NULL default '0',
 	`ls_shop_currencyBeforeValue` char(1) NOT NULL default '',
 	`ls_shop_decimalsSeparator` char(1) NOT NULL default ',',
-	`ls_shop_thousandsSeparator` char(1) NOT NULL default ''
+	`ls_shop_thousandsSeparator` char(1) NOT NULL default '',
+  `ls_shop_useAsCategoryForErp` char(1) NOT NULL default ''
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*
