@@ -329,14 +329,26 @@ class ls_shop_productManagementApiHelper {
 
 			$obj_dbres_pages = \Database::getInstance()
 			->prepare("
-				SELECT		`alias`
+				SELECT		`id`,
+                            `alias`
 				FROM		`tl_page`
 			")
 			->execute();
 
-			while ($obj_dbres_pages->next()) {
-				$GLOBALS['merconis_globals']['pageAliases'][] = $obj_dbres_pages->alias;
-			}
+            while ($obj_dbres_pages->next()) {
+                // Check whether root page is fallback language or not and only then add the page to the pageAliases array
+                $obj_pageDetails = \PageModel::findWithDetails($obj_dbres_pages->id);
+                $obj_rootPage = \Database::getInstance()
+                    ->prepare("
+                        SELECT * FROM `tl_page` WHERE `id` = ?
+                    ")
+                    ->limit(1)
+                    ->execute($obj_pageDetails->rootId);
+
+                if ($obj_rootPage->fallback) {
+                    $GLOBALS['merconis_globals']['pageAliases'][] = $obj_dbres_pages->alias;
+                }
+            }
 		}
 		return $GLOBALS['merconis_globals']['pageAliases'];
 	}
