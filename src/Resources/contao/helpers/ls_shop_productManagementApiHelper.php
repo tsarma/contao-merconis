@@ -323,7 +323,7 @@ class ls_shop_productManagementApiHelper {
 		return $GLOBALS['merconis_globals']['getAttributeValueIDForAlias'][$str_alias];
 	}
 
-	public static function getPageAliases() {
+    public static function getPageAliases($bln_considerOnlyPagesMarkedAsCategoriesForErp = false) {
 		if (!isset($GLOBALS['merconis_globals']['pageAliases'])) {
 			$GLOBALS['merconis_globals']['pageAliases'] = array();
 
@@ -332,7 +332,7 @@ class ls_shop_productManagementApiHelper {
 				SELECT		`id`,
                             `alias`
 				FROM		`tl_page`
-				WHERE       `ls_shop_useAsCategoryForErp` = '1'
+				".($bln_considerOnlyPagesMarkedAsCategoriesForErp ? "WHERE       `ls_shop_useAsCategoryForErp` = '1'" : "")."
 			")
 			->execute();
 
