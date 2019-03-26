@@ -53,7 +53,7 @@ class ls_shop_productManagementApiHelper {
 	 * Diese Funktion liest anhand des Alias die ID aus und gibt diese zurück
 	 */
 	public static function getTaxClassID($str_alias = '') {
-		if (!$str_alias) {
+        if ($str_alias === '' || $str_alias === null) {
 			return 0;
 		}
 
