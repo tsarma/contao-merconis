@@ -277,7 +277,7 @@
 							<div class="ls_r_td price paymentFee"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($this->arrOrder['paymentMethod_amount']); ?></div>
 	
 							<?php if ($blnShowTaxColumn) { ?>
-								<div class="ls_r_td taxClass"><?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber($this->arrOrder['paymentMethod_amountTaxedWith'][1]['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']); ?> %</div>
+								<div class="ls_r_td taxClass"><?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber($this->arrOrder['paymentMethod_amountTaxedWith'][key($this->arrOrder['paymentMethod_amountTaxedWith'])]['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']); ?> %</div>
 							<?php } ?>
 							<div class="ls_r_td delete"></div>
 						</div>
@@ -288,7 +288,7 @@
 							<div class="ls_r_td price shippingFee"><?php echo \Merconis\Core\ls_shop_generalHelper::outputPrice($this->arrOrder['shippingMethod_amount']); ?></div>
 	
 							<?php if ($blnShowTaxColumn) { ?>
-								<div class="ls_r_td taxClass"><?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber($this->arrOrder['shippingMethod_amountTaxedWith'][1]['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']); ?> %</div>
+								<div class="ls_r_td taxClass"><?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber($this->arrOrder['shippingMethod_amountTaxedWith'][key($this->arrOrder['shippingMethod_amountTaxedWith'])]['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']); ?> %</div>
 							<?php } ?>
 							<div class="ls_r_td delete"></div>
 						</div>
