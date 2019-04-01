@@ -1,6 +1,13 @@
 Leading Systems Contao Merconis bundle changelog
 ===========================================
 
+### 4.0.5 (2019-04-01)
+
+ * Fix a bug where the message counterNr could not be replaced in order messages
+ * Enabling the display of products from subordinate pages in the product overview
+ * Correctly access the tax information for payment and shipping in the backend order details and invoice template
+
+
 ### 4.0.4 (2019-01-14)
 
  * Don't send the OsInfo parameter when communicating with the saferpay API
