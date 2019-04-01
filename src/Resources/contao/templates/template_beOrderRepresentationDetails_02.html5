@@ -181,7 +181,7 @@
 					<td></td>
 				<?php } ?>
 				<?php if ($blnShowTaxColumn) { ?>
-					<td class="taxClass"><?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber($this->value['paymentMethod_amountTaxedWith'][1]['taxRate'], 2, $this->value['decimalsSeparator'], $this->value['thousandsSeparator']).' %'; ?></td>
+					<td class="taxClass"><?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber($this->value['paymentMethod_amountTaxedWith'][key($this->value['paymentMethod_amountTaxedWith'])]['taxRate'], 2, $this->value['decimalsSeparator'], $this->value['thousandsSeparator']).' %'; ?></td>
 				<?php } ?>
 			</tr>
 			
@@ -192,7 +192,7 @@
 					<td></td>
 				<?php } ?>
 				<?php if ($blnShowTaxColumn) { ?>
-					<td class="taxClass"><?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber($this->value['shippingMethod_amountTaxedWith'][1]['taxRate'], 2, $this->value['decimalsSeparator'], $this->value['thousandsSeparator']).' %'; ?></td>
+					<td class="taxClass"><?php echo \Merconis\Core\ls_shop_generalHelper::outputNumber($this->value['shippingMethod_amountTaxedWith'][key($this->value['shippingMethod_amountTaxedWith'])]['taxRate'], 2, $this->value['decimalsSeparator'], $this->value['thousandsSeparator']).' %'; ?></td>
 				<?php } ?>
 			</tr>
 			
