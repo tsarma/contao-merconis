@@ -280,7 +280,7 @@ class dynamicAttachment_invoice_01 extends \Controller {
 
 		if ($this->blnShowTaxColumn) {
 			$this->pdf->SetXY(181, $y, true);
-			$this->pdf->Cell(20, 4, ls_shop_generalHelper::outputNumber($this->arrOrder['paymentMethod_amountTaxedWith'][1]['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']).' %', $strBorder, 0, 'R');
+            $this->pdf->Cell(20, 4, ls_shop_generalHelper::outputNumber($this->arrOrder['paymentMethod_amountTaxedWith'][key($this->arrOrder['paymentMethod_amountTaxedWith'])]['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']).' %', $strBorder, 0, 'R');
 		}
 
 
@@ -294,7 +294,7 @@ class dynamicAttachment_invoice_01 extends \Controller {
 
 		if ($this->blnShowTaxColumn) {
 			$this->pdf->SetXY(181, $y, true);
-			$this->pdf->Cell(20, 4, ls_shop_generalHelper::outputNumber($this->arrOrder['shippingMethod_amountTaxedWith'][1]['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']).' %', $strBorder, 0, 'R');
+            $this->pdf->Cell(20, 4, ls_shop_generalHelper::outputNumber($this->arrOrder['shippingMethod_amountTaxedWith'][key($this->arrOrder['shippingMethod_amountTaxedWith'])]['taxRate'], 2, $this->arrOrder['decimalsSeparator'], $this->arrOrder['thousandsSeparator']).' %', $strBorder, 0, 'R');
 		}
 
 
