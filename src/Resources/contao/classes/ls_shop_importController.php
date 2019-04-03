@@ -168,8 +168,10 @@ class ls_shop_importController
 				\System::log('MERCONIS IMPORTER: '.$message, 'MERCONIS IMPORTER', TL_MERCONIS_IMPORTER);
 			}
 			$_SESSION['lsShop']['importFileInfo']['status'] = 'notOk';
+			return false;
 		} else {
 			$_SESSION['lsShop']['importFileInfo']['status'] = 'ok';
+			return true;
 		}
 	}
 
