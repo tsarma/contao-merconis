@@ -962,6 +962,16 @@ CREATE TABLE `tl_ls_shop_messages_sent` (
 	PRIMARY KEY  (`id`),
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+CREATE TABLE `tl_ls_shop_singular_storage` (
+  `key` varchar(255) NOT NULL default '',
+  `int_value` int(10) unsigned NOT NULL default '0',
+  `float_value` decimal(12,4) NOT NULL default '0.0000',
+  `str_value` text NULL,
+  `bln_value` char(1) NOT NULL default '',
+  `arr_value` blob NULL
+  PRIMARY KEY  (`key`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
 
 
 
