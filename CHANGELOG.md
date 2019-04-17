@@ -1,6 +1,11 @@
 Leading Systems Contao Merconis bundle changelog
 ===========================================
 
+### 4.0.6 (2019-04-17)
+
+ * Allow the meta page description to be overwritten with the product's description based on a new shop setting option
+
+
 ### 4.0.5 (2019-04-01)
 
  * Fix a bug where the message counterNr could not be replaced in order messages
