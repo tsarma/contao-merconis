@@ -63,6 +63,13 @@ class ModuleProductSingleview extends \Module {
 		// Overwrite the page title
 		$objPage->pageTitle = strip_insert_tags($objProduct->_title).' - '.($objPage->pageTitle ? $objPage->pageTitle : $objPage->title);
 
+		if (
+            isset($GLOBALS['TL_CONFIG']['ls_shop_useProductDescriptionAsSeoDescription'])
+            &&	$GLOBALS['TL_CONFIG']['ls_shop_useProductDescriptionAsSeoDescription']
+        ) {
+            $objPage->description = ($objProduct->_shortDescription || $objProduct->_description) ? substr(strip_insert_tags(strip_tags($objProduct->_shortDescription ? $objProduct->_shortDescription : $objProduct->_description)), 0, 350) : $objPage->description;
+        }
+
 		if ($objProduct->_hasKeywords != '') {
 			$GLOBALS['TL_KEYWORDS'] .= (strlen($GLOBALS['TL_KEYWORDS']) ? ', ' : '').$objProduct->_keywords;
 		}
