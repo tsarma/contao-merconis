@@ -227,8 +227,8 @@ class ls_shop_importController
 
 				continue;
 			} else if (
-			    ($this->bln_importFileHasNoRowForVersionAndSpecialChars && $_SESSION['lsShop']['importFileInfo']['intCurrentlyReadImportFileRow'] == 2)
-                || (!$this->bln_importFileHasNoRowForVersionAndSpecialChars && $_SESSION['lsShop']['importFileInfo']['intCurrentlyReadImportFileRow'] == 1)
+			    ($this->bln_importFileHasRowForVersionAndSpecialChars && $_SESSION['lsShop']['importFileInfo']['intCurrentlyReadImportFileRow'] == 2)
+                || (!$this->bln_importFileHasRowForVersionAndSpecialChars && $_SESSION['lsShop']['importFileInfo']['intCurrentlyReadImportFileRow'] == 1)
             ) {
 				$_SESSION['lsShop']['importFileInfo']['arrKeys'] = $row;
 				continue;
@@ -1406,7 +1406,7 @@ class ls_shop_importController
 		}
 		
 		$_SESSION['lsShop']['importFileInfo']['intCurrentlyReadImportFileRow']++;
-		
+
 		if ($_SESSION['lsShop']['importFileInfo']['intCurrentlyReadImportFileRow'] == 1) {
 			$row[0] = $this->rmBOM($row[0]);
 		} else if (
