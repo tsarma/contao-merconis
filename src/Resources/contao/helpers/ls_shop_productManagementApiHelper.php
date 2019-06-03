@@ -619,7 +619,7 @@ class ls_shop_productManagementApiHelper {
 		return $arr_queryParams;
 	}
 
-	public static function generateProductAlias($str_title, $str_givenAlias = '', $int_productId = 0, $str_language = '') {
+	public static function generateProductAlias($str_title, $str_givenAlias = '', $int_productId = 0, $str_language = '', $bln_alwaysAddIdToAlias = true) {
 		$str_alias = $str_givenAlias ? $str_givenAlias : \StringUtil::generateAlias($str_title);
 
 		/*
@@ -627,22 +627,24 @@ class ls_shop_productManagementApiHelper {
 		 */
 		$str_alias = substr($str_alias, 0, 128);
 
-		/*
-		 * Check whether the alias already exists
-		 */
-		$obj_dbres_recordForAlias = \Database::getInstance()
-		->prepare("
-			SELECT		`id`
-			FROM		`tl_ls_shop_product`
-			WHERE		`alias".($str_language ? '_'.$str_language : '')."` = ?
-				AND		`id` != ?
-		")
-		->execute(
-				$str_alias,
-				$int_productId
-			);
+        if (!$bln_alwaysAddIdToAlias) {
+            /*
+             * Check whether the alias already exists
+             */
+            $obj_dbres_recordForAlias = \Database::getInstance()
+                ->prepare("
+                    SELECT		`id`
+                    FROM		`tl_ls_shop_product`
+                    WHERE		`alias" . ($str_language ? '_' . $str_language : '') . "` = ?
+                        AND		`id` != ?
+                ")
+                ->execute(
+                    $str_alias,
+                    $int_productId
+                );
+        }
 
-		if ($obj_dbres_recordForAlias->numRows) {
+		if ($bln_alwaysAddIdToAlias || $obj_dbres_recordForAlias->numRows) {
 			/*
 			 * Even with the suffix added to the alias, it must not be longer
 			 * than 128 characters
@@ -654,7 +656,7 @@ class ls_shop_productManagementApiHelper {
 		return $str_alias;
 	}
 
-	public static function generateVariantAlias($str_title, $str_givenAlias = '', $int_variantId = 0, $str_language = '') {
+	public static function generateVariantAlias($str_title, $str_givenAlias = '', $int_variantId = 0, $str_language = '', $bln_alwaysAddIdToAlias = true) {
 		$str_alias = $str_givenAlias ? $str_givenAlias : \StringUtil::generateAlias($str_title);
 
 		/*
@@ -662,22 +664,24 @@ class ls_shop_productManagementApiHelper {
 		 */
 		$str_alias = substr($str_alias, 0, 128);
 
-		/*
-		 * Check whether the alias already exists
-		 */
-		$obj_dbres_recordForAlias = \Database::getInstance()
-		->prepare("
+        if (!$bln_alwaysAddIdToAlias) {
+            /*
+             * Check whether the alias already exists
+             */
+            $obj_dbres_recordForAlias = \Database::getInstance()
+                ->prepare("
 			SELECT		`id`
 			FROM		`tl_ls_shop_variant`
-			WHERE		`alias".($str_language ? '_'.$str_language : '')."` = ?
+			WHERE		`alias" . ($str_language ? '_' . $str_language : '') . "` = ?
 				AND		`id` != ?
 		")
-		->execute(
-				$str_alias,
-				$int_variantId
-			);
+                ->execute(
+                    $str_alias,
+                    $int_variantId
+                );
+        }
 
-		if ($obj_dbres_recordForAlias->numRows) {
+		if ($bln_alwaysAddIdToAlias || $obj_dbres_recordForAlias->numRows) {
 			/*
 			 * Even with the suffix added to the alias, it must not be longer
 			 * than 128 characters
