@@ -2052,47 +2052,46 @@ This method can be used to call a function hooked with the "callingHookedProduct
 	 * das nicht der Fall ist, wird einfach die erstbeste hinterlegte Seite verwendet.
 	 */
 	public function getlinkToProduct($var_useVariantAliasOrID = '') {
-		if (!$this->ls_linkToProduct) {
-			/** @var \PageModel $objPage */
-			global $objPage;
-			$currentMainLanguagePageID = ls_shop_languageHelper::getMainlanguagePageIDForPageID($objPage->id);
+        /** @var \PageModel $objPage */
+        global $objPage;
+        $currentMainLanguagePageID = ls_shop_languageHelper::getMainlanguagePageIDForPageID($objPage->id);
 
-			/*-->
-			 * Prüfen, ob die aktuelle Hauptsprachseite dem Produkt hinterlegt ist
-			 <--*/
-			if (is_array($this->_pages) && in_array($currentMainLanguagePageID, $this->_pages)) {
-				/*-->
-				 * Wenn ja, zielt der Link auf die aktuelle Seite (natürlich nicht zwingend auf die Hauptsprachseite sondern tatsächlich die aktuell aufgerufene, ggf. also Fremdsprachseite)
-				 <--*/
-				$objProductPage = $objPage;
-			} else {
-				/*-->
-				 * Wenn nein, so zielt der Link auf die erstbeste, dem Produkt zugeordnete Seite. Da die auf diese Art ermittelte
-				 * Seiten-ID allerdings eine Hauptsprachseiten-ID ist, muss zu dieser Seite die Seite ermittelt werden, die der
-				 * Sprache der aktuell aufgerufenen Seite entspricht.
-				 <--*/
-				$MainLanguagePageIDForLink = $this->_pages[0];
-				$languagePages = ls_shop_languageHelper::getLanguagePages($MainLanguagePageIDForLink);
-				$currentLanguagePageIDForLink = $languagePages[$objPage->language]['id'];
+        /*-->
+         * Prüfen, ob die aktuelle Hauptsprachseite dem Produkt hinterlegt ist
+         <--*/
+        if (is_array($this->_pages) && in_array($currentMainLanguagePageID, $this->_pages)) {
+            /*-->
+             * Wenn ja, zielt der Link auf die aktuelle Seite (natürlich nicht zwingend auf die Hauptsprachseite sondern tatsächlich die aktuell aufgerufene, ggf. also Fremdsprachseite)
+             <--*/
+            $objProductPage = $objPage;
+        } else {
+            /*-->
+             * Wenn nein, so zielt der Link auf die erstbeste, dem Produkt zugeordnete Seite. Da die auf diese Art ermittelte
+             * Seiten-ID allerdings eine Hauptsprachseiten-ID ist, muss zu dieser Seite die Seite ermittelt werden, die der
+             * Sprache der aktuell aufgerufenen Seite entspricht.
+             <--*/
+            $MainLanguagePageIDForLink = $this->_pages[0];
+            $languagePages = ls_shop_languageHelper::getLanguagePages($MainLanguagePageIDForLink);
+            $currentLanguagePageIDForLink = $languagePages[$objPage->language]['id'];
 
-				$objProductPage = \PageModel::findWithDetails($currentLanguagePageIDForLink);
-			}
+            $objProductPage = \PageModel::findWithDetails($currentLanguagePageIDForLink);
+        }
 
-			/*-->
-			 * If $objProductPage is not an object, which would be the case if the product has been assigned to a page that doesn't exist (anymore),
-			 * it will be overwritten with $objPage because we definitely need an existing page
-			 <--*/
-			if (!is_object($objProductPage)) {
-				$objProductPage = $objPage;
-			}
+        /*-->
+         * If $objProductPage is not an object, which would be the case if the product has been assigned to a page that doesn't exist (anymore),
+         * it will be overwritten with $objPage because we definitely need an existing page
+         <--*/
+        if (!is_object($objProductPage)) {
+            $objProductPage = $objPage;
+        }
 
-			$addReturnPageToUrl = '';
-			if ($objPage->id == ls_shop_languageHelper::getLanguagePage('ls_shop_searchResultPages', false, 'id')) {
-				$addReturnPageToUrl = '/calledBy/searchResult';
-			}
+        $addReturnPageToUrl = '';
+        if ($objPage->id == ls_shop_languageHelper::getLanguagePage('ls_shop_searchResultPages', false, 'id')) {
+            $addReturnPageToUrl = '/calledBy/searchResult';
+        }
 
-			$this->ls_linkToProduct = \Controller::generateFrontendUrl($objProductPage->row(), '/product/'.$this->_alias.($var_useVariantAliasOrID ? '/selectVariant/'.$var_useVariantAliasOrID : '').$addReturnPageToUrl);
-		}
+        $this->ls_linkToProduct = \Controller::generateFrontendUrl($objProductPage->row(), '/product/'.$this->_alias.($var_useVariantAliasOrID ? '/selectVariant/'.$var_useVariantAliasOrID : '').$addReturnPageToUrl);
+
 		return $this->ls_linkToProduct;
 	}
 
