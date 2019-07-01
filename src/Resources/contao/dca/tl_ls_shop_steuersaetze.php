@@ -211,7 +211,7 @@ class ls_shop_steuersaetze extends \Backend {
 		/*
 		 * Auslesen der Produkte
 		 */
-		$objProducts = \Database::getInstance()->prepare("SELECT * FROM tl_ls_shop_product WHERE `lsShopProductSteuersatz` = ?")
+		$objProducts = \Database::getInstance()->prepare("SELECT `id` FROM tl_ls_shop_product WHERE `lsShopProductSteuersatz` = ?")
 								  ->execute($row['id']);
 								  
 		if (!$objProducts->numRows) {
@@ -238,7 +238,7 @@ class ls_shop_steuersaetze extends \Backend {
 	 */
 	public function checkIfWildcardsUsedAndAllowed($varValue, \DataContainer $dc) {
 		$objProducts = \Database::getInstance()->prepare("
-			SELECT	*
+			SELECT	`id`
 			FROM	`tl_ls_shop_product`
 			WHERE	`lsShopProductSteuersatz` = ?
 		")

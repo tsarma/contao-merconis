@@ -178,7 +178,7 @@ class ls_shop_delivery_info extends \Backend {
 			$varValue = \StringUtil::generateAlias($currentTitle);
 		}
 
-		$objAlias = \Database::getInstance()->prepare("SELECT id FROM tl_ls_shop_delivery_info WHERE id=? OR alias=?")
+		$objAlias = \Database::getInstance()->prepare("SELECT `id` FROM tl_ls_shop_delivery_info WHERE id=? OR alias=?")
 								   ->execute($dc->id, $varValue);
 
 		// Check whether the alias exists
@@ -201,7 +201,7 @@ class ls_shop_delivery_info extends \Backend {
 		/*
 		 * Auslesen der Produkt-Artikel
 		 */
-		$objProducts = \Database::getInstance()->prepare("SELECT * FROM tl_ls_shop_product WHERE `lsShopProductDeliveryInfoSet` = ?")
+		$objProducts = \Database::getInstance()->prepare("SELECT `id` FROM tl_ls_shop_product WHERE `lsShopProductDeliveryInfoSet` = ?")
 								  ->execute($row['id']);
 								  
 		if (!$objProducts->numRows && $GLOBALS['TL_CONFIG']['ls_shop_delivery_infoSet'] != $row['id']) {
