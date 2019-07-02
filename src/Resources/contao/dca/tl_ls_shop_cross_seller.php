@@ -72,6 +72,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_cross_seller'] = array(
 	'palettes' => array(
 		'__selector__' => array('productSelectionType'),
 		'default' => '{title_legend},title;{textOutput_legend},text01,text02;{template_legend},template,doNotUseCrossSellerOutputDefinitions;{filterSettings_legend},canBeFiltered;{published_legend},published;{productSelectionType_legend},productSelectionType;',
+		'hookSelection' => '{title_legend},title;{textOutput_legend},text01,text02;{template_legend},template,doNotUseCrossSellerOutputDefinitions;{fallbackCrossSeller_legend},fallbackCrossSeller,fallbackOutput;{filterSettings_legend},canBeFiltered;{published_legend},published;{productSelectionType_legend},productSelectionType',
 		'directSelection' => '{title_legend},title;{textOutput_legend},text01,text02;{template_legend},template,doNotUseCrossSellerOutputDefinitions;{fallbackCrossSeller_legend},fallbackCrossSeller,fallbackOutput;{filterSettings_legend},canBeFiltered;{published_legend},published;{productSelectionType_legend},productSelectionType;{directSelection_legend},productDirectSelection',
 		'searchSelection' => '{title_legend},title;{textOutput_legend},text01,text02;{template_legend},template,doNotUseCrossSellerOutputDefinitions;{fallbackCrossSeller_legend},fallbackCrossSeller,fallbackOutput;{filterSettings_legend},canBeFiltered;{published_legend},published;{productSelectionType_legend},productSelectionType;{searchSelection_legend},maxNumProducts,
 									groupStartSearchSelectionNewProduct,
@@ -193,7 +194,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_cross_seller'] = array(
 			'default'                 => 'directSelection',
 			'exclude' => true,
 			'inputType'               => 'select',
-			'options'                 => array('directSelection', 'searchSelection', 'lastSeen', 'recommendedProducts', 'frontendProductSearch', 'favorites'),
+			'options'                 => array('directSelection', 'searchSelection', 'lastSeen', 'recommendedProducts', 'frontendProductSearch', 'favorites', 'hookSelection'),
 			'reference'				  => &$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['productSelectionType']['options'],
 			'eval'					  => array('helpwizard' => true, 'submitOnChange' => true),
 			'filter' => true
