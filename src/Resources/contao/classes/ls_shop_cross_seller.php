@@ -76,13 +76,9 @@ class ls_shop_cross_seller
 		$productListOutput = '';
 		
 		switch ($this->ls_details['productSelectionType']) {
-			case 'directSelection':
-				// $arrProducts available directly
-				$this->setArrProducts($this->ls_getDirectSelection());
-				if (!count($this->arrProducts)) {
-					return $this->getFallback();
-				}
-				
+			case 'hookSelection':
+				$this->setArrProducts([0 => 0]);
+
 				$objProductList = new ls_shop_productList($GLOBALS['lsShopProductViewContext']);
 				$objProductList->mode = $this->ls_details['doNotUseCrossSellerOutputDefinitions'] ? 'standard': 'crossSeller';
 				$objProductList->arrSearchCriteria = array('id' => $this->arrProducts);
@@ -93,6 +89,23 @@ class ls_shop_cross_seller
 				}
 				break;
 				
+			case 'directSelection':
+				// $arrProducts available directly
+				$this->setArrProducts($this->ls_getDirectSelection());
+				if (!count($this->arrProducts)) {
+					return $this->getFallback();
+				}
+
+				$objProductList = new ls_shop_productList($GLOBALS['lsShopProductViewContext']);
+				$objProductList->mode = $this->ls_details['doNotUseCrossSellerOutputDefinitions'] ? 'standard': 'crossSeller';
+				$objProductList->arrSearchCriteria = array('id' => $this->arrProducts);
+				$objProductList->fixedSorting = $this->arrProducts;
+				$productListOutput = $objProductList->parseOutput();
+				if (!$productListOutput) {
+					return $this->getFallback();
+				}
+				break;
+
 			case 'lastSeen':
 				// $arrProducts available directly
 				$this->setArrProducts($this->ls_getLastSeenSelection());
