@@ -60,6 +60,7 @@
 	 * References
 	 */
 	$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['productSelectionType']['options'] = array(
+		'hookSelection' => array('Individuell über Hook', 'Mit dieser Auswahl-Art k&ouml;nnen Sie die tatsächliche Produktauswahl mittels des Hook &quot;beforeProductlistOutput&quot; vornehmen.'),
 		'directSelection' => array('Direkte Produktauswahl', 'Mit dieser Auswahl-Art k&ouml;nnen Sie die gew&uuml;nschten Produkte direkt bestimmen.'),
 		'searchSelection' => array('Produkt-Suche', 'Die im CrossSeller darzustellenden Produkte werden anhand vorgegebener Suchkriterien ermittelt.'),
 		'lastSeen' => array('Zuletzt gesehene Produkte', 'Im CrossSeller werden die zuletzt gesehenen Produkte dargestellt.'),
