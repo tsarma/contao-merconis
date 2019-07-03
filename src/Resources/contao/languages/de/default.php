@@ -350,6 +350,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['customerData']['fieldNames'] = array(
 	'company' => 'Firma',
 	'VATID' => 'USt-IdNr.',
 	'street' => 'Straße',
+    'housenumber' => 'Hausnummer',
 	'postal' => 'PLZ',
 	'city' => 'Stadt',
 	'country' => 'Land',
