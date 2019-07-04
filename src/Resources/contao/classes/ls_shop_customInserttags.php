@@ -48,26 +48,52 @@ class ls_shop_customInserttags
 				return $str_output;
 				break;
 
-			case 'ProductOutput':
-				$arr_params = explode(',', $params);
-				$str_productVariantId = trim($arr_params[0]);
-				$str_templateToUse = isset($arr_params[1]) && $arr_params[1] ? trim($arr_params[1]) : '';
+            case 'ProductOutput':
+                $arr_params = explode(',', $params);
+                $str_productVariantId = trim($arr_params[0]);
 
-				$objProductOutput = new ls_shop_productOutput($str_productVariantId, 'overview', $str_templateToUse);
-				$str_productOutput = $objProductOutput->parseOutput();
+                if ($str_productVariantId === 'current') {
+                    /*
+                     * Get product currently displayed in singleview if not productVariantId is given
+                     */
+                    $str_productAlias = \Input::get('product');
+                    $int_productId = ls_shop_generalHelper::getProductIdForAlias($str_productAlias);
+                    if (!$int_productId) {
+                        return '';
+                    }
+                    $str_productVariantId = $int_productId.'-0';
+                }
 
-				return \Controller::replaceInsertTags($str_productOutput);
-				break;
+                $str_templateToUse = isset($arr_params[1]) && $arr_params[1] ? trim($arr_params[1]) : '';
 
-			case 'ProductProperty':
-				$arr_params = explode(',', $params);
-				$str_productVariantId = trim($arr_params[0]);
-				$str_propertyToUse = isset($arr_params[1]) && $arr_params[1] ? trim($arr_params[1]) : '';
+                $objProductOutput = new ls_shop_productOutput($str_productVariantId, 'overview', $str_templateToUse);
+                $str_productOutput = $objProductOutput->parseOutput();
 
-				$obj_product = ls_shop_generalHelper::getObjProduct($str_productVariantId, __METHOD__);
+                return \Controller::replaceInsertTags($str_productOutput);
+                break;
 
-				return \Controller::replaceInsertTags($obj_product->{$str_propertyToUse});
-				break;
+            case 'ProductProperty':
+                $arr_params = explode(',', $params);
+                $str_productVariantId = trim($arr_params[0]);
+
+                if ($str_productVariantId === 'current') {
+                    /*
+                     * Get product currently displayed in singleview if not productVariantId is given
+                     */
+                    $str_productAlias = \Input::get('product');
+                    $int_productId = ls_shop_generalHelper::getProductIdForAlias($str_productAlias);
+                    if (!$int_productId) {
+                        return '';
+                    }
+                    $str_productVariantId = $int_productId.'-0';
+                }
+
+                $str_propertyToUse = isset($arr_params[1]) && $arr_params[1] ? trim($arr_params[1]) : '';
+
+                $obj_product = ls_shop_generalHelper::getObjProduct($str_productVariantId, __METHOD__);
+
+                return \Controller::replaceInsertTags($obj_product->{$str_propertyToUse});
+                break;
 		}
 
 		return false;
