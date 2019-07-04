@@ -1159,16 +1159,17 @@ This method creates and returns the quantity comparison text for a given price v
 				return $this->_objParentProduct->getMengenvergleichsangabe(is_string($args[0]) ? $this->{$args[0]} : $args[0], $this->_quantityComparisonUnit, $this->_quantityComparisonDivisor);
 				break;
 
-			case '_useCustomTemplate'
-				/* ## DESCRIPTION:
+            case '_useCustomTemplate'
+                /* ## DESCRIPTION:
 This method takes the name of a template file as an argument and returns the rendered output as an html string. Use this functionality to outsource parts of your product output in separate templates to keep things clean, well structured and easily reusable.
-				 */
-				:
-				$args = ls_shop_generalHelper::setArrayLength($args, 1);
-				$str_template = $args[0];
-				$obj_template = new \FrontendTemplate($str_template);
-				$obj_template->objVariant = $this;
-				return $obj_template->parse();
+                 */
+            :
+                $args = ls_shop_generalHelper::setArrayLength($args, 2);
+                $str_template = $args[0];
+                $obj_template = new \FrontendTemplate($str_template);
+                $obj_template->objVariant = $this;
+                $obj_template->arr_args = is_array($args[1]) ? $args[1] : [$args[1]];
+                return $obj_template->parse();
 
 			case '_hookedFunction'
 				/* ## DESCRIPTION:
