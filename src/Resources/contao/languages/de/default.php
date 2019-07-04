@@ -363,6 +363,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['customerData']['fieldNames'] = array(
 	'lastname_alternative' => 'Nachname',
 	'company_alternative' => 'Firma',
 	'street_alternative' => 'Straße',
+    'housenumber_alternative' => 'Hausnummer',
 	'postal_alternative' => 'PLZ',
 	'city_alternative' => 'Stadt',
 	'country_alternative' => 'Land',
