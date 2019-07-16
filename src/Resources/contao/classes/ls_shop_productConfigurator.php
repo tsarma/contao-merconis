@@ -274,8 +274,12 @@ class ls_shop_productConfigurator {
 		$template->arrReceivedPost = $this->arrReceivedPost;
 		$template->blnReceivedFormDataJustNow = $this->blnReceivedFormDataJustNow;
 
-		// Hinterlegen der aktuellen Daten in einer globalen Transfervariablen, die in der Hook-Funktion "ls_shop_configuratorController::ls_shop_configuratorLoadFormField()" verwendet wird.
-		$GLOBALS['merconis_globals']['configurator']['currentArrReceivedPost'] = isset($_SESSION['lsShop']['configurator'][$this->configuratorCacheKey]['tmpLastReceivedPostForFormPrefillAfterChangeConfiguration']) ? $_SESSION['lsShop']['configurator'][$this->configuratorCacheKey]['tmpLastReceivedPostForFormPrefillAfterChangeConfiguration'] : ($this->blnReceivedFormDataAtLeastOnce ? $this->arrReceivedPost : null);
+        // Hinterlegen der aktuellen Daten in einer globalen Transfervariablen, die in der Hook-Funktion "ls_shop_configuratorController::ls_shop_configuratorLoadFormField()" verwendet wird.
+        if ($this->arrData['stayInDataEntryMode']) {
+            $GLOBALS['merconis_globals']['configurator']['currentArrReceivedPost'] = $this->arrReceivedPost;
+        } else {
+            $GLOBALS['merconis_globals']['configurator']['currentArrReceivedPost'] = isset($_SESSION['lsShop']['configurator'][$this->configuratorCacheKey]['tmpLastReceivedPostForFormPrefillAfterChangeConfiguration']) ? $_SESSION['lsShop']['configurator'][$this->configuratorCacheKey]['tmpLastReceivedPostForFormPrefillAfterChangeConfiguration'] : ($this->blnReceivedFormDataAtLeastOnce ? $this->arrReceivedPost : null);
+        }
 
 		/*
 		 * Entfernen der nur temporär gemerkten "LastReceivedPost"-Daten, sofern vorhanden. Diese dienten nur dazu, nach dem Zurücksetzen der empfangenen Konfigurator-Daten
