@@ -102,8 +102,36 @@
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_maxNumParallelSearchCaches'] = array('Maximum number of parallel search caches');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchCacheLifetimeSec'] = array('Lifetime of search caches in seconds');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_considerGroupPricesInFilterAndSorting'] = array('Consider group prices for filter and sorting','Please deactivate this option for performance reasons if you have not entered deviant group prices for any product or variant.');
-	
-	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_ipWhitelist'] = array('IP whitelist', 'Enter all IP addresses that are allowed to call your system (e.g. in order to send payment information) as a list separated by commas.');
+
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_title'] = array('Product designation: Entire search text matches complete field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_keywords'] = array('Keywords: Entire search text matches complete field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_shortDescription'] = array('Short description: Entire search text matches complete field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_description'] = array('Description: Entire search text matches complete field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_productCode'] = array('Product code: Entire search text matches complete field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_producer'] = array('Producer: Entire search text matches complete field value');
+
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_title'] = array('Product designation: Entire search text contained in field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_keywords'] = array('Keywords: Entire search text contained in field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_shortDescription'] = array('Short description: Entire search text contained in field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_description'] = array('Description: Entire search text contained in field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_productCode'] = array('Product code: Entire search text contained in field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_producer'] = array('Producer: Entire search text contained in field value');
+
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_title'] = array('Product designation: Single search term matches complete field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_keywords'] = array('Keywords: Single search term matches complete field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_shortDescription'] = array('Short description: Single search term matches complete field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_description'] = array('Description: Single search term matches complete field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_productCode'] = array('Product code: Single search term matches complete field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_producer'] = array('Producer: Single search term matches complete field value');
+
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_title'] = array('Product designation: Single search term contained in field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_keywords'] = array('Keywords: Single search term contained in field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_shortDescription'] = array('Short description: Single search term contained in field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_description'] = array('Description: Single search term contained in field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_productCode'] = array('Product code: Single search term contained in field value');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_producer'] = array('Producer: Single search term contained in field value');
+
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_ipWhitelist'] = array('IP whitelist', 'Enter all IP addresses that are allowed to call your system (e.g. in order to send payment information) as a list separated by commas.');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_urlWhitelist'] = array('URL whitelist', 'Enter a regular rexpression which will be used to check whether the request token check should be skipped for a request.');
 	
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_blnCompatMode2-1-4'] = array('Compatibility mode for updates from versions < 2.1.5', 'In version 2.1.5 the file structure has changed partially. Use this compatibility mode if you have the old file structure and want Merconis to use it.');
@@ -132,6 +160,7 @@
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['productPresentationTemplate02_legend'] = 'Gallery view settings';
 	
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['performanceSettings_legend'] = 'Performance settings';
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['productSearchSettings_legend'] = 'Hit weighting for product search';
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['importSettings_legend'] = 'Import settings';
 	
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['compatSettings_legend'] = 'Compatibility settings';

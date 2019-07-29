@@ -31,6 +31,36 @@ $GLOBALS['TL_DCA']['tl_lsShopSettings'] = array(
 		{pageSettings_legend},ls_shop_shippingInfoPages,ls_shop_cartPages,ls_shop_reviewPages,ls_shop_signUpPages,ls_shop_checkoutPaymentErrorPages,ls_shop_checkoutShippingErrorPages,ls_shop_checkoutFinishPages,ls_shop_paymentAfterCheckoutPages,ls_shop_afterCheckoutPages,ls_shop_ajaxPages,ls_shop_searchResultPages,ls_shop_myOrdersPages,ls_shop_myOrderDetailsPages;
 		{systemSettings_legend},ls_shop_loginModuleID,ls_shop_miniCartModuleID;
 		{performanceSettings_legend},ls_shop_maxNumParallelSearchCaches,ls_shop_searchCacheLifetimeSec,ls_shop_considerGroupPricesInFilterAndSorting;
+
+		{productSearchSettings_legend},
+		    ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_title,
+		    ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_keywords,
+		    ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_shortDescription,
+		    ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_description,
+		    ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_productCode,
+		    ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_producer,
+		    
+		    ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_title,
+		    ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_keywords,
+		    ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_shortDescription,
+		    ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_description,
+		    ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_productCode,
+		    ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_producer,
+		    
+		    ls_shop_searchWeighting_partialSearchStringMatchesWholeField_title,
+		    ls_shop_searchWeighting_partialSearchStringMatchesWholeField_keywords,
+		    ls_shop_searchWeighting_partialSearchStringMatchesWholeField_shortDescription,
+		    ls_shop_searchWeighting_partialSearchStringMatchesWholeField_description,
+		    ls_shop_searchWeighting_partialSearchStringMatchesWholeField_productCode,
+		    ls_shop_searchWeighting_partialSearchStringMatchesWholeField_producer,
+		    
+		    ls_shop_searchWeighting_partialSearchStringMatchesPartialField_title,
+		    ls_shop_searchWeighting_partialSearchStringMatchesPartialField_keywords,
+		    ls_shop_searchWeighting_partialSearchStringMatchesPartialField_shortDescription,
+		    ls_shop_searchWeighting_partialSearchStringMatchesPartialField_description,
+		    ls_shop_searchWeighting_partialSearchStringMatchesPartialField_productCode,
+		    ls_shop_searchWeighting_partialSearchStringMatchesPartialField_producer;		    
+		    
 		{importSettings_legend},ls_shop_standardProductImportFolder,ls_shop_importFlexFieldKeys,ls_shop_importFlexFieldKeysLanguageIndependent,ls_shop_importCsvDelimiter,ls_shop_importCsvEnclosure,ls_shop_importCsvEscape,ls_shop_importCsvLocale,ls_shop_numMaxImportRecordsPerRound;
 		{compatSettings_legend},ls_shop_blnCompatMode2-1-4;
 		{ipWhitelist_legend},ls_shop_ipWhitelist,ls_shop_urlWhitelist;
@@ -696,8 +726,186 @@ $GLOBALS['TL_DCA']['tl_lsShopSettings'] = array(
 			'inputType' => 'checkbox',
 			'eval' => array('tl_class'=>'w50')
 		),
+
+
+
+
+
+		'ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_title' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_title'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
 		
-		'ls_shop_blnCompatMode2-1-4' => array(
+		'ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_keywords' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_keywords'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+		'ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_shortDescription' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_shortDescription'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+		'ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_description' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_description'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+		'ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_productCode' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_productCode'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+		'ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_producer' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_producer'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+
+		'ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_title' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_title'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+		'ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_keywords' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_keywords'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+		'ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_shortDescription' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_shortDescription'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+		'ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_description' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_description'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+		'ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_productCode' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_productCode'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+		'ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_producer' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_producer'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+
+        'ls_shop_searchWeighting_partialSearchStringMatchesWholeField_title' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_title'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+        'ls_shop_searchWeighting_partialSearchStringMatchesWholeField_keywords' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_keywords'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+        'ls_shop_searchWeighting_partialSearchStringMatchesWholeField_shortDescription' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_shortDescription'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+        'ls_shop_searchWeighting_partialSearchStringMatchesWholeField_description' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_description'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+        'ls_shop_searchWeighting_partialSearchStringMatchesWholeField_productCode' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_productCode'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+        'ls_shop_searchWeighting_partialSearchStringMatchesWholeField_producer' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_producer'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+
+        'ls_shop_searchWeighting_partialSearchStringMatchesPartialField_title' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_title'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+        'ls_shop_searchWeighting_partialSearchStringMatchesPartialField_keywords' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_keywords'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+        'ls_shop_searchWeighting_partialSearchStringMatchesPartialField_shortDescription' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_shortDescription'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+        'ls_shop_searchWeighting_partialSearchStringMatchesPartialField_description' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_description'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+        'ls_shop_searchWeighting_partialSearchStringMatchesPartialField_productCode' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_productCode'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+        'ls_shop_searchWeighting_partialSearchStringMatchesPartialField_producer' => array(
+            'exclude' => true,
+            'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_producer'],
+            'inputType' => 'text',
+            'eval' => array('tl_class'=>'w50')
+        ),
+
+
+
+
+        'ls_shop_blnCompatMode2-1-4' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_blnCompatMode2-1-4'],
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',

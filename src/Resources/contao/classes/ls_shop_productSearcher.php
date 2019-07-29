@@ -537,38 +537,38 @@ class ls_shop_productSearcher
                         $arr_searchResultWeighting = array(
                             'wholeSearchStringMatches' => array(
                                 'wholeFieldMatches' => array(
-                                    'title' => 300,
-                                    'keywords' => 200,
-                                    'shortDescription' => 200,
-                                    'description' => 200,
-                                    'productCode' => 200,
-                                    'producer' => 200
+                                    'title' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_title'] ?: 300,
+                                    'keywords' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_keywords'] ?: 200,
+                                    'shortDescription' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_shortDescription'] ?: 200,
+                                    'description' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_description'] ?: 200,
+                                    'productCode' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_productCode'] ?: 200,
+                                    'producer' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_producer'] ?: 200
                                 ),
                                 'partOfFieldMatches' => array(
-                                    'title' => 30,
-                                    'keywords' => 20,
-                                    'shortDescription' => 20,
-                                    'description' => 20,
-                                    'productCode' => 20,
-                                    'producer' => 20,
+                                    'title' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_title'] ?: 30,
+                                    'keywords' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_keywords'] ?: 20,
+                                    'shortDescription' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_shortDescription'] ?: 20,
+                                    'description' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_description'] ?: 20,
+                                    'productCode' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_productCode'] ?: 20,
+                                    'producer' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_producer'] ?: 20
                                 )
                             ),
                             'partOfSearchStringMatches' => array(
                                 'wholeFieldMatches' => array(
-                                    'title' => 30,
-                                    'keywords' => 10,
-                                    'shortDescription' => 10,
-                                    'description' => 10,
-                                    'productCode' => 20,
-                                    'producer' => 20
+                                    'title' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_title'] ?: 30,
+                                    'keywords' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_keywords'] ?: 10,
+                                    'shortDescription' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_shortDescription'] ?: 10,
+                                    'description' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_description'] ?: 10,
+                                    'productCode' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_productCode'] ?: 20,
+                                    'producer' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_producer'] ?: 20
                                 ),
                                 'partOfFieldMatches' => array(
-                                    'title' => 3,
-                                    'keywords' => 1,
-                                    'shortDescription' => 1,
-                                    'description' => 1,
-                                    'productCode' => 2,
-                                    'producer' => 2,
+                                    'title' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_title'] ?: 3,
+                                    'keywords' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_keywords'] ?: 1,
+                                    'shortDescription' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_shortDescription'] ?: 1,
+                                    'description' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_description'] ?: 1,
+                                    'productCode' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_productCode'] ?: 2,
+                                    'producer' => $GLOBALS['TL_CONFIG']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_producer'] ?: 2
                                 )
                             )
                         );

@@ -102,7 +102,35 @@
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_maxNumParallelSearchCaches'] = array('Maximale Anzahl parallel möglicher Suchcaches');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchCacheLifetimeSec'] = array('Lebensdauer der Suchcaches in Sekunden');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_considerGroupPricesInFilterAndSorting'] = array('Gruppenpreise f&uuml;r Filterung und Sortierung ber&uuml;cksichtigen','Bitte deaktivieren Sie diese Option aus Performancegr&uuml;nden, wenn Sie keinem Produkt bzw. keiner Variante abweichende Gruppenpreise hinterlegt haben.');
-	
+
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_title'] = array('Produktbezeichnung: Ganzer Suchtext entspricht komplettem Feldwert');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_keywords'] = array('Schlüsselwörter: Ganzer Suchtext entspricht komplettem Feldwert');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_shortDescription'] = array('Kurzbeschreibung: Ganzer Suchtext entspricht komplettem Feldwert');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_description'] = array('Beschreibung: Ganzer Suchtext entspricht komplettem Feldwert');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_productCode'] = array('Artikelnummer: Ganzer Suchtext entspricht komplettem Feldwert');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_producer'] = array('Hersteller: Ganzer Suchtext entspricht komplettem Feldwert');
+
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_title'] = array('Produktbezeichnung: Ganzer Suchtext in Feldwert enthalten');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_keywords'] = array('Schlüsselwörter: Ganzer Suchtext in Feldwert enthalten');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_shortDescription'] = array('Kurzbeschreibung: Ganzer Suchtext in Feldwert enthalten');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_description'] = array('Beschreibung: Ganzer Suchtext in Feldwert enthalten');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_productCode'] = array('Artikelnummer: Ganzer Suchtext in Feldwert enthalten');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesPartialField_producer'] = array('Hersteller: Ganzer Suchtext in Feldwert enthalten');
+
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_title'] = array('Produktbezeichnung: Einzelner Suchbegriff entspricht komplettem Feldwert');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_keywords'] = array('Schlüsselwörter: Einzelner Suchbegriff entspricht komplettem Feldwert');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_shortDescription'] = array('Kurzbeschreibung: Einzelner Suchbegriff entspricht komplettem Feldwert');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_description'] = array('Beschreibung: Einzelner Suchbegriff entspricht komplettem Feldwert');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_productCode'] = array('Artikelnummer: Einzelner Suchbegriff entspricht komplettem Feldwert');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesWholeField_producer'] = array('Hersteller: Einzelner Suchbegriff entspricht komplettem Feldwert');
+
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_title'] = array('Produktbezeichnung: Einzelner Suchbegriff in Feldwert enthalten');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_keywords'] = array('Schlüsselwörter: Einzelner Suchbegriff in Feldwert enthalten');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_shortDescription'] = array('Kurzbeschreibung: Einzelner Suchbegriff in Feldwert enthalten');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_description'] = array('Beschreibung: Einzelner Suchbegriff in Feldwert enthalten');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_productCode'] = array('Artikelnummer: Einzelner Suchbegriff in Feldwert enthalten');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_partialSearchStringMatchesPartialField_producer'] = array('Hersteller: Einzelner Suchbegriff in Feldwert enthalten');
+
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_ipWhitelist'] = array('IP-Whitelist', 'Tragen Sie hier kommagetrennt alle IPs ein, denen Sie den Aufruf Ihres Systems zur &Uuml;bermittlung z. B. von Zahlungsinformationen ohne Referer-Check erlauben wollen.');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_urlWhitelist'] = array('URL-Whitelist', 'Tragen Sie hier einen regulären Ausdruck ein, der als Suchmuster auf die Request-URL angewandt wird. Bei einem Treffer in der URL wird der Referer-Check &uuml;bergangen.');
 
@@ -132,6 +160,7 @@
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['productPresentationTemplate02_legend'] = 'Einstellungen f&uuml;r Darstellung in Galerie-Ansicht';
 	
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['performanceSettings_legend'] = 'Performance-Einstellungen';
+	$GLOBALS['TL_LANG']['tl_lsShopSettings']['productSearchSettings_legend'] = 'Treffer-Gewichtung bei Produktsuche';
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['importSettings_legend'] = 'Import-Einstellungen';
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['compatSettings_legend'] = 'Kompatibilit&auml;ts-Einstellungen';
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ipWhitelist_legend'] = 'Whitelist f&uuml;r Referer-Prüfung';
