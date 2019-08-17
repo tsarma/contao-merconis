@@ -18,7 +18,20 @@ $GLOBALS['TL_HOOKS']['addCustomRegexp'][] = array('Merconis\Core\ls_shop_custom_
  * Include the lsjs app for the merconis backend
  */
 if (TL_MODE === 'BE') {
-    $GLOBALS['TL_HOOKS']['outputBackendTemplate'][] = array('Merconis\Core\ls_shop_generalHelper', 'merconis_getBackendLsjs');
+	$GLOBALS['TL_MOOTOOLS'][] = "
+		<script type=\"text/javascript\">
+			window.addEvent('domready', function () {
+				if (lsjs.__appHelpers.merconisBackendApp !== undefined && lsjs.__appHelpers.merconisBackendApp !== null) {
+					lsjs.__appHelpers.merconisBackendApp.obj_config.REQUEST_TOKEN = '".\RequestToken::get()."';
+					lsjs.__appHelpers.merconisBackendApp.obj_config.API_KEY = '".$GLOBALS['TL_CONFIG']['ls_api_key']."';
+					lsjs.__appHelpers.merconisBackendApp.start();
+				}
+			});
+		</script>
+	";
+
+	$GLOBALS['TL_JAVASCRIPT'][] = 'assets/lsjs/core/appBinder/binder.php?output=js&pathToApp='.urldecode('_dup4_/web/bundles/leadingsystemsmerconis/js/lsjs/backend/app').'&includeCore=no&includeCoreModules=no'.($GLOBALS['TL_CONFIG']['ls_shop_lsjsDebugMode'] ? '&debug=1' : '').($GLOBALS['TL_CONFIG']['ls_shop_lsjsNoCacheMode'] ? '&no-cache=1' : '').($GLOBALS['TL_CONFIG']['ls_shop_lsjsNoMinifierMode'] ? '&&no-minifier=1' : '');
+	$GLOBALS['TL_CSS'][] = 'assets/lsjs/core/appBinder/binder.php?output=css&pathToApp='.urldecode('_dup4_/web/bundles/leadingsystemsmerconis/js/lsjs/backend/app').'&includeCore=no&includeCoreModules=no'.($GLOBALS['TL_CONFIG']['ls_shop_lsjsNoCacheMode'] ? '&no-cache=1' : '').($GLOBALS['TL_CONFIG']['ls_shop_lsjsNoMinifierMode'] ? '&&no-minifier=1' : '');
 }
 
 if (TL_MODE == 'FE') {
