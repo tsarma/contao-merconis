@@ -2,6 +2,10 @@
 	<h3><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['customerData'][$this->arr_data['useDeviantShippingAddress'] ? 'billingAddress' : 'billingAndShippingAddress']; ?></h3>
 	<?php
 		foreach ($this->arr_data as $str_key => $var_value) {
+            if ($str_key === 'order-note') {
+                continue;
+            }
+
 			if (!$var_value) {
 				continue;
 			}
@@ -25,6 +29,10 @@
 			<h3><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['customerData']['shippingAddress']; ?></h3>
 			<?php
 			foreach ($this->arr_data as $str_key => $var_value) {
+			    if ($str_key === 'order-note') {
+			        continue;
+                }
+
 				if (!$var_value) {
 					continue;
 				}
@@ -43,5 +51,12 @@
 				<?php
 			}
 		}
+
+		if (isset($this->arr_data['order-note'])) {
+		    ?>
+            <h3><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['customerData']['orderNote']; ?></h3>
+            <p><?php echo nl2br($this->arr_data['order-note']); ?></p>
+            <?php
+        }
 	?>
 </div>
