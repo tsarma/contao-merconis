@@ -479,6 +479,7 @@ ul.ls_shop_productSelectionWizard li .widgetProductSelection .selectedProductOut
 /*
  * Start: Legend-Icons (Backend)
  */
+#pal_lscss4c_legend,
 #pal_lsjs4c_legend,
 #pal_lsShopConditionalOutput_legend,
 #pal_lsShopCrossSeller_legend,
@@ -496,6 +497,7 @@ ul.ls_shop_productSelectionWizard li .widgetProductSelection .selectedProductOut
 	margin-top: 20px;
 }
 
+#pal_lscss4c_legend > legend,
 #pal_lsjs4c_legend > legend,
 #pal_lsShopConditionalOutput_legend > legend,
 #pal_lsShopCrossSeller_legend > legend,
@@ -518,6 +520,7 @@ ul.ls_shop_productSelectionWizard li .widgetProductSelection .selectedProductOut
 	top: -25px;
 }
 
+#pal_lscss4c_legend.collapsed > legend,
 #pal_lsjs4c_legend.collapsed > legend,
 #pal_lsShopConditionalOutput_legend.collapsed > legend,
 #pal_lsShopCrossSeller_legend.collapsed > legend,
@@ -532,6 +535,7 @@ ul.ls_shop_productSelectionWizard li .widgetProductSelection .selectedProductOut
 	background-image: url("../images/icons/palCollapsedLS_32.png");
 }
 
+#pal_lscss4c_legend > legend::before,
 #pal_lsjs4c_legend > legend::before {
   content: "MERCONIS: ";
 }
