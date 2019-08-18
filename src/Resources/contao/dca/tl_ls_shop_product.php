@@ -94,6 +94,8 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			description,
 			shortDescription,
 			keywords,
+			pageTitle,
+			pageDescription,
 			flex_contents,
 			flex_contentsLanguageIndependent;
 			
@@ -257,7 +259,25 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			'search'		=> true
 		),
 
-		'flex_contents' => array(
+        'pageTitle' => array(
+            'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['pageTitle'],
+            'exclude' => true,
+            'inputType' => 'text',
+            'eval' => array('mandatory' => false, 'tl_class'=>'w50', 'merconis_multilanguage' => true, 'decodeEntities' => true, 'maxlength'=>255),
+            'sorting' => true,
+            'flag' => 11,
+            'search'		=> true
+        ),
+
+        'pageDescription' => array (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['pageDescription'],
+            'exclude' => true,
+            'inputType' => 'textarea',
+            'eval' => array('style'=>'height:60px;', 'tl_class'=>'clr', 'merconis_multilanguage' => true, 'decodeEntities' => true),
+            'search'		=> true
+        ),
+
+        'flex_contents' => array(
 			'label' => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['flex_contents'],
 			'exclude' => true,
 			'inputType' => 'text',

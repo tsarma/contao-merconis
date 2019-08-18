@@ -63,6 +63,8 @@ CREATE TABLE `tl_ls_shop_product` (
 	`title` varchar(255) NOT NULL default '',
 	`alias` varchar(128) COLLATE utf8_bin NOT NULL default '',
 	`keywords` text NULL,
+	`pageTitle` varchar(255) NOT NULL default '',
+	`pageDescription` varchar(255) NOT NULL default '',
 	`shortDescription` text NULL,
 	`description` text NULL,
 	`published` char(1) NOT NULL default '',

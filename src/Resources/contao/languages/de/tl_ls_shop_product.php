@@ -12,15 +12,15 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['description']									=	array('Produktbeschreibung');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['shortDescription']								=	array('Kurzbeschreibung');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['published']										=	array('Ver&ouml;ffentlicht');
-	
+
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupPrices_1']								=	array('Preisabweichung Gruppe 1');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupPrices_2']								=	array('Preisabweichung Gruppe 2');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupPrices_3']								=	array('Preisabweichung Gruppe 3');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupPrices_4']								=	array('Preisabweichung Gruppe 4');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupPrices_5']								=	array('Preisabweichung Gruppe 5');
-	
+
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['priceForGroups']									=	array('G&uuml;ltig f&uuml;r Gruppen');
-	
+
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductPrice']								=	array('Preis in '.($GLOBALS['TL_CONFIG']['ls_shop_currency'] ? $GLOBALS['TL_CONFIG']['ls_shop_currency'] : '<i>&lt;noch keine W&auml;hrung in den Grundeinstellungen definiert&gt;</i>'), 'Ob Sie hier einen Brutto- oder Nettopreis hinterlegen, h&auml;ngt von der globalen Shop-Grundeinstellung ab. Falls sie Staffelpreise verwenden, tragen Sie hier bitte auf jeden Fall den Preis f&uuml;r eine Einheit ein.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useScalePrice']									=	array('Staffelpreis anwenden');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['scalePriceType']									=	array('Art der Staffelpreisangabe');
@@ -47,14 +47,16 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['associatedProducts']								=	array('Verbundene Produkte', 'W&auml;hlen Sie hier Produkte aus, die Sie zur Realisierung individueller Funktionen mit diesem Produkt in Verbindung setzen m&ouml;chten.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductProducer']							= 	array('Hersteller');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['keywords']										= 	array('Schlüsselwörter');
+	$GLOBALS['TL_LANG']['tl_ls_shop_product']['pageTitle']										=	array('Seitentitel', 'Tragen Sie hier den Seitentitel ein, der auf der Produktdetailseite verwendet werden soll. Sie können die Bedeutung der Produktdetailseite für Suchmaschinen damit verbessern. Falls Sie nichts eintragen, so wird dem von Contao regulär erstellten Seitentitel die Produktbezeichnung vorangestellt.');
+	$GLOBALS['TL_LANG']['tl_ls_shop_product']['pageDescription']								=	array('Meta-Seitenbeschreibung', 'Tragen Sie hier die Seitenbeschreibung ein, die auf der Produktdetailseite im suchmaschinenrelevanten Meta-Element "description" verwendet werden soll. Möglich sind bis zu 255 Zeichen, empfehlenswert sind maximal 160. Sofern Sie hier etwas eintragen, wird dieser Text unter allen Umständen verwendet. Lassen Sie das Feld leer, so kann je nach Grundeinstellung entweder die Seitenbeschreibung verwendet werden, die Contao regulär erstellt, oder es kommt die normale Produktbeschreibung zum Einsatz.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['sorting']										=	array('Sortierzahl');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['configurator']									=	array('Konfigurator verwenden');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useOldPrice']									=	array('Alten Preis verwenden');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['flex_contents']									=	array('Flexible Produktinformationen','Hier k&ouml;nnen Sie beliebig viele Informationen hinterlegen, die in Templates &uuml;ber das Schl&uuml;sselwort referenziert und als Produkteigenschaft genutzt werden k&ouml;nnen.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['flex_contentsLanguageIndependent']									=	array('Flexible Produktinformationen (sprachunabh&auml;ngig)','Hier k&ouml;nnen Sie beliebig viele Informationen hinterlegen, die in Templates &uuml;ber das Schl&uuml;sselwort referenziert und als Produkteigenschaft genutzt werden k&ouml;nnen.');
-	$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductAttributesValues'] 					=	array('Zuordnung Merkmal zu Auspr&auml;gung','W&auml;hlen Sie hier Merkmale und Auspr&auml;gungen, welche Sie zuvor unter dem Men&uuml;punkt &quot;Produkt-Merkmale&quot; angelegt haben.');	
-	
-	
+	$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductAttributesValues'] 					=	array('Zuordnung Merkmal zu Auspr&auml;gung','W&auml;hlen Sie hier Merkmale und Auspr&auml;gungen, welche Sie zuvor unter dem Men&uuml;punkt &quot;Produkt-Merkmale&quot; angelegt haben.');
+
+
 	/*
 	 * Legends
 	 */
