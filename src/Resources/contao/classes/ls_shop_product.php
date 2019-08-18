@@ -358,6 +358,24 @@ class ls_shop_product
 				return $this->_keywords ? true : false;
 				break;
 
+			case '_pageTitle':
+			    $str_pageTitle = trim($this->currentLanguageData['pageTitle']);
+				return $str_pageTitle ? $str_pageTitle : '';
+				break;
+
+			case '_hasPageTitle':
+				return $this->_pageTitle ? true : false;
+				break;
+
+			case '_pageDescription':
+			    $str_pageDescription = trim($this->currentLanguageData['pageDescription']);
+				return $str_pageDescription ? $str_pageDescription : '';
+				break;
+
+			case '_hasPageDescription':
+				return $this->_pageDescription ? true : false;
+				break;
+
 			case '_isNew':
 				return $this->mainData['lsShopProductIsNew'];
 				break;

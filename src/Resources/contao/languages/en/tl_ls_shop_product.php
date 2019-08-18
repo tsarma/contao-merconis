@@ -47,6 +47,8 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['associatedProducts']								=	array('Associated products', 'Select products here that you want to associate with this product with regard to implementing individual functions.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductProducer']							= 	array('Manufacturer');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['keywords']										= 	array('Keywords');
+    $GLOBALS['TL_LANG']['tl_ls_shop_product']['pageTitle']										=	array('Page title', 'Enter the page title to be used on the product detail page. You can use it to improve the importance of the product detail page for search engines. If you do not enter anything, the product name will precede the regular Contao page title.');
+    $GLOBALS['TL_LANG']['tl_ls_shop_product']['pageDescription']								=	array('Meta page description', 'Enter here the page description to be used on the product detail page in the search engine relevant meta element "description". Up to 255 characters are possible, a maximum of 160 is recommended. If you enter something here, this text will be used under all circumstances. If you leave the field empty, either the page description, which Contao regularly creates, or the normal product description can be used, depending on the basic settings.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['sorting']										=	array('Sorting number');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['configurator']									=	array('Use configurator');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useOldPrice']									=	array('Use old price');
