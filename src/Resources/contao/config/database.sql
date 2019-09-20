@@ -162,8 +162,8 @@ CREATE TABLE `tl_ls_shop_product` (
 	`flex_contents` text NULL,
 	`flex_contentsLanguageIndependent` text NULL,
 	`lsShopProductAttributesValues` text NULL
-	PRIMARY KEY  (`id`),KEY `lsShopProductCode` (`lsShopProductCode`),
-
+	PRIMARY KEY  (`id`),
+	KEY `lsShopProductCode` (`lsShopProductCode`),
 	KEY `alias` (`alias`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
