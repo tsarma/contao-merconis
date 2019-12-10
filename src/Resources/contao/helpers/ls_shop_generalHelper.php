@@ -2400,12 +2400,14 @@ class ls_shop_generalHelper
      */
     public static function getSearchablePages($arrPages, $intRoot = 0, $blnIsSitemap = false)
     {
-        $objProducts = \Database::getInstance()->prepare("
-				SELECT			*
-				FROM			`tl_ls_shop_product`
-				WHERE			`published` = 1
-			")
-            ->execute();
+        $objProducts = \Database::getInstance()
+		->prepare("
+			SELECT			`pages`, `alias`
+			FROM			`tl_ls_shop_product`
+			WHERE			`published` = 1
+		")
+            	->limit(10000)
+            	->execute();
 
         while ($objProducts->next()) {
             $whereConditionPages = '';
