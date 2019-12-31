@@ -10,7 +10,7 @@
 
       > label {
         width: 100%;
-        font-weight: @ls-font-weight-bold;
+        font-weight: $ls-font-weight-bold;
       }
     }
 
@@ -33,7 +33,7 @@
     }
 
     .label {
-      font-weight: @ls-font-weight-bold;
+      font-weight: $ls-font-weight-bold;
     }
   }
 }

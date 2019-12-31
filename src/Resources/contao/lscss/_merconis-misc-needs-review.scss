@@ -4,9 +4,9 @@
  ->
  */
 //.ls_icon::after {
-//  .fa-icon;
-//  .fas;
-//  content: @fa-var-bug;
+//  @include fa-icon;
+//  @include fas;
+//  content: $fa-var-bug;
 //  color: #FF0000;
 //}
 /*
@@ -28,17 +28,17 @@ a.button.back::after {
 
 button.back::before,
 a.button.back::before {
-  .fa-icon;
-  .fas;
-  content: @fa-var-caret-left;
+  @include fa-icon;
+  @include fas;
+  content: $fa-var-caret-left;
   margin-right: 0.5rem;
-  color: @ls-color-4;
+  color: $ls-color-4;
   font-size: 2rem;
   vertical-align: middle;
 }
 
 .currentPrice {
-  font-weight: @ls-font-weight-bold;
+  font-weight: $ls-font-weight-bold;
 }
 
 .oldPrice {
@@ -48,7 +48,7 @@ a.button.back::before {
 .product-marker-container {
   position: absolute;
   top: -1.5rem;
-  left: .5rem;
+  left: 0.5rem;
   right: -1.5rem;
   display: flex;
   flex-wrap: wrap;
@@ -60,12 +60,12 @@ a.button.back::before {
     transform: rotate(-33deg);
 
     &::after {
-      //.fa-icon;
-      //.fas;
+      //@include fa-icon;
+      //@include fas;
       font-size: 2.5rem;
-      font-weight: @ls-font-weight-bold;
-      color: @ls-color-3;
-      text-shadow: .2rem .2rem .5rem @ls-color-1;
+      font-weight: $ls-font-weight-bold;
+      color: $ls-color-3;
+      text-shadow: .2rem .2rem .5rem $ls-color-1;
     }
 
     &.new::after {

@@ -6,9 +6,9 @@
 
   button {
     &::before {
-      .fa-icon;
-      .fas;
-      content: @fa-var-heart;
+      @include fa-icon;
+      @include fas;
+      content: $fa-var-heart;
     }
 
     .button-content {
@@ -19,7 +19,7 @@
   &.is-favorite {
     button {
       &::before {
-        color: @ls-color-1;
+        color: $ls-color-1;
       }
     }
   }

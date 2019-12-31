@@ -25,13 +25,13 @@
 }
 
 h3 {
-  font-size: @ls-cart-h3-font-size;
-  font-family: @ls-product-overview-headings-font-family;
+  font-size: $ls-cart-h3-font-size;
+  font-family: $ls-product-overview-headings-font-family;
 }
 
 .cart-items {
-   .shopProduct:nth-child(odd) {
-    background-color: @ls-color-5;
+  .shopProduct:nth-child(odd) {
+    background-color: $ls-color-5;
   }
 
   .shopProduct {
@@ -100,20 +100,20 @@ h3 {
             }
 
             button[name="submitQuantityChange"]::after {
-              content: @fa-var-check;
+              content: $fa-var-check;
             }
 
             button[name="submitDelete"]::after {
-              content: @fa-var-trash-alt;
+              content: $fa-var-trash-alt;
             }
           }
         }
 
         .field-content[data-misc-changequantitymode="no"] {
           [data-lsjs-element="toggler"]::after {
-            .fa-icon;
-            .fas;
-            content: @fa-var-edit;
+            @include fa-icon;
+            @include fas;
+            content: $fa-var-edit;
             cursor: pointer;
           }
 
@@ -146,8 +146,8 @@ h3 {
     }
 
     [data-lsjs-element="toggler"]::after {
-      .fa-icon;
-      .fas;
+      @include fa-icon;
+      @include fas;
       cursor: pointer;
     }
 
@@ -159,7 +159,7 @@ h3 {
       }
 
       button::after {
-        content: @fa-var-check;
+        content: $fa-var-check;
       }
 
       .errors {
@@ -168,9 +168,9 @@ h3 {
     }
 
     a.delete-coupon::after {
-      .fa-icon;
-      .fas;
-      content: @fa-var-trash-alt;
+      @include fa-icon;
+      @include fas;
+      content: $fa-var-trash-alt;
       cursor: pointer;
       margin-left: 1rem;
     }
@@ -190,30 +190,30 @@ h3 {
 
   .field-group.coupons[data-misc-highlighted="no"] {
     [data-lsjs-element="toggler"]::after {
-      content: @fa-var-caret-down;
+      content: $fa-var-caret-down;
     }
   }
 
   .field-group.coupons[data-misc-highlighted="yes"] {
     [data-lsjs-element="toggler"]::after {
-      content: @fa-var-caret-up;
+      content: $fa-var-caret-up;
     }
   }
 
   .field-group.invoiced-amount .field:not(.info) {
-    font-size: @ls-h3-font-size;
-    font-weight: @ls-font-weight-bold;
+    font-size: $ls-h3-font-size;
+    font-weight: $ls-font-weight-bold;
   }
 }
 
 .field:not(.info) .field-label {
-  font-weight: @ls-font-weight-bold;
+  font-weight: $ls-font-weight-bold;
 }
 
 .field.info {
-  color: @ls-color-2;
+  color: $ls-color-2;
   font-style: italic;
-  font-size: @ls-font-size-small;
+  font-size: $ls-font-size-small;
 }
 
 .field.info .field-label {
@@ -270,9 +270,9 @@ fieldset.useDeviantShippingAddress {
   }
 
   [data-lsjs-element="openFormToggler"]::after {
-    .fa-icon;
-    .fas;
-    content: @fa-var-edit;
+    @include fa-icon;
+    @include fas;
+    content: $fa-var-edit;
     cursor: pointer;
   }
 
@@ -296,7 +296,7 @@ fieldset.useDeviantShippingAddress {
   }
 
   > span.selected {
-    background-color: @ls-color-5;
+    background-color: $ls-color-5;
     padding: 1rem;
   }
 
@@ -328,7 +328,7 @@ fieldset.useDeviantShippingAddress {
   justify-content: center;
 
   a.button {
-    font-weight: @ls-font-weight-bold;
+    font-weight: $ls-font-weight-bold;
   }
 }
 
@@ -336,8 +336,8 @@ fieldset.useDeviantShippingAddress {
   text-align: center;
 
   button.buttonBuy {
-    font-weight: @ls-font-weight-bold;
-    font-size: @ls-h3-font-size;
+    font-weight: $ls-font-weight-bold;
+    font-size: $ls-h3-font-size;
     padding: 1.5rem 6rem;
     margin-bottom: 1rem;
   }

@@ -3,7 +3,8 @@
 }
 
 .template_productSearch_default .submit {
-  .no-button;
+  // FIXME:
+  // @include no-button;
 }
 
 .template_productSearch_default input {
