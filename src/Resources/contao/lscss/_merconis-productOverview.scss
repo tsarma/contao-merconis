@@ -1,7 +1,3 @@
-.productOverview {
-  @include centered-max-width-container();
-}
-
 .productList {
   // FIXME:
   //@include ls-content-wrapper;
@@ -13,22 +9,6 @@
     padding-bottom: 1rem;
     border-bottom: .1rem solid $ls-border-color-1;
     margin-bottom: 1rem;
-
-    .userSortingForm {
-      button {
-        // FIXME:
-        //@include no-button;
-
-        .button-content {
-          display: none;
-        }
-
-        &::after {
-          content: $fa-var-check;
-          color: $ls-color-1
-        }
-      }
-    }
   }
 
   .products {

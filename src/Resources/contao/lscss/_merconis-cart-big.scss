@@ -201,7 +201,6 @@ h3 {
   }
 
   .field-group.invoiced-amount .field:not(.info) {
-    font-size: $ls-h3-font-size;
     font-weight: $ls-font-weight-bold;
   }
 }
@@ -213,7 +212,6 @@ h3 {
 .field.info {
   color: $ls-color-2;
   font-style: italic;
-  font-size: $ls-font-size-small;
 }
 
 .field.info .field-label {
@@ -337,7 +335,6 @@ fieldset.useDeviantShippingAddress {
 
   button.buttonBuy {
     font-weight: $ls-font-weight-bold;
-    font-size: $ls-h3-font-size;
     padding: 1.5rem 6rem;
     margin-bottom: 1rem;
   }
