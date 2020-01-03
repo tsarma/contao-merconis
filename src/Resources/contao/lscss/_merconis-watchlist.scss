@@ -6,9 +6,9 @@
 
   button {
     &::before {
-      @include fa-icon;
-      @include fas;
-      content: $fa-var-heart;
+      @extend %fa-icon;
+      @extend .fas;
+      content: fa-content($fa-var-heart);
     }
 
     .button-content {

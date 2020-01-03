@@ -100,20 +100,20 @@ h3 {
             }
 
             button[name="submitQuantityChange"]::after {
-              content: $fa-var-check;
+              content: fa-content($fa-var-check);
             }
 
             button[name="submitDelete"]::after {
-              content: $fa-var-trash-alt;
+              content: fa-content($fa-var-trash-alt);
             }
           }
         }
 
         .field-content[data-misc-changequantitymode="no"] {
           [data-lsjs-element="toggler"]::after {
-            @include fa-icon;
-            @include fas;
-            content: $fa-var-edit;
+            @extend %fa-icon;
+            @extend .fas;
+            content: fa-content($fa-var-edit);
             cursor: pointer;
           }
 
@@ -146,8 +146,8 @@ h3 {
     }
 
     [data-lsjs-element="toggler"]::after {
-      @include fa-icon;
-      @include fas;
+      @extend %fa-icon;
+      @extend .fas;
       cursor: pointer;
     }
 
@@ -159,7 +159,7 @@ h3 {
       }
 
       button::after {
-        content: $fa-var-check;
+        content: fa-content($fa-var-check);
       }
 
       .errors {
@@ -168,9 +168,9 @@ h3 {
     }
 
     a.delete-coupon::after {
-      @include fa-icon;
-      @include fas;
-      content: $fa-var-trash-alt;
+      @extend %fa-icon;
+      @extend .fas;
+      content: fa-content($fa-var-trash-alt);
       cursor: pointer;
       margin-left: 1rem;
     }
@@ -190,7 +190,7 @@ h3 {
 
   .field-group.coupons[data-misc-highlighted="no"] {
     [data-lsjs-element="toggler"]::after {
-      content: $fa-var-caret-down;
+      content: fa-content($fa-var-caret-down);
     }
   }
 
@@ -270,8 +270,8 @@ fieldset.useDeviantShippingAddress {
   }
 
   [data-lsjs-element="openFormToggler"]::after {
-    @include fa-icon;
-    @include fas;
+    @extend %fa-icon;
+    @extend .fas;
     content: $fa-var-edit;
     cursor: pointer;
   }
