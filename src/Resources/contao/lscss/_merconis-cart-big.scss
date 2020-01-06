@@ -1,129 +1,76 @@
-.checkoutContent {
-  display: flex;
-  flex-direction: column;
-
-  > *:not(.back-button-box) {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: 70rem;
-  }
-
-  #checkoutStepCart {
-    max-width: unset;
-  }
-
-  #checkoutStepCalculation,
-  .customer-data-review {
-    max-width: 50rem;
-
-    > div {
-      margin-bottom: 2rem;
-    }
-  }
-}
-
-h3 {
-  font-size: $ls-cart-h3-font-size;
-  font-family: $ls-product-overview-headings-font-family;
-}
-
-.cart-items {
+.product-listing {
   .shopProduct:nth-child(odd) {
-    background-color: $ls-color-5;
+    background-color: $gray-100;
   }
 
   .shopProduct {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-
-    .product-info {
-      display: flex;
-      justify-content: space-between;
-      width: 50%;
-      padding-right: 2rem;
-
-      .field.image {
-        width: 25%;
-        margin-right: 2rem;
-
-        img {
-          max-width: 100%;
+    &.statusTogglerApplied {
+      &[data-misc-changequantitymode="no"] {
+        .change-quantity {
+          display: none;
         }
       }
 
-      .field.productDetails {
-        width: 75%;
-      }
-    }
-
-    .cart-item-info {
-      display: flex;
-      justify-content: space-between;
-      width: 50%;
-
-      .field {
-        width: 25%;
-
-        .field-content {
-          white-space: nowrap;
+      &[data-misc-changequantitymode="yes"] {
+        .show-quantity {
+          display: none;
         }
       }
 
-      .field:not(:last-child) {
-        margin-right: 2rem;
-      }
+      .change-quantity {
+        [data-lsjs-element="toggler"] {
+          display: inline-block;
+          margin-left: .5rem;
 
-      .field.quantity {
-        .field-content {
-          .show-quantity {
-            display: inline-block;
-          }
-
-          .change-quantity {
-            display: flex;
-
-            label {
-              display: none;
-            }
-
-            input[name="quantity_item"] {
-              width: 4rem;
-            }
-
-            button {
-              margin-left: 1rem;
-            }
-
-            button[name="submitQuantityChange"]::after {
-              content: fa-content($fa-var-check);
-            }
-
-            button[name="submitDelete"]::after {
-              content: fa-content($fa-var-trash-alt);
-            }
-          }
-        }
-
-        .field-content[data-misc-changequantitymode="no"] {
-          [data-lsjs-element="toggler"]::after {
+          &::after {
             @extend %fa-icon;
             @extend .fas;
-            content: fa-content($fa-var-edit);
             cursor: pointer;
-          }
-
-          .change-quantity {
-            display: none;
+            content: fa-content($fa-var-window-close);
           }
         }
 
-        .field-content[data-misc-changequantitymode="yes"] .show-quantity {
-          display: none;
+        form {
+          display: inline-block;
+
+          label[for="quantity_item"] {
+            display: none;
+          }
+
+          input[name="quantity_item"] {
+            width: 3rem;
+          }
+
+          button[name="submitChange"] {
+            &::after {
+              @extend %fa-icon;
+              @extend .fas;
+              cursor: pointer;
+              content: fa-content($fa-var-check);
+            }
+          }
+
+          button[name="submitDelete"] {
+            &::after {
+              @extend %fa-icon;
+              @extend .fas;
+              cursor: pointer;
+              content: fa-content($fa-var-trash);
+            }
+          }
+        }
+      }
+      .show-quantity {
+        [data-lsjs-element="toggler"] {
+          display: inline-block;
+          margin-left: .5rem;
+
+          &::after {
+            @extend %fa-icon;
+            @extend .fas;
+            cursor: pointer;
+            content: fa-content($fa-var-edit);
+          }
         }
       }
     }
@@ -131,6 +78,10 @@ h3 {
 }
 
 .calculation {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+
   .field {
     display: flex;
     justify-content: space-between;
@@ -145,10 +96,11 @@ h3 {
       cursor: pointer;
     }
 
-    [data-lsjs-element="toggler"]::after {
+    [data-lsjs-element="toggler"]::before {
       @extend %fa-icon;
       @extend .fas;
-      cursor: pointer;
+      display: inline-block;
+      margin-right: .5rem;
     }
 
     .formUseCoupon {
@@ -159,6 +111,8 @@ h3 {
       }
 
       button::after {
+        @extend %fa-icon;
+        @extend .fas;
         content: fa-content($fa-var-check);
       }
 
@@ -186,17 +140,17 @@ h3 {
         margin-bottom: 1rem;
       }
     }
-  }
 
-  .field-group.coupons[data-misc-highlighted="no"] {
-    [data-lsjs-element="toggler"]::after {
-      content: fa-content($fa-var-caret-down);
+    &[data-misc-highlighted="no"] {
+      [data-lsjs-element="toggler"]::before {
+        content: fa-content($fa-var-caret-down);
+      }
     }
-  }
 
-  .field-group.coupons[data-misc-highlighted="yes"] {
-    [data-lsjs-element="toggler"]::after {
-      content: $fa-var-caret-up;
+    &[data-misc-highlighted="yes"] {
+      [data-lsjs-element="toggler"]::before {
+        content: fa-content($fa-var-caret-up);
+      }
     }
   }
 
@@ -270,7 +224,7 @@ fieldset.useDeviantShippingAddress {
   [data-lsjs-element="openFormToggler"]::after {
     @extend %fa-icon;
     @extend .fas;
-    content: $fa-var-edit;
+    content: fa-content($fa-var-edit);
     cursor: pointer;
   }
 
@@ -294,7 +248,7 @@ fieldset.useDeviantShippingAddress {
   }
 
   > span.selected {
-    background-color: $ls-color-5;
+    background-color: $gray-100;
     padding: 1rem;
   }
 
@@ -333,10 +287,10 @@ fieldset.useDeviantShippingAddress {
 .confirmOrder form {
   text-align: center;
 
-  button.buttonBuy {
-    font-weight: $ls-font-weight-bold;
-    padding: 1.5rem 6rem;
-    margin-bottom: 1rem;
+  button.submit {
+    @extend .btn;
+    @extend .btn-primary;
+    @extend .mb-4;
   }
 }
 
