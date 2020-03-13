@@ -1885,7 +1885,8 @@ This method can be used to call a function hooked with the "callingHookedProduct
 						$arrAllAttributesAndValues[$arrAttributeValue['attributeID']]['values'][$arrAttributeValue['valueID']] = array(
 							'valueID' => $arrAttributeValue['valueID'],
 							'valueTitle' => $arrAttributeValue['valueTitle'],
-							'valueAlias' => $arrAttributeValue['valueAlias']
+							'valueAlias' => $arrAttributeValue['valueAlias'],
+							'valueSorting' => $arrAttributeValue['valueSorting']
 						);
 					}
 				}
