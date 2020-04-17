@@ -178,7 +178,8 @@
 		'SAFERPAYTEST' => 'SAFERPAYTEST',
 		'SOFORT' => 'SOFORT',
 		'VISA' => 'VISA',
-		'VPAY' => 'VPAY'
+		'VPAY' => 'VPAY',
+		'TWINT' => 'TWINT'
 	);
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['saferpay_wallets']				= array('Wallets', 'Please choose the wallets used by Saferpay');
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['saferpay_wallets']['options']		= array(
