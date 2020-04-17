@@ -112,6 +112,7 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['vrpay_legend'] = 'VR Pay settings';
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['vrpay_userId'] = array('User ID');
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['vrpay_password'] = array('Password');
+	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['vrpay_token'] = array('Token');
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['vrpay_entityId'] = array('Entity ID');
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['vrpay_liveMode'] = array('Live mode');
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['vrpay_testMode'] = array('Test mode');
