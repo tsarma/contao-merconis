@@ -1,6 +1,19 @@
 Leading Systems Contao Merconis bundle changelog
 ===========================================
 
+### 4.0.7 (2020-04-17)
+
+ * Optimize product import
+ * Improve performance
+ * Implement new hook "crossSellerHookSelection"
+ * Allow custom arguments with ls_shop_product::_useCustomTemplate()/ls_shop_variant::_useCustomTemplate()
+ * Fix a few minor bugs
+ * Make hit weighting adjustable in merconis settings
+ * Add seo specific page title and description to the product record
+ * Add the payment means "TWINT" to the Saferpy payment module
+ * Use the new authentication technique required by VRpay (Bearer: Token)
+
+
 ### 4.0.6 (2019-04-17)
 
  * Allow the meta page description to be overwritten with the product's description based on a new shop setting option
