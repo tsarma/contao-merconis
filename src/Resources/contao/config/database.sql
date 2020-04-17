@@ -657,6 +657,7 @@ CREATE TABLE `tl_ls_shop_payment_methods` (
   `saferpay_wallets` blob NULL,
   `vrpay_userId` varchar(255) NOT NULL default '',
   `vrpay_password` varchar(255) NOT NULL default '',
+  `vrpay_token` varchar(255) NOT NULL default '',	
   `vrpay_entityId` varchar(255) NOT NULL default '',
   `vrpay_liveMode` char(1) NOT NULL default '',
   `vrpay_testMode` varchar(8) NOT NULL default '',

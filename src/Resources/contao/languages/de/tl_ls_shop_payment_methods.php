@@ -113,6 +113,7 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['vrpay_legend'] = 'VR-Pay-Einstellungen';
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['vrpay_userId'] = array('User-ID');
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['vrpay_password'] = array('Passwort');
+	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['vrpay_token'] = array('Token');
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['vrpay_entityId'] = array('Entity-ID');
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['vrpay_liveMode'] = array('Live-Betrieb');
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['vrpay_testMode'] = array('Test-Modus');
@@ -179,7 +180,8 @@
 		'SAFERPAYTEST' => 'SAFERPAYTEST',
 		'SOFORT' => 'SOFORT',
 		'VISA' => 'VISA',
-		'VPAY' => 'VPAY'
+		'VPAY' => 'VPAY',
+		'TWINT' => 'TWINT'
 	);
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['saferpay_wallets']				= array('Wallets', 'Bitte w&auml;hlen Sie die von SAFERPAY zu nutzenden Wallets');
 	$GLOBALS['TL_LANG']['tl_ls_shop_payment_methods']['saferpay_wallets']['options']		= array(
