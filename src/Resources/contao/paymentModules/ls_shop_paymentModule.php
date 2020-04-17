@@ -397,6 +397,10 @@ namespace Merconis\Core;
 						'label' => '',
 						'inputType' => 'text'
 					),
+					'vrpay_token' => array(
+						'label' => '',
+						'inputType' => 'text'
+				    	),
 					'vrpay_entityId' => array(
 						'label' => '',
 						'inputType' => 'text'
