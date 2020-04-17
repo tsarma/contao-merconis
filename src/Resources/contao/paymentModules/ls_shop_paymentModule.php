@@ -368,7 +368,7 @@ namespace Merconis\Core;
 					'saferpay_paymentMethods' => array(
 						'label' => '',
 						'inputType' => 'checkbox',
-						'options' => array('AMEX', 'BONUS', 'DINERS', 'DIRECTDEBIT', 'EPRZELEWY', 'EPS', 'GIROPAY', 'IDEAL', 'INVOICE', 'JCB', 'MAESTRO', 'MASTERCARD', 'MYONE', 'PAYPAL', 'POSTCARD', 'POSTFINANCE', 'SAFERPAYTEST', 'SOFORT', 'VISA', 'VPAY'),
+						'options' => array('AMEX', 'BONUS', 'DINERS', 'DIRECTDEBIT', 'EPRZELEWY', 'EPS', 'GIROPAY', 'IDEAL', 'INVOICE', 'JCB', 'MAESTRO', 'MASTERCARD', 'MYONE', 'PAYPAL', 'POSTCARD', 'POSTFINANCE', 'SAFERPAYTEST', 'SOFORT', 'VISA', 'VPAY', 'TWINT'),
 						'reference' => '', // needs to be overridden in the constructor because we can't assign a $_GLOBALS reference here
 						'default' => '',
 						'eval' => array('multiple' => true)
@@ -397,6 +397,10 @@ namespace Merconis\Core;
 						'label' => '',
 						'inputType' => 'text'
 					),
+					'vrpay_token' => array(
+						'label' => '',
+						'inputType' => 'text'
+				    	),
 					'vrpay_entityId' => array(
 						'label' => '',
 						'inputType' => 'text'
