@@ -536,11 +536,19 @@ namespace Merconis\Core;
 				$str_apiResourceUrl = $this->vrpay_getApiUrl() . $str_resource;
 			}
 
-			$arr_authData = array(
-				'authentication.userId' => $this->arrCurrentSettings['vrpay_userId'],
-				'authentication.password' => $this->arrCurrentSettings['vrpay_password'],
-				'authentication.entityId' => $this->arrCurrentSettings['vrpay_entityId']
-			);
+		    	//06.04.2020, Anpassung wg. Authentifizierungs-Erweiterung (token statt Username und PWD)
+		    	//07.04.2020, und wg. angekündigter Änderung im September gleich von 'authentication.entityId' nach 'entityId' geändert
+		    	if ($this->arrCurrentSettings['vrpay_token']) {
+				$arr_authData = array(
+				    'entityId' => $this->arrCurrentSettings['vrpay_entityId']
+				);
+			} else {
+				$arr_authData = array(
+				    'authentication.userId' => $this->arrCurrentSettings['vrpay_userId'],
+				    'authentication.password' => $this->arrCurrentSettings['vrpay_password'],
+				    'entityId' => $this->arrCurrentSettings['vrpay_entityId']
+				);
+			}
 
 			$arr_data = array_merge($arr_authData, $arr_requestData);
 
@@ -551,6 +559,12 @@ namespace Merconis\Core;
 			if ($str_method !== 'POST') {
 				$str_apiResourceUrl = $str_apiResourceUrl.(strpos($str_apiResourceUrl, '?') === false ? '?' : '&').$str_dataQuery;
 			}
+
+			//06.04.2020, VR-Pay benötigt den Token im Header. Und muss html_entity_decode´d werden, da == in &#61; umgewandelt werden.
+            		if ($this->arrCurrentSettings['vrpay_token']) {
+                		$arr_header = array('Authorization:Bearer ' . html_entity_decode($this->arrCurrentSettings['vrpay_token']));
+                		curl_setopt($handler_curl, CURLOPT_HTTPHEADER, $arr_header);
+            		}
 
 			curl_setopt($handler_curl, CURLOPT_URL, $str_apiResourceUrl);
 
