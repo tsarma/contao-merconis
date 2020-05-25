@@ -649,7 +649,7 @@ class ls_shop_productManagementApiHelper {
 			 * Even with the suffix added to the alias, it must not be longer
 			 * than 128 characters
 			 */
-			$str_aliasSuffix = '-'.$int_productId;
+			$str_aliasSuffix = '-'.($int_productId ? $int_productId : md5($str_title . $str_givenAlias . microtime() . rand(0, 999999)));
 			$str_alias = substr($str_alias, 0, 128 - strlen($str_aliasSuffix)).$str_aliasSuffix;
 		}
 
