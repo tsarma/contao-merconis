@@ -1,5 +1,9 @@
 Leading Systems Contao Merconis bundle changelog
 ===========================================
+### 4.0.8 (2020-05-27)
+
+ * Add new hook "afterCustomerDataHasBeenPrefilledAfterLogin"
+ * Add group restriction functionality to allow products to only be seen and ordered by members of specifically selected groups
 
 ### 4.0.7 (2020-04-17)
 
