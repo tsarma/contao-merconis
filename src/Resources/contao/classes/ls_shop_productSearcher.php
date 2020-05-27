@@ -6,6 +6,7 @@ use function LeadingSystems\Helpers\createMultidimensionalArray;
 class ls_shop_productSearcher
 {
     protected $bln_useGroupPrices = true;
+    protected $bln_ignoreGroupRestrictions = true;
     protected $arr_groupSettingsForUser = null;
 
     protected $arrSearchCriteria = array('title' => '*', 'published' => '1');
@@ -57,6 +58,7 @@ class ls_shop_productSearcher
         $this->str_productListID = $str_productListID ? $str_productListID : null;
 
         $this->bln_useGroupPrices = isset($GLOBALS['TL_CONFIG']['ls_shop_considerGroupPricesInFilterAndSorting']) && $GLOBALS['TL_CONFIG']['ls_shop_considerGroupPricesInFilterAndSorting'];
+        $this->bln_ignoreGroupRestrictions = isset($GLOBALS['TL_CONFIG']['ls_shop_ignoreGroupRestrictionsInSearch']) && $GLOBALS['TL_CONFIG']['ls_shop_ignoreGroupRestrictionsInSearch'];
 
         $this->maxNumParallelCaches = isset($GLOBALS['TL_CONFIG']['ls_shop_maxNumParallelSearchCaches']) ? $GLOBALS['TL_CONFIG']['ls_shop_maxNumParallelSearchCaches'] : 20;
         $this->cacheLifetimeSec = isset($GLOBALS['TL_CONFIG']['ls_shop_searchCacheLifetimeSec']) ? $GLOBALS['TL_CONFIG']['ls_shop_searchCacheLifetimeSec'] : 300;
@@ -147,7 +149,8 @@ class ls_shop_productSearcher
             'checkVATID' => ls_shop_generalHelper::checkVATID(),
             'customerCountry' => ls_shop_generalHelper::getCustomerCountry(),
             'lastBackendDataChange' => isset($GLOBALS['TL_CONFIG']['ls_shop_lastBackendDataChange']) ? $GLOBALS['TL_CONFIG']['ls_shop_lastBackendDataChange'] : 0,
-            'lastResetTimestamp' => $_SESSION['lsShop']['filter']['lastResetTimestamp']
+            'lastResetTimestamp' => $_SESSION['lsShop']['filter']['lastResetTimestamp'],
+            'customerGroupId' => $this->arr_groupSettingsForUser['id']
         );
 
         $this->strCacheKey = md5(serialize($arrSettings));
@@ -459,8 +462,18 @@ class ls_shop_productSearcher
         /* ############################
          * Erstellung der Where-Bedingungen
          */
-        $searchCondition = "";
-        $searchConditionValues = array();
+        if (!$this->bln_ignoreGroupRestrictions) {
+            $searchCondition = "
+                (
+                    `useGroupRestrictions` != '1'
+                    OR `allowedGroups` LIKE '%\"" . $this->arr_groupSettingsForUser['id'] . "\"%'
+                )
+            ";
+            $searchConditionValues = array();
+        } else {
+            $searchCondition = "";
+            $searchConditionValues = array();
+        }
 
         foreach ($this->arrSearchCriteria as $criterionFieldName => $criterionValue) {
             if ($searchCondition) {

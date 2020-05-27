@@ -70,6 +70,9 @@ CREATE TABLE `tl_ls_shop_product` (
 	`published` char(1) NOT NULL default '',
 	`pages` blob NULL,
 
+	`useGroupRestrictions` char(1) NOT NULL default '',
+	`allowedGroups` blob NULL,
+
 	`lsShopProductPrice` decimal(12,4) NOT NULL default '0.0000',
 	`useScalePrice` char(1) NOT NULL default '',
 	`scalePriceType` varchar(255) NOT NULL default 'scalePriceStandalone',

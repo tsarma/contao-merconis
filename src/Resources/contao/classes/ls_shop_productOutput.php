@@ -119,6 +119,17 @@ class ls_shop_productOutput
 	}
 	
 	public function parseOutput() {
+        if (TL_MODE === 'FE' && $this->ls_objProduct->_useGroupRestrictions) {
+            $arr_groupSettings = ls_shop_generalHelper::getGroupSettings4User();
+            if (!in_array($arr_groupSettings['id'], $this->ls_objProduct->_allowedGroups)) {
+                /*
+                 * In case a product which is not allowed is being requested for display, an html comment will be
+                 *  delivered so that frontend users don't see anything about the product but there's a clue in
+                 *  the html source code that can help with debugging
+                 */
+                return '<!-- product not allowed (' . $this->ls_objProduct->_id . ' / ' . $arr_groupSettings['id'] . ') -->';
+            }
+        }
 		return $this->obj_template->parse();
 	}
 }

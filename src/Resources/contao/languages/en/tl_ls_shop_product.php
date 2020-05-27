@@ -12,8 +12,11 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['description']									=	array('Product description');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['shortDescription']								=	array('Brief description');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['published']										=	array('Published');
-	
-	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupPrices_1']								=	array('Use deviant prices for group 1');
+
+    $GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupRestrictions']							=	array('Group Restrictions');
+    $GLOBALS['TL_LANG']['tl_ls_shop_product']['allowedGroups']							        =	array('Allowed for the following groups');
+
+    $GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupPrices_1']								=	array('Use deviant prices for group 1');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupPrices_2']								=	array('Use deviant prices for group 2');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupPrices_3']								=	array('Use deviant prices for group 3');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupPrices_4']								=	array('Use deviant prices for group 4');
@@ -65,6 +68,7 @@
 	 $GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopTitleAndDescriptions_legend']				= 'Designation and descriptions';
 	 $GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopUnits_legend']							= 'Units (language-dependent)';
 	 $GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopPages_legend']							= 'Page/category assignment';
+     $GLOBALS['TL_LANG']['tl_ls_shop_product']['groupRestrictions_legend']					    = 'Group Restrictions';
 	 $GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProducer_legend']							= 'Manufacturer';
 	 $GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopImages_legend']							= 'Images';
 	 $GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopAttributesAndValues_legend']				= 'Attributes and values';

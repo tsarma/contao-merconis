@@ -102,6 +102,7 @@
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_maxNumParallelSearchCaches'] = array('Maximale Anzahl parallel möglicher Suchcaches');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchCacheLifetimeSec'] = array('Lebensdauer der Suchcaches in Sekunden');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_considerGroupPricesInFilterAndSorting'] = array('Gruppenpreise f&uuml;r Filterung und Sortierung ber&uuml;cksichtigen','Bitte deaktivieren Sie diese Option aus Performancegr&uuml;nden, wenn Sie keinem Produkt bzw. keiner Variante abweichende Gruppenpreise hinterlegt haben.');
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_ignoreGroupRestrictionsInSearch'] = array('Gruppeneinschränkungen in Suche ignorieren', 'Gibt es keine Produkte mit Gruppeneinschränkungen, so kann es die Suchperformance verbessern, wenn dieses Suchkriterium vollständig ignoriert wird. Falls diese Einstellung gewählt wird, es aber doch Produkte mit Gruppeneinschränkungen gibt, so werden diese Produkte gefunden aber dennoch nicht dargestellt. Stattdessen entstehen Lücken in ausgegebenen Produktlisten.');
 
     $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_title'] = array('Produktbezeichnung: Ganzer Suchtext entspricht komplettem Feldwert');
     $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_searchWeighting_wholeSearchStringMatchesWholeField_keywords'] = array('Schlüsselwörter: Ganzer Suchtext entspricht komplettem Feldwert');

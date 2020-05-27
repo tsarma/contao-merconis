@@ -48,10 +48,31 @@ class ls_shop_cartX {
 	 * Return the current object instance (Singleton)
 	 */
 	public static function getInstance() {
-		if (!is_object(self::$objInstance))	{
-			self::$objInstance = new self();
-			self::$objInstance->calculate();
-			
+		if (!is_object(self::$objInstance)) {
+            self::$objInstance = new self();
+            self::$objInstance->calculate();
+
+            if (!isset($GLOBALS['merconis_globals']['groupRestrictionsAlreadyCheckedInCart']) || !$GLOBALS['merconis_globals']['groupRestrictionsAlreadyCheckedInCart']) {
+                $bln_reloadRequiredForGroupRestrictions = false;
+                $GLOBALS['merconis_globals']['groupRestrictionsAlreadyCheckedInCart'] = true;
+
+                $arr_groupSettings = ls_shop_generalHelper::getGroupSettings4User();
+                foreach (self::$objInstance->itemsExtended as $str_productCartKey => $arr_cartItem) {
+                    if (
+                        $arr_cartItem['objProduct']->_useGroupRestrictions
+                        && !in_array($arr_groupSettings['id'], $arr_cartItem['objProduct']->_allowedGroups)
+                    ) {
+                        $bln_reloadRequiredForGroupRestrictions = true;
+                        ls_shop_cartHelper::setItemQuantity($str_productCartKey, -1);
+                    }
+                }
+
+                if ($bln_reloadRequiredForGroupRestrictions) {
+                    \Controller::reload();
+                }
+            }
+
+
 			if (!isset($GLOBALS['merconis_globals']['merconisHookInitializeCartControllerAlreadyProcessed']) || !$GLOBALS['merconis_globals']['merconisHookInitializeCartControllerAlreadyProcessed']) {
 				$GLOBALS['merconis_globals']['merconisHookInitializeCartControllerAlreadyProcessed'] = true;
 				if (isset($GLOBALS['MERCONIS_HOOKS']['initializeCartController']) && is_array($GLOBALS['MERCONIS_HOOKS']['initializeCartController'])) {

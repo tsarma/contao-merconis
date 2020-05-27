@@ -633,6 +633,14 @@ you can use the method "\Image::get" to get the image in the size you need: \Ima
 				}
 				break;
 
+            case '_useGroupRestrictions':
+                return $this->mainData['useGroupRestrictions'];
+                break;
+
+            case '_allowedGroups':
+                return \StringUtil::deserialize($this->mainData['allowedGroups'], true);
+                break;
+
 			case '_pages'
 				/* ## DESCRIPTION:
 Returns an Array containing the pages which the product is assigned to

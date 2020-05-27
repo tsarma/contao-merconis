@@ -13,6 +13,9 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['shortDescription']								=	array('Kurzbeschreibung');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['published']										=	array('Ver&ouml;ffentlicht');
 
+	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupRestrictions']							=	array('Gruppeneinschränkungen');
+	$GLOBALS['TL_LANG']['tl_ls_shop_product']['allowedGroups']							        =	array('Erlaubt für folgende Gruppen');
+
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupPrices_1']								=	array('Preisabweichung Gruppe 1');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupPrices_2']								=	array('Preisabweichung Gruppe 2');
 	$GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupPrices_3']								=	array('Preisabweichung Gruppe 3');
@@ -65,6 +68,7 @@
 	 $GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopTitleAndDescriptions_legend']				= 'Bezeichnung und Beschreibungen';
 	 $GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopUnits_legend']							= 'Einheiten (sprachabh&auml;ngig)';
 	 $GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopPages_legend']							= 'Seiten-/Kategorien-Zuordnung';
+	 $GLOBALS['TL_LANG']['tl_ls_shop_product']['groupRestrictions_legend']					    = 'Gruppeneinschränkungen';
 	 $GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProducer_legend']							= 'Hersteller';
 	 $GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopImages_legend']							= 'Bilder';
 	 $GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopAttributesAndValues_legend']				= 'Merkmale und Auspr&auml;gungen';
