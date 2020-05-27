@@ -87,7 +87,7 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 		)
 	),
 	'palettes' => array(
-		'__selector__' => array('useGroupPrices_1', 'useGroupPrices_2', 'useGroupPrices_3', 'useGroupPrices_4', 'useGroupPrices_5', 'useScalePrice', 'useScalePrice_1', 'useScalePrice_2', 'useScalePrice_3', 'useScalePrice_4', 'useScalePrice_5'),
+		'__selector__' => array('useGroupRestrictions', 'useGroupPrices_1', 'useGroupPrices_2', 'useGroupPrices_3', 'useGroupPrices_4', 'useGroupPrices_5', 'useScalePrice', 'useScalePrice_1', 'useScalePrice_2', 'useScalePrice_3', 'useScalePrice_4', 'useScalePrice_5'),
 		'default' => '
 			{lsShopTitleAndDescriptions_legend},
 			title,
@@ -118,6 +118,9 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			{lsShopPages_legend},
 			pages;
 			
+			{groupRestrictions_legend},
+			useGroupRestrictions;
+
 			{lsShopProducer_legend},
 			lsShopProductProducer;
 			
@@ -172,6 +175,10 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 	 */
 
 	'subpalettes' => array(
+	    'useGroupRestrictions' => '
+	        allowedGroups
+	    ',
+
 		'useGroupPrices_1' => '
 			priceForGroups_1,
 			lsShopProductPrice_1,
@@ -433,7 +440,23 @@ $GLOBALS['TL_DCA']['tl_ls_shop_product'] = array(
 			)
 		),
 
-		'lsShopProductProducer' => array(
+        'useGroupRestrictions' => array(
+            'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['useGroupRestrictions'],
+            'exclude' => true,
+            'inputType'               => 'checkbox',
+            'eval'                    => array('submitOnChange' => true, 'doNotCopy'=>true, 'tl_class'=>'clr'),
+            'filter'		=> true
+        ),
+
+        'allowedGroups' => array (
+            'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_product']['allowedGroups'],
+            'exclude'                 => true,
+            'inputType'               => 'checkbox',
+            'foreignKey'              => 'tl_member_group.name',
+            'eval'                    => array('multiple'=>true)
+        ),
+
+        'lsShopProductProducer' => array(
 			'label'			=>	&$GLOBALS['TL_LANG']['tl_ls_shop_product']['lsShopProductProducer'],
 			'exclude' => true,
 			'inputType'		=>	'text',
