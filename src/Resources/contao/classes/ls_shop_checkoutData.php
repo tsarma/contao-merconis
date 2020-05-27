@@ -1055,6 +1055,13 @@ class ls_shop_checkoutData {
 			}
 		}
 
+        if (isset($GLOBALS['MERCONIS_HOOKS']['afterCustomerDataHasBeenPrefilledAfterLogin']) && is_array($GLOBALS['MERCONIS_HOOKS']['afterCustomerDataHasBeenPrefilledAfterLogin'])) {
+            foreach ($GLOBALS['MERCONIS_HOOKS']['afterCustomerDataHasBeenPrefilledAfterLogin'] as $mccb) {
+                $objMccb = \System::importStatic($mccb[0]);
+                $this->arrCheckoutData = $objMccb->{$mccb[1]}($objUser, $this->arrCheckoutData);
+            }
+        }
+
 		$this->writeCheckoutDataToSession();
 
 		$this->resetSelectedPaymentAndShippingMethod();
