@@ -32,7 +32,7 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['payone_currentStatus']							= array('PAYONE status');
 	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['saferpay_currentStatus']							= array('SAFERPAY Status');
 	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['vrpay_currentStatus']								= array('VR Pay Status');
-	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['sofortbanking_currentStatus']						= array('&quot;Online Bank Transfer.&quot; Status');
+	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['sofortbanking_currentStatus']						= array('"Online Bank Transfer." Status');
 
 	/*
 	 * Legends

@@ -7,7 +7,7 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_field_values']['alias']										= array('Alias', 'Unique designation to be used as a reference.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_field_values']['filterValue']								= array('Value');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_field_values']['classForFilterFormField']					= array('CSS class', 'This CSS class will be used with the filter form field.');
-	$GLOBALS['TL_LANG']['tl_ls_shop_filter_field_values']['importantFieldValue']					= array('Important', 'This value will not be hidden in the &quot;reduced mode&quot;.');
+	$GLOBALS['TL_LANG']['tl_ls_shop_filter_field_values']['importantFieldValue']					= array('Important', 'This value will not be hidden in the "reduced mode".');
 
 	/*
 	 * Legends

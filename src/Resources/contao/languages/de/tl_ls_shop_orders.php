@@ -32,7 +32,7 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['payone_currentStatus']							= array('PAYONE Status');
 	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['saferpay_currentStatus']							= array('SAFERPAY Status');
 	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['vrpay_currentStatus']								= array('VR Pay Status');
-	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['sofortbanking_currentStatus']						= array('&quot;Sofort.&quot; Status');
+	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['sofortbanking_currentStatus']						= array('"Sofort." Status');
 
 	/*
 	 * Legends
@@ -42,11 +42,11 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['notes_legend']		= 'Notizen zur Bestellung';
 	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['misc_legend']		= 'Sonstiges';
 	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['status_legend']		= 'Status';
-	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['paymentInfo_legend'] = 'Zahlungsdetails (sofern verf&uuml;gbar)';
+	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['paymentInfo_legend'] = 'Zahlungsdetails (sofern verfügbar)';
 	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['shippingTracking_legend']		= 'Versand-Tracking';
 
 	/*
 	 * Buttons
 	 */
 	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['edit']        = array('Bestellung bearbeiten', 'Bestellung ID %s bearbeiten');
-	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['delete']        = array('Bestellung l&ouml;schen', 'Bestellung ID %s l&ouml;schen');
+	$GLOBALS['TL_LANG']['tl_ls_shop_orders']['delete']        = array('Bestellung löschen', 'Bestellung ID %s löschen');

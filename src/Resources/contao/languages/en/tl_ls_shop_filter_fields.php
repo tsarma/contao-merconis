@@ -9,7 +9,7 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['dataSource']							= array('Data source', 'Define here where the filter field gets it\'s values from.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['sourceAttribute']						= array('Source attribute');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['classForFilterFormField']				= array('CSS class', 'This CSS class will be used with the filter form field.');
-	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['numItemsInReducedMode']				= array('Number of values in &quot;reduced mode&quot;', 'Enter 0 if you want to show all values in the &quot;reduced mode&quot; or, if you have marked some values as &quot;important&quot;, the important ones.');
+	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['numItemsInReducedMode']				= array('Number of values in "reduced mode"', 'Enter 0 if you want to show all values in the "reduced mode" or, if you have marked some values as "important", the important ones.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['filterFormFieldType']					= array('Field type');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['priority']								= array('Priority', 'This priority will be used to sort the fields in the filter form. Fields with higher priority will be shown above fields with lower priority.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['startClosedIfNothingSelected']			= array('Close field if nothing is selected');

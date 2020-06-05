@@ -10,7 +10,7 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_message_model']['template_html'] = array('Template for HTML mails');
 	$GLOBALS['TL_LANG']['tl_ls_shop_message_model']['content_html']	= array('Content for HTML mails','Special MERCONIS wildcards can be used to insert information from the order into the text. A list of all available wildcards can be found in the MERCONIS manual.');
 	
-	$GLOBALS['TL_LANG']['tl_ls_shop_message_model']['useRawtext']	= array('Use &quot;Text only&quot; content');
+	$GLOBALS['TL_LANG']['tl_ls_shop_message_model']['useRawtext']	= array('Use "Text only" content');
 	$GLOBALS['TL_LANG']['tl_ls_shop_message_model']['template_rawtext'] = array('Template for text-only mails');
 	$GLOBALS['TL_LANG']['tl_ls_shop_message_model']['content_rawtext']	= array('Content for text-only mails','Special MERCONIS wildcards can be used to insert information from the order into the text. A list of all available wildcards can be found in the MERCONIS manual.');
 	
@@ -66,4 +66,4 @@
 	/*
 	 * MISC
 	 */
-	$GLOBALS['TL_LANG']['tl_ls_shop_message_model']['childRecordListText'] = '<p>For group<strong>%s</strong></p><p>Subject: &quot;%s&quot;</p>';
+	$GLOBALS['TL_LANG']['tl_ls_shop_message_model']['childRecordListText'] = '<p>For group<strong>%s</strong></p><p>Subject: "%s"</p>';

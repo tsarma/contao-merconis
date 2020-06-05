@@ -10,7 +10,7 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewSortingKeyOrAlias']					= array('Alias or key for sorting by attribute or flexContent');
 	$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewUserSorting']						= array('Enable user-defined sorting');
 	$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewUserSortingFields']				= array('Fields to offer for user-defined sorting');
-	$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewPagination']						= array('Products per page', 'Please enter &quot;0&quot; if pagination is not required.');
+	$GLOBALS['TL_LANG']['tl_ls_shop_output_definitions']['lsShopProductOverviewPagination']						= array('Products per page', 'Please enter "0" if pagination is not required.');
 
 	/*
 	 * References
