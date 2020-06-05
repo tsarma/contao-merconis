@@ -3,8 +3,8 @@
 /**
  * Fields
  */
-$GLOBALS['TL_LANG']['tl_user']['lsShopBeOrderTemplateOverview'] = array('Template f&uuml;r Bestell&uuml;bersicht');
-$GLOBALS['TL_LANG']['tl_user']['lsShopBeOrderTemplateDetails'] = array('Template f&uuml;r Bestellungsdetails');
+$GLOBALS['TL_LANG']['tl_user']['lsShopBeOrderTemplateOverview'] = array('Template für Bestellübersicht');
+$GLOBALS['TL_LANG']['tl_user']['lsShopBeOrderTemplateDetails'] = array('Template für Bestellungsdetails');
 
 /**
  * Legends
