@@ -1,5 +1,10 @@
 Leading Systems Contao Merconis bundle changelog
 ===========================================
+
+### 4.0.9 (2020-06-07)
+
+ * Establish compatibility with Contao 4.9
+
 ### 4.0.8 (2020-05-27)
 
  * Add new hook "afterCustomerDataHasBeenPrefilledAfterLogin"
