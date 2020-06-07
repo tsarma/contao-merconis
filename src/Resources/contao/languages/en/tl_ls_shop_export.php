@@ -50,10 +50,10 @@ $GLOBALS['TL_LANG']['tl_ls_shop_export']['activate']									= array('Use', 'Act
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['feedActive']									= array('Feed output active');
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['feedName']									= array('Name of the feed');
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['feedPassword']								= array('Password for protected access');
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['feedContentType']								= array('Content-Type', 'Value to be used in the HTTP header for &quot;Content-Type&quot; (e.g. &quot;application/json&quot;, &quot;text/csv&quot;, &quot;text/xml&quot;, &quot;text/plain&quot;). Enter &quot;application/json&quot; and select no output template if you want to get a standard json api response.');
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['feedFileName']								= array('File name', 'File name to be used when the feed is offered as a file download (e.g. when opened in a browser). Use the place holder {{date:}} to insert a variable date indication automatically. You can note any date indication whatsoever behind the colon in the syntax of the PHP function &quot;date()&quot;. Example: &quot;export_{{date:Y-m-d_H-i-s}}&quot; results in the file name &quot;export_2016-12-15_16-21-05&quot;. Using the placeholders &quot;{{currentSegment}}&quot;, &quot;{{numSegmentsTotal}}&quot; and &quot;{{currentTurn}}&quot; with a segmented output, you can place the number of the current segment, the total number of segments and the number of the current export turn in the file name.');
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['feedContentType']								= array('Content-Type', 'Value to be used in the HTTP header for "Content-Type" (e.g. "application/json", "text/csv", "text/xml", "text/plain"). Enter "application/json" and select no output template if you want to get a standard json api response.');
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['feedFileName']								= array('File name', 'File name to be used when the feed is offered as a file download (e.g. when opened in a browser). Use the place holder {{date:}} to insert a variable date indication automatically. You can note any date indication whatsoever behind the colon in the syntax of the PHP function "date()". Example: "export_{{date:Y-m-d_H-i-s}}" results in the file name "export_2016-12-15_16-21-05". Using the placeholders "{{currentSegment}}", "{{numSegmentsTotal}}" and "{{currentTurn}}" with a segmented output, you can place the number of the current segment, the total number of segments and the number of the current export turn in the file name.');
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['fileExportActive']							= array('File output active');
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['fileName']									= array('File name', 'Define the file name to use when saving the export file. Use the place holder {{date:}} to insert a variable date indication automatically. You can note any date indication whatsoever behind the colon in the syntax of the PHP function &quot;date()&quot;. Example: &quot;export_{{date:Y-m-d_H-i-s}}&quot; results in the file name &quot;export_2016-12-15_16-21-05&quot;. Using the placeholders &quot;{{currentSegment}}&quot;, &quot;{{numSegmentsTotal}}&quot; and &quot;{{currentTurn}}&quot; with a segmented output, you can place the number of the current segment, the total number of segments and the number of the current export turn in the file name.');
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['fileName']									= array('File name', 'Define the file name to use when saving the export file. Use the place holder {{date:}} to insert a variable date indication automatically. You can note any date indication whatsoever behind the colon in the syntax of the PHP function "date()". Example: "export_{{date:Y-m-d_H-i-s}}" results in the file name "export_2016-12-15_16-21-05". Using the placeholders "{{currentSegment}}", "{{numSegmentsTotal}}" and "{{currentTurn}}" with a segmented output, you can place the number of the current segment, the total number of segments and the number of the current export turn in the file name.');
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['appendToFile']								= array('Append data to an already existing file instead of overwriting it');
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['useSegmentedOutput']							= array('Use segmented output');
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['numberOfRecordsPerSegment']					= array('Number of records per segment');
@@ -71,25 +71,25 @@ $GLOBALS['TL_LANG']['tl_ls_shop_export']['searchSelectionTags']						= array('Se
 /*
  * Misc
  */
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['headlineSearchSelectionNewProduct'] = 'Search criterion &quot;New product&quot;';
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['headlineSearchSelectionSpecialPrice'] = 'Search criterion &quot;Special reduced price&quot;';
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['headlineSearchSelectionCategory'] = 'Search criterion &quot;Page/category&quot;';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['headlineSearchSelectionNewProduct'] = 'Search criterion "New product"';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['headlineSearchSelectionSpecialPrice'] = 'Search criterion "Special reduced price"';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['headlineSearchSelectionCategory'] = 'Search criterion "Page/category"';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['subHeadlineSearchSelectionCategory'] = 'Please note that the currently called page is used for every search by default if you activate this search criterion without explicitely selecting a page/category.';
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['headlineSearchSelectionProducer'] = 'Search criterion &quot;Manufacturer&quot;';
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['headlineSearchSelectionProductName'] = 'Search criterion &quot;Product designation&quot;';
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['headlineSearchSelectionArticleNr'] = 'Search criterion &quot;Product code&quot;';
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['headlineSearchSelectionTags'] = 'Search criterion &quot;Search terms&quot;';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['headlineSearchSelectionProducer'] = 'Search criterion "Manufacturer"';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['headlineSearchSelectionProductName'] = 'Search criterion "Product designation"';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['headlineSearchSelectionArticleNr'] = 'Search criterion "Product code"';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['headlineSearchSelectionTags'] = 'Search criterion "Search terms"';
 
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['ERR']['feedNameExists'] = 'The feed name &quot;%s&quot; already exists. Please use another and unique name.';
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['ERR']['fileNameExists'] = 'The file name &quot;%s&quot; already exists. Please use another and unique name.';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['ERR']['feedNameExists'] = 'The feed name "%s" already exists. Please use another and unique name.';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['ERR']['fileNameExists'] = 'The file name "%s" already exists. Please use another and unique name.';
 
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['savedAs'] = 'Saved as &quot;{fileName}&quot;';
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['confirmDeleteFile_question'] = 'Really delete file &quot;{fileName}&quot;?';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['savedAs'] = 'Saved as "{fileName}"';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['confirmDeleteFile_question'] = 'Really delete file "{fileName}"?';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['confirmDeleteFile_yes'] = 'Yes';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['confirmDeleteFile_no'] = 'No';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['pleaseWait_write'] = 'Please wait - file is being created';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['pleaseWait_delete'] = 'Please wait - file is being deleted';
-$GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['fileDeleted'] = 'File &quot;{fileName}&quot; has been deleted.';
+$GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['fileDeleted'] = 'File "{fileName}" has been deleted.';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['anErrorOccurred'] = 'An error occurred. Please make sure that you have defined a valid storage location and file name. Missing flexible parameters in the settings of the export template can also prevent the export from being saved. Please take a look at the export template and check whether there are any mandatory parameters mentioned in a documentation section.';
 $GLOBALS['TL_LANG']['tl_ls_shop_export']['ajax']['partXOfY'] = 'Part {currentSegment} of {numSegmentsTotal}';
 

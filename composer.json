@@ -15,15 +15,17 @@
   "type": "contao-bundle",
   "license": "proprietary",
   "require": {
-    "php": ">=7.0.0",
-    "contao/core-bundle": "~4.4.0",
+    "php": "^7.2",
+    "contao/core-bundle": "~4.9.0",
     "leadingsystems/contao-helpers": "^2.0",
     "leadingsystems/contao-lsjs4c": "^2.0.2",
+    "leadingsystems/lsjs": "^2.0.11",
     "leadingsystems/contao-api": "^2.0.1",
     "leadingsystems/contao-cajax": "^2.0",
     "leadingsystems/merconis-languageselector": "^2.0",
     "leadingsystems/contao-datacollector": "^2.0",
-    "paypal/rest-api-sdk-php": "^1.13"
+    "paypal/rest-api-sdk-php": "^1.13",
+    "tecnickcom/tcpdf": "^6.2.22"
   },
   "autoload": {
     "psr-4": {
@@ -42,7 +44,7 @@
   "extra": {
     "contao-manager-plugin": "LeadingSystems\\MerconisBundle\\ContaoManager\\Plugin",
     "branch-alias": {
-      "dev-master": "4.0.x-dev"
+      "dev-dev-for-c49": "4.0.x-dev"
     }
   }
 }

@@ -2,8 +2,8 @@
 /*
  * Frontend ->
  */
-$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimalsFE'] = 'Field &quot;%s&quot; must contain a number greater than 0';
-$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['stringHavingPartsWithMinimumLength'] = 'Field &quot;%s&quot; must not contain words with less than %s characters';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimalsFE'] = 'Field "%s" must contain a number greater than 0';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['stringHavingPartsWithMinimumLength'] = 'Field "%s" must not contain words with less than %s characters';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['truncatedResultsMsg1'] = 'Your search had too many results. Only the first %s of %s results are displayed.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['truncatedResultsMsg2'] = 'Please narrow down your search because otherwise it would deliver too many results.';
@@ -200,8 +200,8 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['invalidServiceNumberMessage'] = '
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterModeLabel'] = 'Multiple selection:';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterMode']['and'] = 'and';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterMode']['or'] = 'or';
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterModeInfo']['and'] = 'Multiple selection is combined with &quot;and&quot;';
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterModeInfo']['or'] = 'Multiple selection is combined with &quot;or&quot;';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterModeInfo']['and'] = 'Multiple selection is combined with "and"';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterModeInfo']['or'] = 'Multiple selection is combined with "or"';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['ajaxRequestNotSuccessful'] = 'The request could not be processed.';
 
@@ -280,8 +280,8 @@ $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['payPalPlus']['paymentNo
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['payPalPlus']['authorizationObsolete'] = 'You have changed information which is relevant for payment. Should you have already authorized payment, it will not be valid any longer. Please repeat the authorization procedure.';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['payPalPlus']['headlineBackendDetailsInfo'] = 'Information about the payment status';
 
-$GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['sofortueberweisung']['paymentErrorAfterFinishedOrder'] = 'The payment via &quot;Online Bank Transfer.&quot; could not be finished successfully but we have received your order. Please contact us in order to resolve this issue and to agree upon an alternative payment option.';
-$GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['sofortueberweisung']['confirmCheckoutMessage'] = 'After confirmation of the order you will be redirected to &quot;Online Bank Transfer.&quot; where you can finish your payment.';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['sofortueberweisung']['paymentErrorAfterFinishedOrder'] = 'The payment via "Online Bank Transfer." could not be finished successfully but we have received your order. Please contact us in order to resolve this issue and to agree upon an alternative payment option.';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['sofortueberweisung']['confirmCheckoutMessage'] = 'After confirmation of the order you will be redirected to "Online Bank Transfer." where you can finish your payment.';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['sofortueberweisung']['slogan'] = 'SOFORT Banking - Easy, Fast, Secure';
 
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['generalError01'] = 'An error occured when using the Santander financing interface. Please use another payment method or contact us, so that we can handle your financing application manually!';
@@ -402,11 +402,11 @@ $GLOBALS['TL_LANG']['CTE']['lsShop'] = 'Shop';
 $GLOBALS['TL_LANG']['CTE']['lsShopProductVariants'] = array('Product variant', 'Generates a variant for a shop product.');
 $GLOBALS['TL_LANG']['CTE']['lsShopCrossSellerCTE'] = array('CrossSeller', 'Inserts a CrossSeller');
 
-$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['oneNumber'] = 'Field &quot;%s&quot; may only contain exactly one single-digit number';
-$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimals'] = 'Field &quot;%s&quot; must contain a number';
-$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimalsLeftAndRight'] = 'Field &quot;%s&quot; must only contain numbers';
-$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimalsAndHashsignLeftTextRight'] = 'Field &quot;%s&quot; must contain the tax rate (numbers, decimal point if necessary) on the left side and a comma separated list of country codes (ISO 3166-1 ALPHA-2, lowercase) on the right side.';
-$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['feeFormula'] = 'Field &quot;%s&quot; must contain a calculable formula. Besides the placeholders, only numbers and the following characters are allowed: +-*/.()';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['oneNumber'] = 'Field "%s" may only contain exactly one single-digit number';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimals'] = 'Field "%s" must contain a number';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimalsLeftAndRight'] = 'Field "%s" must only contain numbers';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimalsAndHashsignLeftTextRight'] = 'Field "%s" must contain the tax rate (numbers, decimal point if necessary) on the left side and a comma separated list of country codes (ISO 3166-1 ALPHA-2, lowercase) on the right side.';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['feeFormula'] = 'Field "%s" must contain a calculable formula. Besides the placeholders, only numbers and the following characters are allowed: +-*/.()';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['yes'] = 'Yes';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['no'] = 'No';
@@ -476,7 +476,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText05'] = 'Import file';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText06'] = 'The file to be imported has been removed.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText07'] = 'The file %s has been imported.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText08'] = 'The import file version is not supported by this version of MERCONIS.';
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText09'] = 'You are currently experiencing a special character coding problem. Please note that your import file must comply with &quot;UTF-8&quot; coding.';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText09'] = 'You are currently experiencing a special character coding problem. Please note that your import file must comply with "UTF-8" coding.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText10'] = 'The import file is incorrect and therefore cannot be imported.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importText11'] = 'The import file contains %s products, %s product language entries as well as %s variants and %s variant language entries.';
 
@@ -515,32 +515,32 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['importErrors'] = array(
 	'notExistingPriceType' => 'An invalid value has been entered in the field "Price: Type of price indication" in line(s) no. %s.',
 	'notExistingPriceTypeOld' => 'An invalid value has been entered in the field "Old price: Type of price indication" in line(s) no. %s.',
 	'notExistingWeightType' => 'An invalid value has been entered in the field "Type of weight indication" in line(s) no. %s.',
-	'notExistingDeliveryInfoType' => 'A &quot;Setting for goods in stock and delivery time&quot; has been stored which has not been defined in the shop yet in line(s) no. %s.',
-	'wrongStockValue' => 'There is an incorrect statement of number of goods in stock. Permitted entries: Numbers and characters &quot;+&quot; (plus), &quot;-&quot; (minus) and &quot;.&quot; (full stop as decimal separator). Line(s) no. %s',
+	'notExistingDeliveryInfoType' => 'A "Setting for goods in stock and delivery time" has been stored which has not been defined in the shop yet in line(s) no. %s.',
+	'wrongStockValue' => 'There is an incorrect statement of number of goods in stock. Permitted entries: Numbers and characters "+" (plus), "-" (minus) and "." (full stop as decimal separator). Line(s) no. %s',
 	'missingFlexContentFields' => 'Not all flexible product information columns defined in the MERCONIS settings exist in the import file.',
 	'missingFlexContentFieldsLanguageIndependent' => 'Not all flexible product information columns (language independent) defined in the MERCONIS settings exist in the import file.',
 
-	'valueInvalid_name' => 'Field value for &quot;name&quot; is invalid (max. 255 characters are allowed): Line(s) no. %s',
-	'variantValueInvalid_name' => 'Field value for &quot;name&quot; is invalid (max. 255 characters are allowed): Line(s) no. %s',
-	'valueInvalid_sorting' => 'Field value for &quot;sorting&quot; is invalid (must be an integer value): Line(s) no. %s',
-	'variantValueInvalid_sorting' => 'Field value for &quot;sorting&quot; is invalid (must be an integer value): Line(s) no. %s',
-	'valueInvalid_price' => 'Field value for &quot;price&quot; is invalid (must be a decimal value (0-9, decimal point and minus sign are allowed)): Line(s) no. %s',
-	'variantValueInvalid_price' => 'Field value for &quot;price&quot; is invalid (must be a decimal value (0-9, decimal point and minus sign are allowed)): Line(s) no. %s',
-	'valueInvalid_oldPrice' => 'Field value for &quot;oldPrice&quot; is invalid (must be a decimal value (0-9, decimal point and minus sign are allowed)): Line(s) no. %s',
-	'variantValueInvalid_oldPrice' => 'Field value for &quot;oldPrice&quot; is invalid (must be a decimal value (0-9, decimal point and minus sign are allowed)): Line(s) no. %s',
-	'valueInvalid_weight' => 'Field value for &quot;weight&quot; is invalid (must be a decimal value (0-9, decimal point and minus sign are allowed)): Line(s) no. %s',
-	'variantValueInvalid_weight' => 'Field value for &quot;weight&quot; is invalid (must be a decimal value (0-9, decimal point and minus sign are allowed)): Line(s) no. %s',
-	'valueInvalid_unit' => 'Field value for &quot;unit&quot; is invalid (max. 255 characters are allowed): Line(s) no. %s',
-	'productValueInvalid_quantityDecimals' => 'Field value for &quot;quantityDecimals&quot; is invalid (must be an integer value): Line(s) no. %s',
-	'valueInvalid_quantityComparisonUnit' => 'Field value for &quot;quantityComparisonUnit&quot; is invalid (max. 255 characters are allowed): Line(s) no. %s',
-	'valueInvalid_quantityComparisonDivisor' => 'Field value for &quot;quantityComparisonDivisor&quot; is invalid (must be a decimal value (0-9, decimal point and minus sign are allowed)): Line(s) no. %s',
-	'productValueInvalid_template' => 'Field value for &quot;template&quot; is invalid (max. 64 characters are allowed): Line(s) no. %s',
-	'productValueInvalid_producer' => 'Field value for &quot;producer&quot; is invalid (max. 255 characters are allowed): Line(s) no. %s',
-	'valueInvalid_productcode' => 'Field value for &quot;productcode&quot; is invalid (max. 255 characters are allowed): Line(s) no. %s',
-	'variantValueInvalid_productcode' => 'Field value for &quot;productcode&quot; is invalid (max. 255 characters are allowed): Line(s) no. %s',
-	'valueInvalid_scalePriceType' => 'Field value for &quot;scalePriceType&quot; is invalid: Line(s) no. %s',
-	'valueInvalid_scalePriceQuantityDetectionMethod' => 'Field value for &quot;scalePriceQuantityDetectionMethod&quot; is invalid: Line(s) no. %s',
-	'valueInvalid_scalePriceKeyword' => 'Field value for &quot;scalePriceKeyword&quot; is invalid: Line(s) no. %s',
+	'valueInvalid_name' => 'Field value for "name" is invalid (max. 255 characters are allowed): Line(s) no. %s',
+	'variantValueInvalid_name' => 'Field value for "name" is invalid (max. 255 characters are allowed): Line(s) no. %s',
+	'valueInvalid_sorting' => 'Field value for "sorting" is invalid (must be an integer value): Line(s) no. %s',
+	'variantValueInvalid_sorting' => 'Field value for "sorting" is invalid (must be an integer value): Line(s) no. %s',
+	'valueInvalid_price' => 'Field value for "price" is invalid (must be a decimal value (0-9, decimal point and minus sign are allowed)): Line(s) no. %s',
+	'variantValueInvalid_price' => 'Field value for "price" is invalid (must be a decimal value (0-9, decimal point and minus sign are allowed)): Line(s) no. %s',
+	'valueInvalid_oldPrice' => 'Field value for "oldPrice" is invalid (must be a decimal value (0-9, decimal point and minus sign are allowed)): Line(s) no. %s',
+	'variantValueInvalid_oldPrice' => 'Field value for "oldPrice" is invalid (must be a decimal value (0-9, decimal point and minus sign are allowed)): Line(s) no. %s',
+	'valueInvalid_weight' => 'Field value for "weight" is invalid (must be a decimal value (0-9, decimal point and minus sign are allowed)): Line(s) no. %s',
+	'variantValueInvalid_weight' => 'Field value for "weight" is invalid (must be a decimal value (0-9, decimal point and minus sign are allowed)): Line(s) no. %s',
+	'valueInvalid_unit' => 'Field value for "unit" is invalid (max. 255 characters are allowed): Line(s) no. %s',
+	'productValueInvalid_quantityDecimals' => 'Field value for "quantityDecimals" is invalid (must be an integer value): Line(s) no. %s',
+	'valueInvalid_quantityComparisonUnit' => 'Field value for "quantityComparisonUnit" is invalid (max. 255 characters are allowed): Line(s) no. %s',
+	'valueInvalid_quantityComparisonDivisor' => 'Field value for "quantityComparisonDivisor" is invalid (must be a decimal value (0-9, decimal point and minus sign are allowed)): Line(s) no. %s',
+	'productValueInvalid_template' => 'Field value for "template" is invalid (max. 64 characters are allowed): Line(s) no. %s',
+	'productValueInvalid_producer' => 'Field value for "producer" is invalid (max. 255 characters are allowed): Line(s) no. %s',
+	'valueInvalid_productcode' => 'Field value for "productcode" is invalid (max. 255 characters are allowed): Line(s) no. %s',
+	'variantValueInvalid_productcode' => 'Field value for "productcode" is invalid (max. 255 characters are allowed): Line(s) no. %s',
+	'valueInvalid_scalePriceType' => 'Field value for "scalePriceType" is invalid: Line(s) no. %s',
+	'valueInvalid_scalePriceQuantityDetectionMethod' => 'Field value for "scalePriceQuantityDetectionMethod" is invalid: Line(s) no. %s',
+	'valueInvalid_scalePriceKeyword' => 'Field value for "scalePriceKeyword" is invalid: Line(s) no. %s',
 );
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['systemMessages']['msg001'] = '<div style="font-weight: bold; border: 5px solid #FF0000; padding: 20px; background-color: #FFFFFF;">Please note that you can only offer 10 products in the unlicensed demo version of MERCONIS.</div>';
@@ -583,7 +583,7 @@ $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['sofortueberweisung']['s
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['sofortueberweisung']['yes'] = 'Yes';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['sofortueberweisung']['no'] = 'No';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['sofortueberweisung']['sender'] = 'Sender';
-$GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['sofortueberweisung']['recipient'] = 'Empf&auml;nger';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['sofortueberweisung']['recipient'] = 'Empfänger';
 
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc13'] = 'Status (%s)';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['paymentMethods']['santanderWebQuick']['misc14'] = 'Update status';

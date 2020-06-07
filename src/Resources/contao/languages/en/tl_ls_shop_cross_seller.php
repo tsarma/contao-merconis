@@ -14,16 +14,16 @@ $GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['productSelectionType']						= ar
 $GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['activate']									= array('Use', 'Activate to apply the search criterion');
 $GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['published']									= array('Active');
 
-$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['maxNumProducts']								= array('Maximum number of products', 'Define a maximum number of products for display in this CrossSeller. Enter &quot;0&quot; to display all matching products.');
+$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['maxNumProducts']								= array('Maximum number of products', 'Define a maximum number of products for display in this CrossSeller. Enter "0" to display all matching products.');
 $GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['noOutputIfMoreThanMaxResults']					= array('No output if more than maximum');
 
 $GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['searchSelectionNewProduct']					= array('New product');
 $GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['searchSelectionSpecialPrice']				= array('Special reduced price');
 $GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['searchSelectionCategory']					= array('Page/category');
-$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['searchSelectionProducer']					= array('Manufacturer', 'The following place holders which are based on certain features of a product opened in the product detail view are available for the search: &quot;{{currentProduct_name}}&quot; (Product designation), &quot;{{currentProduct_articleNr}}&quot; (Product code), &quot;{{currentProduct_producer}}&quot; (Manufacturer)');
-$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['searchSelectionProductName']					= array('Product designation', 'The following place holders which are based on certain features of a product opened in the product detail view are available for the search: &quot;{{currentProduct_name}}&quot; (Product designation), &quot;{{currentProduct_articleNr}}&quot; (Product code), &quot;{{currentProduct_producer}}&quot; (Manufacturer)');
-$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['searchSelectionArticleNr']					= array('Product code', 'The following place holders which are based on certain features of a product opened in the product detail view are available for the search: &quot;{{currentProduct_name}}&quot; (Product designation), &quot;{{currentProduct_articleNr}}&quot; (Product code), &quot;{{currentProduct_producer}}&quot; (Manufacturer)');
-$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['searchSelectionTags']						= array('Search keys', 'The following place holders which are based on certain features of a product opened in the product detail view are available for the search: &quot;{{currentProduct_name}}&quot; (Product designation), &quot;{{currentProduct_articleNr}}&quot; (Product code), &quot;{{currentProduct_producer}}&quot; (Manufacturer)');
+$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['searchSelectionProducer']					= array('Manufacturer', 'The following place holders which are based on certain features of a product opened in the product detail view are available for the search: "{{currentProduct_name}}" (Product designation), "{{currentProduct_articleNr}}" (Product code), "{{currentProduct_producer}}" (Manufacturer)');
+$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['searchSelectionProductName']					= array('Product designation', 'The following place holders which are based on certain features of a product opened in the product detail view are available for the search: "{{currentProduct_name}}" (Product designation), "{{currentProduct_articleNr}}" (Product code), "{{currentProduct_producer}}" (Manufacturer)');
+$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['searchSelectionArticleNr']					= array('Product code', 'The following place holders which are based on certain features of a product opened in the product detail view are available for the search: "{{currentProduct_name}}" (Product designation), "{{currentProduct_articleNr}}" (Product code), "{{currentProduct_producer}}" (Manufacturer)');
+$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['searchSelectionTags']						= array('Search keys', 'The following place holders which are based on certain features of a product opened in the product detail view are available for the search: "{{currentProduct_name}}" (Product designation), "{{currentProduct_articleNr}}" (Product code), "{{currentProduct_producer}}" (Manufacturer)');
 
 $GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['canBeFiltered']								= array('Can be filtered');
 $GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['doNotUseCrossSellerOutputDefinitions']		= array('Use product overview display settings', 'Use the display settings for the product overview instead of those for CrossSellers.');
@@ -31,14 +31,14 @@ $GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['doNotUseCrossSellerOutputDefinit
 /*
  * Misc
  */
-$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['headlineSearchSelectionNewProduct'] = 'Search criterion &quot;New product&quot;';
-$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['headlineSearchSelectionSpecialPrice'] = 'Search criterion &quot;Special reduced price&quot;';
-$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['headlineSearchSelectionCategory'] = 'Search criterion &quot;Page/category&quot;';
+$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['headlineSearchSelectionNewProduct'] = 'Search criterion "New product"';
+$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['headlineSearchSelectionSpecialPrice'] = 'Search criterion "Special reduced price"';
+$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['headlineSearchSelectionCategory'] = 'Search criterion "Page/category"';
 $GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['subHeadlineSearchSelectionCategory'] = 'Please note that the currently called page is used for every search by default if you activate this search criterion without explicitely selecting a page/category.';
-$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['headlineSearchSelectionProducer'] = 'Search criterion &quot;Manufacturer&quot;';
-$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['headlineSearchSelectionProductName'] = 'Search criterion &quot;Product designation&quot;';
-$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['headlineSearchSelectionArticleNr'] = 'Search criterion &quot;Product code&quot;';
-$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['headlineSearchSelectionTags'] = 'Search criterion &quot;Search terms&quot;';
+$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['headlineSearchSelectionProducer'] = 'Search criterion "Manufacturer"';
+$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['headlineSearchSelectionProductName'] = 'Search criterion "Product designation"';
+$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['headlineSearchSelectionArticleNr'] = 'Search criterion "Product code"';
+$GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['headlineSearchSelectionTags'] = 'Search criterion "Search terms"';
 
 /*
  * Legends
@@ -60,12 +60,12 @@ $GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['published_legend'] = 'Activation
  * References
  */
 $GLOBALS['TL_LANG']['tl_ls_shop_cross_seller']['productSelectionType']['options'] = array(
-    'hookSelection' => array('Individual via hook', 'With this selection type you can make the actual product selection using the hook &quot;crossSellerHookSelection&quot;.'),
+    'hookSelection' => array('Individual via hook', 'With this selection type you can make the actual product selection using the hook "crossSellerHookSelection".'),
     'directSelection' => array('Direct product selection', 'This selection option enables you to directly select products.'),
     'searchSelection' => array('Product search', 'The products to be displayed in the CrossSeller are determined by means of stipulated search criteria.'),
     'lastSeen' => array('Last viewed products', 'The last viewed products are displayed in the CrossSeller.'),
     'favorites' => array('Favorites/Watchlist', 'The products that the visitor has added to his favorites/watchlist are displayed in the CrossSeller.'),
-    'recommendedProducts' => array('Recommended products', 'The CrossSeller displays products which you have allocated the product displayed in the detail view as &quot;Recommended products&quot;.'),
+    'recommendedProducts' => array('Recommended products', 'The CrossSeller displays products which you have allocated the product displayed in the detail view as "Recommended products".'),
     'frontendProductSearch' => array('Frontend product search', 'The search result of a product search carried out in the frontend is displayed in the CrossSeller.')
 );
 
