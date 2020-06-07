@@ -15,7 +15,7 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['stop']										= array('Period of validity until');
 	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['limitNumAvailable']							= array('Limit available quantity');
 	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['numAvailable']								= array('Available quantity');
-	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['changeNumAvailable']							= array('Change available quantity', 'Enter &quot;+100&quot; to add 100 to the quantity or &quot;-100&quot; to subtract 100 from the quantity or &quot;100&quot; to set the quantity to exactly 100.');
+	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['changeNumAvailable']							= array('Change available quantity', 'Enter "+100" to add 100 to the quantity or "-100" to subtract 100 from the quantity or "100" to set the quantity to exactly 100.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['published']									= array('Active');
 	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['productDirectSelection']						= array('Product selection');
 	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['productSelectionType']						= array('Type of product selection');
@@ -32,14 +32,14 @@
 	/*
 	 * Misc
 	 */
-	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['headlineSearchSelectionNewProduct'] = 'Search criterion &quot;New product&quot;';
-	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['headlineSearchSelectionSpecialPrice'] = 'Search criterion &quot;Special reduced price&quot;';
-	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['headlineSearchSelectionCategory'] = 'Search criterion &quot;Page/category&quot;';
+	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['headlineSearchSelectionNewProduct'] = 'Search criterion "New product"';
+	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['headlineSearchSelectionSpecialPrice'] = 'Search criterion "Special reduced price"';
+	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['headlineSearchSelectionCategory'] = 'Search criterion "Page/category"';
 	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['subHeadlineSearchSelectionCategory'] = 'Please note that the currently called page is used for every search by default if you activate this search criterion without explicitely selecting a page/category.';
-	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['headlineSearchSelectionProducer'] = 'Search criterion &quot;Manufacturer&quot;';
-	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['headlineSearchSelectionProductName'] = 'Search criterion &quot;Product designation&quot;';
-	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['headlineSearchSelectionArticleNr'] = 'Search criterion &quot;Product code&quot;';
-	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['headlineSearchSelectionTags'] = 'Search criterion &quot;Search keys&quot;';
+	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['headlineSearchSelectionProducer'] = 'Search criterion "Manufacturer"';
+	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['headlineSearchSelectionProductName'] = 'Search criterion "Product designation"';
+	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['headlineSearchSelectionArticleNr'] = 'Search criterion "Product code"';
+	$GLOBALS['TL_LANG']['tl_ls_shop_coupon']['headlineSearchSelectionTags'] = 'Search criterion "Search keys"';
 
 	/*
 	 * Legends
