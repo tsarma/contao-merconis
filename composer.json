@@ -19,7 +19,7 @@
     "contao/core-bundle": "~4.9.0",
     "leadingsystems/contao-helpers": "^2.0",
     "leadingsystems/contao-lsjs4c": "^2.0.2",
-    "leadingsystems/contao-lscss4c": "dev-master",
+    "leadingsystems/contao-lscss4c": "^0.0.1",
     "leadingsystems/lsjs": "^2.0.11",
     "leadingsystems/contao-api": "^2.0.1",
     "leadingsystems/contao-cajax": "^2.0",
