@@ -188,30 +188,6 @@ fieldset.useDeviantShippingAddress {
   }
 }
 
-.widget.widget-text,
-.widget.widget-password,
-.widget.widget-textarea,
-.widget.widget-select {
-  display: flex;
-
-  label {
-    width: 34.3%;
-    max-width: 20rem;
-    margin-right: 1rem;
-  }
-
-  input,
-  select,
-  textarea {
-    width: 65.6%;
-    max-width: 50rem;
-  }
-}
-
-.widget.widget-submit {
-  margin-top: 2rem;
-}
-
 .checkoutStep.formClosed {
   position: relative;
 
