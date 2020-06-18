@@ -1,6 +1,8 @@
 Leading Systems Contao Merconis bundle changelog
 ===========================================
 
+### 5.0.0 beta1 (2020-06-18)
+
 ### 4.0.9 (2020-06-07)
 
  * Establish compatibility with Contao 4.9
