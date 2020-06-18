@@ -45,7 +45,7 @@
   "extra": {
     "contao-manager-plugin": "LeadingSystems\\MerconisBundle\\ContaoManager\\Plugin",
     "branch-alias": {
-      "dev-next-major": "4.0.x-dev"
+      "dev-master": "4.0.x-dev"
     }
   }
 }
