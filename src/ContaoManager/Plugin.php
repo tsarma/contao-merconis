@@ -28,6 +28,7 @@ class Plugin implements BundlePluginInterface, RoutingPluginInterface
 						'Contao\CoreBundle\ContaoCoreBundle',
 						'LeadingSystems\HelpersBundle\LeadingSystemsHelpersBundle',
 						'LeadingSystems\LSJS4CBundle\LeadingSystemsLSJS4CBundle',
+						'LeadingSystems\LSJS4CBundle\LeadingSystemsLSCSS4CBundle',
 						'LeadingSystems\ApiBundle\LeadingSystemsApiBundle',
 						'LeadingSystems\CajaxBundle\LeadingSystemsCajaxBundle',
 						'LeadingSystems\LanguageSelectorBundle\LeadingSystemsLanguageSelectorBundle',

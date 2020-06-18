@@ -566,7 +566,7 @@ CREATE TABLE `tl_ls_shop_payment_methods` (
   `formAdditionalData` int(10) unsigned NOT NULL default '0',
   `type` varchar(255) NOT NULL default 'standard',
   `feeType` varchar(255) NOT NULL default 'none',
-  `feeValue` decimal(10,2) NOT NULL default '0.00',
+  `feeValue` decimal(12,4) NOT NULL default '0.0000',
   `feeAddCouponToValueOfGoods` char(1) NOT NULL default '',
   `feeAddShippingToValueOfGoods` char(1) NOT NULL default '',
   `feeFormula` text NULL,
@@ -745,14 +745,14 @@ CREATE TABLE `tl_ls_shop_orders` (
   `status03` varchar(255) NOT NULL default '',
   `status04` varchar(255) NOT NULL default '',
   `status05` varchar(255) NOT NULL default '',
-  
+
   `shippingTrackingNr` varchar(255) NOT NULL default '',
   `shippingTrackingUrl` varchar(255) NOT NULL default '',
 
   `notesShort` varchar(32) NOT NULL default '',
   `notesLong` text NULL,
   `freetext` text NULL,
-  
+
   `miscData` blob NULL,
 
   `payPalPlus_saleId` varchar(255) NOT NULL default '',
@@ -840,7 +840,7 @@ CREATE TABLE `tl_ls_shop_shipping_methods` (
   `formAdditionalData` int(10) unsigned NOT NULL default '0',
   `type` varchar(255) NOT NULL default 'standard',
   `feeType` varchar(255) NOT NULL default 'none',
-  `feeValue` decimal(10,2) NOT NULL default '0.00',
+  `feeValue` decimal(12,4) NOT NULL default '0.0000',
   `feeAddCouponToValueOfGoods` char(1) NOT NULL default '',
   `feeFormula` text NULL,
   `feeFormulaResultConvertToDisplayPrice` char(1) NOT NULL default '',

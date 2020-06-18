@@ -1,0 +1,19 @@
+.variantSelectorInstance .attributeBox {
+  width: 100%;
+  .value {
+    padding: 16px;
+    position: relative;
+    border-left: 2px solid transparent;
+  }
+  .value:not([data-lsjs-class*="possible"]) {
+    opacity: .3;
+  }
+  .value[data-lsjs-class*="selected"] {
+    border: 1px solid #e8e8e8;
+    border-left: 2px solid;
+    cursor: default;
+  }
+  h3 {
+    padding-left: 16px;
+  }
+}

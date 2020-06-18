@@ -4675,4 +4675,32 @@ class ls_shop_generalHelper
 
         return $arr_pageIds;
     }
+
+    public static function merconis_getBackendLsjs($str_content, $str_template) {
+        if ($str_template !== 'be_main') {
+            return $str_content;
+        }
+
+        ob_start();
+        ?>
+        <script src="assets/lsjs/core/appBinder/binder.php?output=js&pathToApp=<?php echo urldecode('_dup4_/web/bundles/leadingsystemsmerconis/js/lsjs/backend/app'); ?>&includeCore=no&includeCoreModules=no<?php echo ($GLOBALS['TL_CONFIG']['ls_shop_lsjsDebugMode'] ? '&debug=1' : '').($GLOBALS['TL_CONFIG']['ls_shop_lsjsNoCacheMode'] ? '&no-cache=1' : '').($GLOBALS['TL_CONFIG']['ls_shop_lsjsNoMinifierMode'] ? '&&no-minifier=1' : '');?>"></script>
+        <script type="text/javascript">
+            window.addEvent('domready', function () {
+                if (lsjs.__appHelpers.merconisBackendApp !== undefined && lsjs.__appHelpers.merconisBackendApp !== null) {
+                    lsjs.__appHelpers.merconisBackendApp.obj_config.REQUEST_TOKEN = '<?php echo \RequestToken::get(); ?>';
+                    lsjs.__appHelpers.merconisBackendApp.obj_config.API_KEY = '<?php echo $GLOBALS['TL_CONFIG']['ls_api_key']; ?>';
+                    lsjs.__appHelpers.merconisBackendApp.start();
+                }
+            });
+        </script>
+
+        <?php
+        $obj_combiner = new \Combiner();
+        $obj_combiner->add('vendor/leadingsystems/contao-merconis/src/Resources/public/js/lsjs/backend/app/styles/appMainStyles.less');
+        ?>
+        <link rel="stylesheet" href="<?php echo $obj_combiner->getCombinedFile(); ?>">
+        <?php
+
+        return str_replace('</head>', ob_get_clean()."\r\n</head>", $str_content);
+    }
 }
