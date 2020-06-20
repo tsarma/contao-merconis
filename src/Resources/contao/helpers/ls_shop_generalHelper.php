@@ -4703,4 +4703,14 @@ class ls_shop_generalHelper
 
         return str_replace('</head>', ob_get_clean()."\r\n</head>", $str_content);
     }
+
+    /*
+     * Purges the contao cache if it exists. This is especially necessary during Merconis installation.
+     */
+    public static function purgeContaoCache() {
+        if (is_dir(TL_ROOT . '/var/cache/prod/contao/dca')) {
+            $obj_automator = \System::importStatic('Automator');
+            $obj_automator->purgeInternalCache();
+        }
+    }
 }

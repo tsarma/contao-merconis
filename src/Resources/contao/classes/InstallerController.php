@@ -310,26 +310,16 @@ class InstallerController extends \Controller {
 	}
 
 	public function shopInstallation() {
-		// nichts machen, wenn Version niedriger als 2.11
-		if (version_compare(VERSION, '2.11', '<')) {
-			return;
-		}
-
 		if ($this->getInstallationStatus() == 'complete') {
 			return;
 		}
 		if (!\Input::get('lsShopInstallationStep')) {
 			return;
 		}
-		$step = \Input::get('lsShopInstallationStep');
 
-		switch ($step) {
+		switch (\Input::get('lsShopInstallationStep')) {
 			case 1:
-                // Purge internal cache because it can cause problems for the merconis installer
-                if (is_dir(TL_ROOT . '/system/cache/dca')) {
-                    $this->import('Automator');
-                    $this->Automator->purgeInternalCache();
-                }
+                ls_shop_generalHelper::purgeContaoCache();
 
                 \Config::persist('ls_shop_installedCompletely', false);
 
@@ -337,11 +327,7 @@ class InstallerController extends \Controller {
 			    break;
 
 			case 2:
-				// Purge internal cache because it can cause problems for the merconis installer
-				if (is_dir(TL_ROOT . '/system/cache/dca')) {
-					$this->import('Automator');
-					$this->Automator->purgeInternalCache();
-				}
+                ls_shop_generalHelper::purgeContaoCache();
 
 				if (\Input::post('FORM_SUBMIT') && \Input::post('FORM_SUBMIT') == 'installer_themeSelection') {
 					if (!\Input::post('installer_selectedTheme')) {
@@ -430,10 +416,7 @@ class InstallerController extends \Controller {
 			case 3:
                 $this->import('Automator');
 
-				// Purge internal cache because it can cause problems for the merconis installer
-				if (is_dir(TL_ROOT . '/system/cache/dca')) {
-					$this->Automator->purgeInternalCache();
-				}
+                ls_shop_generalHelper::purgeContaoCache();
 
 				$arrExportTables = deserialize(file_get_contents(TL_ROOT.'/'.$_SESSION['lsShop']['installer_selectedTheme']['srcPathExportTablesDat']));
 
@@ -1365,11 +1348,7 @@ class InstallerController extends \Controller {
 	}
 
 	public function shopUpdate() {
-		// Purge internal cache because it can cause problems for the merconis installer
-		if (is_dir(TL_ROOT . '/system/cache/dca')) {
-			$this->import('Automator');
-			$this->Automator->purgeInternalCache();
-		}
+        ls_shop_generalHelper::purgeContaoCache();
 
 		$varUpdateSituation = $this->checkForUpdateSituation();
 		if (!\Input::get('lsShopUpdateAction') || !is_array($varUpdateSituation)) {
