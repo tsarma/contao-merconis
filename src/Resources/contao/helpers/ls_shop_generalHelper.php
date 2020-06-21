@@ -4708,6 +4708,12 @@ class ls_shop_generalHelper
      * Purges the contao cache if it exists. This is especially necessary during Merconis installation.
      */
     public static function purgeContaoCache() {
+        /*
+         * Currently deactivated because for some reason yet unknown, the automator can't purge the cache
+         * because the cache services provided by contao are not public although based on https://github.com/contao/contao/issues/949
+         * they should be.
+         */
+        return;
         if (is_dir(TL_ROOT . '/var/cache/prod/contao/dca')) {
             $obj_automator = \System::importStatic('Automator');
             $obj_automator->purgeInternalCache();
