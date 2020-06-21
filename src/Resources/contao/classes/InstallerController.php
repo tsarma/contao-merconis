@@ -904,59 +904,8 @@ class InstallerController extends \Controller {
 			throw new \Exception('target table does not exist ('.$targetTable.')');
 		}
 
-#		## cc3a ##
-#		/*
-#		 * Data manipulation to deal with changes in the contao database definition
-#		 */
-#		if (version_compare(VERSION, '3.0', '>=')) {
-#			switch ($targetTable) {
-#				case 'tl_layout':
-#					/*
-#					 * Activate all modules
-#					 */
-#					$tmpArrModules = deserialize($arrData['modules']);
-#					foreach ($tmpArrModules as $k => $v) {
-#						$tmpArrModules[$k]['enable'] = '1';
-#					}
-#					$arrData['modules'] = serialize($tmpArrModules);
-#					
-#					/*
-#					 * Setting the rows and columns because in Contao 3 these are separate fields
-#					 */
-#					$arrData['rows'] = '3rw';
-#					$arrData['cols'] = '2cll';
-#					
-#					/*
-#					 * Use the layout builder (layout.css)
-#					 */
-#					$arrData['framework'] = serialize(array('layout.css'));
-#					
-#					/*
-#					 * Add Mootools
-#					 */
-#					$arrData['addMooTools'] = '1';
-#					break;
-#			}
-#		}
-#		
-#		if (version_compare(VERSION, '3.2', '>=')) {
-#			switch ($targetTable) {
-#				case 'tl_layout':
-#					if (is_null($arrData['sections'])) {
-#						$arrData['sections'] = '';
-#					}
-#					break;
-#
-#				case 'tl_form':
-#					if (is_null($arrData['recipient'])) {
-#						$arrData['recipient'] = '';
-#					}
-#					break;
-#			}
-#		}
-#		## cc3e ##
-
 		$setStatement = '';
+
 		foreach ($arrData as $fieldName => $value) {
 			/*
 			 * Existiert das Feld in der Zieltabelle nicht, so wird das Feld nicht in das Insert-Statement aufgenommen.
