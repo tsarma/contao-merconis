@@ -143,6 +143,11 @@
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_lsjsNoCacheMode'] = array('Deactivate caching');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_lsjsNoMinifierMode'] = array('Deactivate minification');
 
+    $GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_lscssFileToLoad'] = array('SCSS file to load', 'By default, an SCSS file supplied by Merconis is used and no other file need/should be selected here. A different selection is only necessary if, for example, additional/changed styles are to be used due to own extensions. Attention: If you select your own SCSS file, the file supplied by Merconis by default will no longer be loaded. It is therefore advisable to create your own file as a copy of the original Merconis file and then add/change it.');
+	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_lscssDebugMode'] = array('Debug mode');
+	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_lscssNoCacheMode'] = array('Deactivate caching');
+	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_lscssNoMinifierMode'] = array('Deactivate minification');
+
 	/*
 	 * Legends
 	 */
@@ -169,6 +174,8 @@
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ipWhitelist_legend'] = 'Whitelist for referer check';
 
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['backendLsjs_legend'] = 'Settings for LSJS in the backend';
+
+	$GLOBALS['TL_LANG']['tl_lsShopSettings']['backendLscss_legend'] = 'Settings for LSCSS in the backend';
 
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['misc_legend'] = 'Advanced settings';
 	

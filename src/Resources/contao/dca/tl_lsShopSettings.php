@@ -65,6 +65,7 @@ $GLOBALS['TL_DCA']['tl_lsShopSettings'] = array(
 		{compatSettings_legend},ls_shop_blnCompatMode2-1-4;
 		{ipWhitelist_legend},ls_shop_ipWhitelist,ls_shop_urlWhitelist;
 		{backendLsjs_legend},ls_shop_lsjsDebugMode,ls_shop_lsjsNoCacheMode,ls_shop_lsjsNoMinifierMode;
+		{backendLscss_legend},ls_shop_lscssFileToLoad,ls_shop_lscssDebugMode,ls_shop_lscssNoCacheMode,ls_shop_lscssNoMinifierMode;
 		{misc_legend},ls_shop_sortingCharacterTranslationTable,ls_shop_dcaNamesWithoutMultilanguageSupport'
 	),
 
@@ -949,6 +950,41 @@ $GLOBALS['TL_DCA']['tl_lsShopSettings'] = array(
 
 		'ls_shop_lsjsNoMinifierMode' => array(
 			'label'                   => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_lsjsNoMinifierMode'],
+			'exclude'                 => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('tl_class'=>'w50 m12')
+		),
+
+		'ls_shop_lscssFileToLoad' => array(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_lscssFileToLoad'],
+			'exclude'                 => true,
+            'inputType'               => 'fileTree',
+            'eval'                    => array(
+                                            'multiple' => false,
+                                            'tl_class'=>'clr',
+                                            'files' => true,
+                                            'filesOnly' => true,
+                                            'fieldType' => 'radio',
+                                            'extensions'=>'scss'
+                                         )
+        ),
+
+		'ls_shop_lscssDebugMode' => array(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_lscssDebugMode'],
+			'exclude'                 => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('tl_class'=>'w50 m12')
+		),
+
+		'ls_shop_lscssNoCacheMode' => array(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_lscssNoCacheMode'],
+			'exclude'                 => true,
+			'inputType'               => 'checkbox',
+			'eval'                    => array('tl_class'=>'w50 m12')
+		),
+
+		'ls_shop_lscssNoMinifierMode' => array(
+			'label'                   => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_lscssNoMinifierMode'],
 			'exclude'                 => true,
 			'inputType'               => 'checkbox',
 			'eval'                    => array('tl_class'=>'w50 m12')
