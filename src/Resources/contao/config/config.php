@@ -140,10 +140,6 @@ if (TL_MODE == 'BE') {
 	$GLOBALS['TL_JAVASCRIPT'][] = 'bundles/leadingsystemsmerconis/js/ls_x_controller.js';
 }
 
-if (TL_MODE == 'BE') {
-	$GLOBALS['TL_CSS'][] = 'bundles/leadingsystemsmerconis/css/beStyle.css';
-}
-
 array_insert($GLOBALS['BE_MOD'], 0, array(
 	'merconis' => array(
 		'ls_shop_dashboard' => array(
