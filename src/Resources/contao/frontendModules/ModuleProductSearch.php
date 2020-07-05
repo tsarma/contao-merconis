@@ -169,6 +169,7 @@ class ModuleProductSearch extends \Module {
 		$obj_flexWidget_input = new FlexWidget(
 			array(
 				'str_uniqueName' => 'merconis_searchWord',
+				'bln_multipleWidgetsWithSameNameAllowed' => true,
 				'str_label' => $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText112'],
 				'int_minLength' => $this->ls_shop_productSearch_minlengthInput,
 				'arr_validationFunctions' => array(
