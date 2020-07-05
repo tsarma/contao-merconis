@@ -1,0 +1,56 @@
+.ls_searchBox:not(.off-canvas) {
+  @include ls_contentWrapper;
+}
+
+.ls_searchBox {
+  form {
+    position: relative;
+
+    #merconis_searchWord {
+      width: 100%;
+      padding: 1.2rem 0.6rem;
+      border: 0.1rem solid #d4d4d4;
+      background: transparent;
+    }
+    label {
+      display: none;
+    }
+    .submit {
+      position: absolute;
+      right: 0;
+      top: -1.3rem;
+      background: transparent;
+      border: 0;
+      font-size: 2.7rem;
+      color: #0f0d0d;
+    }
+  }
+  .merconisHitSelector {
+    width: 100%;
+    margin-top: 1rem;
+    .hit {
+      cursor: pointer;
+      overflow: hidden;
+      &:hover {
+        opacity: 0.7;
+      }
+      &.active {
+        opacity: 0.7;
+      }
+      ._title {
+        margin-top: 2rem;
+      }
+      ._priceAfterTaxFormatted {
+        margin-top: 0.5rem;
+        text-align: right;
+      }
+      &:not(.first) {
+        border-top: none;
+      }
+      ._mainImage img {
+        max-width: 100%;
+        max-height: 6rem;
+      }
+    }
+  }
+}
