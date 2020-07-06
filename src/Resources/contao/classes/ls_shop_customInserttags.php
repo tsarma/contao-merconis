@@ -2,9 +2,11 @@
 
 namespace Merconis\Core;
 
+use Contao\StringUtil;
+
 class ls_shop_customInserttags
 {
-	public function customInserttags($strTag) {
+	public function customInserttags($strTag, $blnCache, $var_cache, $flags, $tags, &$arrCache, &$_rit, &$_cnt) {
 		/** @var \PageModel $objPage */
 		global $objPage;
 		if (!preg_match('/^shop([^:]*)(::(.*))?$/', $strTag, $matches)) {
@@ -14,6 +16,32 @@ class ls_shop_customInserttags
 		$params = isset($matches[3]) ? $matches[3] : '';
 
 		switch ($tag) {
+            case 'Test':
+                return 'BBBB';
+                break;
+
+            case 'IfFeUserLoggedIn':
+                if (!FE_USER_LOGGED_IN) {
+                    for (; $_rit<$_cnt; $_rit+=2) {
+                        if ($tags[$_rit+1] == 'shop' . $tag . '::end') {
+                            break;
+                        }
+                    }
+                }
+                unset($arrCache[$strTag]);
+                break;
+
+            case 'IfFeUserNotLoggedIn':
+                if (FE_USER_LOGGED_IN) {
+                    for (; $_rit<$_cnt; $_rit+=2) {
+                        if ($tags[$_rit+1] == 'shop' . $tag . '::end') {
+                            break;
+                        }
+                    }
+                }
+                unset($arrCache[$strTag]);
+                break;
+
             case 'CurrentLanguage':
                 global $objPage;
                 return $objPage->language;
