@@ -14,6 +14,11 @@ class ls_shop_customInserttags
 		$params = isset($matches[3]) ? $matches[3] : '';
 
 		switch ($tag) {
+            case 'CurrentLanguage':
+                global $objPage;
+                return $objPage->language;
+                break;
+
 			case 'Calculation':
 				switch ($params) {
 					case 'invoicedAmount':

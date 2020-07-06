@@ -2604,6 +2604,18 @@ class ls_shop_generalHelper
                     return '';
                 }
                 break;
+
+            case 'onlyIfFeUserLoggedIn':
+                if (!FE_USER_LOGGED_IN) {
+                    return '';
+                }
+                break;
+
+            case 'onlyIfFeUserNotLoggedIn':
+                if (FE_USER_LOGGED_IN) {
+                    return '';
+                }
+                break;
         }
 
         return $strBuffer;

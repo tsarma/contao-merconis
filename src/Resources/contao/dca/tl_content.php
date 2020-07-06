@@ -30,7 +30,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['lsShopOutputCondition'] = array(
 	'label'			=> &$GLOBALS['TL_LANG']['tl_content']['lsShopOutputCondition'],
 	'exclude'                 => true,
 	'inputType'		=> 'select',
-	'options'		=> array('always', 'onlyInOverview', 'onlyInSingleview', 'onlyIfCartNotEmpty', 'onlyIfCartEmpty'),
+	'options'		=> array('always', 'onlyInOverview', 'onlyInSingleview', 'onlyIfCartNotEmpty', 'onlyIfCartEmpty', 'onlyIfFeUserLoggedIn', 'onlyIfFeUserNotLoggedIn'),
 	'reference'			=> &$GLOBALS['TL_LANG']['tl_content']['lsShopOutputCondition']['options'],
 	'eval'			=> array('tl_class' => 'w50', 'helpwizard' => true)
 );

@@ -11,5 +11,7 @@ $GLOBALS['TL_LANG']['tl_content']['lsShopOutputCondition']['options']					= arra
 	'onlyIfNotOverview' => array('Only outside product overview', 'The content element is only displayed in the product overview.'),
 	'onlyInSingleview' => array('Only in product detail view', 'The content element is only displayed in the product detail view.'),
 	'onlyIfCartNotEmpty' => array('Only if shopping cart not empty', 'The content element is only displayed if the shopping cart is not empty.'),
-	'onlyIfCartEmpty' => array('Only if shopping cart empty', 'The content element is only displayed if the shopping cart is empty.')
+	'onlyIfCartEmpty' => array('Only if shopping cart empty', 'The content element is only displayed if the shopping cart is empty.'),
+    'onlyIfFeUserLoggedIn' => array('Only if front-end user is logged in', 'The content element is only displayed if a front-end user (member/customer) is logged in.'),
+    'onlyIfFeUserNotLoggedIn' => array('Only if no front-end user is logged in', 'The content element is only displayed if a front-end user (member/customer) is logged in.')
 );
