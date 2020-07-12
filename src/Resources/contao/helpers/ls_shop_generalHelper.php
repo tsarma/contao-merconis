@@ -218,7 +218,7 @@ class ls_shop_generalHelper
      * all images found in the folder will be returned, regardless of whether or not there's
      * a product to which the image belongs.
      */
-    public static function getImagesFromStandardFolder($str_productOrVariantCode, $bln_addStandardImageFolderPath = true)
+    public static function getImagesFromStandardFolder(&$obj_product, $str_productOrVariantCode, $bln_addStandardImageFolderPath = true)
     {
         $arr_productImages = array();
         if (!$str_productOrVariantCode) {
@@ -249,10 +249,20 @@ class ls_shop_generalHelper
                     $str_tmpFilenameSuffix = '.' . $arr_tmpFilenameExploded[count($arr_tmpFilenameExploded) - 1];
                     $str_filenameWithoutSuffix = basename($str_imageFile, $str_tmpFilenameSuffix);
 
-                    if (
-                    !preg_match('/^' . preg_quote($str_productOrVariantCode, '/') . '(' . preg_quote($GLOBALS['TL_CONFIG']['ls_shop_standardProductImageDelimiter'], '/') . '|$)/', $str_filenameWithoutSuffix)
-                    ) {
-                        continue;
+                    if (isset($GLOBALS['MERCONIS_HOOKS']['checkIfImageBelongsToProduct']) && is_array($GLOBALS['MERCONIS_HOOKS']['checkIfImageBelongsToProduct'])) {
+                        foreach ($GLOBALS['MERCONIS_HOOKS']['checkIfImageBelongsToProduct'] as $mccb) {
+                            $objMccb = \System::importStatic($mccb[0]);
+                            $bln_imageBelongsToProduct = $objMccb->{$mccb[1]}($obj_product, $str_productOrVariantCode, $str_imageFile, $str_filenameWithoutSuffix);
+                        }
+                        if (!$bln_imageBelongsToProduct) {
+                            continue;
+                        }
+                    } else {
+                        if (
+                        !preg_match('/^' . preg_quote($str_productOrVariantCode, '/') . '(' . preg_quote($GLOBALS['TL_CONFIG']['ls_shop_standardProductImageDelimiter'], '/') . '|$)/', $str_filenameWithoutSuffix)
+                        ) {
+                            continue;
+                        }
                     }
                 }
 
@@ -2628,11 +2638,11 @@ class ls_shop_generalHelper
      * Zurückgegeben wird ein Array, das alle Bilder des Produktes enthält und dabei das Hauptbild auf erster
      * Position platziert und die automatisch ermittelten Standardbilder berücksichtigt.
      */
-    public static function getAllProductImages($productOrVariantCode = false, $mainImage = '', $moreImages = array())
+    public static function getAllProductImages(&$obj_product, $productOrVariantCode = false, $mainImage = '', $moreImages = array())
     {
         $globalCacheKey = sha1($productOrVariantCode . $mainImage . serialize($moreImages));
         if (!isset($GLOBALS['merconis_globals']['getAllProductImages'][$globalCacheKey])) {
-            $standardImages = ls_shop_generalHelper::getImagesFromStandardFolder($productOrVariantCode);
+            $standardImages = ls_shop_generalHelper::getImagesFromStandardFolder($obj_product, $productOrVariantCode);
             if (!is_array($moreImages)) {
                 $moreImages = deserialize($moreImages);
                 if (!is_array($moreImages)) {

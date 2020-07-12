@@ -252,7 +252,8 @@ class ls_shop_apiController_productManagement
 		$this->obj_apiReceiver->requireUser(['apiUser']);
 
 		$this->obj_apiReceiver->success();
-		$this->obj_apiReceiver->set_data(ls_shop_generalHelper::getImagesFromStandardFolder('__ALL_IMAGES__', false));
+		$obj_productFake = null;
+		$this->obj_apiReceiver->set_data(ls_shop_generalHelper::getImagesFromStandardFolder($obj_productFake, '__ALL_IMAGES__', false));
 	}
 
 	/**

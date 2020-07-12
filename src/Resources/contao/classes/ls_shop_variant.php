@@ -297,7 +297,7 @@ You can use the method "getImage" to get the image in the size you need: \Image:
 				 * Using null as the parameter for the main image results in getAllProductImages() returning
 				 * all images except for the main image which is exactly what we want here.
 				 <--*/
-				return ls_shop_generalHelper::getAllProductImages($this->_code, null, $this->mainData['lsShopProductVariantMoreImages']);
+				return ls_shop_generalHelper::getAllProductImages($this, $this->_code, null, $this->mainData['lsShopProductVariantMoreImages']);
 				break;
 
 			case '_moreImages'
@@ -1084,7 +1084,7 @@ returns true if the variant matches, false if it doesn't and NULL if there's no 
 				break;
 
 			case '_allImages':
-				return ls_shop_generalHelper::getAllProductImages($this->_code, $this->mainData['lsShopProductVariantMainImage'], $this->mainData['lsShopProductVariantMoreImages']);
+				return ls_shop_generalHelper::getAllProductImages($this, $this->_code, $this->mainData['lsShopProductVariantMainImage'], $this->mainData['lsShopProductVariantMoreImages']);
 				break;
 		}
 
