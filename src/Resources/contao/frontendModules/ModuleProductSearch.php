@@ -15,7 +15,14 @@ class ModuleProductSearch extends \Module {
 			$this->import('FrontendUser', 'User');
 		}
 		
-		$this->arrLiveHitFields = deserialize($GLOBALS['TL_CONFIG']['ls_shop_liveHitFields']);
+		$this->arrLiveHitFields = [
+            '_mainImage',
+            '_priceAfterTaxFormatted',
+            '_linkToProduct',
+            '_title',
+            '_shortDescription',
+            '_code'
+        ];
 
 		if (
 			\Input::post('isAjax') == 1
@@ -57,8 +64,6 @@ class ModuleProductSearch extends \Module {
 			switch (\Input::post('action')) {
 				case 'getLiveHitsConfiguration':
 					$response['value'] = array(
-						'liveHitsNoAutoPosition' => isset($GLOBALS['TL_CONFIG']['ls_shop_liveHitsNoAutoPosition']) ? $GLOBALS['TL_CONFIG']['ls_shop_liveHitsNoAutoPosition'] : false,
-						'DOMSelector' => isset($GLOBALS['TL_CONFIG']['ls_shop_liveHitsDOMSelector']) ? html_entity_decode($GLOBALS['TL_CONFIG']['ls_shop_liveHitsDOMSelector']) : 'body',
 						'ls_shop_liveHitsMinLengthSearchTerm' => isset($GLOBALS['TL_CONFIG']['ls_shop_liveHitsMinLengthSearchTerm']) && $GLOBALS['TL_CONFIG']['ls_shop_liveHitsMinLengthSearchTerm'] ? $GLOBALS['TL_CONFIG']['ls_shop_liveHitsMinLengthSearchTerm'] : 0
 					);
 					$response['success'] = true;

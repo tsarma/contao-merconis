@@ -86,14 +86,11 @@
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_importCsvLocale'] = array('CSV-Spracheinstellung');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_numMaxImportRecordsPerRound'] = array('Anzahl Datensätze für Import-Splitting', 'Um bei sehr großen Importen keine sehr lange Laufzeit einzelner PHP-Skripte und dadurch entsprechend hohe Server-Limits zu erfordern, wird der Import in Einzelschritte geteilt. Definieren Sie hier, wieviele Datensätze auf einmal verarbeitet werden können.');
 	
-	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_liveHitFields'] =	array('Verwendete Produktinformationen', 'Definieren Sie hier, welche Produktinformationen bei einer LiveHits-Anfrage übermittelt werden sollen. Bitte beachten Sie, dass die Auswahl des Feldes "Link zum Produkt" nicht die Darstellung des Links zur Folge hat sondern den direkten Aufruf der jeweiligen Produkt-Detailansicht bei Auswahl eines LiveHit!');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_liveHitImageSizeWidth'] = array('Bildausgabe-Breite', 'Breite der LiveHits-Bildausgabe in px');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_liveHitImageSizeHeight'] = array('Bildausgabe-Höhe', 'Höhe der LiveHits-Bildausgabe in px');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_liveHitsMaxNumHits'] = array('Maximale Anzahl übermittelter Hits');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_liveHitsMinLengthSearchTerm'] = array('Mindestlänge des Suchbegriffs');
-	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_liveHitsDOMSelector'] = array('DOM Einhängepunkt', 'Wenn Sie "Keine automatische Positionierung" gewählt haben, können Sie durch die Eingabe eines CSS-Selektors das DOM-Element bestimmen, in welchem die Hitbox eingehängt wird.');
-	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_liveHitsNoAutoPosition'] = array('Keine automatische Positionierung', 'Wählen Sie diese Checkbox, wenn Sie nicht möchten, dass die LiveHits-Engine die Hitbox automatisch positioniert. So können Sie Maße und Positionierung völlig frei per CSS selbst bestimmen.');
-	
+
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_importFlexFieldKeys'] = array('Import-Spalten für flexible Produktinformationen','Geben Sie hier als kommagetrennte Liste die Spaltenüberschriften der Felder an, die als flexible Produktinformationen importiert werden sollen. Bitte beachten Sie, dass die Spaltenüberschriften als Schlüsselworte für die flexiblen Produktinformationen verwendet werden.');
 	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_importFlexFieldKeysLanguageIndependent'] = array('Import-Spalten für flexible Produktinform. (sprachunabhängig)','Geben Sie hier als kommagetrennte Liste die Spaltenüberschriften der Felder an, die als flexible Produktinformationen importiert werden sollen. Bitte beachten Sie, dass die Spaltenüberschriften als Schlüsselworte für die flexiblen Produktinformationen verwendet werden.');
 
@@ -196,16 +193,7 @@
 		'day' => 'neuer Tag'	
 	);
 	
-	$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_liveHitFields']['options'] = array(
-		'_title' => 'Produktbezeichnung',
-		'_code' => 'Artikelnummer',
-		'_priceAfterTaxFormatted' => 'Preis',
-		'_mainImage' => 'Produktabbildung',
-		'_shortDescription' => 'Kurzbeschreibung',
-		'_linkToProduct' => 'Link zum Produkt'
-	);
-	
-	
+
 	/*
 	 * Options
 	 */

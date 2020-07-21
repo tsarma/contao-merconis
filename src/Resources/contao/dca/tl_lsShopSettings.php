@@ -25,7 +25,7 @@ $GLOBALS['TL_DCA']['tl_lsShopSettings'] = array(
 		
 		{orderStatusTypes_legend},ls_shop_orderStatusValues01,ls_shop_orderStatusValues02,ls_shop_orderStatusValues03,ls_shop_orderStatusValues04,ls_shop_orderStatusValues05;
 		
-		{liveHits_legend},ls_shop_liveHitFields,ls_shop_liveHitImageSizeWidth,ls_shop_liveHitImageSizeHeight,ls_shop_liveHitsMaxNumHits,ls_shop_liveHitsMinLengthSearchTerm,ls_shop_liveHitsNoAutoPosition,ls_shop_liveHitsDOMSelector;
+		{liveHits_legend},ls_shop_liveHitImageSizeWidth,ls_shop_liveHitImageSizeHeight,ls_shop_liveHitsMaxNumHits,ls_shop_liveHitsMinLengthSearchTerm;
 		
 		{systemImages_legend},ls_shop_systemImages_videoDummyCover,ls_shop_systemImages_videoCoverOverlay,ls_shop_systemImages_videoCoverOverlaySmall,ls_shop_systemImages_isNewOverlay,ls_shop_systemImages_isNewOverlaySmall,ls_shop_systemImages_isOnSaleOverlay,ls_shop_systemImages_isOnSaleOverlaySmall;
 		{pageSettings_legend},ls_shop_shippingInfoPages,ls_shop_cartPages,ls_shop_reviewPages,ls_shop_signUpPages,ls_shop_checkoutPaymentErrorPages,ls_shop_checkoutShippingErrorPages,ls_shop_checkoutFinishPages,ls_shop_paymentAfterCheckoutPages,ls_shop_afterCheckoutPages,ls_shop_ajaxPages,ls_shop_searchResultPages,ls_shop_myOrdersPages,ls_shop_myOrderDetailsPages;
@@ -141,32 +141,6 @@ $GLOBALS['TL_DCA']['tl_lsShopSettings'] = array(
 			'eval' => array('tl_class' => 'w50')
 		),
 	
-		'ls_shop_liveHitFields' => array(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_liveHitFields'],
-			'exclude'                 => true,
-			'inputType'               => 'checkboxWizard',
-			'options'				  => array('_title', '_code', '_shortDescription', '_mainImage', '_priceAfterTaxFormatted', '_linkToProduct'),
-			'reference'				  => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_liveHitFields']['options'],
-			'eval'                    => array('multiple' => true, 'tl_class' => 'clr')
-		),
-		
-		'ls_shop_liveHitsNoAutoPosition' => array(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_liveHitsNoAutoPosition'],
-			'exclude'                 => true,
-			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class' => 'w50')
-		),
-		
-		'ls_shop_liveHitsDOMSelector' => array(
-			'exclude' => true,
-			'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_liveHitsDOMSelector'],
-			'inputType' => 'text',
-			'eval' => array('tl_class'=>'w50'),
-			'load_callback' => array(
-				array('Merconis\Core\tl_lsShopSettings_controller', 'ls_html_entity_decode')
-			)
-		),
-		
 		'ls_shop_liveHitImageSizeWidth' => array(
 			'exclude' => true,
 			'label' => &$GLOBALS['TL_LANG']['tl_lsShopSettings']['ls_shop_liveHitImageSizeWidth'],
