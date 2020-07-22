@@ -2,7 +2,7 @@
 <?php
 	if ($this->output) {
 		?>
-			<div class="crossSellerCTE">
+			<div class="<?php echo $this->class; ?> crossSellerCTE"<?= $this->cssID ?>>
 				<?php echo $this->output; ?>
 			</div>
 		<?php

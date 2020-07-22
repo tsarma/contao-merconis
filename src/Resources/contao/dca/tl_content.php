@@ -5,7 +5,7 @@ namespace Merconis\Core;
 /*
  * CrossSeller
  */
-$GLOBALS['TL_DCA']['tl_content']['palettes']['lsShopCrossSellerCTE'] = '{type_legend},type;{lsShopCrossSeller_legend},lsShopCrossSeller';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['lsShopCrossSellerCTE'] = '{type_legend},type;{lsShopCrossSeller_legend},lsShopCrossSeller;{expert_legend:hide},cssID';
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['lsShopCrossSeller'] = array(
 	'label'			=> &$GLOBALS['TL_LANG']['tl_content']['lsShopCrossSeller'],
