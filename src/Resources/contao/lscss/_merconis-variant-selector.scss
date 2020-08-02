@@ -4,6 +4,7 @@
     padding: 16px;
     position: relative;
     border-left: 2px solid transparent;
+    cursor: pointer;
   }
   .value:not([data-lsjs-class*="possible"]) {
     opacity: .3;
