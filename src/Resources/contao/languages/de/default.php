@@ -148,7 +148,9 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText095'] = 'Bearbeitungsstatus';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText096'] = 'Zahlung eingegangen';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText097'] = 'Filter anwenden';
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText098'] = 'von';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText097-02'] = 'Produkte filtern';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText097-03'] = 'Filter bearbeiten';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText098'] = 'ab';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText099'] = 'bis';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText100'] = 'Hersteller';
 
@@ -206,8 +208,6 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['cartPreview']['openCart'] = 'Ware
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterModeLabel'] = 'Bei Mehrfachauswahl:';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterMode']['and'] = 'und';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterMode']['or'] = 'oder';
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterModeInfo']['and'] = 'Mehrfachauswahl wird mit "und" verknüpft';
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterModeInfo']['or'] = 'Mehrfachauswahl wird mit "oder" verknüpft';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['ajaxRequestNotSuccessful'] = 'Die Anfrage konnte nicht verarbeitet werden.';
 

@@ -14,7 +14,6 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['priority']								= array('Priorität', 'Die Priorität wird als Sortierkriterium für die Ausgabe der Felder im Filter-Formular verwendet. Felder mit höherer Priorität werden über Feldern mit niederer Priorität angezeigt.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['startClosedIfNothingSelected']			= array('Feld schließen, wenn nichts gewählt');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['filterMode']							= array('Filter-Modus', 'Bestimmen Sie, mit welcher logischen Verknüpfung mehrere gewählte Filter-Optionen interpretiert werden.');
-	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['displayFilterModeInfo']				= array('Info bzgl. Filter-Modus ausgeben', 'Setzen Sie das Häkchen, wenn Sie im Frontend eine Information bezüglich des Filter-Modus anzeigen möchten.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['makeFilterModeUserAdjustable']			= array('Einstellung des Filter-Modus im Frontend ermöglichen');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['templateToUse']						= array('Template');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['published']							= array('Aktiv');

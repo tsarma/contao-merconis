@@ -501,7 +501,6 @@ CREATE TABLE `tl_ls_shop_filter_fields` (
   `startClosedIfNothingSelected` char(1) NOT NULL default '',
   `published` char(1) NOT NULL default '',
   `filterMode` varchar(64) NOT NULL default '',
-  `displayFilterModeInfo` char(1) NOT NULL default '',
   `makeFilterModeUserAdjustable` char(1) NOT NULL default '',
   `templateToUse` varchar(64) NOT NULL default 'template_formFilterField_standard'
   PRIMARY KEY  (`id`),

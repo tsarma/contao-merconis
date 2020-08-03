@@ -85,9 +85,9 @@ $GLOBALS['TL_DCA']['tl_ls_shop_filter_fields'] = array(
 	'palettes' => array(
 		'__selector__' => array('dataSource'),
 		'default' => '{title_legend},title,alias;{dataSource_legend},dataSource;{output_legend},numItemsInReducedMode,classForFilterFormField,filterFormFieldType,priority,startClosedIfNothingSelected;{published_legend},published;',
-		'attribute' => '{title_legend},title,alias;{dataSource_legend},dataSource,sourceAttribute;{output_legend},numItemsInReducedMode,classForFilterFormField,filterFormFieldType,priority,startClosedIfNothingSelected,templateToUse;{filterLogic_legend},filterMode,displayFilterModeInfo,makeFilterModeUserAdjustable;{published_legend},published;',
+		'attribute' => '{title_legend},title,alias;{dataSource_legend},dataSource,sourceAttribute;{output_legend},numItemsInReducedMode,classForFilterFormField,filterFormFieldType,priority,startClosedIfNothingSelected,templateToUse;{filterLogic_legend},filterMode,makeFilterModeUserAdjustable;{published_legend},published;',
 		'producer' => '{title_legend},title,alias;{dataSource_legend},dataSource;{output_legend},numItemsInReducedMode,classForFilterFormField,filterFormFieldType,priority,startClosedIfNothingSelected,templateToUse;{published_legend},published;',
-		'price' => '{title_legend},title,alias;{dataSource_legend},dataSource;{output_legend},classForFilterFormField,priority;{published_legend},published;'
+		'price' => '{title_legend},title,alias;{dataSource_legend},dataSource;{output_legend},classForFilterFormField,priority,startClosedIfNothingSelected;{published_legend},published;'
 	),
 	
 	'fields' => array(
@@ -186,13 +186,6 @@ $GLOBALS['TL_DCA']['tl_ls_shop_filter_fields'] = array(
 			'options'                 => array('or', 'and'),
 			'reference'               => &$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['filterMode']['options'],
 			'eval'                    => array('tl_class'=>'w50')
-		),
-		
-		'displayFilterModeInfo' => array(
-			'label'                   => &$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['displayFilterModeInfo'],
-			'exclude'                 => true,
-			'inputType'               => 'checkbox',
-			'eval'                    => array('tl_class'=>'w50 m12')
 		),
 		
 		'makeFilterModeUserAdjustable' => array(

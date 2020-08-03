@@ -14,7 +14,6 @@
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['priority']								= array('Priority', 'This priority will be used to sort the fields in the filter form. Fields with higher priority will be shown above fields with lower priority.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['startClosedIfNothingSelected']			= array('Close field if nothing is selected');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['filterMode']							= array('Filter mode', 'Define the logic operation to use if multiple filter options are selected.');
-	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['displayFilterModeInfo']				= array('Display filter mode info', 'Check if you want to display a message informing the customer about the applied filter mode.');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['makeFilterModeUserAdjustable']			= array('Make filter mode adjustable in the frontend');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['templateToUse']						= array('Template');
 	$GLOBALS['TL_LANG']['tl_ls_shop_filter_fields']['published']							= array('Active');

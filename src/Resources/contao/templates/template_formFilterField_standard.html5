@@ -48,15 +48,7 @@
 				}
 			?>
 		</div>
-		<div class="filterMode<?php echo !$this->arr_moreData['displayFilterModeInfo'] && !$this->arr_moreData['makeFilterModeUserAdjustable'] ? ' noVisibleFilterModeInfo' : ''; ?>">
-			<?php
-				if ($this->arr_moreData['displayFilterModeInfo']) {
-					?>
-					<p class="filterModeInfo filterMode_<?php echo $this->arr_moreData['filterMode']; ?>"><?php echo $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterModeInfo'][$this->arr_moreData['filterMode']]; ?></p>
-					<?php
-				}
-			?>
-			
+		<div class="filterMode">
 			<?php
 				if ($this->arr_moreData['sourceAttribute'] !== null) {
 					if ($this->arr_moreData['makeFilterModeUserAdjustable']) {

@@ -242,7 +242,6 @@ class ls_shop_filterController
 								'arrOptions' => $arrOptions,
 								'sourceAttribute' => null,
 								'filterMode' => $arrFilterFieldInfo['filterMode'],
-								'displayFilterModeInfo' => false,
 								'makeFilterModeUserAdjustable' => false,
 								'arrFieldInfo' => $arrFilterFieldInfo,
 								'alias' => isset($arrFilterFieldInfo['alias']) ? $arrFilterFieldInfo['alias'] : '',
@@ -285,7 +284,10 @@ class ls_shop_filterController
 					$arrObjWidgets_filterFields[$filterFieldID] = array(
 						'objWidget_priceLow' => $objFlexWidget_priceLow,
 						'objWidget_priceHigh' => $objFlexWidget_priceHigh,
-						'arrFilterFieldInfo' => $arrFilterFieldInfo
+						'arrFilterFieldInfo' => $arrFilterFieldInfo,
+                        'arr_moreData' => array(
+                            'startClosedIfNothingSelected' => isset($arrFilterFieldInfo['startClosedIfNothingSelected']) && $arrFilterFieldInfo['startClosedIfNothingSelected'] ? true : false
+                        )
 					);
 					break;
 
@@ -351,7 +353,6 @@ class ls_shop_filterController
 								'arrOptions' => $arrOptions,
 								'sourceAttribute' => $arrFilterFieldInfo['sourceAttribute'],
 								'filterMode' => isset($_SESSION['lsShop']['filter']['filterModeSettingsByAttributes'][$arrFilterFieldInfo['sourceAttribute']]) ? $_SESSION['lsShop']['filter']['filterModeSettingsByAttributes'][$arrFilterFieldInfo['sourceAttribute']] : $arrFilterFieldInfo['filterMode'],
-								'displayFilterModeInfo' => $arrFilterFieldInfo['displayFilterModeInfo'],
 								'makeFilterModeUserAdjustable' => $arrFilterFieldInfo['makeFilterModeUserAdjustable'],
 								'arrFieldInfo' => $arrFilterFieldInfo,
 								'alias' => isset($arrFilterFieldInfo['alias']) ? $arrFilterFieldInfo['alias'] : '',

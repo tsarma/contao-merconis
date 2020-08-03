@@ -2,6 +2,32 @@
 namespace Merconis\Core;
 
 class ls_shop_filterHelper {
+    public static function getFilterSummary() {
+        $arr_filterSummary = [
+            'arr_attributes' => [],
+            'arr_producers' => $_SESSION['lsShop']['filter']['criteriaToActuallyFilterWith']['producers'],
+            'arr_price' => $_SESSION['lsShop']['filter']['criteriaToActuallyFilterWith']['price']
+        ];
+
+        foreach ($_SESSION['lsShop']['filter']['criteriaToActuallyFilterWith']['attributes'] as $int_filterAttributeId => $arr_filterValues) {
+            $str_filterAttributeName = ls_shop_languageHelper::getMultiLanguage($int_filterAttributeId, 'tl_ls_shop_attributes', array('title'), array($objPage->language ? $objPage->language : ls_shop_languageHelper::getFallbackLanguage()));
+            $arr_filterSummary['arr_attributes'][$int_filterAttributeId] = [
+                'str_title' => $str_filterAttributeName,
+                'arr_values' => [],
+                'str_logicalOperator' => $GLOBALS['TL_LANG']['MSC']['ls_shop']['general'][$_SESSION['lsShop']['filter']['filterModeSettingsByAttributes'][$int_filterAttributeId]]
+            ];
+
+            foreach ($arr_filterValues as $int_filterValueId) {
+                $str_filterValueName = ls_shop_languageHelper::getMultiLanguage($int_filterValueId, 'tl_ls_shop_attribute_values', array('title'), array($objPage->language ? $objPage->language : ls_shop_languageHelper::getFallbackLanguage()));
+                $arr_filterSummary['arr_attributes'][$int_filterAttributeId]['arr_values'][$int_filterValueId] = $str_filterValueName;
+            }
+        }
+
+        $obj_template = new \FrontendTemplate('template_filterSummary_default');
+        $obj_template->arr_filterSummary = $arr_filterSummary;
+        return $obj_template->parse();
+    }
+
 	public static function createEmptyFilterSession() {
 		$_SESSION['lsShop']['filter'] = array(
 			'criteria' => array(
