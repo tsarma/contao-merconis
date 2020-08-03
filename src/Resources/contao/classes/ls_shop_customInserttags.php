@@ -16,10 +16,6 @@ class ls_shop_customInserttags
 		$params = isset($matches[3]) ? $matches[3] : '';
 
 		switch ($tag) {
-            case 'Test':
-                return 'BBBB';
-                break;
-
             case 'IfFeUserLoggedIn':
                 if (!FE_USER_LOGGED_IN) {
                     for (; $_rit<$_cnt; $_rit+=2) {
@@ -33,6 +29,28 @@ class ls_shop_customInserttags
 
             case 'IfFeUserNotLoggedIn':
                 if (FE_USER_LOGGED_IN) {
+                    for (; $_rit<$_cnt; $_rit+=2) {
+                        if ($tags[$_rit+1] == 'shop' . $tag . '::end') {
+                            break;
+                        }
+                    }
+                }
+                unset($arrCache[$strTag]);
+                break;
+
+            case 'IfOnCartPage':
+                if ($objPage->id != ls_shop_languageHelper::getLanguagePage('ls_shop_cartPages', false, 'id')) {
+                    for (; $_rit<$_cnt; $_rit+=2) {
+                        if ($tags[$_rit+1] == 'shop' . $tag . '::end') {
+                            break;
+                        }
+                    }
+                }
+                unset($arrCache[$strTag]);
+                break;
+
+            case 'IfNotOnCartPage':
+                if ($objPage->id == ls_shop_languageHelper::getLanguagePage('ls_shop_cartPages', false, 'id')) {
                     for (; $_rit<$_cnt; $_rit+=2) {
                         if ($tags[$_rit+1] == 'shop' . $tag . '::end') {
                             break;

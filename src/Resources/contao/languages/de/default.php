@@ -8,6 +8,9 @@ $GLOBALS['TL_LANG']['MOD']['ls_shop']['rgxpErrorMessages']['numberWithDecimalsFE
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['truncatedResultsMsg1'] = 'Ihre Suche lieferte zu viele Treffer. Es werden Ihnen nur die ersten %s von %s Treffer angezeigt.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['truncatedResultsMsg2'] = 'Bitte grenzen Sie Ihre Suche ein, da ansonsten zu viele Treffer gefunden würden.';
 
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['general']['and'] = 'und';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['general']['or'] = 'oder';
+
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText001'] = 'inkl. MwSt.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText002'] = 'zzgl. %s MwSt.';
 
@@ -196,6 +199,9 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText137'] = 'Bestellabschluss';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodMessage'] = 'Sie können Merconis noch %s Tage kostenlos benutzen. Bitte erwerben Sie rechtzeitig eine Lizenz und tragen Sie die Lizenznummer in den Merconis-Grundeinstellungen ein, um Merconis auch nach dem kostenlosen Probezeitraum weiter nutzen zu können. Wenn Sie diese Meldung sehen, obwohl Sie eine Lizenznummer in den Grundeinstellungen eingetragen haben, prüfen Sie die Nummer bitte auf Korrektheit und kontaktieren Sie nötigenfalls den Merconis techSupport.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodExpiredMessage'] = 'Bitte erwerben Sie eine Merconis-Lizenz, da Ihr Shop ansonsten nicht mehr für Ihre Kunden erreichbar ist.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['invalidServiceNumberMessage'] = 'ACHTUNG: Die Merconis-Servicenummer fehlt in Ihrer localconfig-Datei oder ist nicht korrekt. Ohne gültige Servicenummer ist der Betrieb von Merconis nicht möglich. Ihr Shop ist daher momentan für Ihre Kunden nicht erreichbar. Bitte wenden Sie sich an den Merconis techSupport, um dieses Problem zu beheben.';
+
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['cartPreview']['continueShopping'] = 'Weiter einkaufen';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['cartPreview']['openCart'] = 'Warenkorb öffnen';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterModeLabel'] = 'Bei Mehrfachauswahl:';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['filterMode']['and'] = 'und';
