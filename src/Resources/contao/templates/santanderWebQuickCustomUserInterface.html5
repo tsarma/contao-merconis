@@ -28,7 +28,7 @@
                             data-lsjs-cajaxCallerOptions="
                              {
                                 'obj_cajaxRequestData': {
-                                    'requestedElementID': 'checkoutContent'
+                                    'requestedElementID': 'checkout-content'
                                 }
                              }
                             "
@@ -86,7 +86,7 @@
                             data-lsjs-cajaxCallerOptions="
                              {
                                 'obj_cajaxRequestData': {
-                                    'requestedElementID': 'checkoutContent'
+                                    'requestedElementID': 'checkout-content'
                                 }
                              }
                             "
