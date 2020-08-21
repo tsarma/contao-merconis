@@ -6,6 +6,7 @@ $GLOBALS['TL_DCA']['tl_page']['config']['onsubmit_callback'][] = array('Merconis
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['__selector__'][] = 'lsShopIncludeLayoutForDetailsView';
 $GLOBALS['TL_DCA']['tl_page']['palettes']['root'] = preg_replace('/(;\{cache_legend:.*\})/siU',';{lsShop_legend},ls_shop_currencyBeforeValue,ls_shop_decimalsSeparator,ls_shop_thousandsSeparator,lsShopOutputDefinitionSet,lsShopIncludeLayoutForDetailsView\\1',$GLOBALS['TL_DCA']['tl_page']['palettes']['root']);
+$GLOBALS['TL_DCA']['tl_page']['palettes']['rootfallback'] = preg_replace('/(;\{cache_legend:.*\})/siU',';{lsShop_legend},ls_shop_currencyBeforeValue,ls_shop_decimalsSeparator,ls_shop_thousandsSeparator,lsShopOutputDefinitionSet,lsShopIncludeLayoutForDetailsView\\1',$GLOBALS['TL_DCA']['tl_page']['palettes']['rootfallback']);
 $GLOBALS['TL_DCA']['tl_page']['palettes']['regular'] = preg_replace('/(;\{cache_legend:.*\})/siU',';{lsShop_legend},lsShopOutputDefinitionSet,lsShopIncludeLayoutForDetailsView,ls_shop_useAsCategoryForErp\\1',$GLOBALS['TL_DCA']['tl_page']['palettes']['regular']);
 $GLOBALS['TL_DCA']['tl_page']['subpalettes']['lsShopIncludeLayoutForDetailsView'] = 'lsShopLayoutForDetailsView';
 
