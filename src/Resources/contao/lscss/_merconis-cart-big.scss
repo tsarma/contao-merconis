@@ -11,6 +11,65 @@ $ls-product-list-field-space: 2%;
   .submit-box {
     text-align: center;
   }
+
+  .checkout-validation-error {
+    border: 0.1rem solid $ls-color-red;
+    padding: 2rem 2rem 2rem 7rem;
+    background-color: rgba($ls-color-red, 5%);
+    color: $ls-color-red;
+    position: relative;
+
+    &::before {
+      @extend .fas;
+      content: fa-content($fa-var-exclamation-triangle);
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      font-size: 2rem;
+    }
+  }
+
+  .success {
+    border: 0.1rem solid $ls-color-green;
+    padding: 2rem 2rem 2rem 7rem;
+    background-color: rgba($ls-color-green, 5%);
+    color: $ls-color-green;
+    position: relative;
+
+    &::before {
+      @extend .fas;
+      content: fa-content($fa-var-exclamation-triangle);
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      font-size: 2rem;
+    }
+  }
+
+  .formClosed {
+    [data-lsjs-element="openFormToggler"] {
+      font-size: 1.4rem;
+      padding: 0.5rem;
+      border: 0.1rem solid $ls-color-grey;
+      background-color: $ls-color-white;
+      color: $ls-color-black;
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      top: 0;
+      cursor: pointer;
+
+      &::before {
+        @extend .fas;
+        content: fa-content($fa-var-edit);
+        margin-right: 0.5rem;
+      }
+
+      &::after {
+        content: unset;
+      }
+    }
+  }
 }
 
 #checkoutStepCart {
@@ -118,6 +177,32 @@ $ls-product-list-field-space: 2%;
     #calculation {
       @include ls_superNarrowContentWrapper;
     }
+  }
+}
+
+#checkoutStepLogin {
+  @include ls_mediumContentWrapper;
+
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+#checkoutStepCustomerData {
+  @include ls_mediumContentWrapper;
+
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+
+  &.formReviewerApplied {
+    &.formClosed {
+      button.submit {
+        display: none;
+      }
+    }
+  }
+
+  .widget.deviant-shipping-address-checkbox {
+    margin-bottom: 3rem;
   }
 }
 
