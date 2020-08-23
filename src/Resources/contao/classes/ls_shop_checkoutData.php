@@ -104,10 +104,12 @@ class ls_shop_checkoutData {
 			self::$objInstance->getLoginData();
 			self::$objInstance->getFormIDs();
 			self::$objInstance->analyzeRequiredFields();
-			self::$objInstance->getForms();
 
 			self::$objInstance->preselectPaymentOrShippingMethod();
 			self::$objInstance->validateCheckoutData();
+
+			self::$objInstance->getForms();
+
 			self::$objInstance->checkIntegrity();
 			self::$objInstance->getPaymentMethodMessages();
 		}
