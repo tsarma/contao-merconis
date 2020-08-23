@@ -1,6 +1,13 @@
 $ls-product-list-field-space: 2%;
 
 #checkout-content {
+  .cart-empty {
+    @include ls_contentWrapper;
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+  }
+
   h3 {
     font-size: 2rem;
     padding-bottom: 1rem;
