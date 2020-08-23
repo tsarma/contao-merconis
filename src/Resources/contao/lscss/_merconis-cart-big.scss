@@ -97,6 +97,33 @@ $ls-product-list-field-space: 2%;
   margin-bottom: 5rem;
 }
 
+#checkoutStepCustomerDataReview,
+#checkoutStepPaymentDataReview,
+#checkoutStepShippingDataReview {
+  @include ls_mediumContentWrapper;
+
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+
+  @media screen and(min-width: 750px) {
+    .content {
+      @include ls_superNarrowContentWrapper;
+    }
+  }
+}
+
+#checkoutStepFinalConfirmation {
+  @include ls_narrowContentWrapper;
+
+  .widget-submit {
+    text-align: center;
+
+    button.submit {
+      font-size: 2rem;
+    }
+  }
+}
+
 #checkoutStepCalculation {
   @include ls_mediumContentWrapper;
 

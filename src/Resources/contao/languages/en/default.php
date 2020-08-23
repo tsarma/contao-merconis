@@ -24,6 +24,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText007'] = 'Delete';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText008'] = 'Check your shopping cart.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText008-01'] = 'Your shopping cart.';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText008-02'] = 'Summary & completion of your order';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText009'] = 'Enter coupon';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText010'] = 'Your personal data';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText011'] = 'Select your desired payment option.';

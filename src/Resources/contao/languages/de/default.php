@@ -24,6 +24,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText007'] = 'Löschen';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText008'] = 'Prüfen Sie Ihren Warenkorb';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText008-01'] = 'Ihr Warenkorb';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText008-02'] = 'Zusammenfassung & Abschluss Ihrer Bestellung';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText009'] = 'Gutschein eintragen';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText010'] = 'Adresse';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText011'] = 'Zahlung';
