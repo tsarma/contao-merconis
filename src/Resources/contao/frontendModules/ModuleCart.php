@@ -103,7 +103,8 @@ class ModuleCart extends \Module {
 				 */
 				'bln_multipleWidgetsWithSameNameAllowed' => true,
 
-				'str_label' => $GLOBALS['TL_LANG']['MOD']['ls_shop']['coupon']['text001'],
+				'str_label' =>
+                    $GLOBALS['TL_LANG']['MOD']['ls_shop']['coupon']['text001'],
 				'str_allowedRequestMethod' => 'post',
 
 				'arr_validationFunctions' => array(
@@ -111,7 +112,11 @@ class ModuleCart extends \Module {
 						'str_className' => '\Merconis\Core\FlexWidgetValidator',
 						'str_methodName' => 'couponWidget'
 					)
-				)
+				),
+
+                'arr_moreData' => [
+                    'class' => 'coupon-code'
+                ]
 			)
 		);
 

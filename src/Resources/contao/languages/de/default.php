@@ -251,7 +251,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['statusValues'] = array(
 );
 
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['coupon']['text001'] = 'Gutschein-Code';
-$GLOBALS['TL_LANG']['MOD']['ls_shop']['coupon']['text002'] = 'Gutschein hinzufügen';
+$GLOBALS['TL_LANG']['MOD']['ls_shop']['coupon']['text002'] = 'Hinzufügen';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['coupon']['text003'] = 'Kein Gutscheincode eingegeben';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['coupon']['text004'] = 'Ungültiger Gutscheincode';
 $GLOBALS['TL_LANG']['MOD']['ls_shop']['coupon']['text005'] = 'Gutscheincode noch nicht gültig';
