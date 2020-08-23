@@ -60,6 +60,46 @@ class ls_shop_customInserttags
                 unset($arrCache[$strTag]);
                 break;
 
+            case 'IfInCheckout':
+                if (!in_array(
+                    $objPage->id,
+                    [
+                        ls_shop_languageHelper::getLanguagePage('ls_shop_cartPages', false, 'id'),
+                        ls_shop_languageHelper::getLanguagePage('ls_shop_reviewPages', false, 'id'),
+                        ls_shop_languageHelper::getLanguagePage('ls_shop_checkoutFinishPages', false, 'id'),
+                        ls_shop_languageHelper::getLanguagePage('ls_shop_paymentAfterCheckoutPages', false, 'id'),
+                        ls_shop_languageHelper::getLanguagePage('ls_shop_cartPages', false, 'id'),
+                    ]
+                )) {
+                    for (; $_rit<$_cnt; $_rit+=2) {
+                        if ($tags[$_rit+1] == 'shop' . $tag . '::end') {
+                            break;
+                        }
+                    }
+                }
+                unset($arrCache[$strTag]);
+                break;
+
+            case 'IfNotInCheckout':
+                if (in_array(
+                    $objPage->id,
+                    [
+                        ls_shop_languageHelper::getLanguagePage('ls_shop_cartPages', false, 'id'),
+                        ls_shop_languageHelper::getLanguagePage('ls_shop_reviewPages', false, 'id'),
+                        ls_shop_languageHelper::getLanguagePage('ls_shop_checkoutFinishPages', false, 'id'),
+                        ls_shop_languageHelper::getLanguagePage('ls_shop_paymentAfterCheckoutPages', false, 'id'),
+                        ls_shop_languageHelper::getLanguagePage('ls_shop_cartPages', false, 'id'),
+                    ]
+                )) {
+                    for (; $_rit<$_cnt; $_rit+=2) {
+                        if ($tags[$_rit+1] == 'shop' . $tag . '::end') {
+                            break;
+                        }
+                    }
+                }
+                unset($arrCache[$strTag]);
+                break;
+
             case 'CurrentLanguage':
                 global $objPage;
                 return $objPage->language;
