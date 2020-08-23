@@ -1,11 +1,6 @@
 $ls-product-list-field-space: 2%;
 
 #checkout-content {
-  @include ls_mediumContentWrapper;
-
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-
   h3 {
     font-size: 2rem;
     padding-bottom: 1rem;
@@ -15,6 +10,114 @@ $ls-product-list-field-space: 2%;
 
   .submit-box {
     text-align: center;
+  }
+}
+
+#checkoutStepCart {
+  @include ls_mediumContentWrapper;
+
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+#checkoutStepCalculation {
+  @include ls_mediumContentWrapper;
+
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+
+  .field-group {
+    margin: 3rem 0;
+  }
+
+  .field {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+
+  .field-content {
+    &.ls_invoiced-amount {
+      font-weight: bold;
+      font-size: 2.24rem;
+    }
+  }
+
+  .field-label {
+    &.ls_invoiced-amount {
+      font-weight: bold;
+      font-size: 2.24rem;
+    }
+  }
+
+  .field-description {
+    width: 100%;
+  }
+
+  .coupons {
+    &[data-misc-highlighted="no"] {
+      .hideWhenNotHighlighted {
+        display: none;
+      }
+    }
+
+    .field-description {
+      font-size: 85%;
+    }
+
+    .formUseCoupon {
+      display: flex;
+      position: relative;
+
+      .flexWidget.coupon-code {
+        label {
+          display: none;
+        }
+        input {
+          width: 15rem;
+          margin-right: 1rem;
+        }
+        .errors {
+          position: absolute;
+        }
+      }
+
+      button {
+        font-size: 1.4rem;
+        padding: 0.5rem;
+        border: 0.1rem solid $ls-color-grey;
+        background-color: $ls-color-white;
+        color: $ls-color-black;
+
+        &::before {
+          @extend .fas;
+          content: fa-content($fa-var-check);
+          margin-right: 0.5rem;
+        }
+      }
+    }
+
+    .delete-coupon {
+      font-size: 1.4rem;
+      padding: 0.5rem;
+      border: 0.1rem solid $ls-color-grey;
+      background-color: $ls-color-white;
+      color: $ls-color-black;
+      margin-left: 1rem;
+
+      &::before {
+        @extend .fas;
+        content: fa-content($fa-var-trash);
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  @media screen and(min-width: 750px) {
+    #calculation {
+      @include ls_superNarrowContentWrapper;
+    }
   }
 }
 
