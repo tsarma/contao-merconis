@@ -56,7 +56,8 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText034']['both'] = 'Please log on if
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText034']['withLogin'] = 'Please log on to finalize your order.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText035']['noPaymentMethodsAvailable'] = 'Unfortunately, no payment options are available.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText035']['noShippingMethodsAvailable'] = 'Unfortunately, no shipping methods are available.';
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText036'] = 'not complete yet';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText036'] = 'Not complete yet';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText036-001'] = 'Please make a selection and provide all necessary information';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText037'] = 'Change order';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText038'] = 'Not all products of your order are in stock in the desired quantity. The quantities in the shopping cart have been adapted accordingly.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText039'] = 'Your customer reference number';
@@ -202,6 +203,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText138'] = 'Edit address';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText139'] = 'Edit shipping details';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText140'] = 'Edit payment details';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText141'] = 'No';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText142'] = 'Cart & Checkout';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodMessage'] = 'You can still use Merconis for %s days for free. Please purchase a license in time and enter the license number in the Merconis basic settings to continue using Merconis after the free trial period. If you see this message although you have entered a license number in the basic settings, please check the number for correctness and contact Merconis techSupport if necessary.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodExpiredMessage'] = 'Please purchase a Merconis license, otherwise your shop will no longer be available for your customers.';

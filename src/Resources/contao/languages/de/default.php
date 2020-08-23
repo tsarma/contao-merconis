@@ -56,7 +56,8 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText034']['both'] = 'Wenn Sie über e
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText034']['withLogin'] = 'Bitte melden Sie sich an, um Ihre Bestellung abzuschließen';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText035']['noPaymentMethodsAvailable'] = 'Es stehen leider keine Zahlungsmöglichkeiten zur Verfügung.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText035']['noShippingMethodsAvailable'] = 'Es stehen leider keine Versandmöglichkeiten zur Verfügung.';
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText036'] = 'noch nicht vollständig';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText036'] = 'Noch nicht vollständig';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText036-001'] = 'Bitte treffen Sie eine Auswahl und machen Sie alle erforderlichen Angaben';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText037'] = 'Bestellung ändern';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText038'] = 'Nicht alle in Ihrer Bestellung enthaltenen Produkte sind in der gewünschte Menge auf Lager. Die im Warenkorb eingetragenen Mengen wurden daher angepasst.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText039'] = 'Ihre Kundennummer';
@@ -202,6 +203,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText138'] = 'Adresse bearbeiten';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText139'] = 'Zahlungsdetails bearbeiten';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText140'] = 'Versanddetails bearbeiten';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText141'] = 'Keine';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText142'] = 'Warenkorb & Kasse';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodMessage'] = 'Sie können Merconis noch %s Tage kostenlos benutzen. Bitte erwerben Sie rechtzeitig eine Lizenz und tragen Sie die Lizenznummer in den Merconis-Grundeinstellungen ein, um Merconis auch nach dem kostenlosen Probezeitraum weiter nutzen zu können. Wenn Sie diese Meldung sehen, obwohl Sie eine Lizenznummer in den Grundeinstellungen eingetragen haben, prüfen Sie die Nummer bitte auf Korrektheit und kontaktieren Sie nötigenfalls den Merconis techSupport.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodExpiredMessage'] = 'Bitte erwerben Sie eine Merconis-Lizenz, da Ihr Shop ansonsten nicht mehr für Ihre Kunden erreichbar ist.';

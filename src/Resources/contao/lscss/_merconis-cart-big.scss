@@ -26,6 +26,7 @@ $ls-product-list-field-space: 2%;
     background-color: rgba($ls-color-red, 5%);
     color: $ls-color-red;
     position: relative;
+    min-height: 6rem;
 
     &::before {
       @extend .fas;
