@@ -15,6 +15,7 @@ $ls-product-list-field-space: 2%;
   .checkout-validation-error {
     border: 0.1rem solid $ls-color-red;
     padding: 2rem 2rem 2rem 7rem;
+    margin: 2rem 0;
     background-color: rgba($ls-color-red, 5%);
     color: $ls-color-red;
     position: relative;
@@ -32,6 +33,7 @@ $ls-product-list-field-space: 2%;
   .success {
     border: 0.1rem solid $ls-color-green;
     padding: 2rem 2rem 2rem 7rem;
+    margin: 2rem 0;
     background-color: rgba($ls-color-green, 5%);
     color: $ls-color-green;
     position: relative;
@@ -43,6 +45,14 @@ $ls-product-list-field-space: 2%;
       top: 2rem;
       left: 2rem;
       font-size: 2rem;
+    }
+  }
+
+  .formReviewerApplied {
+    &.formClosed {
+      button.submit {
+        display: none;
+      }
     }
   }
 
@@ -193,16 +203,37 @@ $ls-product-list-field-space: 2%;
   margin-top: 5rem;
   margin-bottom: 5rem;
 
-  &.formReviewerApplied {
-    &.formClosed {
-      button.submit {
-        display: none;
+  .widget.deviant-shipping-address-checkbox {
+    margin-bottom: 3rem;
+  }
+}
+
+#checkoutStepShipping,
+#checkoutStepPayment {
+  @include ls_mediumContentWrapper;
+
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+
+  .paymentAndShippingOptionContainer {
+    > a {
+      display: flex;
+
+      .shipping-payment-image {
+        margin-right: 1rem;
+      }
+
+      .shipping-payment-info {
+        .title {
+          font-weight: $ls-font-weight-bold;
+        }
       }
     }
   }
 
-  .widget.deviant-shipping-address-checkbox {
-    margin-bottom: 3rem;
+  .formReviewerApplied.formClosed {
+    position: relative;
+    padding-top: 5rem;
   }
 }
 
