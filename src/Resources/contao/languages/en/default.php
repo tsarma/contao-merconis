@@ -53,7 +53,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText030'] = 'Your data concerning you
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText031'] = 'Ordering is only possible for registered users.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText032'] = 'Please complete your customer data first.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText033'] = 'Continue with the summary of your order';
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText034']['both'] = 'Please log on if you have a user account. However, it is also possible to order without registering.';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText034']['both'] = 'Please log on if you have a user account.<br><br><strong>However, it is also possible to order without registering.</strong>';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText034']['withLogin'] = 'Please log on to finalize your order.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText035']['noPaymentMethodsAvailable'] = 'Unfortunately, no payment options are available.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText035']['noShippingMethodsAvailable'] = 'Unfortunately, no shipping methods are available.';
@@ -131,7 +131,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText082'] = 'Configurator ref.:';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText083'] = 'Order no.';
 
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText084'] = 'Your order of %s';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText084'] = 'Order of %s';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText085'] = 'There are no orders existent.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText086'] = 'Back to the overview';
 
@@ -146,8 +146,8 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText092'] = 'Sorting';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText093'] = 'ascending';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText094'] = 'descending';
 
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText095'] = 'Processing status';
-$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText096'] = 'Payment received';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText095'] = 'Status';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText096'] = 'Payment';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText097-02'] = 'Filter products';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText097-03'] = 'Change filter';
@@ -205,6 +205,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText139'] = 'Edit shipping details';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText140'] = 'Edit payment details';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText141'] = 'No';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText142'] = 'Cart & Checkout';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText143'] = 'Thank you very much for your order';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodMessage'] = 'You can still use Merconis for %s days for free. Please purchase a license in time and enter the license number in the Merconis basic settings to continue using Merconis after the free trial period. If you see this message although you have entered a license number in the basic settings, please check the number for correctness and contact Merconis techSupport if necessary.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodExpiredMessage'] = 'Please purchase a Merconis license, otherwise your shop will no longer be available for your customers.';

@@ -90,8 +90,21 @@ $ls-product-list-field-space: 2%;
   }
 }
 
-#checkoutStepCart {
+#after-checkout-info-headline,
+#info-for-payment-method,
+#special-info-for-payment-method,
+#info-for-shipping-method,
+#special-info-for-shipping-method {
   @include ls_mediumContentWrapper;
+
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+#checkoutStepCart {
+  :not(.my-orders) > & {
+    @include ls_mediumContentWrapper;
+  }
 
   margin-top: 5rem;
   margin-bottom: 5rem;
@@ -100,7 +113,9 @@ $ls-product-list-field-space: 2%;
 #checkoutStepCustomerDataReview,
 #checkoutStepPaymentDataReview,
 #checkoutStepShippingDataReview {
-  @include ls_mediumContentWrapper;
+  :not(.my-orders) > & {
+    @include ls_mediumContentWrapper;
+  }
 
   margin-top: 5rem;
   margin-bottom: 5rem;
@@ -108,6 +123,16 @@ $ls-product-list-field-space: 2%;
   @media screen and(min-width: 750px) {
     .content {
       @include ls_superNarrowContentWrapper;
+    }
+  }
+
+  h4 {
+    font-size: inherit;
+    margin-bottom: 0;
+    font-weight: $ls-font-weight-bold;
+
+    &:not(:first-child) {
+      margin-top: 2rem;
     }
   }
 }
@@ -125,7 +150,9 @@ $ls-product-list-field-space: 2%;
 }
 
 #checkoutStepCalculation {
-  @include ls_mediumContentWrapper;
+  :not(.my-orders) > & {
+    @include ls_mediumContentWrapper;
+  }
 
   margin-top: 5rem;
   margin-bottom: 5rem;

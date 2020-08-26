@@ -2,28 +2,41 @@
   .sortingForm {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-end;
 
-    > div {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-
-      > label {
-        width: 100%;
-        font-weight: $ls-font-weight-bold;
-      }
+    > * {
+      margin-left: 1rem;
     }
 
-    .submitBox {
-      align-items: flex-end;
+    .submit {
+      width: 5rem;
+    }
 
-      button {
-        min-width: 6rem;
+    @media screen and (max-width: 500px){
+      select[name="sorting"] {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 1rem;
+      }
+
+      select[name="sortingDirection"] {
+        width: 70%;
+        margin-left: 0;
+      }
+
+      .submit {
+        width: 29%;
+        margin-left: 1%;
       }
     }
   }
 
-  .myOrder {
+  .myOrdersTable {
+    margin-top: 4rem;
+  }
+
+  .myOrder,
+  .header {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -32,17 +45,43 @@
       margin-bottom: 2rem;
     }
 
+    > div {
+      width: calc((100% - 10rem) / 4);
+
+      &.orderDetails {
+        width: 10rem;
+        text-align: right;
+      }
+    }
+
     .label {
+      display: none;
       font-weight: $ls-font-weight-bold;
+    }
+  }
+
+  .header {
+    > div {
+      font-weight: bold;
     }
   }
 }
 
 @media screen and (max-width: 700px){
   .template_myOrders_default {
+    .header {
+      display: none;
+    }
+
     .myOrder {
       &:not(:last-child) {
-        margin-bottom: 4rem;
+        padding-bottom: 2rem;
+        border-bottom: 0.1rem solid $ls-color-grey;
+        margin-bottom: 2rem;
+      }
+
+      .label {
+        display: block;
       }
 
       > div {
