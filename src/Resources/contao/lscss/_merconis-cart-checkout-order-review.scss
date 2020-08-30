@@ -299,6 +299,12 @@ $ls-product-list-field-space: 2%;
   }
 }
 
+#checkoutStepPaymentAfterCheckout {
+  @include ls_mediumContentWrapper;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
 .order-overview {
   .product-list {
     .product {

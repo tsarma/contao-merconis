@@ -206,6 +206,7 @@ $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText140'] = 'Versanddetails bearbeite
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText141'] = 'Keine';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText142'] = 'Warenkorb & Kasse';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText143'] = 'Vielen Dank für Ihre Bestellung';
+$GLOBALS['TL_LANG']['MSC']['ls_shop']['miscText144'] = 'Bitte führen Sie nun die Zahlung durch';
 
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodMessage'] = 'Sie können Merconis noch %s Tage kostenlos benutzen. Bitte erwerben Sie rechtzeitig eine Lizenz und tragen Sie die Lizenznummer in den Merconis-Grundeinstellungen ein, um Merconis auch nach dem kostenlosen Probezeitraum weiter nutzen zu können. Wenn Sie diese Meldung sehen, obwohl Sie eine Lizenznummer in den Grundeinstellungen eingetragen haben, prüfen Sie die Nummer bitte auf Korrektheit und kontaktieren Sie nötigenfalls den Merconis techSupport.';
 $GLOBALS['TL_LANG']['MSC']['ls_shop']['misc']['gracePeriodExpiredMessage'] = 'Bitte erwerben Sie eine Merconis-Lizenz, da Ihr Shop ansonsten nicht mehr für Ihre Kunden erreichbar ist.';
