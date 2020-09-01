@@ -1,0 +1,76 @@
+<?php
+
+namespace Merconis\Core;
+
+class ls_shop_apiController_cart {
+	protected static $objInstance;
+
+	/** @var \LeadingSystems\Api\ls_apiController $obj_apiReceiver */
+	protected $obj_apiReceiver = null;
+
+	protected function __construct() {}
+
+	final private function __clone() {}
+
+	public static function getInstance() {
+		if (!is_object(self::$objInstance))
+		{
+			self::$objInstance = new self();
+		}
+		
+		return self::$objInstance;
+	}
+	
+	public function processRequest($str_resourceName, $obj_apiReceiver) {
+		if (!$str_resourceName || !$obj_apiReceiver) {
+			return;
+		}
+		
+		$this->obj_apiReceiver = $obj_apiReceiver;
+		
+		/*
+		 * If this class has a method that matches the resource name, we call it.
+		 * If not, we don't do anything because another class with a corresponding
+		 * method might have a hook registered.
+		 */
+		if (method_exists($this, $str_resourceName)) {
+			$this->{$str_resourceName}();
+		}
+	}
+	
+	/**
+	 * Adds a product/variant to the cart
+	 */
+	protected function apiResource_addToCart() {
+		if (!\Input::post('productVariantId')) {
+			$this->obj_apiReceiver->fail();
+			$this->obj_apiReceiver->set_data('no productVariantId given');
+			return;
+		}
+
+		if (!\Input::post('quantity')) {
+			$this->obj_apiReceiver->fail();
+			$this->obj_apiReceiver->set_data('no quantity given');
+			return;
+		}
+
+        $arr_return = ls_shop_cartHelper::addToCart(\Input::post('productVariantId'), \Input::post('quantity'));
+
+		$this->obj_apiReceiver->success();
+		$this->obj_apiReceiver->set_data($arr_return);
+	}
+
+	/**
+	 * Adds a product/variant to the cart
+	 */
+	protected function apiResource_emptyCart() {
+        if (isset($_SESSION['lsShopCart'])) {
+            unset($_SESSION['lsShopCart']);
+        }
+
+        ls_shop_cartHelper::initializeEmptyCart();
+
+		$this->obj_apiReceiver->success();
+//		$this->obj_apiReceiver->set_data($arr_return);
+	}
+}
