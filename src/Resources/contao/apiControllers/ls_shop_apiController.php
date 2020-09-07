@@ -121,4 +121,20 @@ class ls_shop_apiController {
 		$this->obj_apiReceiver->success();
 		$this->obj_apiReceiver->set_data($var_return);
 	}
+
+    /**
+     * Returns a specific merconis url
+     */
+    protected function apiResource_getMerconisPageUrl() {
+        if (!\Input::post('pageType')) {
+            $this->obj_apiReceiver->fail();
+            $this->obj_apiReceiver->set_data('no pageType given');
+            return;
+        }
+
+        $str_return = ls_shop_languageHelper::getLanguagePage(\Input::post('pageType'));
+
+        $this->obj_apiReceiver->success();
+        $this->obj_apiReceiver->set_data($str_return);
+    }
 }

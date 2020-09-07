@@ -178,7 +178,10 @@ use function LeadingSystems\Helpers\ls_sub;
 		protected function paypal_checkIfMethodAllowed() {
 			if (!ls_shop_generalHelper::checkIfPaymentMethodIsAllowed(ls_shop_checkoutData::getInstance()->arrCheckoutData['selectedPaymentMethod'])) {
 				ls_shop_checkoutData::getInstance()->resetSelectedPaymentMethod();
-				$this->reload();
+
+                if (!\Environment::get('isAjaxRequest') && $_SESSION['ls_cajax']['requestData'] === null) {
+                    $this->reload();
+                }
 			}
 		}
 		

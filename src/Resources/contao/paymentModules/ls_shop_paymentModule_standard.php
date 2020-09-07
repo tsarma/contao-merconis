@@ -144,7 +144,9 @@ namespace Merconis\Core;
 			) {
 				$this->redirect(ls_shop_languageHelper::getLanguagePage('ls_shop_checkoutPaymentErrorPages'));
 			} else {
-				$this->reload();
+                if (!\Environment::get('isAjaxRequest') && $_SESSION['ls_cajax']['requestData'] === null) {
+                    $this->reload();
+                }
 			}
 			## fixEndlessRecursionOnPaymentError end ##
 		}

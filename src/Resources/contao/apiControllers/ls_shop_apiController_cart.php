@@ -61,7 +61,7 @@ class ls_shop_apiController_cart {
 	}
 
 	/**
-	 * Adds a product/variant to the cart
+	 * Empties the cart completely
 	 */
 	protected function apiResource_emptyCart() {
         if (isset($_SESSION['lsShopCart'])) {
